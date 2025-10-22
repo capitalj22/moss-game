@@ -1,0 +1,145 @@
+[gd_scene load_steps=9 format=3 uid="uid://cuojexk24ujqg"]
+
+[ext_resource type="Texture2D" uid="uid://dhcbsbxye2s5d" path="res://sprites/moss/poc/clump_3.png" id="1_01ren"]
+[ext_resource type="Texture2D" uid="uid://icaaqlg1lv08" path="res://sprites/moss/poc/4.png" id="2_yf577"]
+[ext_resource type="Texture2D" uid="uid://iixt7jny0nkr" path="res://sprites/moss/poc/6.png" id="3_1xkqq"]
+[ext_resource type="Texture2D" uid="uid://cm3dwudmllu0m" path="res://sprites/moss/poc/5.png" id="4_lkdb5"]
+[ext_resource type="Texture2D" uid="uid://gpxsp5hjpfjf" path="res://sprites/moss/poc/clump_1.png" id="5_h15pu"]
+[ext_resource type="Texture2D" uid="uid://bnogpuwpumqd" path="res://sprites/moss/moss_grotto_fg_1.png" id="6_117pi"]
+[ext_resource type="Texture2D" uid="uid://ynwi4cyce2wa" path="res://sprites/moss/poc/clump_4.png" id="7_d65ll"]
+[ext_resource type="PackedScene" uid="uid://6j2hash6u0j5" path="res://sherma.tscn" id="8_we8e6"]
+
+[node name="Grotto_slice_3" type="Node2D"]
+
+[node name="Sprite2D4" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(411.47827, 525.56525)
+scale = Vector2(2.347826, 2.347826)
+texture = ExtResource("1_01ren")
+offset = Vector2(6.5, 7)
+
+[node name="Sprite2D12" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(360, 552)
+scale = Vector2(2.574669, 2.574669)
+texture = ExtResource("1_01ren")
+offset = Vector2(6.5, 7)
+
+[node name="Sprite2D13" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(488, 552)
+scale = Vector2(2.8965228, 2.896523)
+texture = ExtResource("1_01ren")
+offset = Vector2(6.5, 7)
+
+[node name="Sprite2D8" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(888, 312)
+scale = Vector2(2, 2)
+texture = ExtResource("2_yf577")
+offset = Vector2(6.5, 7)
+
+[node name="Sprite2D9" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(880.00006, 240.00002)
+rotation = 0.015993185
+scale = Vector2(1.9696144, 1.9696144)
+texture = ExtResource("2_yf577")
+offset = Vector2(6.5, 7)
+
+[node name="Sprite2D7" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(472, 232)
+scale = Vector2(2, 2)
+texture = ExtResource("3_1xkqq")
+offset = Vector2(6.5, 7)
+
+[node name="Sprite2D11" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(464, 200.00002)
+rotation = 1.136716
+scale = Vector2(2, 2)
+texture = ExtResource("3_1xkqq")
+offset = Vector2(6.5, 7)
+
+[node name="Sprite2D10" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(472, 280)
+rotation = 0.82843
+scale = Vector2(2, 2)
+texture = ExtResource("3_1xkqq")
+offset = Vector2(6.5, 7)
+
+[node name="Sprite2D6" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(488.00003, 296.00003)
+rotation = 0.087634265
+scale = Vector2(2, 2)
+texture = ExtResource("4_lkdb5")
+offset = Vector2(6.5, 7)
+
+[node name="moss" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(431.99997, 255.99998)
+rotation = -0.72127074
+scale = Vector2(2, 2)
+texture = ExtResource("5_h15pu")
+offset = Vector2(6.5, 7)
+
+[node name="moss2" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(448, 320)
+rotation = -1.4464628
+scale = Vector2(1.6955503, 1.6955503)
+texture = ExtResource("5_h15pu")
+offset = Vector2(6.5, 7)
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(631.99994, 280.00003)
+rotation = -1.6739324
+scale = Vector2(2, 2)
+texture = ExtResource("1_01ren")
+offset = Vector2(6.5, 7)
+
+[node name="Sprite2D5" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(280, 96.00001)
+rotation = 1.4812516
+scale = Vector2(2.320343, 2.320343)
+texture = ExtResource("1_01ren")
+offset = Vector2(6.5, 7)
+flip_h = true
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(176.00003, 136.00005)
+rotation = -1.7273932
+scale = Vector2(2.320343, 2.320343)
+texture = ExtResource("1_01ren")
+offset = Vector2(6.5, 7)
+
+[node name="Sprite2D14" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-480, 360)
+scale = Vector2(2.347826, 2.347826)
+texture = ExtResource("6_117pi")
+offset = Vector2(6.5, 7)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(560, 392)
+scale = Vector2(2, 2)
+texture = ExtResource("7_d65ll")
+offset = Vector2(6.5, 7)
+
+[node name="Sprite2D15" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(400, 392)
+scale = Vector2(2, 2)
+texture = ExtResource("7_d65ll")
+offset = Vector2(6.5, 7)
+flip_h = true
+
+[node name="Sherma" parent="." instance=ExtResource("8_we8e6")]
+position = Vector2(408, 360)

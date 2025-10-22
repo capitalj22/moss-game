@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://whd3vtt5ud6y"]
+
+[ext_resource type="Script" uid="uid://dl23hrmchi2br" path="res://components/item_dropper.gd" id="1_aork7"]
+
+[node name="itemDropper" type="Node2D"]
+script = ExtResource("1_aork7")
+maxItems = 6

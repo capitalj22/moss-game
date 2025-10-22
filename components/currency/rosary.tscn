@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://cnridorhmcl1p"]
+
+[ext_resource type="Script" uid="uid://b30kkjj061pbo" path="res://components/currency/shard.gd" id="1_yfe6e"]
+[ext_resource type="Texture2D" uid="uid://b4e2f6fvp5kvr" path="res://sprites/items/rosary_1.png" id="2_yfe6e"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_yfe6e"]
+friction = 0.1
+bounce = 0.15
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yfe6e"]
+radius = 8.0
+
+[node name="Rosary" type="RigidBody2D"]
+collision_layer = 4
+collision_mask = 12
+mass = 0.017
+physics_material_override = SubResource("PhysicsMaterial_yfe6e")
+script = ExtResource("1_yfe6e")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(2, 2)
+texture = ExtResource("2_yfe6e")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_yfe6e")

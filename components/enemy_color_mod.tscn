@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://basbh2e8jl5cf"]
+
+[ext_resource type="Script" uid="uid://drjy86c8qq8er" path="res://components/enemy_color_mod.gd" id="1_ybfs4"]
+
+[sub_resource type="Gradient" id="Gradient_c8sd6"]
+colors = PackedColorArray(0.41215247, 0.41215247, 0.41215247, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_0wi48"]
+gradient = SubResource("Gradient_c8sd6")
+
+[node name="enemyColorMod" type="Sprite2D"]
+self_modulate = Color(1, 1, 1, 0)
+texture = SubResource("GradientTexture2D_0wi48")
+script = ExtResource("1_ybfs4")

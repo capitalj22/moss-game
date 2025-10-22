@@ -1,0 +1,2805 @@
+[gd_scene load_steps=80 format=3 uid="uid://bliusgpe5bmbx"]
+
+[ext_resource type="Texture2D" uid="uid://ct05874gcxit6" path="res://sprites/snail_pink/snail_pink_1.png" id="1_idnf5"]
+[ext_resource type="Texture2D" uid="uid://bc8snhjmks2le" path="res://dawn.png" id="1_lle2f"]
+[ext_resource type="Script" uid="uid://vhu6snamdxbo" path="res://player.gd" id="1_nuts3"]
+[ext_resource type="Texture2D" uid="uid://gvg88a4bd76g" path="res://player-Sheet_1-crawl.png" id="2_nuts3"]
+[ext_resource type="Texture2D" uid="uid://be5u376b7rygj" path="res://sprites/grotto_cliff_2.png" id="2_y78mo"]
+[ext_resource type="Texture2D" uid="uid://jsxl6047p1tv" path="res://sprites/rock2.png" id="3_7s03d"]
+[ext_resource type="Texture2D" uid="uid://by4rxokfqwx0" path="res://sprites/snail_pink/snail_pink_2.png" id="3_f7tfb"]
+[ext_resource type="Texture2D" uid="uid://bk3iwnqd8pel5" path="res://sprites/rock4.png" id="4_gujbm"]
+[ext_resource type="Texture2D" uid="uid://dp8yyxlhsx0oa" path="res://sprites/grotto_bushies.png" id="5_vqv1u"]
+[ext_resource type="Texture2D" uid="uid://bty446m0el048" path="res://sprites/snail_pink/snail_pink_3.png" id="5_y78mo"]
+[ext_resource type="Texture2D" uid="uid://ci7n18bn6sod" path="res://sprites/rock3.png" id="6_qcs8s"]
+[ext_resource type="Texture2D" uid="uid://diitfol7mlk3k" path="res://sprites/snail_pink/snail_pink_4.png" id="7_gujbm"]
+[ext_resource type="Texture2D" uid="uid://chrjaepru4xjo" path="res://sprites/gstal1.png" id="11_qc72u"]
+[ext_resource type="Texture2D" uid="uid://biqe0jm1s3fmj" path="res://sprites/rock1.png" id="12_7swhr"]
+[ext_resource type="Texture2D" uid="uid://xsdsnfjpaxpq" path="res://sprites/grock1.png" id="13_3635a"]
+[ext_resource type="Texture2D" uid="uid://bi128ge2cfs6a" path="res://sprites/grotto_rocks_1.png" id="13_qcs8s"]
+[ext_resource type="Texture2D" uid="uid://u50421e5p1f0" path="res://sprites/grotto_bushies_2.png" id="14_1k82u"]
+[ext_resource type="Shader" uid="uid://bxojcqo4ea26j" path="res://blur1.gdshader" id="14_l74q3"]
+[ext_resource type="Texture2D" uid="uid://51jthokpyjlg" path="res://sprites/grock2.png" id="14_ogi8r"]
+[ext_resource type="Texture2D" uid="uid://dpc4kcq661ue0" path="res://sprites/rock_edge_1.png" id="15_1k82u"]
+[ext_resource type="Shader" uid="uid://bi6pvip2uqksu" path="res://vignette.gdshader" id="16_k5sp8"]
+[ext_resource type="Texture2D" uid="uid://dhdhc0bkil7g1" path="res://sprites/dark.png" id="17_hyxb6"]
+[ext_resource type="Texture2D" uid="uid://c84kvx8fmi2cx" path="res://sprites/cave_ceiling.png" id="18_f0cb0"]
+[ext_resource type="Texture2D" uid="uid://qxjiglqt1s36" path="res://sprites/foreground_1.png" id="18_k5sp8"]
+[ext_resource type="Texture2D" uid="uid://chsvas6refatf" path="res://rays.png" id="23_7swhr"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7swhr"]
+shader = ExtResource("14_l74q3")
+shader_parameter/strength = 2.2990001092025
+shader_parameter/sample_power = 6
+shader_parameter/is_canvas_group = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3635a"]
+shader = ExtResource("14_l74q3")
+shader_parameter/strength = 0.800000038
+shader_parameter/sample_power = 6
+shader_parameter/is_canvas_group = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_k5sp8"]
+shader = ExtResource("14_l74q3")
+shader_parameter/strength = 0.70000003325
+shader_parameter/sample_power = 6
+shader_parameter/is_canvas_group = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lle2f"]
+shader = ExtResource("14_l74q3")
+shader_parameter/strength = 0.82000003895
+shader_parameter/sample_power = 4
+shader_parameter/is_canvas_group = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qltjo"]
+atlas = ExtResource("1_idnf5")
+region = Rect2(84, 0, 12, 13)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8iq5n"]
+atlas = ExtResource("1_idnf5")
+region = Rect2(96, 0, 12, 13)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_17e2b"]
+atlas = ExtResource("1_idnf5")
+region = Rect2(108, 0, 12, 13)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i5v85"]
+atlas = ExtResource("1_idnf5")
+region = Rect2(120, 0, 12, 13)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lrn6l"]
+atlas = ExtResource("1_idnf5")
+region = Rect2(132, 0, 12, 13)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y78mo"]
+atlas = ExtResource("1_idnf5")
+region = Rect2(144, 0, 12, 13)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7s03d"]
+atlas = ExtResource("1_idnf5")
+region = Rect2(156, 0, 12, 13)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gujbm"]
+atlas = ExtResource("2_nuts3")
+region = Rect2(0, 0, 12, 13)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vqv1u"]
+atlas = ExtResource("2_nuts3")
+region = Rect2(12, 0, 12, 13)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qcs8s"]
+atlas = ExtResource("2_nuts3")
+region = Rect2(24, 0, 12, 13)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1k82u"]
+atlas = ExtResource("2_nuts3")
+region = Rect2(36, 0, 12, 13)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l74q3"]
+atlas = ExtResource("2_nuts3")
+region = Rect2(48, 0, 12, 13)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hyxb6"]
+atlas = ExtResource("2_nuts3")
+region = Rect2(60, 0, 12, 13)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f0cb0"]
+atlas = ExtResource("2_nuts3")
+region = Rect2(72, 0, 12, 13)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k5sp8"]
+atlas = ExtResource("2_nuts3")
+region = Rect2(84, 0, 12, 13)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lle2f"]
+atlas = ExtResource("1_idnf5")
+region = Rect2(0, 0, 12, 13)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qc72u"]
+atlas = ExtResource("1_idnf5")
+region = Rect2(12, 0, 12, 13)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q81ut"]
+atlas = ExtResource("1_idnf5")
+region = Rect2(24, 0, 12, 13)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e3fa0"]
+atlas = ExtResource("1_idnf5")
+region = Rect2(36, 0, 12, 13)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7swhr"]
+atlas = ExtResource("1_idnf5")
+region = Rect2(48, 0, 12, 13)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3635a"]
+atlas = ExtResource("1_idnf5")
+region = Rect2(60, 0, 12, 13)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ogi8r"]
+atlas = ExtResource("1_idnf5")
+region = Rect2(72, 0, 12, 13)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_myd5d"]
+atlas = ExtResource("5_y78mo")
+region = Rect2(240, 0, 12, 13)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kmjxw"]
+atlas = ExtResource("5_y78mo")
+region = Rect2(252, 0, 12, 13)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vb801"]
+atlas = ExtResource("5_y78mo")
+region = Rect2(264, 0, 12, 13)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ucq6y"]
+atlas = ExtResource("5_y78mo")
+region = Rect2(276, 0, 12, 13)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sr4lx"]
+atlas = ExtResource("5_y78mo")
+region = Rect2(288, 0, 12, 13)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p685j"]
+atlas = ExtResource("5_y78mo")
+region = Rect2(300, 0, 12, 13)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hjvgg"]
+atlas = ExtResource("5_y78mo")
+region = Rect2(312, 0, 12, 13)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bhcrs"]
+atlas = ExtResource("5_y78mo")
+region = Rect2(324, 0, 12, 13)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xg7xi"]
+atlas = ExtResource("5_y78mo")
+region = Rect2(336, 0, 12, 13)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vnew8"]
+atlas = ExtResource("3_f7tfb")
+region = Rect2(36, 26, 12, 13)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k24mv"]
+atlas = ExtResource("3_f7tfb")
+region = Rect2(48, 26, 12, 13)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k1eku"]
+atlas = ExtResource("3_f7tfb")
+region = Rect2(0, 39, 12, 13)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3i0js"]
+atlas = ExtResource("3_f7tfb")
+region = Rect2(12, 39, 12, 13)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g3hh0"]
+atlas = ExtResource("3_f7tfb")
+region = Rect2(24, 39, 12, 13)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3pfx6"]
+atlas = ExtResource("3_f7tfb")
+region = Rect2(36, 39, 12, 13)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lu8c3"]
+atlas = ExtResource("3_f7tfb")
+region = Rect2(48, 39, 12, 13)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gvl7w"]
+atlas = ExtResource("7_gujbm")
+region = Rect2(348, 0, 12, 13)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kj0xt"]
+atlas = ExtResource("7_gujbm")
+region = Rect2(360, 0, 12, 13)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dxw2y"]
+atlas = ExtResource("7_gujbm")
+region = Rect2(372, 0, 12, 13)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i47r3"]
+atlas = ExtResource("7_gujbm")
+region = Rect2(384, 0, 12, 13)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_myd5d"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qltjo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8iq5n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_17e2b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i5v85")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lrn6l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y78mo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7s03d")
+}],
+"loop": false,
+"name": &"attack_1",
+"speed": 20.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gujbm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vqv1u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qcs8s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1k82u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l74q3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hyxb6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f0cb0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k5sp8")
+}],
+"loop": false,
+"name": &"crawl",
+"speed": 20.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lle2f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qc72u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q81ut")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e3fa0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7swhr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3635a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ogi8r")
+}],
+"loop": false,
+"name": &"guard",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ogi8r")
+}],
+"loop": false,
+"name": &"guarding",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gujbm")
+}],
+"loop": false,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_myd5d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kmjxw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vb801")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_ucq6y")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_ucq6y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sr4lx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p685j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hjvgg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bhcrs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xg7xi")
+}],
+"loop": false,
+"name": &"jump",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sr4lx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p685j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hjvgg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bhcrs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xg7xi")
+}],
+"loop": false,
+"name": &"jump_down",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sr4lx")
+}],
+"loop": true,
+"name": &"jump_peak",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_myd5d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kmjxw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vb801")
+}, {
+"duration": 1.01,
+"texture": SubResource("AtlasTexture_ucq6y")
+}],
+"loop": false,
+"name": &"jump_up",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vnew8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k24mv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k1eku")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3i0js")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g3hh0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3pfx6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lu8c3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lle2f")
+}],
+"loop": false,
+"name": &"roll",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gvl7w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kj0xt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dxw2y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i47r3")
+}],
+"loop": false,
+"name": &"roll_cont",
+"speed": 15.0
+}]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qc72u"]
+shader = ExtResource("16_k5sp8")
+shader_parameter/outerRadius = 1.0
+shader_parameter/MainAlpha = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_q81ut"]
+shader = ExtResource("16_k5sp8")
+shader_parameter/outerRadius = 1.0
+shader_parameter/MainAlpha = 1.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f7tfb"]
+size = Vector2(31.5, 23)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_l74q3"]
+shader = ExtResource("14_l74q3")
+shader_parameter/strength = 2.62800012483
+shader_parameter/sample_power = 4
+shader_parameter/is_canvas_group = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hyxb6"]
+shader = ExtResource("14_l74q3")
+shader_parameter/strength = 0.6000000285
+shader_parameter/sample_power = 4
+shader_parameter/is_canvas_group = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_f0cb0"]
+shader = ExtResource("14_l74q3")
+shader_parameter/strength = 0.800000038
+shader_parameter/sample_power = 6
+shader_parameter/is_canvas_group = true
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y78mo"]
+size = Vector2(299, 68.125)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Background" type="Node2D" parent="."]
+
+[node name="backdrop" type="Parallax2D" parent="Background"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/backdrop"]
+modulate = Color(0.039614882, 0.619272, 0.51831573, 1)
+position = Vector2(61, -14.999999)
+scale = Vector2(9.9296875, 9.281251)
+texture = ExtResource("1_lle2f")
+
+[node name="bg3" type="Parallax2D" parent="Background"]
+modulate = Color(0.8346143, 0.8346143, 0.8346143, 1)
+light_mask = 0
+rotation = -1.6161749
+scale = Vector2(1.3, 1.3)
+scroll_scale = Vector2(0.7, 0.7)
+scroll_offset = Vector2(-335, 28.999998)
+
+[node name="CanvasGroup" type="CanvasGroup" parent="Background/bg3"]
+material = SubResource("ShaderMaterial_7swhr")
+scale = Vector2(1.0000001, 1.0000001)
+
+[node name="Sprite2D24" type="Sprite2D" parent="Background/bg3/CanvasGroup"]
+texture_filter = 1
+position = Vector2(-62.727272, 143.63634)
+rotation = -0.97616553
+scale = Vector2(3.1430974, 2.7312074)
+texture = ExtResource("17_hyxb6")
+
+[node name="Sprite2D13" type="Sprite2D" parent="Background/bg3/CanvasGroup"]
+texture_filter = 1
+position = Vector2(11, 61.634)
+scale = Vector2(1.9999994, 2.1719997)
+texture = ExtResource("3_7s03d")
+
+[node name="Sprite2D14" type="Sprite2D" parent="Background/bg3/CanvasGroup"]
+texture_filter = 1
+position = Vector2(154.05579, 61.051277)
+rotation = 0.10613358
+scale = Vector2(1.9999994, 2.1719997)
+texture = ExtResource("13_qcs8s")
+
+[node name="Sprite2D15" type="Sprite2D" parent="Background/bg3/CanvasGroup"]
+texture_filter = 1
+position = Vector2(229.9177, 80.51264)
+rotation = 0.1792827
+scale = Vector2(2.1948307, 2.6808844)
+texture = ExtResource("14_1k82u")
+
+[node name="Sprite2D16" type="Sprite2D" parent="Background/bg3/CanvasGroup"]
+texture_filter = 1
+position = Vector2(182.29979, 71.00943)
+rotation = 0.15431352
+scale = Vector2(1.9999994, 2.1719997)
+texture = ExtResource("14_1k82u")
+
+[node name="Sprite2D17" type="Sprite2D" parent="Background/bg3/CanvasGroup"]
+texture_filter = 1
+position = Vector2(179.75812, 97.58815)
+rotation = 0.3047635
+scale = Vector2(2.8955169, 3.1445327)
+texture = ExtResource("5_vqv1u")
+
+[node name="Sprite2D20" type="Sprite2D" parent="Background/bg3/CanvasGroup"]
+texture_filter = 1
+position = Vector2(132.38097, 85.71429)
+scale = Vector2(1.9999994, 2.1719997)
+texture = ExtResource("3_7s03d")
+
+[node name="Sprite2D4" type="Sprite2D" parent="Background/bg3/CanvasGroup"]
+visible = false
+texture_filter = 1
+position = Vector2(11, 61.633995)
+scale = Vector2(1.9999996, 2.1719997)
+texture = ExtResource("3_7s03d")
+
+[node name="Sprite2D9" type="Sprite2D" parent="Background/bg3/CanvasGroup"]
+texture_filter = 1
+position = Vector2(27.640488, 52.641373)
+scale = Vector2(1.9999996, 2.1719997)
+texture = ExtResource("13_qcs8s")
+
+[node name="Sprite2D11" type="Sprite2D" parent="Background/bg3/CanvasGroup"]
+texture_filter = 1
+position = Vector2(69.999985, 61.999985)
+scale = Vector2(1.9999994, 2.1719997)
+texture = ExtResource("14_1k82u")
+
+[node name="Sprite2D22" type="Sprite2D" parent="Background/bg3/CanvasGroup"]
+texture_filter = 1
+position = Vector2(-95.45453, 104.54544)
+rotation = -0.88796836
+scale = Vector2(1.9999994, 2.1719997)
+texture = ExtResource("14_1k82u")
+
+[node name="Sprite2D10" type="Sprite2D" parent="Background/bg3/CanvasGroup"]
+texture_filter = 1
+position = Vector2(21, 60.999992)
+scale = Vector2(1.9999996, 2.1719997)
+texture = ExtResource("14_1k82u")
+
+[node name="Sprite2D25" type="Sprite2D" parent="Background/bg3/CanvasGroup"]
+texture_filter = 1
+position = Vector2(-120.90907, 154.54544)
+rotation = -1.4520922
+scale = Vector2(1.9999994, 2.1719997)
+texture = ExtResource("14_1k82u")
+
+[node name="Sprite2D7" type="Sprite2D" parent="Background/bg3/CanvasGroup"]
+texture_filter = 1
+position = Vector2(10, 81.63399)
+rotation = 0.029053701
+scale = Vector2(1.9999996, 2.172)
+texture = ExtResource("5_vqv1u")
+
+[node name="Sprite2D12" type="Sprite2D" parent="Background/bg3/CanvasGroup"]
+texture_filter = 1
+position = Vector2(-99.999985, 161.81816)
+rotation = -2.7783883
+scale = Vector2(1.9999996, 2.1719997)
+texture = ExtResource("15_1k82u")
+
+[node name="Sprite2D23" type="Sprite2D" parent="Background/bg3/CanvasGroup"]
+texture_filter = 1
+position = Vector2(-91.81819, 106.36361)
+rotation = -0.82002497
+scale = Vector2(1.9999996, 2.1719997)
+texture = ExtResource("3_7s03d")
+
+[node name="Sprite2D6" type="Sprite2D" parent="Background/bg3/CanvasGroup"]
+texture_filter = 1
+position = Vector2(46.99999, 97.999985)
+scale = Vector2(1.9999996, 2.1719997)
+texture = ExtResource("6_qcs8s")
+
+[node name="Sprite2D8" type="Sprite2D" parent="Background/bg3/CanvasGroup"]
+texture_filter = 1
+position = Vector2(-27.999992, 80.63399)
+scale = Vector2(1.9999996, 2.1719997)
+texture = ExtResource("3_7s03d")
+
+[node name="Sprite2D5" type="Sprite2D" parent="Background/bg3/CanvasGroup"]
+texture_filter = 1
+position = Vector2(122.99998, 92.999985)
+scale = Vector2(1.9999996, 2.1719997)
+texture = ExtResource("4_gujbm")
+
+[node name="Sprite2D26" type="Sprite2D" parent="Background/bg3/CanvasGroup"]
+texture_filter = 1
+position = Vector2(-39.999973, 111.11111)
+scale = Vector2(1.9999996, 2.1719997)
+texture = ExtResource("13_3635a")
+
+[node name="Sprite2D27" type="Sprite2D" parent="Background/bg3/CanvasGroup"]
+texture_filter = 1
+position = Vector2(-76.66663, 134.44443)
+scale = Vector2(1.9999996, 2.1719997)
+texture = ExtResource("14_ogi8r")
+
+[node name="Sprite2D31" type="Sprite2D" parent="Background/bg3/CanvasGroup"]
+texture_filter = 1
+position = Vector2(-21.111097, 107.77777)
+rotation = -0.5546579
+scale = Vector2(1.530619, 1.8012211)
+texture = ExtResource("14_1k82u")
+
+[node name="Sprite2D32" type="Sprite2D" parent="Background/bg3/CanvasGroup"]
+texture_filter = 1
+position = Vector2(-42.222244, 131.11111)
+rotation = -0.9366276
+scale = Vector2(1.5306191, 1.8012211)
+texture = ExtResource("14_1k82u")
+
+[node name="Sprite2D30" type="Sprite2D" parent="Background/bg3/CanvasGroup"]
+texture_filter = 1
+position = Vector2(-3.333323, 114.44444)
+scale = Vector2(1.9999996, 2.1719997)
+texture = ExtResource("14_ogi8r")
+
+[node name="Sprite2D28" type="Sprite2D" parent="Background/bg3/CanvasGroup"]
+texture_filter = 1
+position = Vector2(24.444462, 128.88889)
+scale = Vector2(1.9999996, 2.1719997)
+texture = ExtResource("13_3635a")
+
+[node name="Sprite2D33" type="Sprite2D" parent="Background/bg3/CanvasGroup"]
+texture_filter = 1
+position = Vector2(-24.44442, 142.22221)
+scale = Vector2(1.9999996, 2.1719997)
+texture = ExtResource("14_ogi8r")
+
+[node name="Sprite2D34" type="Sprite2D" parent="Background/bg3/CanvasGroup"]
+texture_filter = 1
+position = Vector2(-93.333305, 158.88889)
+scale = Vector2(1.7744105, 1.9193325)
+texture = ExtResource("14_ogi8r")
+
+[node name="Sprite2D37" type="Sprite2D" parent="Background/bg3/CanvasGroup"]
+texture_filter = 1
+position = Vector2(-79.99997, 184.44441)
+rotation = -1.2836505
+scale = Vector2(1.4690226, 1.9774213)
+texture = ExtResource("14_1k82u")
+
+[node name="Sprite2D36" type="Sprite2D" parent="Background/bg3/CanvasGroup"]
+texture_filter = 1
+position = Vector2(-65.55553, 161.11111)
+rotation = -1.0592142
+scale = Vector2(1.3748543, 1.7263976)
+texture = ExtResource("14_1k82u")
+
+[node name="Sprite2D35" type="Sprite2D" parent="Background/bg3/CanvasGroup"]
+texture_filter = 1
+position = Vector2(-69.99997, 173.33331)
+rotation = -1.0425537
+scale = Vector2(1.9999996, 2.1719997)
+texture = ExtResource("3_7s03d")
+
+[node name="Sprite2D38" type="Sprite2D" parent="Background/bg3/CanvasGroup"]
+texture_filter = 1
+position = Vector2(-41.111084, 181.11111)
+rotation = -0.2901296
+scale = Vector2(1.9999996, 2.1719997)
+texture = ExtResource("14_ogi8r")
+
+[node name="Sprite2D40" type="Sprite2D" parent="Background/bg3/CanvasGroup"]
+texture_filter = 1
+position = Vector2(78.2576, 113.667015)
+rotation = -0.18462458
+scale = Vector2(2.5742528, 3.0293615)
+texture = ExtResource("14_1k82u")
+
+[node name="Sprite2D18" type="Sprite2D" parent="Background/bg3/CanvasGroup"]
+texture_filter = 1
+position = Vector2(113.91943, 151.32347)
+rotation = -0.007758409
+scale = Vector2(3.074718, 3.3391457)
+texture = ExtResource("5_vqv1u")
+
+[node name="Sprite2D41" type="Sprite2D" parent="Background/bg3/CanvasGroup"]
+texture_filter = 1
+position = Vector2(150.21373, 116.267166)
+rotation = -0.035817895
+scale = Vector2(2.931719, 3.4500256)
+texture = ExtResource("14_1k82u")
+
+[node name="Sprite2D42" type="Sprite2D" parent="Background/bg3/CanvasGroup"]
+texture_filter = 1
+position = Vector2(227.07428, 128.43298)
+rotation = 0.14601974
+scale = Vector2(2.931719, 3.4500256)
+texture = ExtResource("14_1k82u")
+
+[node name="Sprite2D43" type="Sprite2D" parent="Background/bg3/CanvasGroup"]
+texture_filter = 1
+position = Vector2(11.569506, 127.32256)
+rotation = -0.3228035
+scale = Vector2(2.5742528, 3.0293615)
+texture = ExtResource("14_1k82u")
+
+[node name="bg4" type="Parallax2D" parent="Background"]
+modulate = Color(0.8776157, 0.8776158, 0.87761563, 1)
+light_mask = 0
+rotation = -1.6161749
+scroll_scale = Vector2(0.8, 0.8)
+scroll_offset = Vector2(-198.00002, -10.999999)
+
+[node name="CanvasGroup" type="CanvasGroup" parent="Background/bg4"]
+material = SubResource("ShaderMaterial_3635a")
+scale = Vector2(1.0000001, 1.0000001)
+
+[node name="Sprite2D24" type="Sprite2D" parent="Background/bg4/CanvasGroup"]
+texture_filter = 1
+position = Vector2(-62.727272, 143.63634)
+rotation = -0.97616553
+scale = Vector2(3.1430974, 2.7312074)
+texture = ExtResource("17_hyxb6")
+
+[node name="Sprite2D13" type="Sprite2D" parent="Background/bg4/CanvasGroup"]
+texture_filter = 1
+position = Vector2(11, 61.634)
+scale = Vector2(1.9999994, 2.1719997)
+texture = ExtResource("3_7s03d")
+
+[node name="Sprite2D14" type="Sprite2D" parent="Background/bg4/CanvasGroup"]
+texture_filter = 1
+position = Vector2(154.05579, 61.051277)
+rotation = 0.10613358
+scale = Vector2(1.9999994, 2.1719997)
+texture = ExtResource("13_qcs8s")
+
+[node name="Sprite2D15" type="Sprite2D" parent="Background/bg4/CanvasGroup"]
+texture_filter = 1
+position = Vector2(229.9177, 80.51264)
+rotation = 0.1792827
+scale = Vector2(2.1948307, 2.6808844)
+texture = ExtResource("14_1k82u")
+
+[node name="Sprite2D16" type="Sprite2D" parent="Background/bg4/CanvasGroup"]
+texture_filter = 1
+position = Vector2(182.29979, 71.00943)
+rotation = 0.15431352
+scale = Vector2(1.9999994, 2.1719997)
+texture = ExtResource("14_1k82u")
+
+[node name="Sprite2D17" type="Sprite2D" parent="Background/bg4/CanvasGroup"]
+texture_filter = 1
+position = Vector2(179.75812, 97.58815)
+rotation = 0.3047635
+scale = Vector2(2.8955169, 3.1445327)
+texture = ExtResource("5_vqv1u")
+
+[node name="Sprite2D20" type="Sprite2D" parent="Background/bg4/CanvasGroup"]
+texture_filter = 1
+position = Vector2(132.38097, 85.71429)
+scale = Vector2(1.9999994, 2.1719997)
+texture = ExtResource("3_7s03d")
+
+[node name="Sprite2D4" type="Sprite2D" parent="Background/bg4/CanvasGroup"]
+visible = false
+texture_filter = 1
+position = Vector2(11, 61.633995)
+scale = Vector2(1.9999996, 2.1719997)
+texture = ExtResource("3_7s03d")
+
+[node name="Sprite2D9" type="Sprite2D" parent="Background/bg4/CanvasGroup"]
+texture_filter = 1
+position = Vector2(27.640488, 52.641373)
+scale = Vector2(1.9999996, 2.1719997)
+texture = ExtResource("13_qcs8s")
+
+[node name="Sprite2D11" type="Sprite2D" parent="Background/bg4/CanvasGroup"]
+texture_filter = 1
+position = Vector2(69.999985, 61.999985)
+scale = Vector2(1.9999994, 2.1719997)
+texture = ExtResource("14_1k82u")
+
+[node name="Sprite2D22" type="Sprite2D" parent="Background/bg4/CanvasGroup"]
+texture_filter = 1
+position = Vector2(-95.45453, 104.54544)
+rotation = -0.88796836
+scale = Vector2(1.9999994, 2.1719997)
+texture = ExtResource("14_1k82u")
+
+[node name="Sprite2D10" type="Sprite2D" parent="Background/bg4/CanvasGroup"]
+texture_filter = 1
+position = Vector2(21, 60.999992)
+scale = Vector2(1.9999996, 2.1719997)
+texture = ExtResource("14_1k82u")
+
+[node name="Sprite2D25" type="Sprite2D" parent="Background/bg4/CanvasGroup"]
+texture_filter = 1
+position = Vector2(-120.90907, 154.54544)
+rotation = -1.4520922
+scale = Vector2(1.9999994, 2.1719997)
+texture = ExtResource("14_1k82u")
+
+[node name="Sprite2D7" type="Sprite2D" parent="Background/bg4/CanvasGroup"]
+texture_filter = 1
+position = Vector2(10, 81.63399)
+rotation = 0.029053701
+scale = Vector2(1.9999996, 2.172)
+texture = ExtResource("5_vqv1u")
+
+[node name="Sprite2D12" type="Sprite2D" parent="Background/bg4/CanvasGroup"]
+texture_filter = 1
+position = Vector2(-99.999985, 161.81816)
+rotation = -2.7783883
+scale = Vector2(1.9999996, 2.1719997)
+texture = ExtResource("15_1k82u")
+
+[node name="Sprite2D23" type="Sprite2D" parent="Background/bg4/CanvasGroup"]
+texture_filter = 1
+position = Vector2(-91.81819, 106.36361)
+rotation = -0.82002497
+scale = Vector2(1.9999996, 2.1719997)
+texture = ExtResource("3_7s03d")
+
+[node name="Sprite2D6" type="Sprite2D" parent="Background/bg4/CanvasGroup"]
+texture_filter = 1
+position = Vector2(46.99999, 97.999985)
+scale = Vector2(1.9999996, 2.1719997)
+texture = ExtResource("6_qcs8s")
+
+[node name="Sprite2D8" type="Sprite2D" parent="Background/bg4/CanvasGroup"]
+texture_filter = 1
+position = Vector2(-27.999992, 80.63399)
+scale = Vector2(1.9999996, 2.1719997)
+texture = ExtResource("3_7s03d")
+
+[node name="Sprite2D5" type="Sprite2D" parent="Background/bg4/CanvasGroup"]
+texture_filter = 1
+position = Vector2(122.99998, 92.999985)
+scale = Vector2(1.9999996, 2.1719997)
+texture = ExtResource("4_gujbm")
+
+[node name="Sprite2D26" type="Sprite2D" parent="Background/bg4/CanvasGroup"]
+texture_filter = 1
+position = Vector2(-39.999973, 111.11111)
+scale = Vector2(1.9999996, 2.1719997)
+texture = ExtResource("13_3635a")
+
+[node name="Sprite2D27" type="Sprite2D" parent="Background/bg4/CanvasGroup"]
+texture_filter = 1
+position = Vector2(-76.66663, 134.44443)
+scale = Vector2(1.9999996, 2.1719997)
+texture = ExtResource("14_ogi8r")
+
+[node name="Sprite2D31" type="Sprite2D" parent="Background/bg4/CanvasGroup"]
+texture_filter = 1
+position = Vector2(-21.111097, 107.77777)
+rotation = -0.5546579
+scale = Vector2(1.530619, 1.8012211)
+texture = ExtResource("14_1k82u")
+
+[node name="Sprite2D32" type="Sprite2D" parent="Background/bg4/CanvasGroup"]
+texture_filter = 1
+position = Vector2(-42.222244, 131.11111)
+rotation = -0.9366276
+scale = Vector2(1.5306191, 1.8012211)
+texture = ExtResource("14_1k82u")
+
+[node name="Sprite2D30" type="Sprite2D" parent="Background/bg4/CanvasGroup"]
+texture_filter = 1
+position = Vector2(-3.333323, 114.44444)
+scale = Vector2(1.9999996, 2.1719997)
+texture = ExtResource("14_ogi8r")
+
+[node name="Sprite2D28" type="Sprite2D" parent="Background/bg4/CanvasGroup"]
+texture_filter = 1
+position = Vector2(24.444462, 128.88889)
+scale = Vector2(1.9999996, 2.1719997)
+texture = ExtResource("13_3635a")
+
+[node name="Sprite2D33" type="Sprite2D" parent="Background/bg4/CanvasGroup"]
+texture_filter = 1
+position = Vector2(-24.44442, 142.22221)
+scale = Vector2(1.9999996, 2.1719997)
+texture = ExtResource("14_ogi8r")
+
+[node name="Sprite2D34" type="Sprite2D" parent="Background/bg4/CanvasGroup"]
+texture_filter = 1
+position = Vector2(-93.333305, 158.88889)
+scale = Vector2(1.7744105, 1.9193325)
+texture = ExtResource("14_ogi8r")
+
+[node name="Sprite2D37" type="Sprite2D" parent="Background/bg4/CanvasGroup"]
+texture_filter = 1
+position = Vector2(-79.99997, 184.44441)
+rotation = -1.2836505
+scale = Vector2(1.4690226, 1.9774213)
+texture = ExtResource("14_1k82u")
+
+[node name="Sprite2D36" type="Sprite2D" parent="Background/bg4/CanvasGroup"]
+texture_filter = 1
+position = Vector2(-65.55553, 161.11111)
+rotation = -1.0592142
+scale = Vector2(1.3748543, 1.7263976)
+texture = ExtResource("14_1k82u")
+
+[node name="Sprite2D35" type="Sprite2D" parent="Background/bg4/CanvasGroup"]
+texture_filter = 1
+position = Vector2(-69.99997, 173.33331)
+rotation = -1.0425537
+scale = Vector2(1.9999996, 2.1719997)
+texture = ExtResource("3_7s03d")
+
+[node name="Sprite2D38" type="Sprite2D" parent="Background/bg4/CanvasGroup"]
+texture_filter = 1
+position = Vector2(-41.111084, 181.11111)
+rotation = -0.2901296
+scale = Vector2(1.9999996, 2.1719997)
+texture = ExtResource("14_ogi8r")
+
+[node name="Sprite2D40" type="Sprite2D" parent="Background/bg4/CanvasGroup"]
+texture_filter = 1
+position = Vector2(78.2576, 113.667015)
+rotation = -0.18462458
+scale = Vector2(2.5742528, 3.0293615)
+texture = ExtResource("14_1k82u")
+
+[node name="Sprite2D18" type="Sprite2D" parent="Background/bg4/CanvasGroup"]
+texture_filter = 1
+position = Vector2(113.91943, 151.32347)
+rotation = -0.007758409
+scale = Vector2(3.074718, 3.3391457)
+texture = ExtResource("5_vqv1u")
+
+[node name="Sprite2D41" type="Sprite2D" parent="Background/bg4/CanvasGroup"]
+texture_filter = 1
+position = Vector2(150.21373, 116.267166)
+rotation = -0.035817895
+scale = Vector2(2.931719, 3.4500256)
+texture = ExtResource("14_1k82u")
+
+[node name="Sprite2D42" type="Sprite2D" parent="Background/bg4/CanvasGroup"]
+texture_filter = 1
+position = Vector2(227.07428, 128.43298)
+rotation = 0.14601974
+scale = Vector2(2.931719, 3.4500256)
+texture = ExtResource("14_1k82u")
+
+[node name="Sprite2D43" type="Sprite2D" parent="Background/bg4/CanvasGroup"]
+texture_filter = 1
+position = Vector2(11.569506, 127.32256)
+rotation = -0.3228035
+scale = Vector2(2.5742528, 3.0293615)
+texture = ExtResource("14_1k82u")
+
+[node name="CanvasGroup3" type="CanvasGroup" parent="Background/bg4"]
+modulate = Color(0.7919991, 0.79199916, 0.7919991, 1)
+material = SubResource("ShaderMaterial_3635a")
+position = Vector2(-55.841785, 215.6889)
+scale = Vector2(1.0000001, 1.0000001)
+
+[node name="Sprite2D24" type="Sprite2D" parent="Background/bg4/CanvasGroup3"]
+texture_filter = 1
+position = Vector2(-62.727272, 143.63634)
+rotation = -0.97616553
+scale = Vector2(3.1430974, 2.7312074)
+texture = ExtResource("17_hyxb6")
+
+[node name="Sprite2D13" type="Sprite2D" parent="Background/bg4/CanvasGroup3"]
+texture_filter = 1
+position = Vector2(11, 61.634)
+scale = Vector2(1.9999994, 2.1719997)
+texture = ExtResource("3_7s03d")
+
+[node name="Sprite2D14" type="Sprite2D" parent="Background/bg4/CanvasGroup3"]
+texture_filter = 1
+position = Vector2(154.05579, 61.051277)
+rotation = 0.10613358
+scale = Vector2(1.9999994, 2.1719997)
+texture = ExtResource("13_qcs8s")
+
+[node name="Sprite2D15" type="Sprite2D" parent="Background/bg4/CanvasGroup3"]
+texture_filter = 1
+position = Vector2(229.9177, 80.51264)
+rotation = 0.1792827
+scale = Vector2(2.1948307, 2.6808844)
+texture = ExtResource("14_1k82u")
+
+[node name="Sprite2D16" type="Sprite2D" parent="Background/bg4/CanvasGroup3"]
+texture_filter = 1
+position = Vector2(182.29979, 71.00943)
+rotation = 0.15431352
+scale = Vector2(1.9999994, 2.1719997)
+texture = ExtResource("14_1k82u")
+
+[node name="Sprite2D17" type="Sprite2D" parent="Background/bg4/CanvasGroup3"]
+texture_filter = 1
+position = Vector2(179.75812, 97.58815)
+rotation = 0.3047635
+scale = Vector2(2.8955169, 3.1445327)
+texture = ExtResource("5_vqv1u")
+
+[node name="Sprite2D20" type="Sprite2D" parent="Background/bg4/CanvasGroup3"]
+texture_filter = 1
+position = Vector2(132.38097, 85.71429)
+scale = Vector2(1.9999994, 2.1719997)
+texture = ExtResource("3_7s03d")
+
+[node name="Sprite2D4" type="Sprite2D" parent="Background/bg4/CanvasGroup3"]
+visible = false
+texture_filter = 1
+position = Vector2(11, 61.633995)
+scale = Vector2(1.9999996, 2.1719997)
+texture = ExtResource("3_7s03d")
+
+[node name="Sprite2D9" type="Sprite2D" parent="Background/bg4/CanvasGroup3"]
+texture_filter = 1
+position = Vector2(27.640488, 52.641373)
+scale = Vector2(1.9999996, 2.1719997)
+texture = ExtResource("13_qcs8s")
+
+[node name="Sprite2D11" type="Sprite2D" parent="Background/bg4/CanvasGroup3"]
+texture_filter = 1
+position = Vector2(69.999985, 61.999985)
+scale = Vector2(1.9999994, 2.1719997)
+texture = ExtResource("14_1k82u")
+
+[node name="Sprite2D22" type="Sprite2D" parent="Background/bg4/CanvasGroup3"]
+texture_filter = 1
+position = Vector2(-95.45453, 104.54544)
+rotation = -0.88796836
+scale = Vector2(1.9999994, 2.1719997)
+texture = ExtResource("14_1k82u")
+
+[node name="Sprite2D10" type="Sprite2D" parent="Background/bg4/CanvasGroup3"]
+texture_filter = 1
+position = Vector2(21, 60.999992)
+scale = Vector2(1.9999996, 2.1719997)
+texture = ExtResource("14_1k82u")
+
+[node name="Sprite2D25" type="Sprite2D" parent="Background/bg4/CanvasGroup3"]
+texture_filter = 1
+position = Vector2(-120.90907, 154.54544)
+rotation = -1.4520922
+scale = Vector2(1.9999994, 2.1719997)
+texture = ExtResource("14_1k82u")
+
+[node name="Sprite2D7" type="Sprite2D" parent="Background/bg4/CanvasGroup3"]
+texture_filter = 1
+position = Vector2(10, 81.63399)
+rotation = 0.029053701
+scale = Vector2(1.9999996, 2.172)
+texture = ExtResource("5_vqv1u")
+
+[node name="Sprite2D12" type="Sprite2D" parent="Background/bg4/CanvasGroup3"]
+texture_filter = 1
+position = Vector2(-99.999985, 161.81816)
+rotation = -2.7783883
+scale = Vector2(1.9999996, 2.1719997)
+texture = ExtResource("15_1k82u")
+
+[node name="Sprite2D23" type="Sprite2D" parent="Background/bg4/CanvasGroup3"]
+texture_filter = 1
+position = Vector2(-91.81819, 106.36361)
+rotation = -0.82002497
+scale = Vector2(1.9999996, 2.1719997)
+texture = ExtResource("3_7s03d")
+
+[node name="Sprite2D6" type="Sprite2D" parent="Background/bg4/CanvasGroup3"]
+texture_filter = 1
+position = Vector2(46.99999, 97.999985)
+scale = Vector2(1.9999996, 2.1719997)
+texture = ExtResource("6_qcs8s")
+
+[node name="Sprite2D8" type="Sprite2D" parent="Background/bg4/CanvasGroup3"]
+texture_filter = 1
+position = Vector2(-27.999992, 80.63399)
+scale = Vector2(1.9999996, 2.1719997)
+texture = ExtResource("3_7s03d")
+
+[node name="Sprite2D5" type="Sprite2D" parent="Background/bg4/CanvasGroup3"]
+texture_filter = 1
+position = Vector2(122.99998, 92.999985)
+scale = Vector2(1.9999996, 2.1719997)
+texture = ExtResource("4_gujbm")
+
+[node name="Sprite2D26" type="Sprite2D" parent="Background/bg4/CanvasGroup3"]
+texture_filter = 1
+position = Vector2(-39.999973, 111.11111)
+scale = Vector2(1.9999996, 2.1719997)
+texture = ExtResource("13_3635a")
+
+[node name="Sprite2D27" type="Sprite2D" parent="Background/bg4/CanvasGroup3"]
+texture_filter = 1
+position = Vector2(-76.66663, 134.44443)
+scale = Vector2(1.9999996, 2.1719997)
+texture = ExtResource("14_ogi8r")
+
+[node name="Sprite2D31" type="Sprite2D" parent="Background/bg4/CanvasGroup3"]
+texture_filter = 1
+position = Vector2(-21.111097, 107.77777)
+rotation = -0.5546579
+scale = Vector2(1.530619, 1.8012211)
+texture = ExtResource("14_1k82u")
+
+[node name="Sprite2D32" type="Sprite2D" parent="Background/bg4/CanvasGroup3"]
+texture_filter = 1
+position = Vector2(-42.222244, 131.11111)
+rotation = -0.9366276
+scale = Vector2(1.5306191, 1.8012211)
+texture = ExtResource("14_1k82u")
+
+[node name="Sprite2D30" type="Sprite2D" parent="Background/bg4/CanvasGroup3"]
+texture_filter = 1
+position = Vector2(-3.333323, 114.44444)
+scale = Vector2(1.9999996, 2.1719997)
+texture = ExtResource("14_ogi8r")
+
+[node name="Sprite2D28" type="Sprite2D" parent="Background/bg4/CanvasGroup3"]
+texture_filter = 1
+position = Vector2(24.444462, 128.88889)
+scale = Vector2(1.9999996, 2.1719997)
+texture = ExtResource("13_3635a")
+
+[node name="Sprite2D33" type="Sprite2D" parent="Background/bg4/CanvasGroup3"]
+texture_filter = 1
+position = Vector2(-24.44442, 142.22221)
+scale = Vector2(1.9999996, 2.1719997)
+texture = ExtResource("14_ogi8r")
+
+[node name="Sprite2D34" type="Sprite2D" parent="Background/bg4/CanvasGroup3"]
+texture_filter = 1
+position = Vector2(-93.333305, 158.88889)
+scale = Vector2(1.7744105, 1.9193325)
+texture = ExtResource("14_ogi8r")
+
+[node name="Sprite2D37" type="Sprite2D" parent="Background/bg4/CanvasGroup3"]
+texture_filter = 1
+position = Vector2(-79.99997, 184.44441)
+rotation = -1.2836505
+scale = Vector2(1.4690226, 1.9774213)
+texture = ExtResource("14_1k82u")
+
+[node name="Sprite2D36" type="Sprite2D" parent="Background/bg4/CanvasGroup3"]
+texture_filter = 1
+position = Vector2(-65.55553, 161.11111)
+rotation = -1.0592142
+scale = Vector2(1.3748543, 1.7263976)
+texture = ExtResource("14_1k82u")
+
+[node name="Sprite2D35" type="Sprite2D" parent="Background/bg4/CanvasGroup3"]
+texture_filter = 1
+position = Vector2(-69.99997, 173.33331)
+rotation = -1.0425537
+scale = Vector2(1.9999996, 2.1719997)
+texture = ExtResource("3_7s03d")
+
+[node name="Sprite2D38" type="Sprite2D" parent="Background/bg4/CanvasGroup3"]
+texture_filter = 1
+position = Vector2(-41.111084, 181.11111)
+rotation = -0.2901296
+scale = Vector2(1.9999996, 2.1719997)
+texture = ExtResource("14_ogi8r")
+
+[node name="Sprite2D40" type="Sprite2D" parent="Background/bg4/CanvasGroup3"]
+texture_filter = 1
+position = Vector2(78.2576, 113.667015)
+rotation = -0.18462458
+scale = Vector2(2.5742528, 3.0293615)
+texture = ExtResource("14_1k82u")
+
+[node name="Sprite2D18" type="Sprite2D" parent="Background/bg4/CanvasGroup3"]
+texture_filter = 1
+position = Vector2(113.91943, 151.32347)
+rotation = -0.007758409
+scale = Vector2(3.074718, 3.3391457)
+texture = ExtResource("5_vqv1u")
+
+[node name="Sprite2D41" type="Sprite2D" parent="Background/bg4/CanvasGroup3"]
+texture_filter = 1
+position = Vector2(150.21373, 116.267166)
+rotation = -0.035817895
+scale = Vector2(2.931719, 3.4500256)
+texture = ExtResource("14_1k82u")
+
+[node name="Sprite2D42" type="Sprite2D" parent="Background/bg4/CanvasGroup3"]
+texture_filter = 1
+position = Vector2(227.07428, 128.43298)
+rotation = 0.14601974
+scale = Vector2(2.931719, 3.4500256)
+texture = ExtResource("14_1k82u")
+
+[node name="Sprite2D43" type="Sprite2D" parent="Background/bg4/CanvasGroup3"]
+texture_filter = 1
+position = Vector2(11.569506, 127.32256)
+rotation = -0.3228035
+scale = Vector2(2.5742528, 3.0293615)
+texture = ExtResource("14_1k82u")
+
+[node name="CanvasGroup2" type="CanvasGroup" parent="Background/bg4"]
+modulate = Color(0.7919991, 0.79199916, 0.7919991, 1)
+material = SubResource("ShaderMaterial_3635a")
+position = Vector2(35.05863, 87.68066)
+scale = Vector2(1.0000001, 1.0000001)
+
+[node name="Sprite2D24" type="Sprite2D" parent="Background/bg4/CanvasGroup2"]
+texture_filter = 1
+position = Vector2(-62.727272, 143.63634)
+rotation = -0.97616553
+scale = Vector2(3.1430974, 2.7312074)
+texture = ExtResource("17_hyxb6")
+
+[node name="Sprite2D13" type="Sprite2D" parent="Background/bg4/CanvasGroup2"]
+texture_filter = 1
+position = Vector2(11, 61.634)
+scale = Vector2(1.9999994, 2.1719997)
+texture = ExtResource("3_7s03d")
+
+[node name="Sprite2D14" type="Sprite2D" parent="Background/bg4/CanvasGroup2"]
+texture_filter = 1
+position = Vector2(154.05579, 61.051277)
+rotation = 0.10613358
+scale = Vector2(1.9999994, 2.1719997)
+texture = ExtResource("13_qcs8s")
+
+[node name="Sprite2D15" type="Sprite2D" parent="Background/bg4/CanvasGroup2"]
+texture_filter = 1
+position = Vector2(229.9177, 80.51264)
+rotation = 0.1792827
+scale = Vector2(2.1948307, 2.6808844)
+texture = ExtResource("14_1k82u")
+
+[node name="Sprite2D16" type="Sprite2D" parent="Background/bg4/CanvasGroup2"]
+texture_filter = 1
+position = Vector2(182.29979, 71.00943)
+rotation = 0.15431352
+scale = Vector2(1.9999994, 2.1719997)
+texture = ExtResource("14_1k82u")
+
+[node name="Sprite2D17" type="Sprite2D" parent="Background/bg4/CanvasGroup2"]
+texture_filter = 1
+position = Vector2(179.75812, 97.58815)
+rotation = 0.3047635
+scale = Vector2(2.8955169, 3.1445327)
+texture = ExtResource("5_vqv1u")
+
+[node name="Sprite2D20" type="Sprite2D" parent="Background/bg4/CanvasGroup2"]
+texture_filter = 1
+position = Vector2(132.38097, 85.71429)
+scale = Vector2(1.9999994, 2.1719997)
+texture = ExtResource("3_7s03d")
+
+[node name="Sprite2D4" type="Sprite2D" parent="Background/bg4/CanvasGroup2"]
+visible = false
+texture_filter = 1
+position = Vector2(11, 61.633995)
+scale = Vector2(1.9999996, 2.1719997)
+texture = ExtResource("3_7s03d")
+
+[node name="Sprite2D9" type="Sprite2D" parent="Background/bg4/CanvasGroup2"]
+texture_filter = 1
+position = Vector2(27.640488, 52.641373)
+scale = Vector2(1.9999996, 2.1719997)
+texture = ExtResource("13_qcs8s")
+
+[node name="Sprite2D11" type="Sprite2D" parent="Background/bg4/CanvasGroup2"]
+texture_filter = 1
+position = Vector2(69.999985, 61.999985)
+scale = Vector2(1.9999994, 2.1719997)
+texture = ExtResource("14_1k82u")
+
+[node name="Sprite2D22" type="Sprite2D" parent="Background/bg4/CanvasGroup2"]
+texture_filter = 1
+position = Vector2(-95.45453, 104.54544)
+rotation = -0.88796836
+scale = Vector2(1.9999994, 2.1719997)
+texture = ExtResource("14_1k82u")
+
+[node name="Sprite2D10" type="Sprite2D" parent="Background/bg4/CanvasGroup2"]
+texture_filter = 1
+position = Vector2(21, 60.999992)
+scale = Vector2(1.9999996, 2.1719997)
+texture = ExtResource("14_1k82u")
+
+[node name="Sprite2D25" type="Sprite2D" parent="Background/bg4/CanvasGroup2"]
+texture_filter = 1
+position = Vector2(-120.90907, 154.54544)
+rotation = -1.4520922
+scale = Vector2(1.9999994, 2.1719997)
+texture = ExtResource("14_1k82u")
+
+[node name="Sprite2D7" type="Sprite2D" parent="Background/bg4/CanvasGroup2"]
+texture_filter = 1
+position = Vector2(10, 81.63399)
+rotation = 0.029053701
+scale = Vector2(1.9999996, 2.172)
+texture = ExtResource("5_vqv1u")
+
+[node name="Sprite2D12" type="Sprite2D" parent="Background/bg4/CanvasGroup2"]
+texture_filter = 1
+position = Vector2(-99.999985, 161.81816)
+rotation = -2.7783883
+scale = Vector2(1.9999996, 2.1719997)
+texture = ExtResource("15_1k82u")
+
+[node name="Sprite2D23" type="Sprite2D" parent="Background/bg4/CanvasGroup2"]
+texture_filter = 1
+position = Vector2(-91.81819, 106.36361)
+rotation = -0.82002497
+scale = Vector2(1.9999996, 2.1719997)
+texture = ExtResource("3_7s03d")
+
+[node name="Sprite2D6" type="Sprite2D" parent="Background/bg4/CanvasGroup2"]
+texture_filter = 1
+position = Vector2(46.99999, 97.999985)
+scale = Vector2(1.9999996, 2.1719997)
+texture = ExtResource("6_qcs8s")
+
+[node name="Sprite2D8" type="Sprite2D" parent="Background/bg4/CanvasGroup2"]
+texture_filter = 1
+position = Vector2(-27.999992, 80.63399)
+scale = Vector2(1.9999996, 2.1719997)
+texture = ExtResource("3_7s03d")
+
+[node name="Sprite2D5" type="Sprite2D" parent="Background/bg4/CanvasGroup2"]
+texture_filter = 1
+position = Vector2(122.99998, 92.999985)
+scale = Vector2(1.9999996, 2.1719997)
+texture = ExtResource("4_gujbm")
+
+[node name="Sprite2D26" type="Sprite2D" parent="Background/bg4/CanvasGroup2"]
+texture_filter = 1
+position = Vector2(-39.999973, 111.11111)
+scale = Vector2(1.9999996, 2.1719997)
+texture = ExtResource("13_3635a")
+
+[node name="Sprite2D27" type="Sprite2D" parent="Background/bg4/CanvasGroup2"]
+texture_filter = 1
+position = Vector2(-76.66663, 134.44443)
+scale = Vector2(1.9999996, 2.1719997)
+texture = ExtResource("14_ogi8r")
+
+[node name="Sprite2D31" type="Sprite2D" parent="Background/bg4/CanvasGroup2"]
+texture_filter = 1
+position = Vector2(-21.111097, 107.77777)
+rotation = -0.5546579
+scale = Vector2(1.530619, 1.8012211)
+texture = ExtResource("14_1k82u")
+
+[node name="Sprite2D32" type="Sprite2D" parent="Background/bg4/CanvasGroup2"]
+texture_filter = 1
+position = Vector2(-42.222244, 131.11111)
+rotation = -0.9366276
+scale = Vector2(1.5306191, 1.8012211)
+texture = ExtResource("14_1k82u")
+
+[node name="Sprite2D30" type="Sprite2D" parent="Background/bg4/CanvasGroup2"]
+texture_filter = 1
+position = Vector2(-3.333323, 114.44444)
+scale = Vector2(1.9999996, 2.1719997)
+texture = ExtResource("14_ogi8r")
+
+[node name="Sprite2D28" type="Sprite2D" parent="Background/bg4/CanvasGroup2"]
+texture_filter = 1
+position = Vector2(24.444462, 128.88889)
+scale = Vector2(1.9999996, 2.1719997)
+texture = ExtResource("13_3635a")
+
+[node name="Sprite2D33" type="Sprite2D" parent="Background/bg4/CanvasGroup2"]
+texture_filter = 1
+position = Vector2(-24.44442, 142.22221)
+scale = Vector2(1.9999996, 2.1719997)
+texture = ExtResource("14_ogi8r")
+
+[node name="Sprite2D34" type="Sprite2D" parent="Background/bg4/CanvasGroup2"]
+texture_filter = 1
+position = Vector2(-93.333305, 158.88889)
+scale = Vector2(1.7744105, 1.9193325)
+texture = ExtResource("14_ogi8r")
+
+[node name="Sprite2D37" type="Sprite2D" parent="Background/bg4/CanvasGroup2"]
+texture_filter = 1
+position = Vector2(-79.99997, 184.44441)
+rotation = -1.2836505
+scale = Vector2(1.4690226, 1.9774213)
+texture = ExtResource("14_1k82u")
+
+[node name="Sprite2D36" type="Sprite2D" parent="Background/bg4/CanvasGroup2"]
+texture_filter = 1
+position = Vector2(-65.55553, 161.11111)
+rotation = -1.0592142
+scale = Vector2(1.3748543, 1.7263976)
+texture = ExtResource("14_1k82u")
+
+[node name="Sprite2D35" type="Sprite2D" parent="Background/bg4/CanvasGroup2"]
+texture_filter = 1
+position = Vector2(-69.99997, 173.33331)
+rotation = -1.0425537
+scale = Vector2(1.9999996, 2.1719997)
+texture = ExtResource("3_7s03d")
+
+[node name="Sprite2D38" type="Sprite2D" parent="Background/bg4/CanvasGroup2"]
+texture_filter = 1
+position = Vector2(-41.111084, 181.11111)
+rotation = -0.2901296
+scale = Vector2(1.9999996, 2.1719997)
+texture = ExtResource("14_ogi8r")
+
+[node name="Sprite2D40" type="Sprite2D" parent="Background/bg4/CanvasGroup2"]
+texture_filter = 1
+position = Vector2(78.2576, 113.667015)
+rotation = -0.18462458
+scale = Vector2(2.5742528, 3.0293615)
+texture = ExtResource("14_1k82u")
+
+[node name="Sprite2D18" type="Sprite2D" parent="Background/bg4/CanvasGroup2"]
+texture_filter = 1
+position = Vector2(113.91943, 151.32347)
+rotation = -0.007758409
+scale = Vector2(3.074718, 3.3391457)
+texture = ExtResource("5_vqv1u")
+
+[node name="Sprite2D41" type="Sprite2D" parent="Background/bg4/CanvasGroup2"]
+texture_filter = 1
+position = Vector2(150.21373, 116.267166)
+rotation = -0.035817895
+scale = Vector2(2.931719, 3.4500256)
+texture = ExtResource("14_1k82u")
+
+[node name="Sprite2D42" type="Sprite2D" parent="Background/bg4/CanvasGroup2"]
+texture_filter = 1
+position = Vector2(227.07428, 128.43298)
+rotation = 0.14601974
+scale = Vector2(2.931719, 3.4500256)
+texture = ExtResource("14_1k82u")
+
+[node name="Sprite2D43" type="Sprite2D" parent="Background/bg4/CanvasGroup2"]
+texture_filter = 1
+position = Vector2(11.569506, 127.32256)
+rotation = -0.3228035
+scale = Vector2(2.5742528, 3.0293615)
+texture = ExtResource("14_1k82u")
+
+[node name="bg2" type="Parallax2D" parent="Background"]
+modulate = Color(0.5609549, 0.5609549, 0.56095487, 1)
+light_mask = 0
+scale = Vector2(0.9, 0.9)
+scroll_scale = Vector2(0.9, 0.9)
+scroll_offset = Vector2(-127.000015, -56.000008)
+
+[node name="CanvasGroup" type="CanvasGroup" parent="Background/bg2"]
+material = SubResource("ShaderMaterial_k5sp8")
+scale = Vector2(1.0000001, 1.0000001)
+
+[node name="Sprite2D24" type="Sprite2D" parent="Background/bg2/CanvasGroup"]
+texture_filter = 1
+position = Vector2(-62.727272, 143.63634)
+rotation = -0.97616553
+scale = Vector2(3.1430974, 2.7312074)
+texture = ExtResource("17_hyxb6")
+
+[node name="Sprite2D18" type="Sprite2D" parent="Background/bg2/CanvasGroup"]
+texture_filter = 1
+position = Vector2(100.74998, 154.51834)
+scale = Vector2(13.075755, 4.3377476)
+texture = ExtResource("17_hyxb6")
+
+[node name="Sprite2D13" type="Sprite2D" parent="Background/bg2/CanvasGroup"]
+visible = false
+texture_filter = 1
+position = Vector2(11, 61.634)
+scale = Vector2(1.9999994, 2.1719997)
+texture = ExtResource("3_7s03d")
+
+[node name="Sprite2D14" type="Sprite2D" parent="Background/bg2/CanvasGroup"]
+texture_filter = 1
+position = Vector2(122.90264, 65.7797)
+scale = Vector2(1.9999994, 2.1719997)
+texture = ExtResource("13_qcs8s")
+
+[node name="Sprite2D15" type="Sprite2D" parent="Background/bg2/CanvasGroup"]
+texture_filter = 1
+position = Vector2(230.9026, 65.7797)
+scale = Vector2(1.9999992, 2.1719997)
+texture = ExtResource("14_1k82u")
+
+[node name="Sprite2D16" type="Sprite2D" parent="Background/bg2/CanvasGroup"]
+texture_filter = 1
+position = Vector2(181.90262, 64.7797)
+scale = Vector2(1.9999994, 2.1719997)
+texture = ExtResource("14_1k82u")
+
+[node name="Sprite2D17" type="Sprite2D" parent="Background/bg2/CanvasGroup"]
+texture_filter = 1
+position = Vector2(170.90263, 85.413704)
+rotation = 0.029053705
+scale = Vector2(1.9999994, 2.1720002)
+texture = ExtResource("5_vqv1u")
+
+[node name="Sprite2D19" type="Sprite2D" parent="Background/bg2/CanvasGroup"]
+texture_filter = 1
+position = Vector2(207.9026, 101.7797)
+scale = Vector2(1.9999994, 2.1719997)
+texture = ExtResource("6_qcs8s")
+
+[node name="Sprite2D20" type="Sprite2D" parent="Background/bg2/CanvasGroup"]
+texture_filter = 1
+position = Vector2(132.38097, 85.71429)
+scale = Vector2(1.9999994, 2.1719997)
+texture = ExtResource("3_7s03d")
+
+[node name="Sprite2D21" type="Sprite2D" parent="Background/bg2/CanvasGroup"]
+texture_filter = 1
+position = Vector2(283.90262, 96.7797)
+scale = Vector2(1.9999994, 2.1719997)
+texture = ExtResource("4_gujbm")
+
+[node name="Sprite2D4" type="Sprite2D" parent="Background/bg2/CanvasGroup"]
+visible = false
+texture_filter = 1
+position = Vector2(11, 61.633995)
+scale = Vector2(1.9999996, 2.1719997)
+texture = ExtResource("3_7s03d")
+
+[node name="Sprite2D9" type="Sprite2D" parent="Background/bg2/CanvasGroup"]
+texture_filter = 1
+position = Vector2(-37.999992, 61.999992)
+scale = Vector2(1.9999996, 2.1719997)
+texture = ExtResource("13_qcs8s")
+
+[node name="Sprite2D11" type="Sprite2D" parent="Background/bg2/CanvasGroup"]
+texture_filter = 1
+position = Vector2(69.999985, 61.999985)
+scale = Vector2(1.9999994, 2.1719997)
+texture = ExtResource("14_1k82u")
+
+[node name="Sprite2D22" type="Sprite2D" parent="Background/bg2/CanvasGroup"]
+texture_filter = 1
+position = Vector2(-95.45453, 104.54544)
+rotation = -0.88796836
+scale = Vector2(1.9999994, 2.1719997)
+texture = ExtResource("14_1k82u")
+
+[node name="Sprite2D10" type="Sprite2D" parent="Background/bg2/CanvasGroup"]
+texture_filter = 1
+position = Vector2(21, 60.999992)
+scale = Vector2(1.9999996, 2.1719997)
+texture = ExtResource("14_1k82u")
+
+[node name="Sprite2D25" type="Sprite2D" parent="Background/bg2/CanvasGroup"]
+texture_filter = 1
+position = Vector2(-120.90907, 154.54544)
+rotation = -1.4520922
+scale = Vector2(1.9999994, 2.1719997)
+texture = ExtResource("14_1k82u")
+
+[node name="Sprite2D7" type="Sprite2D" parent="Background/bg2/CanvasGroup"]
+texture_filter = 1
+position = Vector2(10, 81.63399)
+rotation = 0.029053701
+scale = Vector2(1.9999996, 2.172)
+texture = ExtResource("5_vqv1u")
+
+[node name="Sprite2D12" type="Sprite2D" parent="Background/bg2/CanvasGroup"]
+texture_filter = 1
+position = Vector2(-99.999985, 161.81816)
+rotation = -2.7783883
+scale = Vector2(1.9999996, 2.1719997)
+texture = ExtResource("15_1k82u")
+
+[node name="Sprite2D23" type="Sprite2D" parent="Background/bg2/CanvasGroup"]
+texture_filter = 1
+position = Vector2(-91.81819, 106.36361)
+rotation = -0.82002497
+scale = Vector2(1.9999996, 2.1719997)
+texture = ExtResource("3_7s03d")
+
+[node name="Sprite2D6" type="Sprite2D" parent="Background/bg2/CanvasGroup"]
+texture_filter = 1
+position = Vector2(46.99999, 97.999985)
+scale = Vector2(1.9999996, 2.1719997)
+texture = ExtResource("6_qcs8s")
+
+[node name="Sprite2D8" type="Sprite2D" parent="Background/bg2/CanvasGroup"]
+texture_filter = 1
+position = Vector2(-27.999992, 80.63399)
+scale = Vector2(1.9999996, 2.1719997)
+texture = ExtResource("3_7s03d")
+
+[node name="Sprite2D5" type="Sprite2D" parent="Background/bg2/CanvasGroup"]
+texture_filter = 1
+position = Vector2(122.99998, 92.999985)
+scale = Vector2(1.9999996, 2.1719997)
+texture = ExtResource("4_gujbm")
+
+[node name="Sprite2D26" type="Sprite2D" parent="Background/bg2/CanvasGroup"]
+texture_filter = 1
+position = Vector2(-39.999973, 111.11111)
+scale = Vector2(1.9999996, 2.1719997)
+texture = ExtResource("13_3635a")
+
+[node name="Sprite2D27" type="Sprite2D" parent="Background/bg2/CanvasGroup"]
+texture_filter = 1
+position = Vector2(-76.66663, 134.44443)
+scale = Vector2(1.9999996, 2.1719997)
+texture = ExtResource("14_ogi8r")
+
+[node name="Sprite2D31" type="Sprite2D" parent="Background/bg2/CanvasGroup"]
+texture_filter = 1
+position = Vector2(-21.111097, 107.77777)
+rotation = -0.5546579
+scale = Vector2(1.530619, 1.8012211)
+texture = ExtResource("14_1k82u")
+
+[node name="Sprite2D32" type="Sprite2D" parent="Background/bg2/CanvasGroup"]
+texture_filter = 1
+position = Vector2(-42.222244, 131.11111)
+rotation = -0.9366276
+scale = Vector2(1.5306191, 1.8012211)
+texture = ExtResource("14_1k82u")
+
+[node name="Sprite2D30" type="Sprite2D" parent="Background/bg2/CanvasGroup"]
+texture_filter = 1
+position = Vector2(-3.333323, 114.44444)
+scale = Vector2(1.9999996, 2.1719997)
+texture = ExtResource("14_ogi8r")
+
+[node name="Sprite2D28" type="Sprite2D" parent="Background/bg2/CanvasGroup"]
+texture_filter = 1
+position = Vector2(24.444462, 128.88889)
+scale = Vector2(1.9999996, 2.1719997)
+texture = ExtResource("13_3635a")
+
+[node name="Sprite2D29" type="Sprite2D" parent="Background/bg2/CanvasGroup"]
+texture_filter = 1
+position = Vector2(73.33334, 112.22222)
+scale = Vector2(1.8148146, 2.0193331)
+texture = ExtResource("13_3635a")
+
+[node name="Sprite2D33" type="Sprite2D" parent="Background/bg2/CanvasGroup"]
+texture_filter = 1
+position = Vector2(-24.44442, 142.22221)
+scale = Vector2(1.9999996, 2.1719997)
+texture = ExtResource("14_ogi8r")
+
+[node name="Sprite2D34" type="Sprite2D" parent="Background/bg2/CanvasGroup"]
+texture_filter = 1
+position = Vector2(-93.333305, 158.88889)
+scale = Vector2(1.7744105, 1.9193325)
+texture = ExtResource("14_ogi8r")
+
+[node name="Sprite2D37" type="Sprite2D" parent="Background/bg2/CanvasGroup"]
+texture_filter = 1
+position = Vector2(-79.99997, 184.44441)
+rotation = -1.2836505
+scale = Vector2(1.4690226, 1.9774213)
+texture = ExtResource("14_1k82u")
+
+[node name="Sprite2D36" type="Sprite2D" parent="Background/bg2/CanvasGroup"]
+texture_filter = 1
+position = Vector2(-65.55553, 161.11111)
+rotation = -1.0592142
+scale = Vector2(1.3748543, 1.7263976)
+texture = ExtResource("14_1k82u")
+
+[node name="Sprite2D35" type="Sprite2D" parent="Background/bg2/CanvasGroup"]
+texture_filter = 1
+position = Vector2(-69.99997, 173.33331)
+rotation = -1.0425537
+scale = Vector2(1.9999996, 2.1719997)
+texture = ExtResource("3_7s03d")
+
+[node name="Sprite2D38" type="Sprite2D" parent="Background/bg2/CanvasGroup"]
+texture_filter = 1
+position = Vector2(-41.111084, 181.11111)
+rotation = -0.2901296
+scale = Vector2(1.9999996, 2.1719997)
+texture = ExtResource("14_ogi8r")
+
+[node name="Sprite2D39" type="Sprite2D" parent="Background/bg2/CanvasGroup"]
+texture_filter = 1
+position = Vector2(28.8889, 172.22223)
+scale = Vector2(1.9999996, 2.1719997)
+texture = ExtResource("13_qcs8s")
+
+[node name="Sprite2D40" type="Sprite2D" parent="Background/bg2/CanvasGroup"]
+texture_filter = 1
+position = Vector2(84.44445, 158.88885)
+rotation = -0.035817895
+scale = Vector2(1.5306191, 1.8012211)
+texture = ExtResource("14_1k82u")
+
+[node name="bg1" type="Parallax2D" parent="Background"]
+modulate = Color(0.6624523, 0.6624524, 0.66245204, 1)
+scale = Vector2(0.9, 0.9)
+scroll_scale = Vector2(0.95, 0.95)
+scroll_offset = Vector2(-324, -2)
+
+[node name="bushes1" type="CanvasGroup" parent="Background/bg1"]
+visibility_layer = 7
+material = SubResource("ShaderMaterial_lle2f")
+position = Vector2(-31.111113, 24.444447)
+scale = Vector2(1.0000001, 1.0000001)
+
+[node name="Sprite2D18" type="Sprite2D" parent="Background/bg1/bushes1"]
+texture_filter = 1
+position = Vector2(100.74998, 154.51834)
+scale = Vector2(13.075755, 4.3377476)
+texture = ExtResource("17_hyxb6")
+
+[node name="Sprite2D13" type="Sprite2D" parent="Background/bg1/bushes1"]
+visible = false
+texture_filter = 1
+position = Vector2(11, 61.634)
+scale = Vector2(1.9999994, 2.1719997)
+texture = ExtResource("3_7s03d")
+
+[node name="Sprite2D14" type="Sprite2D" parent="Background/bg1/bushes1"]
+texture_filter = 1
+position = Vector2(122.72725, 71.81817)
+scale = Vector2(1.9999994, 2.1719997)
+texture = ExtResource("13_qcs8s")
+
+[node name="Sprite2D15" type="Sprite2D" parent="Background/bg1/bushes1"]
+texture_filter = 1
+position = Vector2(230.9026, 65.7797)
+scale = Vector2(1.9999992, 2.1719997)
+texture = ExtResource("14_1k82u")
+
+[node name="Sprite2D16" type="Sprite2D" parent="Background/bg1/bushes1"]
+texture_filter = 1
+position = Vector2(181.90262, 64.7797)
+scale = Vector2(1.9999994, 2.1719997)
+texture = ExtResource("14_1k82u")
+
+[node name="Sprite2D17" type="Sprite2D" parent="Background/bg1/bushes1"]
+texture_filter = 1
+position = Vector2(170.90263, 85.413704)
+rotation = 0.029053705
+scale = Vector2(1.9999994, 2.1720002)
+texture = ExtResource("5_vqv1u")
+
+[node name="Sprite2D4" type="Sprite2D" parent="Background/bg1/bushes1"]
+visible = false
+texture_filter = 1
+position = Vector2(11, 61.633995)
+scale = Vector2(1.9999996, 2.1719997)
+texture = ExtResource("3_7s03d")
+
+[node name="Sprite2D9" type="Sprite2D" parent="Background/bg1/bushes1"]
+texture_filter = 1
+position = Vector2(-37.27273, 77.27272)
+scale = Vector2(1.9999996, 2.1719997)
+texture = ExtResource("13_qcs8s")
+
+[node name="Sprite2D11" type="Sprite2D" parent="Background/bg1/bushes1"]
+texture_filter = 1
+position = Vector2(69.999985, 61.999985)
+scale = Vector2(1.9999994, 2.1719997)
+texture = ExtResource("14_1k82u")
+
+[node name="Sprite2D23" type="Sprite2D" parent="Background/bg1/bushes1"]
+texture_filter = 1
+position = Vector2(-82.727264, 141.81816)
+scale = Vector2(1.9999994, 2.1719997)
+texture = ExtResource("13_qcs8s")
+
+[node name="Sprite2D22" type="Sprite2D" parent="Background/bg1/bushes1"]
+texture_filter = 1
+position = Vector2(-83.636345, 84.54544)
+rotation = -0.64748454
+scale = Vector2(1.9999994, 2.1719997)
+texture = ExtResource("14_1k82u")
+
+[node name="Sprite2D10" type="Sprite2D" parent="Background/bg1/bushes1"]
+texture_filter = 1
+position = Vector2(21, 60.999992)
+scale = Vector2(1.9999996, 2.1719997)
+texture = ExtResource("14_1k82u")
+
+[node name="Sprite2D25" type="Sprite2D" parent="Background/bg1/bushes1"]
+texture_filter = 1
+position = Vector2(-102.72725, 109.0909)
+rotation = -0.5566154
+scale = Vector2(1.9999994, 2.1719997)
+texture = ExtResource("14_1k82u")
+
+[node name="Sprite2D7" type="Sprite2D" parent="Background/bg1/bushes1"]
+texture_filter = 1
+position = Vector2(10, 81.63399)
+rotation = 0.029053701
+scale = Vector2(1.9999996, 2.172)
+texture = ExtResource("5_vqv1u")
+
+[node name="Sprite2D19" type="Sprite2D" parent="Background/bg1/bushes1"]
+texture_filter = 1
+position = Vector2(144.54543, 95.45454)
+rotation = 0.054812796
+scale = Vector2(2.0846958, 2.326105)
+texture = ExtResource("5_vqv1u")
+
+[node name="Sprite2D20" type="Sprite2D" parent="Background/bg1/bushes1"]
+texture_filter = 1
+position = Vector2(0.9090879, 97.27271)
+rotation = 0.00912655
+scale = Vector2(1.9999994, 2.1720002)
+texture = ExtResource("5_vqv1u")
+
+[node name="Sprite2D21" type="Sprite2D" parent="Background/bg1/bushes1"]
+texture_filter = 1
+position = Vector2(10.909092, 114.545456)
+rotation = -0.017014844
+scale = Vector2(2.235338, 2.4941916)
+texture = ExtResource("5_vqv1u")
+
+[node name="Sprite2D24" type="Sprite2D" parent="Background/bg1/bushes1"]
+texture_filter = 1
+position = Vector2(203.74721, 116.01793)
+rotation = 0.053344816
+scale = Vector2(2.3867373, 2.6631236)
+texture = ExtResource("5_vqv1u")
+
+[node name="Sprite2D26" type="Sprite2D" parent="Background/bg1/bushes1"]
+texture_filter = 1
+position = Vector2(54.54544, 130.90909)
+rotation = -0.03980978
+scale = Vector2(2.3867373, 2.6631236)
+texture = ExtResource("5_vqv1u")
+
+[node name="Sprite2D29" type="Sprite2D" parent="Background/bg1/bushes1"]
+texture_filter = 1
+position = Vector2(147.77776, 79.999985)
+rotation = -0.005105689
+scale = Vector2(2.267366, 2.5324035)
+texture = ExtResource("13_3635a")
+
+[node name="Sprite2D27" type="Sprite2D" parent="Background/bg1/bushes1"]
+texture_filter = 1
+position = Vector2(188.66507, 88.46524)
+rotation = -0.01587341
+scale = Vector2(2.2673657, 2.5324035)
+texture = ExtResource("14_ogi8r")
+
+[node name="Sprite2D28" type="Sprite2D" parent="Background/bg1/bushes1"]
+texture_filter = 1
+position = Vector2(96.66664, 96.66665)
+rotation = 0.031834774
+scale = Vector2(2.2673657, 2.5324035)
+texture = ExtResource("14_ogi8r")
+
+[node name="Sprite2D30" type="Sprite2D" parent="Background/bg1/bushes1"]
+texture_filter = 1
+position = Vector2(-6.390897, 87.01922)
+rotation = -0.005105689
+scale = Vector2(2.1308913, 2.3276715)
+texture = ExtResource("13_3635a")
+
+[node name="Sprite2D32" type="Sprite2D" parent="Background/bg1/bushes1"]
+texture_filter = 1
+position = Vector2(26.666658, 97.77776)
+rotation = -0.008935587
+scale = Vector2(2.2673657, 2.5324035)
+texture = ExtResource("14_1k82u")
+
+[node name="Sprite2D31" type="Sprite2D" parent="Background/bg1/bushes1"]
+texture_filter = 1
+position = Vector2(46.666676, 98.888885)
+rotation = 0.09390097
+scale = Vector2(2.2673657, 2.5324035)
+texture = ExtResource("14_ogi8r")
+
+[node name="w" type="Sprite2D" parent="Background/bg1/bushes1"]
+texture_filter = 1
+position = Vector2(-61.1111, 98.888885)
+rotation = 0.031834774
+scale = Vector2(2.2673657, 2.5324035)
+texture = ExtResource("14_ogi8r")
+
+[node name="ceilingL" type="CanvasGroup" parent="Background/bg1"]
+visibility_layer = 7
+material = SubResource("ShaderMaterial_lle2f")
+position = Vector2(277.77777, -235.55557)
+scale = Vector2(1.3, 1.3)
+
+[node name="Sprite2D28" type="Sprite2D" parent="Background/bg1/ceilingL"]
+texture_filter = 1
+position = Vector2(25.943157, 84.21285)
+rotation = -0.46110493
+scale = Vector2(1.7680992, 0.8814448)
+texture = ExtResource("17_hyxb6")
+
+[node name="Sprite2D18" type="Sprite2D" parent="Background/bg1/ceilingL"]
+texture_filter = 1
+position = Vector2(-28.261353, 94.44443)
+scale = Vector2(3.4926102, 0.769231)
+texture = ExtResource("17_hyxb6")
+
+[node name="Sprite2D19" type="Sprite2D" parent="Background/bg1/ceilingL"]
+texture_filter = 1
+position = Vector2(-36.666664, 129.99998)
+texture = ExtResource("11_qc72u")
+
+[node name="Sprite2D20" type="Sprite2D" parent="Background/bg1/ceilingL"]
+texture_filter = 1
+position = Vector2(-12.222227, 134.44443)
+scale = Vector2(1.3333328, 1.3333328)
+texture = ExtResource("11_qc72u")
+
+[node name="Sprite2D21" type="Sprite2D" parent="Background/bg1/ceilingL"]
+texture_filter = 1
+position = Vector2(12.222216, 128.88889)
+scale = Vector2(1.3333328, 1.3333328)
+texture = ExtResource("11_qc72u")
+
+[node name="Sprite2D22" type="Sprite2D" parent="Background/bg1/ceilingL"]
+texture_filter = 1
+position = Vector2(-48.88889, 115.55554)
+rotation = -3.1415927
+scale = Vector2(1.3333328, 1.3333328)
+texture = ExtResource("3_7s03d")
+
+[node name="Sprite2D23" type="Sprite2D" parent="Background/bg1/ceilingL"]
+texture_filter = 1
+position = Vector2(-2.222229, 112.22222)
+rotation = -3.3471336
+scale = Vector2(1.3333328, 1.3333328)
+texture = ExtResource("3_7s03d")
+
+[node name="Sprite2D24" type="Sprite2D" parent="Background/bg1/ceilingL"]
+texture_filter = 1
+position = Vector2(36.666653, 100.00001)
+rotation = -3.6222572
+scale = Vector2(1.3333328, 1.3333328)
+texture = ExtResource("12_7swhr")
+
+[node name="Sprite2D25" type="Sprite2D" parent="Background/bg1/ceilingL"]
+texture_filter = 1
+position = Vector2(-43.333332, 98.88887)
+rotation = -3.1848276
+scale = Vector2(1.3333328, 1.3333328)
+texture = ExtResource("13_3635a")
+
+[node name="Sprite2D26" type="Sprite2D" parent="Background/bg1/ceilingL"]
+texture_filter = 1
+position = Vector2(-5.55556, 94.444435)
+rotation = -3.4834821
+scale = Vector2(1.3333328, 1.3333328)
+texture = ExtResource("13_3635a")
+
+[node name="Sprite2D27" type="Sprite2D" parent="Background/bg1/ceilingL"]
+texture_filter = 1
+position = Vector2(-24.444447, 91.11112)
+rotation = -3.0449908
+scale = Vector2(1.3333328, 1.3333328)
+texture = ExtResource("14_ogi8r")
+
+[node name="ceilingR" type="CanvasGroup" parent="Background/bg1"]
+visibility_layer = 7
+material = SubResource("ShaderMaterial_lle2f")
+position = Vector2(446.6667, -183.33334)
+scale = Vector2(1.3, 1.3)
+
+[node name="Sprite2D29" type="Sprite2D" parent="Background/bg1/ceilingR"]
+texture_filter = 1
+position = Vector2(-31.803425, 51.841904)
+rotation = 0.24989441
+scale = Vector2(4.56704, 1.2804205)
+texture = ExtResource("17_hyxb6")
+
+[node name="Sprite2D28" type="Sprite2D" parent="Background/bg1/ceilingR"]
+texture_filter = 1
+position = Vector2(-8.297663, 82.97273)
+rotation = 0.14678854
+scale = Vector2(2.2347662, 0.8814448)
+texture = ExtResource("17_hyxb6")
+
+[node name="Sprite2D18" type="Sprite2D" parent="Background/bg1/ceilingR"]
+texture_filter = 1
+position = Vector2(-64.10256, 63.247868)
+rotation = 0.5021479
+scale = Vector2(2.514568, 0.81298286)
+texture = ExtResource("17_hyxb6")
+
+[node name="Sprite2D19" type="Sprite2D" parent="Background/bg1/ceilingR"]
+texture_filter = 1
+position = Vector2(-47.863247, 98.2906)
+texture = ExtResource("11_qc72u")
+
+[node name="Sprite2D20" type="Sprite2D" parent="Background/bg1/ceilingR"]
+texture_filter = 1
+position = Vector2(-17.94872, 123.93163)
+scale = Vector2(1.3333328, 1.3333328)
+texture = ExtResource("11_qc72u")
+
+[node name="Sprite2D21" type="Sprite2D" parent="Background/bg1/ceilingR"]
+texture_filter = 1
+position = Vector2(-70.94017, 97.4359)
+scale = Vector2(1.3333328, 1.3333328)
+texture = ExtResource("11_qc72u")
+
+[node name="Sprite2D24" type="Sprite2D" parent="Background/bg1/ceilingR"]
+texture_filter = 1
+position = Vector2(-0.85469866, 105.12821)
+rotation = -3.1567428
+scale = Vector2(1.3333328, 1.3333328)
+texture = ExtResource("12_7swhr")
+
+[node name="Sprite2D25" type="Sprite2D" parent="Background/bg1/ceilingR"]
+texture_filter = 1
+position = Vector2(-34.188034, 105.128204)
+texture = ExtResource("11_qc72u")
+
+[node name="Sprite2D22" type="Sprite2D" parent="Background/bg1/ceilingR"]
+texture_filter = 1
+position = Vector2(-80.341866, 74.35897)
+rotation = -2.5685399
+scale = Vector2(1.3333328, 1.3333328)
+texture = ExtResource("3_7s03d")
+
+[node name="Sprite2D23" type="Sprite2D" parent="Background/bg1/ceilingR"]
+texture_filter = 1
+position = Vector2(-40.17094, 95.7265)
+rotation = -2.78511
+scale = Vector2(1.3333328, 1.3333328)
+texture = ExtResource("3_7s03d")
+
+[node name="Sprite2D26" type="Sprite2D" parent="Background/bg1/ceilingR"]
+texture_filter = 1
+position = Vector2(-38.461533, 77.77777)
+rotation = -2.8528132
+scale = Vector2(1.3333328, 1.3333328)
+texture = ExtResource("13_3635a")
+
+[node name="Sprite2D27" type="Sprite2D" parent="Background/bg1/ceilingR"]
+texture_filter = 1
+position = Vector2(-11.965814, 89.74361)
+rotation = -2.7168655
+scale = Vector2(1.1304885, 1.0862198)
+texture = ExtResource("14_ogi8r")
+
+[node name="player1" type="CharacterBody2D" parent="."]
+script = ExtResource("1_nuts3")
+
+[node name="sprite" type="AnimatedSprite2D" parent="player1"]
+texture_filter = 1
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_myd5d")
+animation = &"crawl"
+
+[node name="Camera2D" type="Camera2D" parent="player1"]
+material = SubResource("ShaderMaterial_qc72u")
+
+[node name="Sprite2D" type="Sprite2D" parent="player1/Camera2D"]
+z_index = 4
+material = SubResource("ShaderMaterial_q81ut")
+position = Vector2(-8, 0)
+scale = Vector2(50.25926, 23.423075)
+texture = ExtResource("17_hyxb6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player1"]
+position = Vector2(-1.75, 8.5)
+shape = SubResource("RectangleShape2D_f7tfb")
+
+[node name="PlatformLayer" type="Node2D" parent="."]
+
+[node name="backdrop" type="Parallax2D" parent="PlatformLayer"]
+
+[node name="Sprite2D2" type="Sprite2D" parent="PlatformLayer/backdrop"]
+texture_filter = 1
+position = Vector2(-123, 67)
+scale = Vector2(2, 2.172)
+texture = ExtResource("2_y78mo")
+
+[node name="Sprite2D3" type="Sprite2D" parent="PlatformLayer/backdrop"]
+texture_filter = 1
+position = Vector2(-39, 40)
+scale = Vector2(2, 2.172)
+texture = ExtResource("3_7s03d")
+
+[node name="Sprite2D4" type="Sprite2D" parent="PlatformLayer/backdrop"]
+texture_filter = 1
+position = Vector2(36, 38)
+scale = Vector2(2, 2.172)
+texture = ExtResource("3_7s03d")
+
+[node name="Sprite2D7" type="Sprite2D" parent="PlatformLayer/backdrop"]
+texture_filter = 1
+position = Vector2(35, 58)
+rotation = 0.0290537
+scale = Vector2(2, 2.172)
+texture = ExtResource("5_vqv1u")
+
+[node name="Sprite2D6" type="Sprite2D" parent="PlatformLayer/backdrop"]
+texture_filter = 1
+position = Vector2(-73, 63)
+scale = Vector2(2, 2.172)
+texture = ExtResource("6_qcs8s")
+
+[node name="Sprite2D9" type="Sprite2D" parent="PlatformLayer/backdrop"]
+texture_filter = 1
+position = Vector2(-122, 66)
+scale = Vector2(2, 2.172)
+texture = ExtResource("14_1k82u")
+
+[node name="Sprite2D8" type="Sprite2D" parent="PlatformLayer/backdrop"]
+texture_filter = 1
+position = Vector2(-3, 57)
+scale = Vector2(2, 2.172)
+texture = ExtResource("3_7s03d")
+
+[node name="Sprite2D5" type="Sprite2D" parent="PlatformLayer/backdrop"]
+texture_filter = 1
+position = Vector2(-134, 70)
+scale = Vector2(2, 2.172)
+texture = ExtResource("4_gujbm")
+
+[node name="Sprite2D10" type="Sprite2D" parent="PlatformLayer/backdrop"]
+texture_filter = 1
+position = Vector2(-132, 82.00001)
+scale = Vector2(1.7714286, 1.8717142)
+texture = ExtResource("14_1k82u")
+
+[node name="Sprite2D11" type="Sprite2D" parent="PlatformLayer/backdrop"]
+texture_filter = 1
+position = Vector2(-395, 132.634)
+scale = Vector2(2, 2.172)
+texture = ExtResource("2_y78mo")
+
+[node name="Sprite2D12" type="Sprite2D" parent="PlatformLayer/backdrop"]
+texture_filter = 1
+position = Vector2(-311, 105.634)
+scale = Vector2(2, 2.172)
+texture = ExtResource("3_7s03d")
+
+[node name="Sprite2D13" type="Sprite2D" parent="PlatformLayer/backdrop"]
+texture_filter = 1
+position = Vector2(-236, 103.634)
+scale = Vector2(2, 2.172)
+texture = ExtResource("3_7s03d")
+
+[node name="Sprite2D14" type="Sprite2D" parent="PlatformLayer/backdrop"]
+texture_filter = 1
+position = Vector2(-237, 123.634)
+rotation = 0.0290537
+scale = Vector2(2, 2.172)
+texture = ExtResource("5_vqv1u")
+
+[node name="Sprite2D15" type="Sprite2D" parent="PlatformLayer/backdrop"]
+texture_filter = 1
+position = Vector2(-345, 128.634)
+scale = Vector2(2, 2.172)
+texture = ExtResource("6_qcs8s")
+
+[node name="Sprite2D16" type="Sprite2D" parent="PlatformLayer/backdrop"]
+texture_filter = 1
+position = Vector2(-394, 131.634)
+scale = Vector2(2, 2.172)
+texture = ExtResource("14_1k82u")
+
+[node name="Sprite2D17" type="Sprite2D" parent="PlatformLayer/backdrop"]
+texture_filter = 1
+position = Vector2(-275, 122.634)
+scale = Vector2(2, 2.172)
+texture = ExtResource("3_7s03d")
+
+[node name="Sprite2D18" type="Sprite2D" parent="PlatformLayer/backdrop"]
+texture_filter = 1
+position = Vector2(-406, 135.634)
+scale = Vector2(2, 2.172)
+texture = ExtResource("4_gujbm")
+
+[node name="Sprite2D19" type="Sprite2D" parent="PlatformLayer/backdrop"]
+texture_filter = 1
+position = Vector2(-404, 147.634)
+scale = Vector2(1.7714286, 1.8717142)
+texture = ExtResource("14_1k82u")
+
+[node name="PointLight2D" type="PointLight2D" parent="PlatformLayer"]
+texture_filter = 1
+position = Vector2(-129, -16.000004)
+scale = Vector2(1.7190105, 2.8828125)
+texture = ExtResource("23_7swhr")
+
+[node name="PointLight2D2" type="PointLight2D" parent="PlatformLayer"]
+texture_filter = 1
+position = Vector2(-271, -10)
+scale = Vector2(1.8906249, 4.53125)
+skew = 0.18675023
+texture = ExtResource("23_7swhr")
+
+[node name="Foreground" type="Node2D" parent="."]
+material = SubResource("ShaderMaterial_l74q3")
+
+[node name="fg1" type="Parallax2D" parent="Foreground"]
+modulate = Color(0.86898494, 0.86898494, 0.8689847, 1)
+scale = Vector2(1.1, 1.1)
+scroll_scale = Vector2(1.05, 1.05)
+scroll_offset = Vector2(-105, 8)
+
+[node name="CanvasGroup" type="CanvasGroup" parent="Foreground/fg1"]
+material = SubResource("ShaderMaterial_hyxb6")
+scale = Vector2(1.0000001, 1.0000001)
+
+[node name="Sprite2D4" type="Sprite2D" parent="Foreground/fg1/CanvasGroup"]
+visible = false
+texture_filter = 1
+position = Vector2(11, 61.633995)
+scale = Vector2(1.9999996, 2.1719997)
+texture = ExtResource("3_7s03d")
+
+[node name="Sprite2D9" type="Sprite2D" parent="Foreground/fg1/CanvasGroup"]
+texture_filter = 1
+position = Vector2(-37.999992, 61.999992)
+scale = Vector2(1.9999996, 2.1719997)
+texture = ExtResource("13_qcs8s")
+
+[node name="Sprite2D11" type="Sprite2D" parent="Foreground/fg1/CanvasGroup"]
+texture_filter = 1
+position = Vector2(69.999985, 61.999985)
+scale = Vector2(1.9999994, 2.1719997)
+texture = ExtResource("14_1k82u")
+
+[node name="Sprite2D10" type="Sprite2D" parent="Foreground/fg1/CanvasGroup"]
+texture_filter = 1
+position = Vector2(21, 60.999992)
+scale = Vector2(1.9999996, 2.1719997)
+texture = ExtResource("14_1k82u")
+
+[node name="Sprite2D7" type="Sprite2D" parent="Foreground/fg1/CanvasGroup"]
+texture_filter = 1
+position = Vector2(10, 81.63399)
+rotation = 0.029053701
+scale = Vector2(1.9999996, 2.172)
+texture = ExtResource("5_vqv1u")
+
+[node name="Sprite2D12" type="Sprite2D" parent="Foreground/fg1/CanvasGroup"]
+texture_filter = 1
+position = Vector2(-65.99998, 107.999985)
+rotation = -1.5707964
+scale = Vector2(1.9999996, 2.1719997)
+texture = ExtResource("15_1k82u")
+
+[node name="Sprite2D6" type="Sprite2D" parent="Foreground/fg1/CanvasGroup"]
+texture_filter = 1
+position = Vector2(46.99999, 97.999985)
+scale = Vector2(1.9999996, 2.1719997)
+texture = ExtResource("6_qcs8s")
+
+[node name="Sprite2D8" type="Sprite2D" parent="Foreground/fg1/CanvasGroup"]
+texture_filter = 1
+position = Vector2(-27.999992, 80.63399)
+scale = Vector2(1.9999996, 2.1719997)
+texture = ExtResource("3_7s03d")
+
+[node name="Sprite2D5" type="Sprite2D" parent="Foreground/fg1/CanvasGroup"]
+texture_filter = 1
+position = Vector2(122.99998, 92.999985)
+scale = Vector2(1.9999996, 2.1719997)
+texture = ExtResource("4_gujbm")
+
+[node name="fg4" type="Parallax2D" parent="Foreground"]
+modulate = Color(0.86036915, 0.8603692, 0.8603691, 1)
+scale = Vector2(1.1, 1.1)
+scroll_scale = Vector2(1.075, 1.075)
+scroll_offset = Vector2(-74, -284)
+
+[node name="CanvasGroup" type="CanvasGroup" parent="Foreground/fg4"]
+material = SubResource("ShaderMaterial_hyxb6")
+position = Vector2(109.09092, 238.18181)
+rotation = 0.059810758
+scale = Vector2(1.0000001, 1.0000001)
+
+[node name="Sprite2D18" type="Sprite2D" parent="Foreground/fg4/CanvasGroup"]
+texture_filter = 1
+position = Vector2(120.31735, 159.64871)
+scale = Vector2(13.075755, 4.3377476)
+texture = ExtResource("17_hyxb6")
+
+[node name="Sprite2D13" type="Sprite2D" parent="Foreground/fg4/CanvasGroup"]
+visible = false
+texture_filter = 1
+position = Vector2(11, 61.634)
+scale = Vector2(1.9999994, 2.1719997)
+texture = ExtResource("3_7s03d")
+
+[node name="Sprite2D14" type="Sprite2D" parent="Foreground/fg4/CanvasGroup"]
+texture_filter = 1
+position = Vector2(142.29462, 76.94853)
+scale = Vector2(1.9999994, 2.1719997)
+texture = ExtResource("13_qcs8s")
+
+[node name="Sprite2D15" type="Sprite2D" parent="Foreground/fg4/CanvasGroup"]
+texture_filter = 1
+position = Vector2(250.46997, 70.910065)
+scale = Vector2(1.9999992, 2.1719997)
+texture = ExtResource("14_1k82u")
+
+[node name="Sprite2D16" type="Sprite2D" parent="Foreground/fg4/CanvasGroup"]
+texture_filter = 1
+position = Vector2(201.46999, 69.910065)
+scale = Vector2(1.9999994, 2.1719997)
+texture = ExtResource("14_1k82u")
+
+[node name="Sprite2D17" type="Sprite2D" parent="Foreground/fg4/CanvasGroup"]
+texture_filter = 1
+position = Vector2(190.47, 90.54407)
+rotation = 0.029053705
+scale = Vector2(1.9999994, 2.1720002)
+texture = ExtResource("5_vqv1u")
+
+[node name="Sprite2D4" type="Sprite2D" parent="Foreground/fg4/CanvasGroup"]
+visible = false
+texture_filter = 1
+position = Vector2(11, 61.633995)
+scale = Vector2(1.9999996, 2.1719997)
+texture = ExtResource("3_7s03d")
+
+[node name="Sprite2D9" type="Sprite2D" parent="Foreground/fg4/CanvasGroup"]
+texture_filter = 1
+position = Vector2(-17.705362, 82.40308)
+scale = Vector2(1.9999996, 2.1719997)
+texture = ExtResource("13_qcs8s")
+
+[node name="Sprite2D11" type="Sprite2D" parent="Foreground/fg4/CanvasGroup"]
+texture_filter = 1
+position = Vector2(89.56735, 67.13035)
+scale = Vector2(1.9999994, 2.1719997)
+texture = ExtResource("14_1k82u")
+
+[node name="Sprite2D23" type="Sprite2D" parent="Foreground/fg4/CanvasGroup"]
+texture_filter = 1
+position = Vector2(-63.159897, 146.94853)
+scale = Vector2(1.9999994, 2.1719997)
+texture = ExtResource("13_qcs8s")
+
+[node name="Sprite2D22" type="Sprite2D" parent="Foreground/fg4/CanvasGroup"]
+texture_filter = 1
+position = Vector2(-64.06898, 89.675804)
+rotation = -0.64748454
+scale = Vector2(1.9999994, 2.1719997)
+texture = ExtResource("14_1k82u")
+
+[node name="Sprite2D10" type="Sprite2D" parent="Foreground/fg4/CanvasGroup"]
+texture_filter = 1
+position = Vector2(40.567368, 66.130356)
+scale = Vector2(1.9999996, 2.1719997)
+texture = ExtResource("14_1k82u")
+
+[node name="Sprite2D25" type="Sprite2D" parent="Foreground/fg4/CanvasGroup"]
+texture_filter = 1
+position = Vector2(-83.15988, 114.22126)
+rotation = -0.5566154
+scale = Vector2(1.9999994, 2.1719997)
+texture = ExtResource("14_1k82u")
+
+[node name="Sprite2D7" type="Sprite2D" parent="Foreground/fg4/CanvasGroup"]
+texture_filter = 1
+position = Vector2(29.567371, 86.76435)
+rotation = 0.029053701
+scale = Vector2(1.9999996, 2.172)
+texture = ExtResource("5_vqv1u")
+
+[node name="Sprite2D19" type="Sprite2D" parent="Foreground/fg4/CanvasGroup"]
+texture_filter = 1
+position = Vector2(164.1128, 100.5849)
+rotation = 0.054812796
+scale = Vector2(2.0846958, 2.326105)
+texture = ExtResource("5_vqv1u")
+
+[node name="Sprite2D20" type="Sprite2D" parent="Foreground/fg4/CanvasGroup"]
+texture_filter = 1
+position = Vector2(20.476456, 102.403076)
+rotation = 0.00912655
+scale = Vector2(1.9999994, 2.1720002)
+texture = ExtResource("5_vqv1u")
+
+[node name="Sprite2D21" type="Sprite2D" parent="Foreground/fg4/CanvasGroup"]
+texture_filter = 1
+position = Vector2(30.476463, 119.67582)
+rotation = -0.017014844
+scale = Vector2(2.235338, 2.4941916)
+texture = ExtResource("5_vqv1u")
+
+[node name="Sprite2D24" type="Sprite2D" parent="Foreground/fg4/CanvasGroup"]
+texture_filter = 1
+position = Vector2(223.31458, 121.14829)
+rotation = 0.053344816
+scale = Vector2(2.3867373, 2.6631236)
+texture = ExtResource("5_vqv1u")
+
+[node name="Sprite2D26" type="Sprite2D" parent="Foreground/fg4/CanvasGroup"]
+texture_filter = 1
+position = Vector2(74.11281, 136.03946)
+rotation = -0.03980978
+scale = Vector2(2.3867373, 2.6631236)
+texture = ExtResource("5_vqv1u")
+
+[node name="fg3" type="Parallax2D" parent="Foreground"]
+modulate = Color(0.73300546, 0.73300546, 0.7330052, 1)
+scale = Vector2(1.1, 1.1)
+scroll_scale = Vector2(1.075, 1.075)
+scroll_offset = Vector2(-136, 33)
+
+[node name="CanvasGroup" type="CanvasGroup" parent="Foreground/fg3"]
+visibility_layer = 7
+material = SubResource("ShaderMaterial_hyxb6")
+scale = Vector2(1.0000001, 1.0000001)
+
+[node name="Sprite2D18" type="Sprite2D" parent="Foreground/fg3/CanvasGroup"]
+texture_filter = 1
+position = Vector2(100.74998, 154.51834)
+scale = Vector2(13.075755, 4.3377476)
+texture = ExtResource("17_hyxb6")
+
+[node name="Sprite2D13" type="Sprite2D" parent="Foreground/fg3/CanvasGroup"]
+visible = false
+texture_filter = 1
+position = Vector2(11, 61.634)
+scale = Vector2(1.9999994, 2.1719997)
+texture = ExtResource("3_7s03d")
+
+[node name="Sprite2D14" type="Sprite2D" parent="Foreground/fg3/CanvasGroup"]
+texture_filter = 1
+position = Vector2(122.72725, 71.81817)
+scale = Vector2(1.9999994, 2.1719997)
+texture = ExtResource("13_qcs8s")
+
+[node name="Sprite2D15" type="Sprite2D" parent="Foreground/fg3/CanvasGroup"]
+texture_filter = 1
+position = Vector2(230.9026, 65.7797)
+scale = Vector2(1.9999992, 2.1719997)
+texture = ExtResource("14_1k82u")
+
+[node name="Sprite2D16" type="Sprite2D" parent="Foreground/fg3/CanvasGroup"]
+texture_filter = 1
+position = Vector2(181.90262, 64.7797)
+scale = Vector2(1.9999994, 2.1719997)
+texture = ExtResource("14_1k82u")
+
+[node name="Sprite2D17" type="Sprite2D" parent="Foreground/fg3/CanvasGroup"]
+texture_filter = 1
+position = Vector2(170.90263, 85.413704)
+rotation = 0.029053705
+scale = Vector2(1.9999994, 2.1720002)
+texture = ExtResource("5_vqv1u")
+
+[node name="Sprite2D4" type="Sprite2D" parent="Foreground/fg3/CanvasGroup"]
+visible = false
+texture_filter = 1
+position = Vector2(11, 61.633995)
+scale = Vector2(1.9999996, 2.1719997)
+texture = ExtResource("3_7s03d")
+
+[node name="Sprite2D9" type="Sprite2D" parent="Foreground/fg3/CanvasGroup"]
+texture_filter = 1
+position = Vector2(-37.27273, 77.27272)
+scale = Vector2(1.9999996, 2.1719997)
+texture = ExtResource("13_qcs8s")
+
+[node name="Sprite2D11" type="Sprite2D" parent="Foreground/fg3/CanvasGroup"]
+texture_filter = 1
+position = Vector2(69.999985, 61.999985)
+scale = Vector2(1.9999994, 2.1719997)
+texture = ExtResource("14_1k82u")
+
+[node name="Sprite2D23" type="Sprite2D" parent="Foreground/fg3/CanvasGroup"]
+texture_filter = 1
+position = Vector2(-82.727264, 141.81816)
+scale = Vector2(1.9999994, 2.1719997)
+texture = ExtResource("13_qcs8s")
+
+[node name="Sprite2D22" type="Sprite2D" parent="Foreground/fg3/CanvasGroup"]
+texture_filter = 1
+position = Vector2(-83.636345, 84.54544)
+rotation = -0.64748454
+scale = Vector2(1.9999994, 2.1719997)
+texture = ExtResource("14_1k82u")
+
+[node name="Sprite2D10" type="Sprite2D" parent="Foreground/fg3/CanvasGroup"]
+texture_filter = 1
+position = Vector2(21, 60.999992)
+scale = Vector2(1.9999996, 2.1719997)
+texture = ExtResource("14_1k82u")
+
+[node name="Sprite2D25" type="Sprite2D" parent="Foreground/fg3/CanvasGroup"]
+texture_filter = 1
+position = Vector2(-102.72725, 109.0909)
+rotation = -0.5566154
+scale = Vector2(1.9999994, 2.1719997)
+texture = ExtResource("14_1k82u")
+
+[node name="Sprite2D7" type="Sprite2D" parent="Foreground/fg3/CanvasGroup"]
+texture_filter = 1
+position = Vector2(10, 81.63399)
+rotation = 0.029053701
+scale = Vector2(1.9999996, 2.172)
+texture = ExtResource("5_vqv1u")
+
+[node name="Sprite2D19" type="Sprite2D" parent="Foreground/fg3/CanvasGroup"]
+texture_filter = 1
+position = Vector2(144.54543, 95.45454)
+rotation = 0.054812796
+scale = Vector2(2.0846958, 2.326105)
+texture = ExtResource("5_vqv1u")
+
+[node name="Sprite2D20" type="Sprite2D" parent="Foreground/fg3/CanvasGroup"]
+texture_filter = 1
+position = Vector2(0.9090879, 97.27271)
+rotation = 0.00912655
+scale = Vector2(1.9999994, 2.1720002)
+texture = ExtResource("5_vqv1u")
+
+[node name="Sprite2D21" type="Sprite2D" parent="Foreground/fg3/CanvasGroup"]
+texture_filter = 1
+position = Vector2(10.909092, 114.545456)
+rotation = -0.017014844
+scale = Vector2(2.235338, 2.4941916)
+texture = ExtResource("5_vqv1u")
+
+[node name="Sprite2D24" type="Sprite2D" parent="Foreground/fg3/CanvasGroup"]
+texture_filter = 1
+position = Vector2(203.74721, 116.01793)
+rotation = 0.053344816
+scale = Vector2(2.3867373, 2.6631236)
+texture = ExtResource("5_vqv1u")
+
+[node name="Sprite2D26" type="Sprite2D" parent="Foreground/fg3/CanvasGroup"]
+texture_filter = 1
+position = Vector2(54.54544, 130.90909)
+rotation = -0.03980978
+scale = Vector2(2.3867373, 2.6631236)
+texture = ExtResource("5_vqv1u")
+
+[node name="fg2" type="Parallax2D" parent="Foreground"]
+modulate = Color(0.5609549, 0.5609549, 0.56095487, 1)
+light_mask = 0
+scale = Vector2(1.1, 1.1)
+scroll_scale = Vector2(1.1, 1.1)
+scroll_offset = Vector2(-27, 20)
+
+[node name="CanvasGroup" type="CanvasGroup" parent="Foreground/fg2"]
+material = SubResource("ShaderMaterial_f0cb0")
+scale = Vector2(1.0000001, 1.0000001)
+
+[node name="Sprite2D24" type="Sprite2D" parent="Foreground/fg2/CanvasGroup"]
+texture_filter = 1
+position = Vector2(-62.727272, 143.63634)
+rotation = -0.97616553
+scale = Vector2(3.1430974, 2.7312074)
+texture = ExtResource("17_hyxb6")
+
+[node name="Sprite2D18" type="Sprite2D" parent="Foreground/fg2/CanvasGroup"]
+texture_filter = 1
+position = Vector2(100.74998, 154.51834)
+scale = Vector2(13.075755, 4.3377476)
+texture = ExtResource("17_hyxb6")
+
+[node name="Sprite2D13" type="Sprite2D" parent="Foreground/fg2/CanvasGroup"]
+visible = false
+texture_filter = 1
+position = Vector2(11, 61.634)
+scale = Vector2(1.9999994, 2.1719997)
+texture = ExtResource("3_7s03d")
+
+[node name="Sprite2D14" type="Sprite2D" parent="Foreground/fg2/CanvasGroup"]
+texture_filter = 1
+position = Vector2(122.90264, 65.7797)
+scale = Vector2(1.9999994, 2.1719997)
+texture = ExtResource("13_qcs8s")
+
+[node name="Sprite2D15" type="Sprite2D" parent="Foreground/fg2/CanvasGroup"]
+texture_filter = 1
+position = Vector2(230.9026, 65.7797)
+scale = Vector2(1.9999992, 2.1719997)
+texture = ExtResource("14_1k82u")
+
+[node name="Sprite2D16" type="Sprite2D" parent="Foreground/fg2/CanvasGroup"]
+texture_filter = 1
+position = Vector2(181.90262, 64.7797)
+scale = Vector2(1.9999994, 2.1719997)
+texture = ExtResource("14_1k82u")
+
+[node name="Sprite2D17" type="Sprite2D" parent="Foreground/fg2/CanvasGroup"]
+texture_filter = 1
+position = Vector2(170.90263, 85.413704)
+rotation = 0.029053705
+scale = Vector2(1.9999994, 2.1720002)
+texture = ExtResource("5_vqv1u")
+
+[node name="Sprite2D19" type="Sprite2D" parent="Foreground/fg2/CanvasGroup"]
+texture_filter = 1
+position = Vector2(207.9026, 101.7797)
+scale = Vector2(1.9999994, 2.1719997)
+texture = ExtResource("6_qcs8s")
+
+[node name="Sprite2D20" type="Sprite2D" parent="Foreground/fg2/CanvasGroup"]
+texture_filter = 1
+position = Vector2(132.38097, 85.71429)
+scale = Vector2(1.9999994, 2.1719997)
+texture = ExtResource("3_7s03d")
+
+[node name="Sprite2D21" type="Sprite2D" parent="Foreground/fg2/CanvasGroup"]
+texture_filter = 1
+position = Vector2(283.90262, 96.7797)
+scale = Vector2(1.9999994, 2.1719997)
+texture = ExtResource("4_gujbm")
+
+[node name="Sprite2D4" type="Sprite2D" parent="Foreground/fg2/CanvasGroup"]
+visible = false
+texture_filter = 1
+position = Vector2(11, 61.633995)
+scale = Vector2(1.9999996, 2.1719997)
+texture = ExtResource("3_7s03d")
+
+[node name="Sprite2D9" type="Sprite2D" parent="Foreground/fg2/CanvasGroup"]
+texture_filter = 1
+position = Vector2(-37.999992, 61.999992)
+scale = Vector2(1.9999996, 2.1719997)
+texture = ExtResource("13_qcs8s")
+
+[node name="Sprite2D11" type="Sprite2D" parent="Foreground/fg2/CanvasGroup"]
+texture_filter = 1
+position = Vector2(69.999985, 61.999985)
+scale = Vector2(1.9999994, 2.1719997)
+texture = ExtResource("14_1k82u")
+
+[node name="Sprite2D22" type="Sprite2D" parent="Foreground/fg2/CanvasGroup"]
+texture_filter = 1
+position = Vector2(-95.45453, 104.54544)
+rotation = -0.88796836
+scale = Vector2(1.9999994, 2.1719997)
+texture = ExtResource("14_1k82u")
+
+[node name="Sprite2D10" type="Sprite2D" parent="Foreground/fg2/CanvasGroup"]
+texture_filter = 1
+position = Vector2(21, 60.999992)
+scale = Vector2(1.9999996, 2.1719997)
+texture = ExtResource("14_1k82u")
+
+[node name="Sprite2D25" type="Sprite2D" parent="Foreground/fg2/CanvasGroup"]
+texture_filter = 1
+position = Vector2(-120.90907, 154.54544)
+rotation = -1.4520922
+scale = Vector2(1.9999994, 2.1719997)
+texture = ExtResource("14_1k82u")
+
+[node name="Sprite2D7" type="Sprite2D" parent="Foreground/fg2/CanvasGroup"]
+texture_filter = 1
+position = Vector2(10, 81.63399)
+rotation = 0.029053701
+scale = Vector2(1.9999996, 2.172)
+texture = ExtResource("5_vqv1u")
+
+[node name="Sprite2D12" type="Sprite2D" parent="Foreground/fg2/CanvasGroup"]
+texture_filter = 1
+position = Vector2(-99.999985, 161.81816)
+rotation = -2.7783883
+scale = Vector2(1.9999996, 2.1719997)
+texture = ExtResource("15_1k82u")
+
+[node name="Sprite2D23" type="Sprite2D" parent="Foreground/fg2/CanvasGroup"]
+texture_filter = 1
+position = Vector2(-91.81819, 106.36361)
+rotation = -0.82002497
+scale = Vector2(1.9999996, 2.1719997)
+texture = ExtResource("3_7s03d")
+
+[node name="Sprite2D6" type="Sprite2D" parent="Foreground/fg2/CanvasGroup"]
+texture_filter = 1
+position = Vector2(46.99999, 97.999985)
+scale = Vector2(1.9999996, 2.1719997)
+texture = ExtResource("6_qcs8s")
+
+[node name="Sprite2D8" type="Sprite2D" parent="Foreground/fg2/CanvasGroup"]
+texture_filter = 1
+position = Vector2(-27.999992, 80.63399)
+scale = Vector2(1.9999996, 2.1719997)
+texture = ExtResource("3_7s03d")
+
+[node name="Sprite2D5" type="Sprite2D" parent="Foreground/fg2/CanvasGroup"]
+texture_filter = 1
+position = Vector2(122.99998, 92.999985)
+scale = Vector2(1.9999996, 2.1719997)
+texture = ExtResource("4_gujbm")
+
+[node name="Sprite2D26" type="Sprite2D" parent="Foreground/fg2/CanvasGroup"]
+texture_filter = 1
+position = Vector2(120, -95.45453)
+rotation = -0.020686196
+scale = Vector2(2.872531, 3.1195688)
+texture = ExtResource("11_qc72u")
+
+[node name="Sprite2D27" type="Sprite2D" parent="Foreground/fg2/CanvasGroup"]
+texture_filter = 1
+position = Vector2(81.83708, -115.91355)
+rotation = -0.005872881
+scale = Vector2(2.6035702, 2.9833066)
+texture = ExtResource("11_qc72u")
+
+[node name="Sprite2D28" type="Sprite2D" parent="Foreground/fg2/CanvasGroup"]
+texture_filter = 1
+position = Vector2(45.454536, -111.81817)
+rotation = -0.005872881
+scale = Vector2(2.6035702, 2.9833066)
+texture = ExtResource("11_qc72u")
+
+[node name="fg5" type="Parallax2D" parent="Foreground"]
+modulate = Color(0.5609549, 0.5609549, 0.56095487, 1)
+light_mask = 2
+scale = Vector2(1.1, 1.1)
+scroll_scale = Vector2(1.4, 1.4)
+scroll_offset = Vector2(-27, 20)
+
+[node name="CanvasGroup" type="CanvasGroup" parent="Foreground/fg5"]
+material = SubResource("ShaderMaterial_f0cb0")
+scale = Vector2(1.0000001, 1.0000001)
+
+[node name="Sprite2D3" type="Sprite2D" parent="Foreground/fg5"]
+light_mask = 2
+texture_filter = 1
+texture_repeat = 2
+position = Vector2(26.363634, -307.27274)
+scale = Vector2(3, 3)
+texture = ExtResource("17_hyxb6")
+region_enabled = true
+region_rect = Rect2(-183.31415, -33, 613.45795, 97)
+
+[node name="Sprite2D" type="Sprite2D" parent="Foreground/fg5"]
+light_mask = 0
+texture_filter = 1
+texture_repeat = 2
+position = Vector2(22.72727, -115.45453)
+scale = Vector2(3, 3)
+texture = ExtResource("18_f0cb0")
+region_enabled = true
+region_rect = Rect2(-183.31415, -33, 613.45795, 97)
+
+[node name="Sprite2D2" type="Sprite2D" parent="Foreground/fg5"]
+light_mask = 0
+texture_filter = 1
+texture_repeat = 2
+position = Vector2(3.636364, 8.181816)
+scale = Vector2(3, 3)
+texture = ExtResource("18_k5sp8")
+region_enabled = true
+region_rect = Rect2(-183.31415, 0, 613.45795, 64)
+
+[node name="Sprite2D4" type="Sprite2D" parent="Foreground/fg5"]
+light_mask = 0
+texture_filter = 1
+texture_repeat = 2
+position = Vector2(2.727272, 243.63638)
+scale = Vector2(3, 3)
+texture = ExtResource("17_hyxb6")
+region_enabled = true
+region_rect = Rect2(-183.31415, -33, 613.45795, 97)
+
+[node name="Platforms" type="Node2D" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Platforms"]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/StaticBody2D"]
+position = Vector2(-22.5, 75.9375)
+shape = SubResource("RectangleShape2D_y78mo")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Platforms/StaticBody2D"]
+position = Vector2(-321, 144)
+shape = SubResource("RectangleShape2D_y78mo")

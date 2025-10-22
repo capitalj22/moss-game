@@ -1,0 +1,41 @@
+[gd_scene load_steps=7 format=3 uid="uid://cl8l2t1aij57u"]
+
+[ext_resource type="Script" uid="uid://b30kkjj061pbo" path="res://components/currency/shard.gd" id="1_lmefh"]
+[ext_resource type="Texture2D" uid="uid://dxvvytl16scl7" path="res://sprites/items/shard_1.png" id="2_koapm"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_lmefh"]
+friction = 0.16
+bounce = 0.2
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qbt7g"]
+size = Vector2(9, 9.125)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yqhtn"]
+size = Vector2(8, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4v4wx"]
+size = Vector2(10, 6)
+
+[node name="Shard" type="RigidBody2D"]
+collision_layer = 4
+collision_mask = 8
+mass = 0.017
+physics_material_override = SubResource("PhysicsMaterial_lmefh")
+script = ExtResource("1_lmefh")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(2, 2)
+texture = ExtResource("2_koapm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-3.5, -1.5625)
+shape = SubResource("RectangleShape2D_qbt7g")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
+position = Vector2(4, -3)
+shape = SubResource("RectangleShape2D_yqhtn")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(1, 4)
+shape = SubResource("RectangleShape2D_4v4wx")

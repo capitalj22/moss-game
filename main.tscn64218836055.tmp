@@ -1,0 +1,49 @@
+[gd_scene load_steps=7 format=3 uid="uid://cwodfkujwqslt"]
+
+[ext_resource type="Script" uid="uid://3ku4bjr4wnxs" path="res://player_move.gd" id="1_ig7tw"]
+[ext_resource type="Texture2D" uid="uid://wwmj1nbgnevc" path="res://icon.svg" id="2_0xm2m"]
+[ext_resource type="Script" uid="uid://de3pfrtwagvho" path="res://ball.gd" id="3_h2yge"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_0xm2m"]
+distance = -2.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h2yge"]
+size = Vector2(257, 15)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0xm2m"]
+size = Vector2(9.5, 7.5)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Bottom_Bounds" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bottom_Bounds"]
+position = Vector2(231, 647)
+shape = SubResource("WorldBoundaryShape2D_0xm2m")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+position = Vector2(292, 638)
+script = ExtResource("1_ig7tw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+top_level = true
+position = Vector2(292, 638)
+shape = SubResource("RectangleShape2D_h2yge")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+position = Vector2(-1.5258789e-05, 0)
+scale = Vector2(2.0078123, 0.12890618)
+texture = ExtResource("2_0xm2m")
+
+[node name="ball" type="RigidBody2D" parent="."]
+position = Vector2(20, 16)
+script = ExtResource("3_h2yge")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ball"]
+position = Vector2(99, 126)
+shape = SubResource("RectangleShape2D_0xm2m")
+
+[node name="Sprite2D" type="Sprite2D" parent="ball"]
+position = Vector2(99.12501, 126.125)
+scale = Vector2(0.076171786, 0.060546804)
+texture = ExtResource("2_0xm2m")

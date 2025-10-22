@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://d2tgx3mm5fuh1"]
+
+[ext_resource type="Script" uid="uid://drrqwu2utc38n" path="res://components/phys_enemy_react.gd" id="1_ye86s"]
+
+[node name="physEnemyReact" type="Node2D" node_paths=PackedStringArray("enemy")]
+script = ExtResource("1_ye86s")
+enemy = NodePath("")

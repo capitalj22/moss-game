@@ -1,0 +1,1986 @@
+[gd_scene load_steps=131 format=3 uid="uid://dc1cesekhpxiy"]
+
+[ext_resource type="Texture2D" uid="uid://cdqitms1ipi60" path="res://sprites/moss/moss_bg_1.png" id="2_3pen8"]
+[ext_resource type="Texture2D" uid="uid://btjnnk0nsoivv" path="res://sprites/moss/cliff_1.png" id="2_b33wn"]
+[ext_resource type="Texture2D" uid="uid://bu73abop70l06" path="res://sprites/moss/backwall_1.png" id="2_idp55"]
+[ext_resource type="Texture2D" uid="uid://dhdhc0bkil7g1" path="res://sprites/dark.png" id="2_vv38i"]
+[ext_resource type="Script" uid="uid://bmukbiaywkk45" path="res://moss_clump.gd" id="3_2xk85"]
+[ext_resource type="Texture2D" uid="uid://c7d3yamjsnd6d" path="res://sprites/moss/moss_round_1.png" id="3_lggg3"]
+[ext_resource type="Texture2D" uid="uid://cnhrjsy7unumm" path="res://sprites/moss/moss_flat_1.png" id="4_rybyv"]
+[ext_resource type="Texture2D" uid="uid://cg4iwjhe4frfk" path="res://sprites/moss/bone_wall_1.png" id="4_uyo2y"]
+[ext_resource type="Texture2D" uid="uid://caunk50s6owsv" path="res://sprites/moss/moss_flat_4.png" id="5_d31tb"]
+[ext_resource type="Texture2D" uid="uid://dhj4lkj3c8ngg" path="res://sprites/moss/moss_flat_2.png" id="6_e5kot"]
+[ext_resource type="Texture2D" uid="uid://4ltt8p6qohp3" path="res://sprites/moss/moss_wall_2.png" id="7_vv38i"]
+[ext_resource type="Texture2D" uid="uid://ck0a8ek66jutf" path="res://sprites/moss/moss_wall_1.png" id="8_d31tb"]
+[ext_resource type="Script" uid="uid://4q0alunao8g0" path="res://guys/mossgrub/mossgrub.gd" id="9_3pen8"]
+[ext_resource type="Texture2D" uid="uid://bry1l5sqdbbbo" path="res://sprites/moss/feature_1.png" id="9_d31tb"]
+[ext_resource type="Texture2D" uid="uid://7q8ibo3xil02" path="res://sprites/moss/feature_2.png" id="9_e5kot"]
+[ext_resource type="Texture2D" uid="uid://dmjyfmqi2dpwo" path="res://sprites/guys/mossgrub/mossgrub-Sheet_1.png" id="9_xit1q"]
+[ext_resource type="Texture2D" uid="uid://6mc6t0umd8hk" path="res://sprites/moss/moss_round_2.png" id="11_7taq0"]
+[ext_resource type="PackedScene" uid="uid://bi2qvoujutqw7" path="res://guys/mossgrub/mossgrub.tscn" id="11_gdgen"]
+[ext_resource type="Script" uid="uid://cg6ldj2gl6hnx" path="res://SHERMA.gd" id="12_gdgen"]
+[ext_resource type="Texture2D" uid="uid://bv6combidaoag" path="res://guys/sherma/sherma-Sheet.png" id="13_miy01"]
+[ext_resource type="Texture2D" uid="uid://c1n3as1ba7idu" path="res://guys/sherma/sherma-Sheet_2.png" id="14_gdgen"]
+[ext_resource type="Texture2D" uid="uid://bd0og20flah2k" path="res://sprites/moss/ceiling_3.png" id="14_vy5ye"]
+[ext_resource type="Texture2D" uid="uid://cydsmf0e6wsm7" path="res://guys/sherma/sherma_mantle.png" id="15_gkxno"]
+[ext_resource type="Texture2D" uid="uid://cykp5c5g074p3" path="res://sprites/moss/ceiling_1.png" id="15_lggg3"]
+[ext_resource type="Shader" uid="uid://bi6pvip2uqksu" path="res://vignette.gdshader" id="15_o0nso"]
+[ext_resource type="Texture2D" uid="uid://bywv50cvfxv0u" path="res://guys/sherma/sherma_rounder-sheet_3.png" id="16_j5jts"]
+[ext_resource type="Texture2D" uid="uid://d3vk44so1ps7w" path="res://sprites/moss/ceiling_2.png" id="16_nqh67"]
+[ext_resource type="Texture2D" uid="uid://blj5bs8riygcx" path="res://sprites/utility/vignette.png" id="17_j5jts"]
+[ext_resource type="Texture2D" uid="uid://cpdurdckabnqf" path="res://sprites/utility/shadowblob_rect.png" id="19_5ucxa"]
+[ext_resource type="Texture2D" uid="uid://dldxojbcdduxh" path="res://sprites/moss/foreground_1.png" id="19_s2v3k"]
+[ext_resource type="Texture2D" uid="uid://ifpab86urv75" path="res://sprites/moss/foreground_3.png" id="22_3pen8"]
+[ext_resource type="Texture2D" uid="uid://dh7e0rmrt3kf2" path="res://sprites/moss/foreground_2.png" id="23_xit1q"]
+[ext_resource type="Texture2D" uid="uid://cvww2x5n6ew2q" path="res://sprites/moss/platform_1.png" id="27_o0nso"]
+
+[sub_resource type="Shader" id="Shader_3pen8"]
+code = "shader_type canvas_item;
+render_mode unshaded;
+
+/**
+ * How blurry the result should be.
+ * This value will cause the shader to sample each pixel's neighbors up to `strength` pixels away and blur them together.
+ */
+uniform float strength : hint_range(0.0, 10.0) = 0.0;
+
+/**
+ * Exponent value for the number of samples to take.
+ * This value affects the quality at the cost of performance.
+ * The number of samples taken will be 2 to the power of this value, which means that every time you increment this value by one it doubles the required processing time.
+ */
+uniform int sample_power : hint_range(3, 8, 1) = 4;
+
+/**
+ * Check this box when using this on a CanvasGroup.
+ */
+uniform bool is_canvas_group = false;
+
+uniform sampler2D screen_texture : hint_screen_texture, repeat_disable, filter_nearest;
+
+vec2 rotate(vec2 v, float angle) {
+	mat2 rotation_matrix = mat2(vec2(cos(angle), sin(angle)), vec2(-sin(angle), cos(angle)));
+    return v * rotation_matrix;
+}
+
+void fragment() {
+    vec2 pixel_size = is_canvas_group ? SCREEN_PIXEL_SIZE : TEXTURE_PIXEL_SIZE;
+    vec2 uv = is_canvas_group ? SCREEN_UV : UV;
+
+	float samples = float(pow(2.0, float(sample_power)));
+	float layer_increment = strength / samples;
+	float angle_increment = TAU / samples;
+
+	// Fetch the color of the processed pixel.
+	vec4 color;
+	if (is_canvas_group) {
+		color = textureLod(screen_texture, uv, 0.0);
+	} else {
+		color = textureLod(TEXTURE, uv, 0.0);
+	}
+
+
+	// Iterate over samples number of layers. Skip this loop entirely if the strength is 0.
+	for (float d = layer_increment; d <= strength && strength > 0.0; d += layer_increment) {
+		// Create an empty vec4 to store the average color of the current layer.
+		vec4 layer_color = vec4(0.0, 0.0, 0.0, 0.0);
+
+		// Iterate over samples number of angles.
+		for (float t = 0.0; t < TAU; t += angle_increment) {
+			vec2 sample_uv = uv + rotate(pixel_size * d, t);
+			vec4 sample_color;
+			if (is_canvas_group) {
+				sample_color = textureLod(screen_texture, sample_uv, 0.0);
+			} else {
+				sample_color = textureLod(TEXTURE, sample_uv, 0.0);
+			}
+			layer_color += sample_color;
+		}
+
+		// Find the average color of the current layer.
+		layer_color /= samples;
+
+		// Determine the weight given to the current layer. Farther layers will have less weight.
+		float weight = 1.0 - sqrt(d / strength);
+
+		// Mix the current layer's color with the processed pixel's color by the calculated weight.
+		color = mix(color, layer_color, weight);
+	}
+
+	if (is_canvas_group) {
+		color.rgb /= color.a > 0.0001 ? color.a : 1.0;
+		COLOR *= color;
+	} else {
+		COLOR = color;
+	}
+}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_s2v3k"]
+shader = SubResource("Shader_3pen8")
+shader_parameter/strength = 1.200000057
+shader_parameter/sample_power = 4
+shader_parameter/is_canvas_group = true
+
+[sub_resource type="Gradient" id="Gradient_idp55"]
+colors = PackedColorArray(0, 0, 0, 0, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_gdgen"]
+gradient = SubResource("Gradient_idp55")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5ucxa"]
+shader = SubResource("Shader_3pen8")
+shader_parameter/strength = 0.70000003325
+shader_parameter/sample_power = 4
+shader_parameter/is_canvas_group = true
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3pen8"]
+size = Vector2(32, 23)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r87kf"]
+atlas = ExtResource("9_xit1q")
+region = Rect2(21, 0, 21, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kagl1"]
+atlas = ExtResource("9_xit1q")
+region = Rect2(42, 0, 21, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7jts5"]
+atlas = ExtResource("9_xit1q")
+region = Rect2(63, 0, 21, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jigc7"]
+atlas = ExtResource("9_xit1q")
+region = Rect2(84, 0, 21, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ejl6"]
+atlas = ExtResource("9_xit1q")
+region = Rect2(105, 0, 21, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_idp55"]
+atlas = ExtResource("9_xit1q")
+region = Rect2(126, 0, 21, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gdgen"]
+atlas = ExtResource("9_xit1q")
+region = Rect2(147, 0, 21, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ucxa"]
+atlas = ExtResource("9_xit1q")
+region = Rect2(0, 0, 21, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_miy01"]
+atlas = ExtResource("9_xit1q")
+region = Rect2(168, 0, 21, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bmtch"]
+atlas = ExtResource("9_xit1q")
+region = Rect2(189, 0, 21, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o0nso"]
+atlas = ExtResource("9_xit1q")
+region = Rect2(210, 0, 21, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gkxno"]
+atlas = ExtResource("9_xit1q")
+region = Rect2(231, 0, 21, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j5jts"]
+atlas = ExtResource("9_xit1q")
+region = Rect2(252, 0, 21, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ntq07"]
+atlas = ExtResource("9_xit1q")
+region = Rect2(273, 0, 21, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q3pqx"]
+atlas = ExtResource("9_xit1q")
+region = Rect2(294, 0, 21, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jdi47"]
+atlas = ExtResource("9_xit1q")
+region = Rect2(315, 0, 21, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2c6qo"]
+atlas = ExtResource("9_xit1q")
+region = Rect2(336, 0, 21, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xi185"]
+atlas = ExtResource("9_xit1q")
+region = Rect2(357, 0, 21, 14)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_q7p4p"]
+animations = [{
+"frames": [{
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_r87kf")
+}, {
+"duration": 1.71,
+"texture": SubResource("AtlasTexture_kagl1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7jts5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jigc7")
+}, {
+"duration": 1.71,
+"texture": SubResource("AtlasTexture_5ejl6")
+}, {
+"duration": 1.31,
+"texture": SubResource("AtlasTexture_idp55")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gdgen")
+}],
+"loop": true,
+"name": &"attack",
+"speed": 20.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5ucxa")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5ucxa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_miy01")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bmtch")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o0nso")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gkxno")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j5jts")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ntq07")
+}],
+"loop": false,
+"name": &"pause",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ntq07")
+}],
+"loop": false,
+"name": &"pause_idle",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5ucxa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q3pqx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jdi47")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2c6qo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xi185")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 10.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q7p4p"]
+atlas = ExtResource("13_miy01")
+region = Rect2(0, 0, 46, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bc21j"]
+atlas = ExtResource("13_miy01")
+region = Rect2(46, 0, 46, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t5dvv"]
+atlas = ExtResource("13_miy01")
+region = Rect2(92, 0, 46, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ea8sw"]
+atlas = ExtResource("13_miy01")
+region = Rect2(138, 0, 46, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xx4ja"]
+atlas = ExtResource("13_miy01")
+region = Rect2(184, 0, 46, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_owyus"]
+atlas = ExtResource("13_miy01")
+region = Rect2(230, 0, 46, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gkjrw"]
+atlas = ExtResource("13_miy01")
+region = Rect2(0, 50, 46, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k664n"]
+atlas = ExtResource("13_miy01")
+region = Rect2(46, 50, 46, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nxxln"]
+atlas = ExtResource("13_miy01")
+region = Rect2(92, 50, 46, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jcndw"]
+atlas = ExtResource("13_miy01")
+region = Rect2(138, 50, 46, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lvjbv"]
+atlas = ExtResource("13_miy01")
+region = Rect2(184, 50, 46, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xt55p"]
+atlas = ExtResource("13_miy01")
+region = Rect2(230, 50, 46, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_53oj1"]
+atlas = ExtResource("13_miy01")
+region = Rect2(0, 100, 46, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gpf8u"]
+atlas = ExtResource("13_miy01")
+region = Rect2(46, 100, 46, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g04aa"]
+atlas = ExtResource("13_miy01")
+region = Rect2(92, 100, 46, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_betgg"]
+atlas = ExtResource("13_miy01")
+region = Rect2(138, 100, 46, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4k0bh"]
+atlas = ExtResource("13_miy01")
+region = Rect2(184, 100, 46, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r565w"]
+atlas = ExtResource("13_miy01")
+region = Rect2(230, 100, 46, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gh6af"]
+atlas = ExtResource("13_miy01")
+region = Rect2(0, 150, 46, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sr4sj"]
+atlas = ExtResource("13_miy01")
+region = Rect2(46, 150, 46, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cobd1"]
+atlas = ExtResource("13_miy01")
+region = Rect2(92, 150, 46, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_exe1h"]
+atlas = ExtResource("13_miy01")
+region = Rect2(138, 150, 46, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fpk15"]
+atlas = ExtResource("13_miy01")
+region = Rect2(184, 150, 46, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rajdw"]
+atlas = ExtResource("13_miy01")
+region = Rect2(230, 150, 46, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v8jax"]
+atlas = ExtResource("13_miy01")
+region = Rect2(0, 200, 46, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6lexm"]
+atlas = ExtResource("13_miy01")
+region = Rect2(46, 200, 46, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ubkl6"]
+atlas = ExtResource("13_miy01")
+region = Rect2(92, 200, 46, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p5y4p"]
+atlas = ExtResource("13_miy01")
+region = Rect2(138, 200, 46, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_53wi5"]
+atlas = ExtResource("13_miy01")
+region = Rect2(184, 200, 46, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_htdli"]
+atlas = ExtResource("13_miy01")
+region = Rect2(230, 200, 46, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0s7oe"]
+atlas = ExtResource("13_miy01")
+region = Rect2(0, 250, 46, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ihhy"]
+atlas = ExtResource("13_miy01")
+region = Rect2(46, 250, 46, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4sfs6"]
+atlas = ExtResource("13_miy01")
+region = Rect2(92, 250, 46, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jgm0r"]
+atlas = ExtResource("13_miy01")
+region = Rect2(138, 250, 46, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hukmk"]
+atlas = ExtResource("13_miy01")
+region = Rect2(184, 250, 46, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k20sr"]
+atlas = ExtResource("13_miy01")
+region = Rect2(230, 250, 46, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3b3qi"]
+atlas = ExtResource("16_j5jts")
+region = Rect2(322, 45, 46, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_raou6"]
+atlas = ExtResource("16_j5jts")
+region = Rect2(0, 90, 46, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ychyo"]
+atlas = ExtResource("16_j5jts")
+region = Rect2(46, 90, 46, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kgpxk"]
+atlas = ExtResource("16_j5jts")
+region = Rect2(92, 90, 46, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tt3u2"]
+atlas = ExtResource("16_j5jts")
+region = Rect2(138, 90, 46, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6d5f0"]
+atlas = ExtResource("16_j5jts")
+region = Rect2(184, 90, 46, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dgq51"]
+atlas = ExtResource("14_gdgen")
+region = Rect2(184, 200, 46, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7vnc7"]
+atlas = ExtResource("14_gdgen")
+region = Rect2(230, 200, 46, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qo13j"]
+atlas = ExtResource("14_gdgen")
+region = Rect2(276, 200, 46, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qfe8p"]
+atlas = ExtResource("14_gdgen")
+region = Rect2(0, 250, 46, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1mh64"]
+atlas = ExtResource("14_gdgen")
+region = Rect2(46, 250, 46, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_db25l"]
+atlas = ExtResource("15_gkxno")
+region = Rect2(0, 0, 46, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tqwe4"]
+atlas = ExtResource("15_gkxno")
+region = Rect2(46, 0, 46, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3c8e6"]
+atlas = ExtResource("15_gkxno")
+region = Rect2(92, 0, 46, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o5yte"]
+atlas = ExtResource("15_gkxno")
+region = Rect2(0, 50, 46, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ctxvq"]
+atlas = ExtResource("15_gkxno")
+region = Rect2(46, 50, 46, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mvrsc"]
+atlas = ExtResource("15_gkxno")
+region = Rect2(92, 50, 46, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f0ouh"]
+atlas = ExtResource("16_j5jts")
+region = Rect2(92, 270, 46, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nmrf7"]
+atlas = ExtResource("16_j5jts")
+region = Rect2(138, 270, 46, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p3c52"]
+atlas = ExtResource("16_j5jts")
+region = Rect2(184, 270, 46, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w4h54"]
+atlas = ExtResource("16_j5jts")
+region = Rect2(230, 270, 46, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ts0jh"]
+atlas = ExtResource("16_j5jts")
+region = Rect2(276, 270, 46, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vjjlf"]
+atlas = ExtResource("16_j5jts")
+region = Rect2(322, 270, 46, 45)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6lexm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q7p4p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bc21j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t5dvv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ea8sw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xx4ja")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_owyus")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gkjrw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k664n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nxxln")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jcndw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lvjbv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xt55p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_53oj1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gpf8u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g04aa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_betgg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4k0bh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r565w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gh6af")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sr4sj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cobd1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_exe1h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fpk15")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rajdw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v8jax")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6lexm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ubkl6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p5y4p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_53wi5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_htdli")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0s7oe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5ihhy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4sfs6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jgm0r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hukmk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k20sr")
+}],
+"loop": true,
+"name": &"all",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3b3qi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_raou6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ychyo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kgpxk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tt3u2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6d5f0")
+}],
+"loop": false,
+"name": &"attack_1",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6lexm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ubkl6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p5y4p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_53wi5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_htdli")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0s7oe")
+}],
+"loop": false,
+"name": &"crawl",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dgq51")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7vnc7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qo13j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qfe8p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1mh64")
+}],
+"loop": false,
+"name": &"guard",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1mh64")
+}],
+"loop": false,
+"name": &"guarding",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6lexm")
+}],
+"loop": false,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4sfs6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jgm0r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hukmk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k20sr")
+}],
+"loop": false,
+"name": &"jump",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k20sr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hukmk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4sfs6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jgm0r")
+}],
+"loop": false,
+"name": &"jump_down",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k20sr")
+}],
+"loop": true,
+"name": &"jump_peak",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_db25l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tqwe4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3c8e6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o5yte")
+}, {
+"duration": 1.71,
+"texture": SubResource("AtlasTexture_ctxvq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mvrsc")
+}],
+"loop": false,
+"name": &"mantle",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jcndw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xt55p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gpf8u")
+}],
+"loop": false,
+"name": &"roll",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f0ouh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nmrf7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p3c52")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w4h54")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ts0jh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vjjlf")
+}],
+"loop": false,
+"name": &"roll_cont",
+"speed": 15.0
+}]
+
+[sub_resource type="Gradient" id="Gradient_yx0sj"]
+offsets = PackedFloat32Array(0.04109589, 0.15068494, 0.6164383)
+colors = PackedColorArray(1, 1, 1, 1, 0.88095236, 0.88095236, 0.88095236, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_0hrvp"]
+gradient = SubResource("Gradient_yx0sj")
+width = 67
+fill = 1
+fill_from = Vector2(0.50476193, 0.4935268)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qc72u"]
+shader = ExtResource("15_o0nso")
+shader_parameter/outerRadius = 1.0
+shader_parameter/MainAlpha = 1.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gdgen"]
+size = Vector2(32, 43)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7taq0"]
+size = Vector2(39, 19.86)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_uyo2y"]
+load_path = "res://.godot/imported/moss_flat_3.png-a845d09a623eeca8484bd97e0184d73c.ctex"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bs2y1"]
+size = Vector2(48, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l3r1s"]
+size = Vector2(16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2xk85"]
+size = Vector2(640, 174.25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sm1uw"]
+size = Vector2(494, 111.5625)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_miy01"]
+size = Vector2(72, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rybyv"]
+size = Vector2(192, 111.0625)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Background" type="Node2D" parent="."]
+
+[node name="CanvasGroup" type="CanvasGroup" parent="Background"]
+material = SubResource("ShaderMaterial_s2v3k")
+position = Vector2(-13, 212)
+
+[node name="backdrop_teal" type="Sprite2D" parent="Background/CanvasGroup"]
+visible = false
+modulate = Color(2.1658838e-07, 0.28019556, 0.20495722, 1)
+texture_filter = 1
+position = Vector2(272.50003, -258.25003)
+scale = Vector2(9.6796875, 10.0859375)
+
+[node name="back_props 4" type="Parallax2D" parent="Background"]
+scroll_scale = Vector2(0.2, 0.2)
+scroll_offset = Vector2(-14, 239)
+
+[node name="CanvasGroup2" type="CanvasGroup" parent="Background/back_props 4"]
+material = SubResource("ShaderMaterial_s2v3k")
+position = Vector2(-20, 0)
+
+[node name="backdrop_teal2" type="Sprite2D" parent="Background/back_props 4/CanvasGroup2"]
+visible = false
+texture_filter = 1
+texture_repeat = 2
+position = Vector2(193, -149)
+scale = Vector2(2.465501, 2.6813672)
+texture = ExtResource("2_idp55")
+region_enabled = true
+region_rect = Rect2(-199.66785, -157.84389, 674.95013, 404.0916)
+
+[node name="back_props 5" type="Parallax2D" parent="Background"]
+modulate = Color(0.8195044, 0.80362016, 0.8609639, 1)
+scroll_scale = Vector2(0.6, 0.6)
+scroll_offset = Vector2(-14, 239)
+
+[node name="CanvasGroup2" type="CanvasGroup" parent="Background/back_props 5"]
+material = SubResource("ShaderMaterial_s2v3k")
+position = Vector2(-20, 0)
+
+[node name="moss" type="Sprite2D" parent="Background/back_props 5/CanvasGroup2"]
+modulate = Color(0.46953303, 0.7362046, 0.38266963, 1)
+texture_filter = 1
+position = Vector2(363.99997, -164)
+scale = Vector2(2.5915546, 2.6488295)
+texture = ExtResource("2_3pen8")
+
+[node name="back_props 3" type="Parallax2D" parent="Background"]
+modulate = Color(0.8195044, 0.80362016, 0.8609639, 1)
+scroll_scale = Vector2(0.7, 0.7)
+scroll_offset = Vector2(-14, 239)
+
+[node name="CanvasGroup2" type="CanvasGroup" parent="Background/back_props 3"]
+material = SubResource("ShaderMaterial_s2v3k")
+
+[node name="moss" type="Sprite2D" parent="Background/back_props 3/CanvasGroup2"]
+modulate = Color(0.6811946, 0.9322597, 0.604129, 1)
+texture_filter = 1
+position = Vector2(363.99997, -164)
+scale = Vector2(2.5915546, 2.6488295)
+texture = ExtResource("2_3pen8")
+
+[node name="back_props 2" type="Parallax2D" parent="Background"]
+modulate = Color(0.8195044, 0.80362016, 0.8609639, 1)
+scroll_scale = Vector2(0.94, 0.94)
+scroll_offset = Vector2(-13, 212)
+
+[node name="haze gradient" type="Sprite2D" parent="Background/back_props 2"]
+visible = false
+modulate = Color(0.62352943, 1, 1, 0.20392157)
+texture_filter = 1
+position = Vector2(172.00006, -80.00001)
+rotation = 1.5832069
+scale = Vector2(5.313489, 21.173409)
+texture = SubResource("GradientTexture2D_gdgen")
+
+[node name="CanvasGroup2" type="CanvasGroup" parent="Background/back_props 2"]
+material = SubResource("ShaderMaterial_5ucxa")
+
+[node name="cave_wall3" type="Sprite2D" parent="Background/back_props 2/CanvasGroup2"]
+modulate = Color(0.69965345, 0.69965345, 0.69965345, 1)
+texture_filter = 1
+position = Vector2(524, -148.00002)
+rotation = 1.5779696
+scale = Vector2(1.6874665, 1.9124026)
+texture = ExtResource("7_vv38i")
+
+[node name="cave_wall4" type="Sprite2D" parent="Background/back_props 2/CanvasGroup2"]
+modulate = Color(0.83889705, 0.83889705, 0.838897, 1)
+texture_filter = 1
+position = Vector2(502.00003, -145)
+rotation = 1.5779696
+scale = Vector2(1.7368829, 2.139006)
+texture = ExtResource("7_vv38i")
+
+[node name="cave_wall2" type="Sprite2D" parent="Background/back_props 2/CanvasGroup2"]
+texture_filter = 1
+position = Vector2(481, -150)
+rotation = 1.5407934
+scale = Vector2(1.9588197, 2.4123259)
+texture = ExtResource("7_vv38i")
+
+[node name="bush" type="Sprite2D" parent="Background/back_props 2/CanvasGroup2"]
+texture_filter = 1
+position = Vector2(317, -90)
+scale = Vector2(2, 2)
+texture = ExtResource("11_7taq0")
+
+[node name="bush3" type="Sprite2D" parent="Background/back_props 2/CanvasGroup2"]
+texture_filter = 1
+position = Vector2(201, -91)
+scale = Vector2(2, 2)
+texture = ExtResource("3_lggg3")
+
+[node name="bush2" type="Sprite2D" parent="Background/back_props 2/CanvasGroup2"]
+texture_filter = 1
+position = Vector2(450, -88)
+scale = Vector2(2, 2)
+texture = ExtResource("8_d31tb")
+
+[node name="cave_wall" type="Sprite2D" parent="Background/back_props 2/CanvasGroup2"]
+texture_filter = 1
+position = Vector2(401.99997, -116.99997)
+rotation = 1.4310498
+scale = Vector2(2, 2)
+texture = ExtResource("16_nqh67")
+
+[node name="back_props 1" type="Parallax2D" parent="Background"]
+modulate = Color(0.8195044, 0.80362016, 0.8609639, 1)
+scroll_scale = Vector2(0.95, 0.95)
+scroll_offset = Vector2(-13, 212)
+
+[node name="CanvasGroup2" type="CanvasGroup" parent="Background/back_props 1"]
+material = SubResource("ShaderMaterial_s2v3k")
+
+[node name="cave_wall" type="Sprite2D" parent="Background/back_props 1/CanvasGroup2"]
+texture_filter = 1
+position = Vector2(438, -143)
+rotation = 1.5707964
+scale = Vector2(2, 2)
+texture = ExtResource("15_lggg3")
+
+[node name="bush" type="Sprite2D" parent="Background/back_props 1/CanvasGroup2"]
+texture_filter = 1
+position = Vector2(438, -143)
+rotation = 1.5707964
+scale = Vector2(2, 2)
+texture = ExtResource("15_lggg3")
+
+[node name="bush3" type="Sprite2D" parent="Background/back_props 1/CanvasGroup2"]
+texture_filter = 1
+position = Vector2(258, -87)
+scale = Vector2(2, 2)
+texture = ExtResource("3_lggg3")
+
+[node name="bush2" type="Sprite2D" parent="Background/back_props 1/CanvasGroup2"]
+texture_filter = 1
+position = Vector2(450, -88)
+scale = Vector2(2, 2)
+texture = ExtResource("8_d31tb")
+
+[node name="Mossgrub" type="Node2D" parent="Background"]
+position = Vector2(147, 103)
+
+[node name="mossgrub" type="CharacterBody2D" parent="Background/Mossgrub"]
+position = Vector2(-2, 2)
+script = ExtResource("9_3pen8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Background/Mossgrub/mossgrub"]
+position = Vector2(2, -2)
+shape = SubResource("RectangleShape2D_3pen8")
+
+[node name="sprite" type="AnimatedSprite2D" parent="Background/Mossgrub/mossgrub"]
+texture_filter = 1
+position = Vector2(5, -2)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_q7p4p")
+animation = &"walk"
+
+[node name="Mossgrub2" parent="Background" instance=ExtResource("11_gdgen")]
+position = Vector2(147, 103)
+
+[node name="player1" type="CharacterBody2D" parent="."]
+position = Vector2(232, 88)
+script = ExtResource("12_gdgen")
+
+[node name="sprite" type="AnimatedSprite2D" parent="player1"]
+texture_filter = 3
+position = Vector2(5, -46)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_6lexm")
+animation = &"roll_cont"
+offset = Vector2(0.5, -1.5)
+
+[node name="PointLight2D" type="PointLight2D" parent="player1"]
+position = Vector2(-1.0000114, -34.25)
+scale = Vector2(3.6879663, 2.4140627)
+energy = 0.62
+texture = SubResource("GradientTexture2D_0hrvp")
+
+[node name="Camera2D" type="Camera2D" parent="player1"]
+material = SubResource("ShaderMaterial_qc72u")
+position = Vector2(0, -63)
+
+[node name="vignette" type="Sprite2D" parent="player1/Camera2D"]
+visible = false
+z_index = 4
+position = Vector2(2.624949, 36.000008)
+scale = Vector2(1.2883772, 0.5823928)
+texture = ExtResource("17_j5jts")
+
+[node name="Sprite2D" type="Sprite2D" parent="player1/Camera2D"]
+visible = false
+modulate = Color(0, 0, 0, 1)
+position = Vector2(5, -165)
+scale = Vector2(32.777782, 5.5632277)
+texture = ExtResource("2_vv38i")
+
+[node name="Sprite2D3" type="Sprite2D" parent="player1/Camera2D"]
+visible = false
+modulate = Color(0, 0, 0, 1)
+position = Vector2(5, 210.00002)
+scale = Vector2(32.777782, 5.5632277)
+texture = ExtResource("2_vv38i")
+
+[node name="Sprite2D2" type="Sprite2D" parent="player1/Camera2D"]
+visible = false
+position = Vector2(3, -10.999985)
+scale = Vector2(1.3033625, 0.8095373)
+texture = ExtResource("17_j5jts")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player1"]
+position = Vector2(8, -26.5)
+shape = SubResource("RectangleShape2D_gdgen")
+
+[node name="Foreground" type="Node2D" parent="."]
+
+[node name="platformlayer" type="Parallax2D" parent="Foreground"]
+scroll_offset = Vector2(114, 91)
+
+[node name="Node2D" type="Node2D" parent="Foreground/platformlayer"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Foreground/platformlayer/Node2D"]
+texture_filter = 1
+position = Vector2(204.50003, 90.99999)
+scale = Vector2(13.222222, 3.4615383)
+texture = ExtResource("2_vv38i")
+
+[node name="walkable_moss" type="CanvasGroup" parent="Foreground/platformlayer/Node2D"]
+position = Vector2(632, -75)
+
+[node name="cliff" type="Sprite2D" parent="Foreground/platformlayer/Node2D/walkable_moss"]
+texture_filter = 1
+position = Vector2(-591, 138)
+scale = Vector2(2, 2)
+texture = ExtResource("2_b33wn")
+
+[node name="cliff2" type="Sprite2D" parent="Foreground/platformlayer/Node2D/walkable_moss"]
+texture_filter = 1
+position = Vector2(-547, 159)
+scale = Vector2(2, 2)
+texture = ExtResource("4_uyo2y")
+
+[node name="mossClump" type="Area2D" parent="Foreground/platformlayer/Node2D/walkable_moss"]
+script = ExtResource("3_2xk85")
+
+[node name="moss" type="Sprite2D" parent="Foreground/platformlayer/Node2D/walkable_moss/mossClump"]
+texture_filter = 1
+position = Vector2(-270, 109)
+scale = Vector2(2, 2.172)
+texture = ExtResource("4_rybyv")
+
+[node name="moss_collision" type="CollisionShape2D" parent="Foreground/platformlayer/Node2D/walkable_moss/mossClump"]
+position = Vector2(-266.5, 108)
+shape = SubResource("RectangleShape2D_7taq0")
+debug_color = Color(0.11417065, 0.46737587, 0.3086608, 0.41960785)
+
+[node name="mossClump2" type="Area2D" parent="Foreground/platformlayer/Node2D/walkable_moss"]
+position = Vector2(-32, 0)
+script = ExtResource("3_2xk85")
+
+[node name="moss" type="Sprite2D" parent="Foreground/platformlayer/Node2D/walkable_moss/mossClump2"]
+texture_filter = 1
+position = Vector2(-270, 109)
+scale = Vector2(2, 2.172)
+texture = SubResource("CompressedTexture2D_uyo2y")
+
+[node name="moss_collision" type="CollisionShape2D" parent="Foreground/platformlayer/Node2D/walkable_moss/mossClump2"]
+position = Vector2(-266.5, 108)
+shape = SubResource("RectangleShape2D_7taq0")
+debug_color = Color(0.11417065, 0.46737587, 0.3086608, 0.41960785)
+
+[node name="mossClump4" type="Area2D" parent="Foreground/platformlayer/Node2D/walkable_moss"]
+position = Vector2(-379, 104)
+script = ExtResource("3_2xk85")
+
+[node name="moss" type="Sprite2D" parent="Foreground/platformlayer/Node2D/walkable_moss/mossClump4"]
+texture_filter = 1
+position = Vector2(5, 4.8600006)
+scale = Vector2(2, 2.172)
+texture = ExtResource("4_rybyv")
+
+[node name="moss_collision" type="CollisionShape2D" parent="Foreground/platformlayer/Node2D/walkable_moss/mossClump4"]
+position = Vector2(5.5, 3.9300003)
+shape = SubResource("RectangleShape2D_7taq0")
+debug_color = Color(0.11417065, 0.46737587, 0.3086608, 0.41960785)
+
+[node name="mossClump5" type="Area2D" parent="Foreground/platformlayer/Node2D/walkable_moss"]
+position = Vector2(-412, 110)
+script = ExtResource("3_2xk85")
+
+[node name="moss" type="Sprite2D" parent="Foreground/platformlayer/Node2D/walkable_moss/mossClump5"]
+texture_filter = 1
+position = Vector2(4, -0.22599792)
+scale = Vector2(2, 2.172)
+texture = SubResource("CompressedTexture2D_uyo2y")
+
+[node name="moss_collision" type="CollisionShape2D" parent="Foreground/platformlayer/Node2D/walkable_moss/mossClump5"]
+position = Vector2(7.5, -1.2259979)
+shape = SubResource("RectangleShape2D_7taq0")
+debug_color = Color(0.11417065, 0.46737587, 0.3086608, 0.41960785)
+
+[node name="mossClump6" type="Area2D" parent="Foreground/platformlayer/Node2D/walkable_moss"]
+position = Vector2(-447, 109)
+script = ExtResource("3_2xk85")
+
+[node name="moss" type="Sprite2D" parent="Foreground/platformlayer/Node2D/walkable_moss/mossClump6"]
+texture_filter = 1
+position = Vector2(4, -0.22599792)
+scale = Vector2(2, 2.172)
+texture = SubResource("CompressedTexture2D_uyo2y")
+
+[node name="moss_collision" type="CollisionShape2D" parent="Foreground/platformlayer/Node2D/walkable_moss/mossClump6"]
+position = Vector2(7.5, -1.2259979)
+shape = SubResource("RectangleShape2D_7taq0")
+debug_color = Color(0.11417065, 0.46737587, 0.3086608, 0.41960785)
+
+[node name="mossClump7" type="Area2D" parent="Foreground/platformlayer/Node2D/walkable_moss"]
+position = Vector2(-485, 110)
+script = ExtResource("3_2xk85")
+
+[node name="moss" type="Sprite2D" parent="Foreground/platformlayer/Node2D/walkable_moss/mossClump7"]
+texture_filter = 1
+position = Vector2(4, -0.22599792)
+scale = Vector2(2, 2.172)
+texture = ExtResource("5_d31tb")
+
+[node name="moss_collision" type="CollisionShape2D" parent="Foreground/platformlayer/Node2D/walkable_moss/mossClump7"]
+position = Vector2(7.5, -1.2259979)
+shape = SubResource("RectangleShape2D_7taq0")
+debug_color = Color(0.11417065, 0.46737587, 0.3086608, 0.41960785)
+
+[node name="mossClump8" type="Area2D" parent="Foreground/platformlayer/Node2D/walkable_moss"]
+position = Vector2(-520, 110)
+script = ExtResource("3_2xk85")
+
+[node name="moss" type="Sprite2D" parent="Foreground/platformlayer/Node2D/walkable_moss/mossClump8"]
+texture_filter = 1
+position = Vector2(4, -0.22599792)
+scale = Vector2(2, 2.172)
+texture = ExtResource("6_e5kot")
+
+[node name="moss_collision" type="CollisionShape2D" parent="Foreground/platformlayer/Node2D/walkable_moss/mossClump8"]
+position = Vector2(7.5, -1.2259979)
+shape = SubResource("RectangleShape2D_7taq0")
+debug_color = Color(0.11417065, 0.46737587, 0.3086608, 0.41960785)
+
+[node name="mossClump9" type="Area2D" parent="Foreground/platformlayer/Node2D/walkable_moss"]
+position = Vector2(-556, 110)
+script = ExtResource("3_2xk85")
+
+[node name="moss" type="Sprite2D" parent="Foreground/platformlayer/Node2D/walkable_moss/mossClump9"]
+texture_filter = 1
+position = Vector2(4, -0.22599792)
+scale = Vector2(2, 2.172)
+texture = SubResource("CompressedTexture2D_uyo2y")
+
+[node name="moss_collision" type="CollisionShape2D" parent="Foreground/platformlayer/Node2D/walkable_moss/mossClump9"]
+position = Vector2(7.5, -1.2259979)
+shape = SubResource("RectangleShape2D_7taq0")
+debug_color = Color(0.11417065, 0.46737587, 0.3086608, 0.41960785)
+
+[node name="mossClump3" type="Area2D" parent="Foreground/platformlayer/Node2D/walkable_moss"]
+position = Vector2(-32, 0)
+script = ExtResource("3_2xk85")
+
+[node name="moss" type="Sprite2D" parent="Foreground/platformlayer/Node2D/walkable_moss/mossClump3"]
+texture_filter = 1
+position = Vector2(-305, 108)
+scale = Vector2(2, 2.172)
+texture = ExtResource("5_d31tb")
+
+[node name="moss_collision" type="CollisionShape2D" parent="Foreground/platformlayer/Node2D/walkable_moss/mossClump3"]
+position = Vector2(-307, 108)
+shape = SubResource("RectangleShape2D_bs2y1")
+debug_color = Color(0.11417065, 0.46737587, 0.3086608, 0.41960785)
+
+[node name="moss12" type="Sprite2D" parent="Foreground/platformlayer/Node2D/walkable_moss"]
+texture_filter = 1
+position = Vector2(-352.99994, 123.99999)
+scale = Vector2(1.9090908, 1.8181818)
+texture = ExtResource("7_vv38i")
+
+[node name="moss14" type="Sprite2D" parent="Foreground/platformlayer/Node2D/walkable_moss"]
+texture_filter = 1
+position = Vector2(-489, 126)
+scale = Vector2(1.9090908, 1.8181818)
+texture = ExtResource("8_d31tb")
+
+[node name="walkable_2" type="CanvasGroup" parent="Foreground/platformlayer/Node2D"]
+position = Vector2(276, -8)
+
+[node name="mossClump" type="Area2D" parent="Foreground/platformlayer/Node2D/walkable_2"]
+script = ExtResource("3_2xk85")
+
+[node name="moss" type="Sprite2D" parent="Foreground/platformlayer/Node2D/walkable_2/mossClump"]
+texture_filter = 1
+position = Vector2(-270, 109)
+scale = Vector2(2, 2.172)
+texture = ExtResource("4_rybyv")
+
+[node name="moss_collision" type="CollisionShape2D" parent="Foreground/platformlayer/Node2D/walkable_2/mossClump"]
+position = Vector2(-266.5, 108)
+shape = SubResource("RectangleShape2D_7taq0")
+debug_color = Color(0.11417065, 0.46737587, 0.3086608, 0.41960785)
+
+[node name="mossClump2" type="Area2D" parent="Foreground/platformlayer/Node2D/walkable_2"]
+position = Vector2(-32, 0)
+script = ExtResource("3_2xk85")
+
+[node name="moss" type="Sprite2D" parent="Foreground/platformlayer/Node2D/walkable_2/mossClump2"]
+texture_filter = 1
+position = Vector2(-270, 109)
+scale = Vector2(2, 2.172)
+texture = SubResource("CompressedTexture2D_uyo2y")
+
+[node name="moss_collision" type="CollisionShape2D" parent="Foreground/platformlayer/Node2D/walkable_2/mossClump2"]
+position = Vector2(-266.5, 108)
+shape = SubResource("RectangleShape2D_7taq0")
+debug_color = Color(0.11417065, 0.46737587, 0.3086608, 0.41960785)
+
+[node name="mossClump4" type="Area2D" parent="Foreground/platformlayer/Node2D/walkable_2"]
+position = Vector2(-379, 104)
+script = ExtResource("3_2xk85")
+
+[node name="moss" type="Sprite2D" parent="Foreground/platformlayer/Node2D/walkable_2/mossClump4"]
+texture_filter = 1
+position = Vector2(5, 4.8600006)
+scale = Vector2(2, 2.172)
+texture = ExtResource("4_rybyv")
+
+[node name="moss_collision" type="CollisionShape2D" parent="Foreground/platformlayer/Node2D/walkable_2/mossClump4"]
+position = Vector2(5.5, 3.9300003)
+shape = SubResource("RectangleShape2D_7taq0")
+debug_color = Color(0.11417065, 0.46737587, 0.3086608, 0.41960785)
+
+[node name="mossClump5" type="Area2D" parent="Foreground/platformlayer/Node2D/walkable_2"]
+position = Vector2(-412, 110)
+script = ExtResource("3_2xk85")
+
+[node name="moss" type="Sprite2D" parent="Foreground/platformlayer/Node2D/walkable_2/mossClump5"]
+texture_filter = 1
+position = Vector2(4, -0.22599792)
+scale = Vector2(2, 2.172)
+texture = SubResource("CompressedTexture2D_uyo2y")
+
+[node name="moss_collision" type="CollisionShape2D" parent="Foreground/platformlayer/Node2D/walkable_2/mossClump5"]
+position = Vector2(7.5, -1.2259979)
+shape = SubResource("RectangleShape2D_7taq0")
+debug_color = Color(0.11417065, 0.46737587, 0.3086608, 0.41960785)
+
+[node name="mossClump3" type="Area2D" parent="Foreground/platformlayer/Node2D/walkable_2"]
+position = Vector2(-32, 0)
+script = ExtResource("3_2xk85")
+
+[node name="moss" type="Sprite2D" parent="Foreground/platformlayer/Node2D/walkable_2/mossClump3"]
+texture_filter = 1
+position = Vector2(-305, 108)
+scale = Vector2(2, 2.172)
+texture = ExtResource("5_d31tb")
+
+[node name="moss_collision" type="CollisionShape2D" parent="Foreground/platformlayer/Node2D/walkable_2/mossClump3"]
+position = Vector2(-307, 108)
+shape = SubResource("RectangleShape2D_bs2y1")
+debug_color = Color(0.11417065, 0.46737587, 0.3086608, 0.41960785)
+
+[node name="mossClump6" type="Area2D" parent="Foreground/platformlayer/Node2D/walkable_2"]
+position = Vector2(-139, 0)
+script = ExtResource("3_2xk85")
+
+[node name="moss" type="Sprite2D" parent="Foreground/platformlayer/Node2D/walkable_2/mossClump6"]
+texture_filter = 1
+position = Vector2(-305, 108)
+scale = Vector2(2, 2.172)
+texture = ExtResource("5_d31tb")
+
+[node name="moss_collision" type="CollisionShape2D" parent="Foreground/platformlayer/Node2D/walkable_2/mossClump6"]
+position = Vector2(-307, 108)
+shape = SubResource("RectangleShape2D_bs2y1")
+debug_color = Color(0.11417065, 0.46737587, 0.3086608, 0.41960785)
+
+[node name="moss12" type="Sprite2D" parent="Foreground/platformlayer/Node2D/walkable_2"]
+texture_filter = 1
+position = Vector2(-354, 123.99999)
+scale = Vector2(1.9090908, 1.8181818)
+texture = ExtResource("7_vv38i")
+
+[node name="moss13" type="Sprite2D" parent="Foreground/platformlayer/Node2D/walkable_2"]
+texture_filter = 1
+position = Vector2(-465, 130)
+scale = Vector2(1.9090908, 1.8181818)
+texture = ExtResource("11_7taq0")
+
+[node name="moss14" type="Sprite2D" parent="Foreground/platformlayer/Node2D/walkable_2"]
+texture_filter = 1
+position = Vector2(-257.99997, 130)
+scale = Vector2(1.9090908, 1.8181818)
+texture = ExtResource("11_7taq0")
+
+[node name="walkable_3" type="CanvasGroup" parent="Foreground/platformlayer/Node2D"]
+position = Vector2(58, -8)
+
+[node name="mossClump" type="Area2D" parent="Foreground/platformlayer/Node2D/walkable_3"]
+script = ExtResource("3_2xk85")
+
+[node name="moss" type="Sprite2D" parent="Foreground/platformlayer/Node2D/walkable_3/mossClump"]
+texture_filter = 1
+position = Vector2(-270, 109)
+scale = Vector2(2, 2.172)
+texture = ExtResource("4_rybyv")
+
+[node name="moss_collision" type="CollisionShape2D" parent="Foreground/platformlayer/Node2D/walkable_3/mossClump"]
+position = Vector2(-266.5, 108)
+shape = SubResource("RectangleShape2D_7taq0")
+debug_color = Color(0.11417065, 0.46737587, 0.3086608, 0.41960785)
+
+[node name="mossClump2" type="Area2D" parent="Foreground/platformlayer/Node2D/walkable_3"]
+position = Vector2(-32, 0)
+script = ExtResource("3_2xk85")
+
+[node name="moss" type="Sprite2D" parent="Foreground/platformlayer/Node2D/walkable_3/mossClump2"]
+texture_filter = 1
+position = Vector2(-270, 109)
+scale = Vector2(2, 2.172)
+texture = SubResource("CompressedTexture2D_uyo2y")
+
+[node name="moss_collision" type="CollisionShape2D" parent="Foreground/platformlayer/Node2D/walkable_3/mossClump2"]
+position = Vector2(-266.5, 108)
+shape = SubResource("RectangleShape2D_7taq0")
+debug_color = Color(0.11417065, 0.46737587, 0.3086608, 0.41960785)
+
+[node name="mossClump4" type="Area2D" parent="Foreground/platformlayer/Node2D/walkable_3"]
+position = Vector2(-379, 104)
+script = ExtResource("3_2xk85")
+
+[node name="moss" type="Sprite2D" parent="Foreground/platformlayer/Node2D/walkable_3/mossClump4"]
+texture_filter = 1
+position = Vector2(5, 4.8600006)
+scale = Vector2(2, 2.172)
+texture = ExtResource("4_rybyv")
+
+[node name="moss_collision" type="CollisionShape2D" parent="Foreground/platformlayer/Node2D/walkable_3/mossClump4"]
+position = Vector2(5.5, 3.9300003)
+shape = SubResource("RectangleShape2D_7taq0")
+debug_color = Color(0.11417065, 0.46737587, 0.3086608, 0.41960785)
+
+[node name="mossClump5" type="Area2D" parent="Foreground/platformlayer/Node2D/walkable_3"]
+position = Vector2(-412, 110)
+script = ExtResource("3_2xk85")
+
+[node name="moss" type="Sprite2D" parent="Foreground/platformlayer/Node2D/walkable_3/mossClump5"]
+texture_filter = 1
+position = Vector2(4, -0.22599792)
+scale = Vector2(2, 2.172)
+texture = SubResource("CompressedTexture2D_uyo2y")
+
+[node name="moss_collision" type="CollisionShape2D" parent="Foreground/platformlayer/Node2D/walkable_3/mossClump5"]
+position = Vector2(7.5, -1.2259979)
+shape = SubResource("RectangleShape2D_7taq0")
+debug_color = Color(0.11417065, 0.46737587, 0.3086608, 0.41960785)
+
+[node name="mossClump3" type="Area2D" parent="Foreground/platformlayer/Node2D/walkable_3"]
+position = Vector2(-32, 0)
+script = ExtResource("3_2xk85")
+
+[node name="moss" type="Sprite2D" parent="Foreground/platformlayer/Node2D/walkable_3/mossClump3"]
+texture_filter = 1
+position = Vector2(-305, 108)
+scale = Vector2(2, 2.172)
+texture = ExtResource("5_d31tb")
+
+[node name="moss_collision" type="CollisionShape2D" parent="Foreground/platformlayer/Node2D/walkable_3/mossClump3"]
+position = Vector2(-307, 108)
+shape = SubResource("RectangleShape2D_bs2y1")
+debug_color = Color(0.11417065, 0.46737587, 0.3086608, 0.41960785)
+
+[node name="mossClump6" type="Area2D" parent="Foreground/platformlayer/Node2D/walkable_3"]
+position = Vector2(-139, 0)
+script = ExtResource("3_2xk85")
+
+[node name="moss" type="Sprite2D" parent="Foreground/platformlayer/Node2D/walkable_3/mossClump6"]
+texture_filter = 1
+position = Vector2(-305, 108)
+scale = Vector2(2, 2.172)
+texture = ExtResource("5_d31tb")
+
+[node name="moss_collision" type="CollisionShape2D" parent="Foreground/platformlayer/Node2D/walkable_3/mossClump6"]
+position = Vector2(-307, 108)
+shape = SubResource("RectangleShape2D_bs2y1")
+debug_color = Color(0.11417065, 0.46737587, 0.3086608, 0.41960785)
+
+[node name="moss12" type="Sprite2D" parent="Foreground/platformlayer/Node2D/walkable_3"]
+texture_filter = 1
+position = Vector2(-354, 123.99999)
+scale = Vector2(1.9090908, 1.8181818)
+texture = ExtResource("7_vv38i")
+
+[node name="moss13" type="Sprite2D" parent="Foreground/platformlayer/Node2D/walkable_3"]
+texture_filter = 1
+position = Vector2(-465, 130)
+scale = Vector2(1.9090908, 1.8181818)
+texture = ExtResource("11_7taq0")
+
+[node name="moss14" type="Sprite2D" parent="Foreground/platformlayer/Node2D/walkable_3"]
+texture_filter = 1
+position = Vector2(-257.99997, 130)
+scale = Vector2(1.9090908, 1.8181818)
+texture = ExtResource("11_7taq0")
+
+[node name="walkable_4" type="CanvasGroup" parent="Foreground/platformlayer/Node2D"]
+position = Vector2(-164, -8)
+
+[node name="mossClump" type="Area2D" parent="Foreground/platformlayer/Node2D/walkable_4"]
+script = ExtResource("3_2xk85")
+
+[node name="moss" type="Sprite2D" parent="Foreground/platformlayer/Node2D/walkable_4/mossClump"]
+texture_filter = 1
+position = Vector2(-270, 109)
+scale = Vector2(2, 2.172)
+texture = ExtResource("4_rybyv")
+
+[node name="moss_collision" type="CollisionShape2D" parent="Foreground/platformlayer/Node2D/walkable_4/mossClump"]
+position = Vector2(-266.5, 108)
+shape = SubResource("RectangleShape2D_7taq0")
+debug_color = Color(0.11417065, 0.46737587, 0.3086608, 0.41960785)
+
+[node name="mossClump2" type="Area2D" parent="Foreground/platformlayer/Node2D/walkable_4"]
+position = Vector2(-32, 0)
+script = ExtResource("3_2xk85")
+
+[node name="moss" type="Sprite2D" parent="Foreground/platformlayer/Node2D/walkable_4/mossClump2"]
+texture_filter = 1
+position = Vector2(-270, 109)
+scale = Vector2(2, 2.172)
+texture = SubResource("CompressedTexture2D_uyo2y")
+
+[node name="moss_collision" type="CollisionShape2D" parent="Foreground/platformlayer/Node2D/walkable_4/mossClump2"]
+position = Vector2(-266.5, 108)
+shape = SubResource("RectangleShape2D_7taq0")
+debug_color = Color(0.11417065, 0.46737587, 0.3086608, 0.41960785)
+
+[node name="mossClump4" type="Area2D" parent="Foreground/platformlayer/Node2D/walkable_4"]
+position = Vector2(-379, 104)
+script = ExtResource("3_2xk85")
+
+[node name="moss" type="Sprite2D" parent="Foreground/platformlayer/Node2D/walkable_4/mossClump4"]
+texture_filter = 1
+position = Vector2(5, 4.8600006)
+scale = Vector2(2, 2.172)
+texture = ExtResource("4_rybyv")
+
+[node name="moss_collision" type="CollisionShape2D" parent="Foreground/platformlayer/Node2D/walkable_4/mossClump4"]
+position = Vector2(5.5, 3.9300003)
+shape = SubResource("RectangleShape2D_7taq0")
+debug_color = Color(0.11417065, 0.46737587, 0.3086608, 0.41960785)
+
+[node name="mossClump5" type="Area2D" parent="Foreground/platformlayer/Node2D/walkable_4"]
+position = Vector2(-412, 110)
+script = ExtResource("3_2xk85")
+
+[node name="moss" type="Sprite2D" parent="Foreground/platformlayer/Node2D/walkable_4/mossClump5"]
+texture_filter = 1
+position = Vector2(4, -0.22599792)
+scale = Vector2(2, 2.172)
+texture = SubResource("CompressedTexture2D_uyo2y")
+
+[node name="moss_collision" type="CollisionShape2D" parent="Foreground/platformlayer/Node2D/walkable_4/mossClump5"]
+position = Vector2(7.5, -1.2259979)
+shape = SubResource("RectangleShape2D_7taq0")
+debug_color = Color(0.11417065, 0.46737587, 0.3086608, 0.41960785)
+
+[node name="mossClump3" type="Area2D" parent="Foreground/platformlayer/Node2D/walkable_4"]
+position = Vector2(-32, 0)
+script = ExtResource("3_2xk85")
+
+[node name="moss" type="Sprite2D" parent="Foreground/platformlayer/Node2D/walkable_4/mossClump3"]
+texture_filter = 1
+position = Vector2(-305, 108)
+scale = Vector2(2, 2.172)
+texture = ExtResource("5_d31tb")
+
+[node name="moss_collision" type="CollisionShape2D" parent="Foreground/platformlayer/Node2D/walkable_4/mossClump3"]
+position = Vector2(-307, 108)
+shape = SubResource("RectangleShape2D_bs2y1")
+debug_color = Color(0.11417065, 0.46737587, 0.3086608, 0.41960785)
+
+[node name="mossClump6" type="Area2D" parent="Foreground/platformlayer/Node2D/walkable_4"]
+position = Vector2(-139, 0)
+script = ExtResource("3_2xk85")
+
+[node name="moss" type="Sprite2D" parent="Foreground/platformlayer/Node2D/walkable_4/mossClump6"]
+texture_filter = 1
+position = Vector2(-305, 108)
+scale = Vector2(2, 2.172)
+texture = ExtResource("5_d31tb")
+
+[node name="moss_collision" type="CollisionShape2D" parent="Foreground/platformlayer/Node2D/walkable_4/mossClump6"]
+position = Vector2(-307, 108)
+shape = SubResource("RectangleShape2D_bs2y1")
+debug_color = Color(0.11417065, 0.46737587, 0.3086608, 0.41960785)
+
+[node name="moss12" type="Sprite2D" parent="Foreground/platformlayer/Node2D/walkable_4"]
+texture_filter = 1
+position = Vector2(-354, 123.99999)
+scale = Vector2(1.9090908, 1.8181818)
+texture = ExtResource("7_vv38i")
+
+[node name="moss13" type="Sprite2D" parent="Foreground/platformlayer/Node2D/walkable_4"]
+texture_filter = 1
+position = Vector2(-465, 130)
+scale = Vector2(1.9090908, 1.8181818)
+texture = ExtResource("11_7taq0")
+
+[node name="moss14" type="Sprite2D" parent="Foreground/platformlayer/Node2D/walkable_4"]
+texture_filter = 1
+position = Vector2(-257.99997, 130)
+scale = Vector2(1.9090908, 1.8181818)
+texture = ExtResource("11_7taq0")
+
+[node name="Sprite2D4" type="Sprite2D" parent="Foreground/platformlayer/Node2D"]
+texture_filter = 1
+position = Vector2(-226, 21)
+scale = Vector2(2, 2)
+texture = ExtResource("27_o0nso")
+
+[node name="fg_mosswall_1" type="Parallax2D" parent="Foreground"]
+modulate = Color(0.7616277, 0.7414276, 0.8161976, 1)
+scroll_scale = Vector2(1.01, 1.01)
+scroll_offset = Vector2(359, 135)
+
+[node name="Sprite2D4" type="Sprite2D" parent="Foreground/fg_mosswall_1"]
+texture_filter = 1
+position = Vector2(161, 7)
+scale = Vector2(2, 2)
+texture = ExtResource("8_d31tb")
+
+[node name="Sprite2D6" type="Sprite2D" parent="Foreground/fg_mosswall_1"]
+texture_filter = 1
+position = Vector2(315, 2)
+scale = Vector2(2, 2)
+texture = ExtResource("8_d31tb")
+
+[node name="Sprite2D7" type="Sprite2D" parent="Foreground/fg_mosswall_1"]
+texture_filter = 1
+position = Vector2(-26, 20)
+scale = Vector2(2, 2)
+texture = ExtResource("8_d31tb")
+
+[node name="Sprite2D5" type="Sprite2D" parent="Foreground/fg_mosswall_1"]
+texture_filter = 1
+position = Vector2(61, 1)
+scale = Vector2(2, 2)
+texture = ExtResource("9_e5kot")
+
+[node name="Sprite2D11" type="Sprite2D" parent="Foreground/fg_mosswall_1"]
+texture_filter = 1
+position = Vector2(318, 14)
+scale = Vector2(2, 2)
+texture = ExtResource("9_e5kot")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Foreground/fg_mosswall_1"]
+texture_filter = 1
+position = Vector2(101, 23)
+scale = Vector2(2, 2)
+texture = ExtResource("11_7taq0")
+
+[node name="Sprite2D8" type="Sprite2D" parent="Foreground/fg_mosswall_1"]
+texture_filter = 1
+position = Vector2(157, 40)
+scale = Vector2(2, 2)
+texture = ExtResource("8_d31tb")
+
+[node name="Sprite2D10" type="Sprite2D" parent="Foreground/fg_mosswall_1"]
+texture_filter = 1
+position = Vector2(330, 35)
+scale = Vector2(2, 2)
+texture = ExtResource("8_d31tb")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Foreground/fg_mosswall_1"]
+texture_filter = 1
+position = Vector2(50, 24)
+scale = Vector2(2, 2)
+texture = ExtResource("11_7taq0")
+
+[node name="Sprite2D9" type="Sprite2D" parent="Foreground/fg_mosswall_1"]
+texture_filter = 1
+position = Vector2(-18, 38)
+scale = Vector2(2, 2)
+texture = ExtResource("8_d31tb")
+
+[node name="fg_2" type="Parallax2D" parent="Foreground"]
+modulate = Color(0.8195044, 0.80362016, 0.8609639, 1)
+scroll_scale = Vector2(1.03, 1.03)
+scroll_offset = Vector2(136, 160)
+
+[node name="Sprite2D4" type="Sprite2D" parent="Foreground/fg_2"]
+texture_filter = 1
+position = Vector2(161, 7)
+scale = Vector2(2, 2)
+texture = ExtResource("8_d31tb")
+
+[node name="Sprite2D" type="Sprite2D" parent="Foreground/fg_2"]
+texture_filter = 1
+position = Vector2(89, 8)
+scale = Vector2(2, 2)
+texture = ExtResource("9_d31tb")
+
+[node name="Sprite2D7" type="Sprite2D" parent="Foreground/fg_2"]
+texture_filter = 1
+position = Vector2(434.00003, 24)
+scale = Vector2(2.4, 2.4)
+texture = ExtResource("9_d31tb")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Foreground/fg_2"]
+texture_filter = 1
+position = Vector2(101, 23)
+scale = Vector2(2, 2)
+texture = ExtResource("11_7taq0")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Foreground/fg_2"]
+texture_filter = 1
+position = Vector2(50, 24)
+scale = Vector2(2, 2)
+texture = ExtResource("11_7taq0")
+
+[node name="Sprite2D5" type="Sprite2D" parent="Foreground/fg_2"]
+texture_filter = 1
+position = Vector2(145, 34)
+scale = Vector2(2, 2)
+texture = ExtResource("8_d31tb")
+
+[node name="Sprite2D6" type="Sprite2D" parent="Foreground/fg_2"]
+self_modulate = Color(1, 1, 1, 0.7411765)
+texture_filter = 1
+position = Vector2(379.00006, 182.00003)
+scale = Vector2(4.1897726, 2.5776396)
+texture = ExtResource("19_5ucxa")
+
+[node name="PointLight2D" type="PointLight2D" parent="Foreground/fg_2"]
+texture_filter = 1
+position = Vector2(67.99999, -79.49999)
+scale = Vector2(1.7968751, 1.7968751)
+
+[node name="ceiling_3" type="Parallax2D" parent="Foreground"]
+modulate = Color(0.8195044, 0.80362016, 0.8609639, 1)
+scroll_scale = Vector2(1.015, 1.015)
+scroll_offset = Vector2(211, 194)
+
+[node name="main2" type="Sprite2D" parent="Foreground/ceiling_3"]
+texture_filter = 1
+position = Vector2(296, -161)
+rotation = -0.3221262
+scale = Vector2(1.9999999, 1.9999999)
+texture = ExtResource("16_nqh67")
+
+[node name="main3" type="Sprite2D" parent="Foreground/ceiling_3"]
+texture_filter = 1
+position = Vector2(408.00003, -190)
+rotation = -0.046081275
+scale = Vector2(1.9999999, 1.9999999)
+texture = ExtResource("16_nqh67")
+
+[node name="Sprite2D5" type="Sprite2D" parent="Foreground/ceiling_3"]
+texture_filter = 1
+position = Vector2(210, -158)
+scale = Vector2(2, 2)
+texture = ExtResource("14_vy5ye")
+
+[node name="ceiling_1" type="Parallax2D" parent="Foreground"]
+modulate = Color(0.8195044, 0.80362016, 0.8609639, 1)
+scroll_scale = Vector2(1.02, 1.02)
+scroll_offset = Vector2(227, 195)
+
+[node name="Sprite2D5" type="Sprite2D" parent="Foreground/ceiling_1"]
+texture_filter = 1
+position = Vector2(-43, -187)
+scale = Vector2(2, 2)
+texture = ExtResource("15_lggg3")
+
+[node name="Sprite2D11" type="Sprite2D" parent="Foreground/ceiling_1"]
+texture_filter = 1
+position = Vector2(-85.00001, -219.99998)
+rotation = -3.1388378
+scale = Vector2(1.9999998, 1.9999998)
+texture = ExtResource("8_d31tb")
+
+[node name="Sprite2D15" type="Sprite2D" parent="Foreground/ceiling_1"]
+texture_filter = 1
+position = Vector2(-151, -259)
+rotation = -3.1388378
+scale = Vector2(1.9999998, 1.9999998)
+texture = ExtResource("8_d31tb")
+
+[node name="Sprite2D12" type="Sprite2D" parent="Foreground/ceiling_1"]
+texture_filter = 1
+position = Vector2(259, -177.99998)
+rotation = -3.2470834
+scale = Vector2(2.0032835, 1.9005394)
+texture = ExtResource("8_d31tb")
+
+[node name="Sprite2D13" type="Sprite2D" parent="Foreground/ceiling_1"]
+texture_filter = 1
+position = Vector2(251.00002, -204)
+rotation = -3.192811
+scale = Vector2(1.8365175, 1.6970214)
+texture = ExtResource("8_d31tb")
+
+[node name="Sprite2D14" type="Sprite2D" parent="Foreground/ceiling_1"]
+texture_filter = 1
+position = Vector2(305, -286.00003)
+rotation = -3.192811
+scale = Vector2(1.8365175, 1.6970214)
+texture = ExtResource("19_5ucxa")
+
+[node name="ceiling_2" type="Parallax2D" parent="Foreground"]
+modulate = Color(0.8195044, 0.80362016, 0.8609639, 1)
+scroll_scale = Vector2(1.05, 1.05)
+scroll_offset = Vector2(316, 243)
+
+[node name="Sprite2D7" type="Sprite2D" parent="Foreground/ceiling_2"]
+texture_filter = 1
+position = Vector2(15.000001, -246)
+rotation = -2.929794
+scale = Vector2(2, 2)
+texture = ExtResource("8_d31tb")
+
+[node name="Sprite2D11" type="Sprite2D" parent="Foreground/ceiling_2"]
+texture_filter = 1
+position = Vector2(-62, -428)
+rotation = -3.0164597
+scale = Vector2(2.9260845, 2.535972)
+texture = ExtResource("19_5ucxa")
+
+[node name="main" type="Sprite2D" parent="Foreground/ceiling_2"]
+texture_filter = 1
+position = Vector2(6, -216)
+scale = Vector2(2, 2)
+texture = ExtResource("16_nqh67")
+
+[node name="Sprite2D8" type="Sprite2D" parent="Foreground/ceiling_2"]
+texture_filter = 1
+position = Vector2(80.99999, -223)
+rotation = -3.0664907
+scale = Vector2(1.7552637, 1.474846)
+texture = ExtResource("11_7taq0")
+
+[node name="Sprite2D10" type="Sprite2D" parent="Foreground/ceiling_2"]
+texture_filter = 1
+position = Vector2(33.999992, -230)
+rotation = -2.905992
+scale = Vector2(1.1456186, 0.96259665)
+texture = ExtResource("11_7taq0")
+
+[node name="Sprite2D9" type="Sprite2D" parent="Foreground/ceiling_2"]
+texture_filter = 1
+position = Vector2(-18.000008, -246)
+rotation = -2.8676405
+scale = Vector2(1.7552637, 1.474846)
+texture = ExtResource("5_d31tb")
+
+[node name="Sprite2D12" type="Sprite2D" parent="Foreground/ceiling_2"]
+texture_filter = 1
+position = Vector2(23, -370)
+rotation = -2.869473
+scale = Vector2(1.7878602, 1.9982375)
+texture = ExtResource("19_5ucxa")
+
+[node name="fg_close" type="Parallax2D" parent="Foreground"]
+modulate = Color(0.8195044, 0.80362016, 0.8609639, 1)
+scroll_scale = Vector2(1.4, 1.4)
+scroll_offset = Vector2(326, 228)
+
+[node name="Sprite2D9" type="Sprite2D" parent="Foreground/fg_close"]
+texture_filter = 1
+position = Vector2(195.00003, -183.88092)
+rotation = -3.1415927
+scale = Vector2(3.6508434, 3.4484434)
+texture = ExtResource("19_s2v3k")
+
+[node name="Sprite2D10" type="Sprite2D" parent="Foreground/fg_close"]
+texture_filter = 1
+position = Vector2(-339.00003, -55.000015)
+scale = Vector2(2.953451, 2.4816132)
+texture = ExtResource("22_3pen8")
+
+[node name="Sprite2D11" type="Sprite2D" parent="Foreground/fg_close"]
+texture_filter = 1
+position = Vector2(-429.99997, 145)
+rotation = 3.1415925
+scale = Vector2(3.6508434, 2.946062)
+texture = ExtResource("19_5ucxa")
+
+[node name="fg_close4" type="Parallax2D" parent="Foreground"]
+modulate = Color(0.8195044, 0.80362016, 0.8609639, 1)
+scroll_scale = Vector2(1.4, 1.4)
+scroll_offset = Vector2(326, 228)
+
+[node name="Sprite2D10" type="Sprite2D" parent="Foreground/fg_close4"]
+texture_filter = 1
+position = Vector2(-11, -74)
+scale = Vector2(2.6690342, 3.3089888)
+texture = ExtResource("22_3pen8")
+flip_h = true
+
+[node name="Sprite2D13" type="Sprite2D" parent="Foreground/fg_close4"]
+texture_filter = 1
+position = Vector2(220, -61)
+scale = Vector2(2.6690342, 3.3089888)
+texture = ExtResource("22_3pen8")
+flip_h = true
+
+[node name="Sprite2D11" type="Sprite2D" parent="Foreground/fg_close4"]
+texture_filter = 1
+position = Vector2(-64, -40.999992)
+scale = Vector2(1.9499015, 2.381767)
+texture = ExtResource("22_3pen8")
+
+[node name="Sprite2D12" type="Sprite2D" parent="Foreground/fg_close4"]
+texture_filter = 1
+position = Vector2(199.00003, -42.999992)
+scale = Vector2(1.9499015, 2.381767)
+texture = ExtResource("22_3pen8")
+
+[node name="fg_close2" type="Parallax2D" parent="Foreground"]
+modulate = Color(0.8195044, 0.80362016, 0.8609639, 1)
+scroll_scale = Vector2(1.6, 1.6)
+scroll_offset = Vector2(316, 243)
+
+[node name="Sprite2D11" type="Sprite2D" parent="Foreground/fg_close2"]
+texture_filter = 1
+position = Vector2(-31.999985, -310.99997)
+scale = Vector2(3.4495134, 2.9018114)
+texture = ExtResource("23_xit1q")
+
+[node name="LevelCollision" type="Node2D" parent="."]
+
+[node name="Mantles" type="Node2D" parent="LevelCollision"]
+position = Vector2(111, 91)
+
+[node name="mantleZone" type="Area2D" parent="LevelCollision/Mantles"]
+position = Vector2(17, 37)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelCollision/Mantles/mantleZone"]
+shape = SubResource("RectangleShape2D_l3r1s")
+debug_color = Color(0.76868165, 0.3653871, 0.66592103, 0.41960785)
+
+[node name="mantleZone2" type="Area2D" parent="LevelCollision/Mantles"]
+position = Vector2(-175, -90)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelCollision/Mantles/mantleZone2"]
+position = Vector2(-84, 111)
+shape = SubResource("RectangleShape2D_l3r1s")
+debug_color = Color(0.76868165, 0.3653871, 0.66592103, 0.41960785)
+
+[node name="mantleZone3" type="Area2D" parent="LevelCollision/Mantles"]
+position = Vector2(-175, -90)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelCollision/Mantles/mantleZone3"]
+position = Vector2(-10, 111)
+shape = SubResource("RectangleShape2D_l3r1s")
+debug_color = Color(0.76868165, 0.3653871, 0.66592103, 0.41960785)
+
+[node name="platforms" type="StaticBody2D" parent="LevelCollision"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelCollision/platforms"]
+position = Vector2(448, 215.125)
+shape = SubResource("RectangleShape2D_2xk85")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="LevelCollision/platforms"]
+position = Vector2(-311, 247.78125)
+shape = SubResource("RectangleShape2D_sm1uw")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="LevelCollision/platforms"]
+position = Vector2(-112, 114)
+shape = SubResource("RectangleShape2D_miy01")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="LevelCollision/platforms"]
+position = Vector2(32, 247.53125)
+shape = SubResource("RectangleShape2D_rybyv")
+
+[node name="ceilings" type="StaticBody2D" parent="LevelCollision"]
+visible = false
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="LevelCollision/ceilings"]
+polygon = PackedVector2Array(449, 67, 409, 58, 352, 42, 319, 31, 293, 27, 263, 21, 248, 18, 154, -12, 120, -21, 59, -30, 31, -42, 31, -50, 447, -48)

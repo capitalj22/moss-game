@@ -1,0 +1,566 @@
+[gd_scene load_steps=41 format=3 uid="uid://bwhmtoeceasgv"]
+
+[ext_resource type="Texture2D" uid="uid://c4dj1s5jqbor6" path="res://sprites/environment/fire.png" id="1_fxcak"]
+[ext_resource type="PackedScene" uid="uid://6j2hash6u0j5" path="res://sherma.tscn" id="1_gej88"]
+[ext_resource type="Script" uid="uid://b7bdk756bn7jd" path="res://testing/pogo.gd" id="1_hudbq"]
+[ext_resource type="Texture2D" uid="uid://byc30kjxxsufy" path="res://sprites/moss/poc/clump_flat_1.png" id="2_08gix"]
+[ext_resource type="PackedScene" uid="uid://bi2qvoujutqw7" path="res://guys/mossgrub/mossgrub.tscn" id="2_lihy4"]
+[ext_resource type="PackedScene" uid="uid://jicujxry0r8n" path="res://guys/mossmir/mossmir.tscn" id="2_n1jas"]
+[ext_resource type="Texture2D" uid="uid://icaaqlg1lv08" path="res://sprites/moss/poc/4.png" id="2_ugb3j"]
+[ext_resource type="Script" uid="uid://barain30euoym" path="res://testing/camera.gd" id="3_skhbk"]
+[ext_resource type="Texture2D" uid="uid://ynwi4cyce2wa" path="res://sprites/moss/poc/clump_4.png" id="3_vc0h8"]
+[ext_resource type="Texture2D" uid="uid://bhbv00l18qqld" path="res://sprites/moss/poc/platform_1.png" id="4_5efme"]
+[ext_resource type="Texture2D" uid="uid://bcp2qaskppce2" path="res://sprites/moss/poc/spikes_1.png" id="4_r8x56"]
+[ext_resource type="Texture2D" uid="uid://bxu2sqlrmdyeu" path="res://sprites/moss/poc/platform_2.png" id="5_skhbk"]
+[ext_resource type="PackedScene" uid="uid://cvpv1k60walif" path="res://statusbar.tscn" id="6_r8x56"]
+[ext_resource type="PackedScene" uid="uid://clineulma6iem" path="res://guys/mossman/mossman.tscn" id="14_fxcak"]
+
+[sub_resource type="Gradient" id="Gradient_ugb3j"]
+offsets = PackedFloat32Array(0, 0.26911315, 1)
+colors = PackedColorArray(0.09702266, 0.16591763, 0.12608886, 1, 0.06994393, 0.16454074, 0.1443969, 1, 0.017465554, 0.14103454, 0.18801758, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_lr8xj"]
+gradient = SubResource("Gradient_ugb3j")
+fill_from = Vector2(0, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vq7fa"]
+atlas = ExtResource("1_fxcak")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0jad4"]
+atlas = ExtResource("1_fxcak")
+region = Rect2(16, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cy8a4"]
+atlas = ExtResource("1_fxcak")
+region = Rect2(32, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7n6k5"]
+atlas = ExtResource("1_fxcak")
+region = Rect2(0, 32, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j22dt"]
+atlas = ExtResource("1_fxcak")
+region = Rect2(16, 32, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4d87u"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vq7fa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0jad4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cy8a4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7n6k5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j22dt")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n1jas"]
+size = Vector2(1360, 336)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lihy4"]
+size = Vector2(192, 280)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2cni7"]
+size = Vector2(192, 408)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_skhbk"]
+size = Vector2(808, 120)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fxcak"]
+size = Vector2(616, 109)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vc0h8"]
+size = Vector2(192, 496)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_08gix"]
+size = Vector2(192, 344)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r8x56"]
+size = Vector2(424, 408)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lr8xj"]
+size = Vector2(79, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xngk0"]
+size = Vector2(167.5, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ugb3j"]
+size = Vector2(79, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hudbq"]
+size = Vector2(95, 26.5)
+
+[sub_resource type="Gradient" id="Gradient_vc0h8"]
+offsets = PackedFloat32Array(0, 0.3730887, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.006289981, 0.05747398, 0.07214094, 1, 0.010278385, 0.05125673, 0.018478319, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_08gix"]
+gradient = SubResource("Gradient_vc0h8")
+fill_from = Vector2(1, 1)
+
+[sub_resource type="Gradient" id="Gradient_08gix"]
+offsets = PackedFloat32Array(0, 0.3730887, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.006289981, 0.05747398, 0.07214094, 1, 0.010278385, 0.05125673, 0.018478319, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_r8x56"]
+gradient = SubResource("Gradient_08gix")
+fill_from = Vector2(1, 1)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_5efme"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5efme"]
+size = Vector2(191, 43.5)
+
+[node name="Test Floor" type="Node2D"]
+
+[node name="bg" type="Sprite2D" parent="."]
+z_index = -2
+position = Vector2(-7.9999847, 40.000008)
+scale = Vector2(42.421875, 18.484373)
+texture = SubResource("GradientTexture2D_lr8xj")
+
+[node name="Fire" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(796, 231)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_4d87u")
+autoplay = "default"
+frame_progress = 0.61193675
+
+[node name="Characters" type="Node2D" parent="."]
+
+[node name="Baddies" type="Node2D" parent="Characters"]
+
+[node name="Mossmir" parent="Characters/Baddies" node_paths=PackedStringArray("player") instance=ExtResource("2_n1jas")]
+position = Vector2(736, -152)
+player = NodePath("../../Sherma")
+
+[node name="Mossmir2" parent="Characters/Baddies" node_paths=PackedStringArray("player") instance=ExtResource("2_n1jas")]
+position = Vector2(-1056, -152)
+player = NodePath("../../Sherma")
+detectRange = 600
+
+[node name="Mossmir3" parent="Characters/Baddies" node_paths=PackedStringArray("player") instance=ExtResource("2_n1jas")]
+position = Vector2(-496, -64)
+player = NodePath("../../Sherma")
+detectRange = 600
+
+[node name="Mossmir4" parent="Characters/Baddies" node_paths=PackedStringArray("player") instance=ExtResource("2_n1jas")]
+position = Vector2(-501, -233)
+player = NodePath("../../Sherma")
+
+[node name="Mossgrub2" parent="Characters/Baddies" node_paths=PackedStringArray("player") instance=ExtResource("2_lihy4")]
+position = Vector2(1192, 336)
+player = NodePath("../../Sherma")
+
+[node name="Mossgrub5" parent="Characters/Baddies" node_paths=PackedStringArray("player") instance=ExtResource("2_lihy4")]
+position = Vector2(-505, 97)
+player = NodePath("../../Sherma")
+
+[node name="Mossgrub4" parent="Characters/Baddies" node_paths=PackedStringArray("player") instance=ExtResource("2_lihy4")]
+position = Vector2(-346, 177)
+player = NodePath("../../Sherma")
+
+[node name="Mossgrub3" parent="Characters/Baddies" node_paths=PackedStringArray("player") instance=ExtResource("2_lihy4")]
+position = Vector2(-1032, 192)
+player = NodePath("../../Sherma")
+
+[node name="Mossman" parent="Characters/Baddies" node_paths=PackedStringArray("player") instance=ExtResource("14_fxcak")]
+position = Vector2(758, 253)
+player = NodePath("../../Sherma")
+
+[node name="Mossman2" parent="Characters/Baddies" node_paths=PackedStringArray("player") instance=ExtResource("14_fxcak")]
+position = Vector2(845, 253)
+player = NodePath("../../Sherma")
+
+[node name="Sherma" parent="Characters" instance=ExtResource("1_gej88")]
+position = Vector2(312, 259)
+debug = false
+JUMP_TIME = 0.25
+jumpVelocity = -450
+
+[node name="Camera2D2" type="Camera2D" parent="Characters/Sherma"]
+position = Vector2(0, -50)
+zoom = Vector2(0.8, 0.8)
+script = ExtResource("3_skhbk")
+
+[node name="Floor2" type="Node2D" parent="."]
+
+[node name="Floor" type="StaticBody2D" parent="Floor2"]
+collision_layer = 15
+collision_mask = 15
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor2/Floor"]
+position = Vector2(680, 432)
+shape = SubResource("RectangleShape2D_n1jas")
+
+[node name="CollisionShape2D10" type="CollisionShape2D" parent="Floor2/Floor"]
+position = Vector2(680, 432)
+shape = SubResource("RectangleShape2D_n1jas")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Floor2/Floor"]
+position = Vector2(-96, 460)
+shape = SubResource("RectangleShape2D_lihy4")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="Floor2/Floor"]
+position = Vector2(-288, 396)
+shape = SubResource("RectangleShape2D_2cni7")
+
+[node name="CollisionShape2D13" type="CollisionShape2D" parent="Floor2/Floor"]
+position = Vector2(860, 60)
+shape = SubResource("RectangleShape2D_skhbk")
+
+[node name="CollisionShape2D14" type="CollisionShape2D" parent="Floor2/Floor"]
+position = Vector2(956, -57.5)
+shape = SubResource("RectangleShape2D_fxcak")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="Floor2/Floor"]
+position = Vector2(-480, 352)
+shape = SubResource("RectangleShape2D_vc0h8")
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="Floor2/Floor"]
+position = Vector2(-672, 428)
+shape = SubResource("RectangleShape2D_08gix")
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="Floor2/Floor"]
+position = Vector2(-980, 396)
+shape = SubResource("RectangleShape2D_r8x56")
+
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="Floor2/Floor"]
+position = Vector2(-704, 80)
+shape = SubResource("RectangleShape2D_lr8xj")
+
+[node name="CollisionShape2D11" type="CollisionShape2D" parent="Floor2/Floor"]
+position = Vector2(-944, 80)
+shape = SubResource("RectangleShape2D_xngk0")
+
+[node name="CollisionShape2D12" type="CollisionShape2D" parent="Floor2/Floor"]
+position = Vector2(-1159.5, 80)
+shape = SubResource("RectangleShape2D_ugb3j")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Floor2/Floor"]
+position = Vector2(288.5, 85)
+shape = SubResource("RectangleShape2D_hudbq")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Floor2/Floor"]
+position = Vector2(137, 181.25)
+shape = SubResource("RectangleShape2D_hudbq")
+
+[node name="Floor_visual" type="Node2D" parent="Floor2"]
+
+[node name="4" type="Sprite2D" parent="Floor2/Floor_visual"]
+texture_filter = 1
+position = Vector2(-88.00001, 328)
+scale = Vector2(2.6524768, 2.7061415)
+texture = ExtResource("2_ugb3j")
+
+[node name="Sprite2D" type="Sprite2D" parent="Floor2/Floor_visual"]
+position = Vector2(680.00006, 431.00006)
+scale = Vector2(21.250002, 5.2812476)
+texture = SubResource("GradientTexture2D_08gix")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Floor2/Floor_visual"]
+position = Vector2(859.091, 57.49996)
+scale = Vector2(12.718752, 1.7968739)
+texture = SubResource("GradientTexture2D_08gix")
+
+[node name="Sprite2D10" type="Sprite2D" parent="Floor2/Floor_visual"]
+position = Vector2(952.5, -56.749985)
+scale = Vector2(9.734374, 1.7734369)
+texture = SubResource("GradientTexture2D_08gix")
+
+[node name="Sprite2D9" type="Sprite2D" parent="Floor2/Floor_visual"]
+position = Vector2(859.091, 88.99997)
+scale = Vector2(12.718752, 0.81249887)
+texture = SubResource("GradientTexture2D_08gix")
+
+[node name="Sprite2D11" type="Sprite2D" parent="Floor2/Floor_visual"]
+position = Vector2(-96, 457.50006)
+scale = Vector2(3.0000002, 4.4531236)
+texture = SubResource("GradientTexture2D_r8x56")
+
+[node name="Sprite2D21" type="Sprite2D" parent="Floor2/Floor_visual"]
+position = Vector2(-288, 400.75)
+scale = Vector2(3.0000002, 6.2265615)
+texture = SubResource("GradientTexture2D_r8x56")
+
+[node name="Sprite2D22" type="Sprite2D" parent="Floor2/Floor_visual"]
+position = Vector2(-288, 400.75)
+scale = Vector2(3.0000002, 6.2265615)
+texture = SubResource("GradientTexture2D_r8x56")
+
+[node name="Sprite2D23" type="Sprite2D" parent="Floor2/Floor_visual"]
+position = Vector2(-480, 360.37503)
+scale = Vector2(3.0000002, 7.4882813)
+texture = SubResource("GradientTexture2D_r8x56")
+
+[node name="platform" type="Sprite2D" parent="Floor2/Floor_visual"]
+texture_filter = 1
+position = Vector2(138, 180)
+scale = Vector2(2, 2)
+texture = ExtResource("4_5efme")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Floor2/Floor_visual"]
+texture_filter = 1
+position = Vector2(288, 85)
+scale = Vector2(2, 2)
+texture = ExtResource("5_skhbk")
+
+[node name="Sprite2D4" type="Sprite2D" parent="Floor2/Floor_visual"]
+position = Vector2(-940, 80)
+scale = Vector2(167.99997, 31.999992)
+texture = SubResource("PlaceholderTexture2D_5efme")
+
+[node name="Sprite2D5" type="Sprite2D" parent="Floor2/Floor_visual"]
+position = Vector2(-940, 80)
+scale = Vector2(167.99997, 31.999992)
+texture = SubResource("PlaceholderTexture2D_5efme")
+
+[node name="Sprite2D6" type="Sprite2D" parent="Floor2/Floor_visual"]
+position = Vector2(-940, 80)
+scale = Vector2(167.99997, 31.999992)
+texture = SubResource("PlaceholderTexture2D_5efme")
+
+[node name="Sprite2D7" type="Sprite2D" parent="Floor2/Floor_visual"]
+position = Vector2(-1158, 80)
+scale = Vector2(75.99994, 31.999992)
+texture = SubResource("PlaceholderTexture2D_5efme")
+
+[node name="Sprite2D8" type="Sprite2D" parent="Floor2/Floor_visual"]
+position = Vector2(-704, 79.99999)
+scale = Vector2(75.99994, 31.999992)
+texture = SubResource("PlaceholderTexture2D_5efme")
+
+[node name="Sprite2D12" type="Sprite2D" parent="Floor2/Floor_visual"]
+position = Vector2(-979.5, 395.00003)
+scale = Vector2(422.99997, 410)
+texture = SubResource("PlaceholderTexture2D_5efme")
+
+[node name="Sprite2D14" type="Sprite2D" parent="Floor2/Floor_visual"]
+texture_filter = 1
+position = Vector2(99.00001, 274)
+scale = Vector2(2.909091, 3.0000005)
+texture = ExtResource("2_08gix")
+flip_h = true
+
+[node name="Sprite2D15" type="Sprite2D" parent="Floor2/Floor_visual"]
+texture_filter = 1
+position = Vector2(283, 274)
+scale = Vector2(2.909091, 3.0000005)
+texture = ExtResource("2_08gix")
+flip_h = true
+
+[node name="Sprite2D16" type="Sprite2D" parent="Floor2/Floor_visual"]
+texture_filter = 1
+position = Vector2(471, 273)
+scale = Vector2(2.909091, 3.0000005)
+texture = ExtResource("2_08gix")
+flip_h = true
+
+[node name="Sprite2D17" type="Sprite2D" parent="Floor2/Floor_visual"]
+texture_filter = 1
+position = Vector2(650, 273)
+scale = Vector2(2.909091, 3.0000005)
+texture = ExtResource("2_08gix")
+flip_h = true
+
+[node name="Sprite2D18" type="Sprite2D" parent="Floor2/Floor_visual"]
+texture_filter = 1
+position = Vector2(836, 274)
+scale = Vector2(2.909091, 3.0000005)
+texture = ExtResource("2_08gix")
+flip_h = true
+
+[node name="Sprite2D19" type="Sprite2D" parent="Floor2/Floor_visual"]
+texture_filter = 1
+position = Vector2(1031, 274)
+scale = Vector2(2.909091, 3.0000005)
+texture = ExtResource("2_08gix")
+flip_h = true
+
+[node name="Sprite2D24" type="Sprite2D" parent="Floor2/Floor_visual"]
+texture_filter = 1
+position = Vector2(555.0909, 110.99997)
+rotation = -3.1415927
+scale = Vector2(2.909091, 3.0000005)
+texture = ExtResource("2_08gix")
+flip_h = true
+
+[node name="Sprite2D28" type="Sprite2D" parent="Floor2/Floor_visual"]
+texture_filter = 1
+position = Vector2(552, 7.999996)
+rotation = -3.1415927
+scale = Vector2(2.909091, 3.0000005)
+texture = ExtResource("2_08gix")
+flip_v = true
+
+[node name="Sprite2D29" type="Sprite2D" parent="Floor2/Floor_visual"]
+texture_filter = 1
+position = Vector2(464, 58)
+rotation = -4.712389
+scale = Vector2(1.5867777, 3.0516562)
+texture = ExtResource("2_08gix")
+flip_v = true
+
+[node name="Sprite2D30" type="Sprite2D" parent="Floor2/Floor_visual"]
+texture_filter = 1
+position = Vector2(648, -48)
+rotation = -4.712389
+scale = Vector2(1.5988988, 2.0289292)
+texture = ExtResource("2_08gix")
+flip_v = true
+
+[node name="Sprite2D25" type="Sprite2D" parent="Floor2/Floor_visual"]
+texture_filter = 1
+position = Vector2(755.09094, 113.99997)
+rotation = -3.1415927
+scale = Vector2(2.909091, 3.0000005)
+texture = ExtResource("2_08gix")
+flip_h = true
+
+[node name="Sprite2D26" type="Sprite2D" parent="Floor2/Floor_visual"]
+texture_filter = 1
+position = Vector2(963.09094, 113.99997)
+rotation = -3.1415927
+scale = Vector2(2.909091, 3.0000005)
+texture = ExtResource("2_08gix")
+flip_h = true
+
+[node name="Sprite2D27" type="Sprite2D" parent="Floor2/Floor_visual"]
+texture_filter = 1
+position = Vector2(1163.091, 119.99997)
+rotation = -3.1415927
+scale = Vector2(2.909091, 3.0000005)
+texture = ExtResource("2_08gix")
+flip_h = true
+
+[node name="Sprite2D20" type="Sprite2D" parent="Floor2/Floor_visual"]
+texture_filter = 1
+position = Vector2(1209, 276)
+scale = Vector2(2.909091, 3.0000005)
+texture = ExtResource("2_08gix")
+flip_h = true
+
+[node name="Sprite2D13" type="Sprite2D" parent="Floor2/Floor_visual"]
+position = Vector2(-673.75, 431.5)
+scale = Vector2(195.50002, 353)
+texture = SubResource("PlaceholderTexture2D_5efme")
+
+[node name="Sprite2D21" type="Sprite2D" parent="Floor2/Floor_visual/Sprite2D13"]
+texture_filter = 1
+position = Vector2(1.9731457, -0.6728045)
+scale = Vector2(0.01488026, 0.008498586)
+texture = ExtResource("2_08gix")
+flip_h = true
+
+[node name="Sprite2D22" type="Sprite2D" parent="Floor2/Floor_visual/Sprite2D13"]
+texture_filter = 1
+position = Vector2(1.0319693, -0.90509915)
+scale = Vector2(0.01488026, 0.008498586)
+texture = ExtResource("2_08gix")
+flip_h = true
+
+[node name="pogo" type="Area2D" parent="Floor2"]
+position = Vector2(432, 255)
+collision_layer = 17
+metadata/canPogo = true
+metadata/material = "metal"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor2/pogo"]
+position = Vector2(-527.5, 39.75)
+shape = SubResource("RectangleShape2D_5efme")
+
+[node name="Sprite2D" type="Sprite2D" parent="Floor2/pogo"]
+texture_filter = 1
+position = Vector2(-492.99997, 40.000008)
+scale = Vector2(2.909091, 3.0000005)
+texture = ExtResource("4_r8x56")
+
+[node name="Sprite2D7" type="Sprite2D" parent="Floor2/pogo"]
+texture_filter = 1
+position = Vector2(-455.99997, 40.000008)
+scale = Vector2(2.909091, 3.0000005)
+texture = ExtResource("4_r8x56")
+
+[node name="Sprite2D4" type="Sprite2D" parent="Floor2/pogo"]
+texture_filter = 1
+position = Vector2(-528, 40.000008)
+scale = Vector2(2.909091, 3.0000005)
+texture = ExtResource("4_r8x56")
+
+[node name="Sprite2D5" type="Sprite2D" parent="Floor2/pogo"]
+texture_filter = 1
+position = Vector2(-565, 40.000008)
+scale = Vector2(2.909091, 3.0000005)
+texture = ExtResource("4_r8x56")
+
+[node name="Sprite2D6" type="Sprite2D" parent="Floor2/pogo"]
+texture_filter = 1
+position = Vector2(-602, 40.000008)
+scale = Vector2(2.909091, 3.0000005)
+texture = ExtResource("4_r8x56")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Floor2/pogo"]
+texture_filter = 1
+position = Vector2(888.00006, 73.000015)
+scale = Vector2(2.909091, 3.0000005)
+texture = ExtResource("3_vc0h8")
+
+[node name="Sprite2D11" type="Sprite2D" parent="Floor2/pogo"]
+texture_filter = 1
+position = Vector2(248.00006, -327)
+rotation = -3.1415927
+scale = Vector2(2.0471375, 2.1111112)
+texture = ExtResource("3_vc0h8")
+flip_v = true
+
+[node name="Sprite2D10" type="Sprite2D" parent="Floor2/pogo"]
+texture_filter = 1
+position = Vector2(779.091, -183.00003)
+rotation = -3.1415927
+scale = Vector2(2.909091, 3.0000005)
+texture = ExtResource("3_vc0h8")
+flip_h = true
+
+[node name="Sprite2D3" type="Sprite2D" parent="Floor2/pogo"]
+texture_filter = 1
+position = Vector2(-373, 81.000015)
+scale = Vector2(2.909091, 3.0000005)
+texture = ExtResource("3_vc0h8")
+flip_h = true
+
+[node name="Sprite2D8" type="Sprite2D" parent="Floor2/pogo"]
+texture_filter = 1
+position = Vector2(-680.00006, 8.000006)
+scale = Vector2(2.909091, 3.0000005)
+texture = ExtResource("3_vc0h8")
+
+[node name="Sprite2D31" type="Sprite2D" parent="Floor2/pogo"]
+texture_filter = 1
+position = Vector2(-527, 56.999996)
+scale = Vector2(2.909091, 3.0000005)
+texture = ExtResource("2_08gix")
+flip_h = true
+
+[node name="pogo2" type="StaticBody2D" parent="Floor2"]
+position = Vector2(520, 255)
+script = ExtResource("1_hudbq")
+
+[node name="pogo3" type="StaticBody2D" parent="Floor2"]
+position = Vector2(600, 255)
+script = ExtResource("1_hudbq")
+
+[node name="StatusBar" parent="." node_paths=PackedStringArray("player") instance=ExtResource("6_r8x56")]
+player = NodePath("../Characters/Sherma")
