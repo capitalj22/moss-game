@@ -14,6 +14,7 @@ func drop(item: String):
 		var itemInstance = itemToDrop.item.instantiate()
 		itemInstance.global_position = global_position;	
 		itemInstance.linear_velocity = Vector2(randf_range(-10, 10), randf_range(-30, -10))
+		itemInstance.z_index = -1;
 		
 		get_tree().current_scene.add_child(itemInstance)
 

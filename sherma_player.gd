@@ -4,6 +4,7 @@ class_name Sherma
 @export var debug = false;
 
 signal damaged;
+signal hit_connected;
 
 
 enum States {

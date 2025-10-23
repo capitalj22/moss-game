@@ -38,3 +38,4 @@ func _physics_process(delta: float) -> void:
 						hitSound.pitch_scale = randf_range(0.95, 1.05)
 						hitSound.play()
 				collider.on_hit(collisionNormal, collisionPoint);
+				player.hit_connected.emit();

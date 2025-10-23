@@ -6,6 +6,7 @@ class_name Mossman
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @export var player: Sherma;
 @export var moveCurve: Curve;
+@export var isFacingLeft = false;
 
 var HP = 2;
 
@@ -18,6 +19,8 @@ var initialPosition: Vector2;
 var rnd = RandomNumberGenerator.new();
 var collisionNormal: Vector2;
 var collisionAngle: float;
+var transitionTimer: float;
+var nextState: States;
 
 @export var FOLLOWRange = 250;
 @export var detectRange = 150;
@@ -26,6 +29,7 @@ var collisionAngle: float;
 var isMovingLeft = false;
 
 enum States {
+	TRANSITION,
 	WALK,
 	DEAD,
 	SITTING,
@@ -48,6 +52,14 @@ var states = {
 	States.HIT: {"animation": "walk"},
 }
 
+var transitionStates = {
+	States.SITTING: { 
+		States.WALK: {"animation": "sitting_rise", "backwards": false, "time": 0.3}, 
+		States.FOLLOW: {"animation": "sitting_rise", "backwards": false, "time": 0.3}, 
+	},
+	States.WALK: { States.SITTING: {"animation": "sitting_rise", "backwards": true, "time": 0.3}},
+}
+
 var state: States = States.SITTING;
 
 func tween_curve(v):
@@ -61,12 +73,28 @@ func after_state_tween(tweenState: States):
 		States.ATTACK:
 			changeState(States.FOLLOW)
 		
+func transitionToState(newState):
+	var previousState = state;
+	nextState = newState;
+	
+	if transitionStates[previousState] && transitionStates[previousState][newState]:
+		var transitionState = transitionStates[previousState][newState];
+		var animationToPlay = transitionState.animation;
 
+		transitionTimer = transitionState.time;
+		if transitionState.backwards:
+			animation_player.play_backwards(animationToPlay)  
+		else: 
+			animation_player.play(animationToPlay)
+	else:
+		transitionTimer = 0.3;
+	changeState(States.TRANSITION)
+	
 func changeState(newState):
 	var previousState = state;
 	state = newState;
 	
-	if (newState != previousState):
+	if (newState != previousState && newState != States.TRANSITION):
 		animation_player.play(states[newState].animation)
 	match newState:
 		States.ATTACK:
@@ -104,22 +132,26 @@ func changeState(newState):
 
 
 			
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	changeState(States.SITTING)
+	flip();
 
-	
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	match state:
+		States.TRANSITION:
+			transitionTimer -= delta;
+			if transitionTimer <= 0:
+				changeState(nextState)
+				
+				
 		States.SITTING:
 			if randi_range(0, 10000) == 1:
 				changeState(States.WALK)
+			if randi_range(0, 10000) == 1:
+				animation_player.play("sitting_lean")
 			if checkForPlayer():
-				changeState(States.FOLLOW)
+				# add check for if player is behind
+				transitionToState(States.FOLLOW)
 		States.FOLLOW:
 			if should_attack():
 				changeState(States.ATTACK)
@@ -188,12 +220,16 @@ func _physics_process(delta: float) -> void:
 			
 	
 	isMovingLeft = velocity.x < 0;
-	if isMovingLeft:
+	isFacingLeft = isMovingLeft;
+	flip();
+		
+
+func flip():
+	if isFacingLeft:
 		$"Sprite2D".flip_h = true;
 	else:
 		$"Sprite2D".flip_h = false;
 		
-	
 func pogo():
 	pass;
 		

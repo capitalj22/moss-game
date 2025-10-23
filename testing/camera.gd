@@ -4,10 +4,14 @@ var shakeStrength = 0;
 
 func on_player_damaged():
 	shake(10);
+
+func on_player_attacked():
+	shake(2);
 	
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	get_tree().get_first_node_in_group("player").damaged.connect(on_player_damaged)
+	get_tree().get_first_node_in_group("player").hit_connected.connect(on_player_attacked)
 	pass # Replace with function body.
 
 

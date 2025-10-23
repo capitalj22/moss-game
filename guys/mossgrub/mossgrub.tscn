@@ -1,7 +1,7 @@
 [gd_scene load_steps=27 format=3 uid="uid://bi2qvoujutqw7"]
 
 [ext_resource type="Script" uid="uid://4q0alunao8g0" path="res://guys/mossgrub/mossgrub.gd" id="1_xh581"]
-[ext_resource type="Texture2D" uid="uid://dmjyfmqi2dpwo" path="res://sprites/guys/mossgrub/mossgrub-Sheet_1.png" id="2_jaop7"]
+[ext_resource type="Texture2D" uid="uid://dqn8obd2x5uby" path="res://guys/mossgrub/mossgrub-Sheet.png" id="2_jaop7"]
 [ext_resource type="Texture2D" uid="uid://dqn8obd2x5uby" path="res://guys/mossgrub/mossgrub-Sheet.png" id="3_bku60"]
 [ext_resource type="PackedScene" uid="uid://basbh2e8jl5cf" path="res://components/enemy_color_mod.tscn" id="4_f5vem"]
 [ext_resource type="PackedScene" uid="uid://d2tgx3mm5fuh1" path="res://components/phys_enemy_react.tscn" id="5_sx044"]

@@ -1,0 +1,15 @@
+extends PointLight2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	if randi_range(0, 20) == 20:
+		self.energy = 0.4;
+	else:
+		self.energy = randf_range(0.9, 1.4);
+	pass

@@ -1,19 +1,34 @@
-[gd_scene load_steps=41 format=3 uid="uid://bwhmtoeceasgv"]
+[gd_scene load_steps=73 format=3 uid="uid://bwhmtoeceasgv"]
 
 [ext_resource type="Texture2D" uid="uid://c4dj1s5jqbor6" path="res://sprites/environment/fire.png" id="1_fxcak"]
 [ext_resource type="PackedScene" uid="uid://6j2hash6u0j5" path="res://sherma.tscn" id="1_gej88"]
 [ext_resource type="Script" uid="uid://b7bdk756bn7jd" path="res://testing/pogo.gd" id="1_hudbq"]
 [ext_resource type="Texture2D" uid="uid://byc30kjxxsufy" path="res://sprites/moss/poc/clump_flat_1.png" id="2_08gix"]
+[ext_resource type="Texture2D" uid="uid://cm3dwudmllu0m" path="res://sprites/moss/poc/5.png" id="2_cy8a4"]
 [ext_resource type="PackedScene" uid="uid://bi2qvoujutqw7" path="res://guys/mossgrub/mossgrub.tscn" id="2_lihy4"]
 [ext_resource type="PackedScene" uid="uid://jicujxry0r8n" path="res://guys/mossmir/mossmir.tscn" id="2_n1jas"]
 [ext_resource type="Texture2D" uid="uid://icaaqlg1lv08" path="res://sprites/moss/poc/4.png" id="2_ugb3j"]
+[ext_resource type="Texture2D" uid="uid://iixt7jny0nkr" path="res://sprites/moss/poc/6.png" id="3_7n6k5"]
 [ext_resource type="Script" uid="uid://barain30euoym" path="res://testing/camera.gd" id="3_skhbk"]
 [ext_resource type="Texture2D" uid="uid://ynwi4cyce2wa" path="res://sprites/moss/poc/clump_4.png" id="3_vc0h8"]
 [ext_resource type="Texture2D" uid="uid://bhbv00l18qqld" path="res://sprites/moss/poc/platform_1.png" id="4_5efme"]
 [ext_resource type="Texture2D" uid="uid://bcp2qaskppce2" path="res://sprites/moss/poc/spikes_1.png" id="4_r8x56"]
+[ext_resource type="Texture2D" uid="uid://o830j0kq136g" path="res://sprites/environment/particles/rain.png" id="5_7n6k5"]
 [ext_resource type="Texture2D" uid="uid://bxu2sqlrmdyeu" path="res://sprites/moss/poc/platform_2.png" id="5_skhbk"]
+[ext_resource type="Texture2D" uid="uid://gpxsp5hjpfjf" path="res://sprites/moss/poc/clump_1.png" id="6_j22dt"]
 [ext_resource type="PackedScene" uid="uid://cvpv1k60walif" path="res://statusbar.tscn" id="6_r8x56"]
+[ext_resource type="Texture2D" uid="uid://cuxfb446a3apg" path="res://sprites/environment/fog.png" id="7_khdtd"]
+[ext_resource type="Script" uid="uid://cm3poxcbabk1r" path="res://testing/flicker.gd" id="8_vhwk5"]
+[ext_resource type="Texture2D" uid="uid://blj5bs8riygcx" path="res://sprites/utility/vignette.png" id="13_4d87u"]
 [ext_resource type="PackedScene" uid="uid://clineulma6iem" path="res://guys/mossman/mossman.tscn" id="14_fxcak"]
+[ext_resource type="Texture2D" uid="uid://cu8wsexykg31b" path="res://sprites/environment/particles/green_1.png" id="15_vq7fa"]
+[ext_resource type="Texture2D" uid="uid://ch61xk3m5h66g" path="res://sprites/moss/poc/floor_2.png" id="19_jp0ry"]
+[ext_resource type="Texture2D" uid="uid://bwi5j0q1jsb3c" path="res://sprites/moss/poc/floor_1.png" id="19_l4jlt"]
+[ext_resource type="Texture2D" uid="uid://byrcdus7gcbjn" path="res://sprites/moss/poc/clump_flat_2.png" id="21_rlgx3"]
+[ext_resource type="Texture2D" uid="uid://8xup4tpsb7pi" path="res://sprites/moss/poc/clump_round_1.png" id="22_rlgx3"]
+[ext_resource type="Texture2D" uid="uid://ifpab86urv75" path="res://sprites/moss/foreground_3.png" id="27_7cxxi"]
+[ext_resource type="Texture2D" uid="uid://dldxojbcdduxh" path="res://sprites/moss/foreground_1.png" id="28_wmy1q"]
+[ext_resource type="Texture2D" uid="uid://c005tkvd2i121" path="res://sprites/moss/foreground_flat_1.png" id="29_nhbak"]
 
 [sub_resource type="Gradient" id="Gradient_ugb3j"]
 offsets = PackedFloat32Array(0, 0.26911315, 1)
@@ -22,6 +37,104 @@ colors = PackedColorArray(0.09702266, 0.16591763, 0.12608886, 1, 0.06994393, 0.1
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_lr8xj"]
 gradient = SubResource("Gradient_ugb3j")
 fill_from = Vector2(0, 1)
+
+[sub_resource type="Curve" id="Curve_7n6k5"]
+_limits = [0.0, 7.666006, 0.090614885, 1.0]
+_data = [Vector2(0.090614885, 7.316737), 0.0, 0.0, 0, 0, Vector2(0.25247955, 7.666006), -12.830061, -12.830061, 0, 0, Vector2(0.44083118, 2.7762413), 4.9449167, 4.9449167, 0, 0, Vector2(1, 1.262742), 4.335275, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_j22dt"]
+curve = SubResource("Curve_7n6k5")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_j22dt"]
+lifetime_randomness = 0.25
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(3, 1, 1)
+gravity = Vector3(0, 98, 0)
+scale_min = 0.19999999
+scale_max = 0.79999995
+scale_curve = SubResource("CurveTexture_j22dt")
+color = Color(1, 1, 1, 0.73333335)
+
+[sub_resource type="Gradient" id="Gradient_7n6k5"]
+colors = PackedColorArray(1, 1, 1, 1, 0.446777, 0.44677705, 0.44677705, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_j22dt"]
+gradient = SubResource("Gradient_7n6k5")
+fill_from = Vector2(0, 1)
+
+[sub_resource type="Gradient" id="Gradient_j22dt"]
+offsets = PackedFloat32Array(0, 0.90459365, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.94699645, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_4d87u"]
+gradient = SubResource("Gradient_j22dt")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_0jad4"]
+particle_flag_rotate_y = true
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 1000.0
+angle_min = -479.5
+angle_max = -174.29999
+inherit_velocity_ratio = 0.255
+velocity_pivot = Vector3(2, 0, 0)
+direction = Vector3(3, 2, 0)
+spread = 145.248
+initial_velocity_max = 9.12
+angular_velocity_min = -85.83002
+angular_velocity_max = 47.35998
+gravity = Vector3(0, -30, 0)
+damping_max = 15.503001
+attractor_interaction_enabled = false
+scale_min = 0.19999999
+scale_max = 0.39999998
+color_ramp = SubResource("GradientTexture1D_4d87u")
+anim_speed_max = 3.6
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_khdtd"]
+atlas = ExtResource("7_khdtd")
+region = Rect2(0, 0, 316, 92)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l4jlt"]
+atlas = ExtResource("7_khdtd")
+region = Rect2(0, 92, 316, 92)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5jnls"]
+atlas = ExtResource("7_khdtd")
+region = Rect2(0, 184, 316, 92)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jp0ry"]
+atlas = ExtResource("7_khdtd")
+region = Rect2(0, 276, 316, 92)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rlgx3"]
+atlas = ExtResource("7_khdtd")
+region = Rect2(0, 368, 316, 92)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wmy1q"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_khdtd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l4jlt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5jnls")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jp0ry")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rlgx3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 7.0
+}]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vq7fa"]
 atlas = ExtResource("1_fxcak")
@@ -66,6 +179,33 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="Gradient" id="Gradient_4d87u"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_vhwk5"]
+gradient = SubResource("Gradient_4d87u")
+fill = 1
+fill_from = Vector2(0.50427353, 0.508547)
+fill_to = Vector2(0.71794873, 0.24358974)
+
+[sub_resource type="Gradient" id="Gradient_vc0h8"]
+offsets = PackedFloat32Array(0, 0.3730887, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.006289981, 0.05747398, 0.07214094, 1, 0.010278385, 0.05125673, 0.018478319, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_08gix"]
+gradient = SubResource("Gradient_vc0h8")
+fill_from = Vector2(1, 1)
+
+[sub_resource type="Gradient" id="Gradient_08gix"]
+offsets = PackedFloat32Array(0, 0.3730887, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.006289981, 0.05747398, 0.07214094, 1, 0.010278385, 0.05125673, 0.018478319, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_r8x56"]
+gradient = SubResource("Gradient_08gix")
+fill_from = Vector2(1, 1)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_5efme"]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n1jas"]
 size = Vector2(1360, 336)
 
@@ -102,42 +242,459 @@ size = Vector2(79, 32)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hudbq"]
 size = Vector2(95, 26.5)
 
-[sub_resource type="Gradient" id="Gradient_vc0h8"]
-offsets = PackedFloat32Array(0, 0.3730887, 1)
-colors = PackedColorArray(0, 0, 0, 1, 0.006289981, 0.05747398, 0.07214094, 1, 0.010278385, 0.05125673, 0.018478319, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_08gix"]
-gradient = SubResource("Gradient_vc0h8")
-fill_from = Vector2(1, 1)
-
-[sub_resource type="Gradient" id="Gradient_08gix"]
-offsets = PackedFloat32Array(0, 0.3730887, 1)
-colors = PackedColorArray(0, 0, 0, 1, 0.006289981, 0.05747398, 0.07214094, 1, 0.010278385, 0.05125673, 0.018478319, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_r8x56"]
-gradient = SubResource("Gradient_08gix")
-fill_from = Vector2(1, 1)
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_5efme"]
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5efme"]
 size = Vector2(191, 43.5)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_7n6k5"]
+particle_flag_rotate_y = true
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(2000, 500, 1)
+angle_min = -479.5
+angle_max = -174.29999
+inherit_velocity_ratio = 0.255
+velocity_pivot = Vector3(2, 0, 0)
+direction = Vector3(3, 2, 0)
+spread = 145.248
+initial_velocity_max = 9.12
+angular_velocity_min = -85.83002
+angular_velocity_max = 47.35998
+gravity = Vector3(0, -30, 0)
+scale_min = 0.5
+scale_max = 0.7
 
 [node name="Test Floor" type="Node2D"]
 
 [node name="bg" type="Sprite2D" parent="."]
-z_index = -2
-position = Vector2(-7.9999847, 40.000008)
+z_index = -5
+position = Vector2(-12.000001, 44.000004)
 scale = Vector2(42.421875, 18.484373)
 texture = SubResource("GradientTexture2D_lr8xj")
 
+[node name="Parallax2D6" type="Parallax2D" parent="."]
+z_index = -3
+scale = Vector2(0.4, 0.4)
+scroll_scale = Vector2(0.9, 0.9)
+scroll_offset = Vector2(459, 320)
+
+[node name="Node2D" type="Node2D" parent="Parallax2D6"]
+position = Vector2(310, -650)
+
+[node name="Sprite2D14" type="Sprite2D" parent="Parallax2D6/Node2D"]
+z_index = -2
+texture_filter = 1
+position = Vector2(912, 209)
+scale = Vector2(2.909091, 3.0000005)
+texture = ExtResource("2_ugb3j")
+flip_h = true
+
+[node name="Sprite2D15" type="Sprite2D" parent="Parallax2D6/Node2D"]
+z_index = -2
+texture_filter = 1
+position = Vector2(1032, 193.99998)
+scale = Vector2(2.909091, 3.0000005)
+texture = ExtResource("3_7n6k5")
+flip_h = true
+
+[node name="Sprite2D16" type="Sprite2D" parent="Parallax2D6/Node2D"]
+z_index = -2
+texture_filter = 1
+position = Vector2(1088, 296)
+scale = Vector2(2.909091, 3.0000005)
+texture = ExtResource("2_ugb3j")
+flip_h = true
+
+[node name="Sprite2D17" type="Sprite2D" parent="Parallax2D6/Node2D"]
+z_index = -2
+texture_filter = 1
+position = Vector2(927.9999, 450)
+scale = Vector2(2.909091, 3.0000005)
+texture = ExtResource("2_ugb3j")
+flip_h = true
+
+[node name="Sprite2D18" type="Sprite2D" parent="Parallax2D6/Node2D"]
+z_index = -2
+texture_filter = 1
+position = Vector2(860.36365, 255.50003)
+scale = Vector2(2.909091, 3.0000005)
+texture = ExtResource("2_ugb3j")
+flip_h = true
+
+[node name="Sprite2D19" type="Sprite2D" parent="Parallax2D6/Node2D"]
+z_index = -2
+texture_filter = 1
+position = Vector2(882.36365, 358.50003)
+scale = Vector2(2.909091, 3.0000005)
+texture = ExtResource("2_ugb3j")
+flip_h = true
+
+[node name="Sprite2D20" type="Sprite2D" parent="Parallax2D6/Node2D"]
+z_index = -2
+texture_filter = 1
+position = Vector2(1168, 295.50003)
+scale = Vector2(2.909091, 3.0000005)
+texture = ExtResource("2_ugb3j")
+flip_h = true
+
+[node name="Sprite2D26" type="Sprite2D" parent="Parallax2D6/Node2D"]
+z_index = -2
+texture_filter = 1
+position = Vector2(1164, 220)
+scale = Vector2(2.909091, 3.0000005)
+texture = ExtResource("2_ugb3j")
+flip_h = true
+
+[node name="Sprite2D21" type="Sprite2D" parent="Parallax2D6/Node2D"]
+z_index = -2
+texture_filter = 1
+position = Vector2(1332.0001, 294.00003)
+rotation = 0.71939385
+scale = Vector2(2.909091, 3.0000005)
+texture = ExtResource("2_ugb3j")
+flip_h = true
+
+[node name="Sprite2D22" type="Sprite2D" parent="Parallax2D6/Node2D"]
+z_index = -2
+texture_filter = 1
+position = Vector2(1344, 382.50003)
+scale = Vector2(2.909091, 3.0000005)
+texture = ExtResource("2_ugb3j")
+flip_h = true
+
+[node name="Sprite2D23" type="Sprite2D" parent="Parallax2D6/Node2D"]
+z_index = -2
+texture_filter = 1
+position = Vector2(962.36365, 358.00006)
+scale = Vector2(2.909091, 3.0000005)
+texture = ExtResource("2_ugb3j")
+flip_h = true
+
+[node name="Sprite2D24" type="Sprite2D" parent="Parallax2D6/Node2D"]
+z_index = -2
+texture_filter = 1
+position = Vector2(1116.3636, 342.00006)
+scale = Vector2(2.909091, 3.0000005)
+texture = ExtResource("2_ugb3j")
+flip_h = true
+
+[node name="Sprite2D25" type="Sprite2D" parent="Parallax2D6/Node2D"]
+z_index = -2
+texture_filter = 1
+position = Vector2(1138.3636, 445.00006)
+scale = Vector2(2.909091, 3.0000005)
+texture = ExtResource("2_ugb3j")
+flip_h = true
+
+[node name="rain" type="GPUParticles2D" parent="Parallax2D6"]
+z_index = -2
+texture_filter = 1
+position = Vector2(1412.4998, -497.5)
+scale = Vector2(1.2499999, 1.2499999)
+amount = 40
+texture = ExtResource("5_7n6k5")
+lifetime = 3.8899999999999997
+randomness = 0.3
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_j22dt")
+
+[node name="bg2" type="PointLight2D" parent="Parallax2D6"]
+z_index = -2
+position = Vector2(1342.0001, -264)
+scale = Vector2(14.125001, 8.234375)
+color = Color(0.9052305, 0.7810589, 0.6536511, 1)
+energy = 0.87
+blend_mode = 1
+range_z_min = -6
+range_z_max = -5
+texture = SubResource("GradientTexture2D_j22dt")
+
+[node name="Parallax2D5" type="Parallax2D" parent="."]
+z_index = -2
+scale = Vector2(0.5, 0.5)
+scroll_scale = Vector2(0.94, 0.94)
+scroll_offset = Vector2(145, 359)
+
+[node name="Node2D" type="Node2D" parent="Parallax2D5"]
+position = Vector2(310, -650)
+
+[node name="Sprite2D14" type="Sprite2D" parent="Parallax2D5/Node2D"]
+z_index = -2
+texture_filter = 1
+position = Vector2(912, 209)
+scale = Vector2(2.909091, 3.0000005)
+texture = ExtResource("2_ugb3j")
+flip_h = true
+
+[node name="Sprite2D15" type="Sprite2D" parent="Parallax2D5/Node2D"]
+z_index = -2
+texture_filter = 1
+position = Vector2(1032, 193.99998)
+scale = Vector2(2.909091, 3.0000005)
+texture = ExtResource("3_7n6k5")
+flip_h = true
+
+[node name="Sprite2D16" type="Sprite2D" parent="Parallax2D5/Node2D"]
+z_index = -2
+texture_filter = 1
+position = Vector2(1088, 296)
+scale = Vector2(2.909091, 3.0000005)
+texture = ExtResource("2_ugb3j")
+flip_h = true
+
+[node name="Sprite2D17" type="Sprite2D" parent="Parallax2D5/Node2D"]
+z_index = -2
+texture_filter = 1
+position = Vector2(927.9999, 450)
+scale = Vector2(2.909091, 3.0000005)
+texture = ExtResource("2_ugb3j")
+flip_h = true
+
+[node name="Sprite2D18" type="Sprite2D" parent="Parallax2D5/Node2D"]
+z_index = -2
+texture_filter = 1
+position = Vector2(860.36365, 255.50003)
+scale = Vector2(2.909091, 3.0000005)
+texture = ExtResource("2_ugb3j")
+flip_h = true
+
+[node name="Sprite2D19" type="Sprite2D" parent="Parallax2D5/Node2D"]
+z_index = -2
+texture_filter = 1
+position = Vector2(882.36365, 358.50003)
+scale = Vector2(2.909091, 3.0000005)
+texture = ExtResource("2_ugb3j")
+flip_h = true
+
+[node name="Sprite2D20" type="Sprite2D" parent="Parallax2D5/Node2D"]
+z_index = -2
+texture_filter = 1
+position = Vector2(1168, 295.50003)
+scale = Vector2(2.909091, 3.0000005)
+texture = ExtResource("2_ugb3j")
+flip_h = true
+
+[node name="Sprite2D26" type="Sprite2D" parent="Parallax2D5/Node2D"]
+z_index = -2
+texture_filter = 1
+position = Vector2(1164, 220)
+scale = Vector2(2.909091, 3.0000005)
+texture = ExtResource("2_ugb3j")
+flip_h = true
+
+[node name="Sprite2D21" type="Sprite2D" parent="Parallax2D5/Node2D"]
+z_index = -2
+texture_filter = 1
+position = Vector2(1332.0001, 294.00003)
+rotation = 0.71939385
+scale = Vector2(2.909091, 3.0000005)
+texture = ExtResource("2_ugb3j")
+flip_h = true
+
+[node name="Sprite2D22" type="Sprite2D" parent="Parallax2D5/Node2D"]
+z_index = -2
+texture_filter = 1
+position = Vector2(1344, 382.50003)
+scale = Vector2(2.909091, 3.0000005)
+texture = ExtResource("2_ugb3j")
+flip_h = true
+
+[node name="Sprite2D23" type="Sprite2D" parent="Parallax2D5/Node2D"]
+z_index = -2
+texture_filter = 1
+position = Vector2(962.36365, 358.00006)
+scale = Vector2(2.909091, 3.0000005)
+texture = ExtResource("2_ugb3j")
+flip_h = true
+
+[node name="Sprite2D24" type="Sprite2D" parent="Parallax2D5/Node2D"]
+z_index = -2
+texture_filter = 1
+position = Vector2(1116.3636, 342.00006)
+scale = Vector2(2.909091, 3.0000005)
+texture = ExtResource("2_ugb3j")
+flip_h = true
+
+[node name="Sprite2D25" type="Sprite2D" parent="Parallax2D5/Node2D"]
+z_index = -2
+texture_filter = 1
+position = Vector2(1138.3636, 445.00006)
+scale = Vector2(2.909091, 3.0000005)
+texture = ExtResource("2_ugb3j")
+flip_h = true
+
+[node name="Parallax2D" type="Parallax2D" parent="."]
+z_index = -2
+scale = Vector2(0.5, 0.5)
+scroll_scale = Vector2(0.95, 0.95)
+scroll_offset = Vector2(446, 71)
+
+[node name="Node2D" type="Node2D" parent="Parallax2D"]
+position = Vector2(840, 44)
+
+[node name="Sprite2D11" type="Sprite2D" parent="Parallax2D/Node2D"]
+z_index = -2
+texture_filter = 1
+position = Vector2(757, 188)
+scale = Vector2(2.909091, 3.0000005)
+texture = ExtResource("2_ugb3j")
+flip_h = true
+
+[node name="Sprite2D13" type="Sprite2D" parent="Parallax2D/Node2D"]
+z_index = -2
+texture_filter = 1
+position = Vector2(764.00006, 270)
+scale = Vector2(2.909091, 3.0000005)
+texture = ExtResource("2_ugb3j")
+flip_h = true
+
+[node name="Sprite2D17" type="Sprite2D" parent="Parallax2D/Node2D"]
+z_index = -2
+texture_filter = 1
+position = Vector2(617.99994, 132.99998)
+scale = Vector2(2.909091, 3.0000005)
+texture = ExtResource("2_ugb3j")
+flip_h = true
+
+[node name="Sprite2D18" type="Sprite2D" parent="Parallax2D/Node2D"]
+z_index = -2
+texture_filter = 1
+position = Vector2(568, 212)
+scale = Vector2(2.909091, 3.0000005)
+texture = ExtResource("2_ugb3j")
+flip_h = true
+
+[node name="Sprite2D12" type="Sprite2D" parent="Parallax2D/Node2D"]
+z_index = -2
+texture_filter = 1
+position = Vector2(571.9998, 318)
+scale = Vector2(2.909091, 3.0000005)
+texture = ExtResource("2_ugb3j")
+flip_h = true
+
+[node name="Sprite2D10" type="Sprite2D" parent="Parallax2D/Node2D"]
+z_index = -2
+texture_filter = 1
+position = Vector2(774, 188)
+scale = Vector2(2.909091, 3.0000005)
+texture = ExtResource("2_cy8a4")
+flip_h = true
+
+[node name="Sprite2D9" type="Sprite2D" parent="Parallax2D/Node2D"]
+z_index = -2
+texture_filter = 1
+position = Vector2(646, 227.99998)
+scale = Vector2(2.909091, 3.0000005)
+texture = ExtResource("3_7n6k5")
+flip_h = true
+
+[node name="moss1" type="Sprite2D" parent="Parallax2D/Node2D"]
+z_index = -2
+texture_filter = 1
+position = Vector2(468, 162)
+rotation = -1.9376435
+scale = Vector2(2.909091, 3.0000002)
+texture = ExtResource("6_j22dt")
+flip_h = true
+
+[node name="moss2" type="Sprite2D" parent="Parallax2D/Node2D"]
+z_index = -2
+texture_filter = 1
+position = Vector2(446, 266.00003)
+rotation = -2.6617653
+scale = Vector2(2.909091, 3.0000002)
+texture = ExtResource("6_j22dt")
+flip_h = true
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Parallax2D"]
+texture_filter = 1
+position = Vector2(602, 250)
+amount = 100
+texture = ExtResource("15_vq7fa")
+lifetime = 1.73
+speed_scale = 0.3
+randomness = 0.3
+process_material = SubResource("ParticleProcessMaterial_0jad4")
+
+[node name="Parallax2D3" type="Parallax2D" parent="."]
+z_index = -3
+scroll_scale = Vector2(0.955, 0.955)
+scroll_offset = Vector2(145, 359)
+
+[node name="Node2D" type="Node2D" parent="Parallax2D3"]
+position = Vector2(-89, -406)
+
+[node name="Sprite2D9" type="Sprite2D" parent="Parallax2D3/Node2D"]
+texture_filter = 1
+position = Vector2(523, 211)
+scale = Vector2(2.909091, 3.0000005)
+texture = ExtResource("3_7n6k5")
+flip_h = true
+
+[node name="Sprite2D10" type="Sprite2D" parent="Parallax2D3/Node2D"]
+texture_filter = 1
+position = Vector2(560, 195.00003)
+rotation = 0.95735407
+scale = Vector2(2.180204, 2.2483356)
+texture = ExtResource("6_j22dt")
+flip_h = true
+
+[node name="Parallax2D4" type="Parallax2D" parent="."]
+z_index = -3
+scroll_scale = Vector2(0.96, 0.96)
+scroll_offset = Vector2(161, 364)
+
+[node name="Node2D" type="Node2D" parent="Parallax2D4"]
+position = Vector2(-89, -406)
+
+[node name="Sprite2D10" type="Sprite2D" parent="Parallax2D4/Node2D"]
+texture_filter = 1
+position = Vector2(527, 271.99997)
+rotation = -0.8512846
+scale = Vector2(2.180204, 2.2483356)
+texture = ExtResource("6_j22dt")
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="Parallax2D4/Node2D"]
+modulate = Color(1, 1, 1, 0.3882353)
+texture_filter = 1
+texture_repeat = 2
+position = Vector2(824.74994, 208)
+scale = Vector2(3.004747, 2.347826)
+sprite_frames = SubResource("SpriteFrames_wmy1q")
+autoplay = "default"
+frame_progress = 0.99381495
+speed_scale = 0.5
+flip_h = true
+
 [node name="Fire" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(796, 231)
+position = Vector2(796, 230)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_4d87u")
 autoplay = "default"
 frame_progress = 0.61193675
+
+[node name="bg2" type="PointLight2D" parent="."]
+z_index = -2
+position = Vector2(858.00006, 254.50002)
+scale = Vector2(14.125001, 8.234375)
+color = Color(0.9052305, 0.7810589, 0.6536511, 1)
+energy = 1.13
+blend_mode = 1
+range_z_min = -5
+range_z_max = -3
+texture = SubResource("GradientTexture2D_j22dt")
+metadata/_edit_lock_ = true
+
+[node name="bg3" type="PointLight2D" parent="."]
+z_index = -2
+position = Vector2(795, 251)
+scale = Vector2(3.0468776, 2.234375)
+color = Color(0.91764706, 0.35686275, 0.101960786, 1)
+energy = 1.47
+range_z_min = -5
+range_z_max = -3
+texture = SubResource("GradientTexture2D_vhwk5")
+script = ExtResource("8_vhwk5")
 
 [node name="Characters" type="Node2D" parent="."]
 
@@ -178,85 +735,46 @@ position = Vector2(-1032, 192)
 player = NodePath("../../Sherma")
 
 [node name="Mossman" parent="Characters/Baddies" node_paths=PackedStringArray("player") instance=ExtResource("14_fxcak")]
-position = Vector2(758, 253)
+position = Vector2(759, 253)
 player = NodePath("../../Sherma")
 
 [node name="Mossman2" parent="Characters/Baddies" node_paths=PackedStringArray("player") instance=ExtResource("14_fxcak")]
 position = Vector2(845, 253)
 player = NodePath("../../Sherma")
+isFacingLeft = true
 
 [node name="Sherma" parent="Characters" instance=ExtResource("1_gej88")]
-position = Vector2(312, 259)
+visible = false
+position = Vector2(1323, 258)
 debug = false
 JUMP_TIME = 0.25
 jumpVelocity = -450
 
 [node name="Camera2D2" type="Camera2D" parent="Characters/Sherma"]
 position = Vector2(0, -50)
-zoom = Vector2(0.8, 0.8)
+zoom = Vector2(1.5, 1.5)
 script = ExtResource("3_skhbk")
+metadata/_edit_lock_ = true
+
+[node name="vignette_dark" type="Sprite2D" parent="Characters/Sherma/Camera2D2"]
+z_index = 4
+position = Vector2(9.999997, -12.500006)
+scale = Vector2(1.3157895, 0.7742664)
+texture = ExtResource("13_4d87u")
+metadata/_edit_lock_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.50980395)
+texture_filter = 1
+texture_repeat = 2
+position = Vector2(907.00006, 251)
+scale = Vector2(2.8591769, 1)
+sprite_frames = SubResource("SpriteFrames_wmy1q")
+autoplay = "default"
+frame_progress = 0.8195915
+flip_h = true
 
 [node name="Floor2" type="Node2D" parent="."]
-
-[node name="Floor" type="StaticBody2D" parent="Floor2"]
-collision_layer = 15
-collision_mask = 15
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor2/Floor"]
-position = Vector2(680, 432)
-shape = SubResource("RectangleShape2D_n1jas")
-
-[node name="CollisionShape2D10" type="CollisionShape2D" parent="Floor2/Floor"]
-position = Vector2(680, 432)
-shape = SubResource("RectangleShape2D_n1jas")
-
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="Floor2/Floor"]
-position = Vector2(-96, 460)
-shape = SubResource("RectangleShape2D_lihy4")
-
-[node name="CollisionShape2D5" type="CollisionShape2D" parent="Floor2/Floor"]
-position = Vector2(-288, 396)
-shape = SubResource("RectangleShape2D_2cni7")
-
-[node name="CollisionShape2D13" type="CollisionShape2D" parent="Floor2/Floor"]
-position = Vector2(860, 60)
-shape = SubResource("RectangleShape2D_skhbk")
-
-[node name="CollisionShape2D14" type="CollisionShape2D" parent="Floor2/Floor"]
-position = Vector2(956, -57.5)
-shape = SubResource("RectangleShape2D_fxcak")
-
-[node name="CollisionShape2D6" type="CollisionShape2D" parent="Floor2/Floor"]
-position = Vector2(-480, 352)
-shape = SubResource("RectangleShape2D_vc0h8")
-
-[node name="CollisionShape2D7" type="CollisionShape2D" parent="Floor2/Floor"]
-position = Vector2(-672, 428)
-shape = SubResource("RectangleShape2D_08gix")
-
-[node name="CollisionShape2D8" type="CollisionShape2D" parent="Floor2/Floor"]
-position = Vector2(-980, 396)
-shape = SubResource("RectangleShape2D_r8x56")
-
-[node name="CollisionShape2D9" type="CollisionShape2D" parent="Floor2/Floor"]
-position = Vector2(-704, 80)
-shape = SubResource("RectangleShape2D_lr8xj")
-
-[node name="CollisionShape2D11" type="CollisionShape2D" parent="Floor2/Floor"]
-position = Vector2(-944, 80)
-shape = SubResource("RectangleShape2D_xngk0")
-
-[node name="CollisionShape2D12" type="CollisionShape2D" parent="Floor2/Floor"]
-position = Vector2(-1159.5, 80)
-shape = SubResource("RectangleShape2D_ugb3j")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Floor2/Floor"]
-position = Vector2(288.5, 85)
-shape = SubResource("RectangleShape2D_hudbq")
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="Floor2/Floor"]
-position = Vector2(137, 181.25)
-shape = SubResource("RectangleShape2D_hudbq")
 
 [node name="Floor_visual" type="Node2D" parent="Floor2"]
 
@@ -369,24 +887,45 @@ scale = Vector2(2.909091, 3.0000005)
 texture = ExtResource("2_08gix")
 flip_h = true
 
-[node name="Sprite2D17" type="Sprite2D" parent="Floor2/Floor_visual"]
+[node name="floor4" type="Sprite2D" parent="Floor2/Floor_visual"]
 texture_filter = 1
-position = Vector2(650, 273)
-scale = Vector2(2.909091, 3.0000005)
+position = Vector2(782, 270)
+scale = Vector2(2, 2)
+texture = ExtResource("19_jp0ry")
+flip_h = true
+
+[node name="floor3" type="Sprite2D" parent="Floor2/Floor_visual"]
+texture_filter = 1
+position = Vector2(926, 270)
+scale = Vector2(2, 2)
+texture = ExtResource("19_jp0ry")
+flip_h = true
+
+[node name="floor2" type="Sprite2D" parent="Floor2/Floor_visual"]
+texture_filter = 1
+position = Vector2(1004, 272)
+scale = Vector2(2, 2)
+texture = ExtResource("19_l4jlt")
+flip_h = true
+
+[node name="Sprite2D32" type="Sprite2D" parent="Floor2/Floor_visual"]
+texture_filter = 1
+position = Vector2(661, 269)
+scale = Vector2(2, 2)
 texture = ExtResource("2_08gix")
 flip_h = true
 
-[node name="Sprite2D18" type="Sprite2D" parent="Floor2/Floor_visual"]
+[node name="Sprite2D20" type="Sprite2D" parent="Floor2/Floor_visual"]
 texture_filter = 1
-position = Vector2(836, 274)
-scale = Vector2(2.909091, 3.0000005)
+position = Vector2(1135, 271)
+scale = Vector2(2, 2)
 texture = ExtResource("2_08gix")
 flip_h = true
 
-[node name="Sprite2D19" type="Sprite2D" parent="Floor2/Floor_visual"]
+[node name="Sprite2D33" type="Sprite2D" parent="Floor2/Floor_visual"]
 texture_filter = 1
-position = Vector2(1031, 274)
-scale = Vector2(2.909091, 3.0000005)
+position = Vector2(1249, 269)
+scale = Vector2(2, 2)
 texture = ExtResource("2_08gix")
 flip_h = true
 
@@ -446,10 +985,17 @@ scale = Vector2(2.909091, 3.0000005)
 texture = ExtResource("2_08gix")
 flip_h = true
 
-[node name="Sprite2D20" type="Sprite2D" parent="Floor2/Floor_visual"]
+[node name="Sprite2D35" type="Sprite2D" parent="Floor2/Floor_visual"]
 texture_filter = 1
-position = Vector2(1209, 276)
-scale = Vector2(2.909091, 3.0000005)
+position = Vector2(-287.99997, 194.00002)
+scale = Vector2(2.9090912, 3.0000007)
+texture = ExtResource("2_08gix")
+flip_h = true
+
+[node name="Sprite2D36" type="Sprite2D" parent="Floor2/Floor_visual"]
+texture_filter = 1
+position = Vector2(-472, 112)
+scale = Vector2(2.9090912, 3.0000007)
 texture = ExtResource("2_08gix")
 flip_h = true
 
@@ -458,19 +1004,222 @@ position = Vector2(-673.75, 431.5)
 scale = Vector2(195.50002, 353)
 texture = SubResource("PlaceholderTexture2D_5efme")
 
-[node name="Sprite2D21" type="Sprite2D" parent="Floor2/Floor_visual/Sprite2D13"]
+[node name="Foreground_1" type="Node2D" parent="Floor2"]
+position = Vector2(136, 355)
+
+[node name="Parallax2D7" type="Parallax2D" parent="Floor2/Foreground_1"]
+z_index = 2
+scroll_scale = Vector2(1.01, 1.01)
+scroll_offset = Vector2(103, 79)
+
+[node name="Node2D" type="Node2D" parent="Floor2/Foreground_1/Parallax2D7"]
+position = Vector2(307, -730)
+
+[node name="Sprite2D" type="Sprite2D" parent="Floor2/Foreground_1/Parallax2D7/Node2D"]
 texture_filter = 1
-position = Vector2(1.9731457, -0.6728045)
-scale = Vector2(0.01488026, 0.008498586)
+position = Vector2(279, 571)
+scale = Vector2(2, 2)
+texture = ExtResource("19_jp0ry")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Floor2/Foreground_1/Parallax2D7/Node2D"]
+texture_filter = 1
+position = Vector2(397, 573)
+scale = Vector2(2, 2)
+texture = ExtResource("19_jp0ry")
+
+[node name="clump2" type="Sprite2D" parent="Floor2/Foreground_1/Parallax2D7/Node2D"]
+texture_filter = 1
+position = Vector2(513, 570)
+scale = Vector2(2, 2)
+texture = ExtResource("21_rlgx3")
+flip_h = true
+
+[node name="clump3" type="Sprite2D" parent="Floor2/Foreground_1/Parallax2D7/Node2D"]
+texture_filter = 1
+position = Vector2(169, 569)
+scale = Vector2(2, 2)
+texture = ExtResource("21_rlgx3")
+flip_h = true
+
+[node name="Parallax2D8" type="Parallax2D" parent="Floor2/Foreground_1"]
+z_index = 2
+scroll_scale = Vector2(1.02, 1.02)
+scroll_offset = Vector2(141, 365)
+
+[node name="Node2D" type="Node2D" parent="Floor2/Foreground_1/Parallax2D8"]
+position = Vector2(350, -658)
+
+[node name="floor" type="Sprite2D" parent="Floor2/Foreground_1/Parallax2D8/Node2D"]
+texture_filter = 1
+position = Vector2(239, 222)
+scale = Vector2(2, 2)
+texture = ExtResource("19_jp0ry")
+
+[node name="clump4" type="Sprite2D" parent="Floor2/Foreground_1/Parallax2D8/Node2D"]
+texture_filter = 1
+position = Vector2(333, 220)
+scale = Vector2(2, 2)
+texture = ExtResource("21_rlgx3")
+flip_h = true
+
+[node name="clump6" type="Sprite2D" parent="Floor2/Foreground_1/Parallax2D8/Node2D"]
+texture_filter = 1
+position = Vector2(411, 219)
+scale = Vector2(2, 2)
+texture = ExtResource("21_rlgx3")
+flip_h = true
+
+[node name="clump5" type="Sprite2D" parent="Floor2/Foreground_1/Parallax2D8/Node2D"]
+texture_filter = 1
+position = Vector2(131, 220)
+scale = Vector2(2, 2)
 texture = ExtResource("2_08gix")
 flip_h = true
 
-[node name="Sprite2D22" type="Sprite2D" parent="Floor2/Floor_visual/Sprite2D13"]
+[node name="clump7" type="Sprite2D" parent="Floor2/Foreground_1/Parallax2D8/Node2D"]
 texture_filter = 1
-position = Vector2(1.0319693, -0.90509915)
-scale = Vector2(0.01488026, 0.008498586)
+position = Vector2(-1, 217)
+scale = Vector2(2, 2)
 texture = ExtResource("2_08gix")
 flip_h = true
+
+[node name="Parallax2D9" type="Parallax2D" parent="Floor2/Foreground_1"]
+z_index = 2
+scroll_scale = Vector2(1.03, 1.03)
+scroll_offset = Vector2(145, 377)
+
+[node name="Node2D" type="Node2D" parent="Floor2/Foreground_1/Parallax2D9"]
+position = Vector2(417, -661)
+
+[node name="floor2" type="Sprite2D" parent="Floor2/Foreground_1/Parallax2D9/Node2D"]
+texture_filter = 1
+position = Vector2(236, 224)
+scale = Vector2(2, 2)
+texture = ExtResource("19_l4jlt")
+
+[node name="floor3" type="Sprite2D" parent="Floor2/Foreground_1/Parallax2D9/Node2D"]
+texture_filter = 1
+position = Vector2(-85, 220)
+scale = Vector2(2, 2)
+texture = ExtResource("19_l4jlt")
+
+[node name="clump7" type="Sprite2D" parent="Floor2/Foreground_1/Parallax2D9/Node2D"]
+texture_filter = 1
+position = Vector2(333, 220)
+scale = Vector2(2, 2)
+texture = ExtResource("21_rlgx3")
+flip_h = true
+
+[node name="clump8" type="Sprite2D" parent="Floor2/Foreground_1/Parallax2D9/Node2D"]
+texture_filter = 1
+position = Vector2(411, 219)
+scale = Vector2(2, 2)
+texture = ExtResource("21_rlgx3")
+flip_h = true
+
+[node name="clump9" type="Sprite2D" parent="Floor2/Foreground_1/Parallax2D9/Node2D"]
+texture_filter = 1
+position = Vector2(110, 219)
+scale = Vector2(2, 2)
+texture = ExtResource("22_rlgx3")
+flip_h = true
+
+[node name="clump10" type="Sprite2D" parent="Floor2/Foreground_1/Parallax2D9/Node2D"]
+texture_filter = 1
+position = Vector2(-14, 216)
+scale = Vector2(2, 2)
+texture = ExtResource("22_rlgx3")
+flip_h = true
+
+[node name="clump11" type="Sprite2D" parent="Floor2/Foreground_1/Parallax2D9/Node2D"]
+texture_filter = 1
+position = Vector2(-189, 217)
+scale = Vector2(2, 2)
+texture = ExtResource("22_rlgx3")
+flip_h = true
+
+[node name="Parallax2D10" type="Parallax2D" parent="Floor2/Foreground_1"]
+z_index = 2
+scroll_scale = Vector2(1.04, 1.04)
+scroll_offset = Vector2(145, 359)
+
+[node name="Node2D" type="Node2D" parent="Floor2/Foreground_1/Parallax2D10"]
+position = Vector2(310, -650)
+
+[node name="Floor" type="StaticBody2D" parent="Floor2"]
+collision_layer = 15
+collision_mask = 15
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor2/Floor"]
+position = Vector2(680, 432)
+shape = SubResource("RectangleShape2D_n1jas")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D10" type="CollisionShape2D" parent="Floor2/Floor"]
+position = Vector2(680, 432)
+shape = SubResource("RectangleShape2D_n1jas")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Floor2/Floor"]
+position = Vector2(-96, 460)
+shape = SubResource("RectangleShape2D_lihy4")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="Floor2/Floor"]
+position = Vector2(-288, 396)
+shape = SubResource("RectangleShape2D_2cni7")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D13" type="CollisionShape2D" parent="Floor2/Floor"]
+position = Vector2(860, 60)
+shape = SubResource("RectangleShape2D_skhbk")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D14" type="CollisionShape2D" parent="Floor2/Floor"]
+position = Vector2(956, -57.5)
+shape = SubResource("RectangleShape2D_fxcak")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="Floor2/Floor"]
+position = Vector2(-480, 352)
+shape = SubResource("RectangleShape2D_vc0h8")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="Floor2/Floor"]
+position = Vector2(-672, 428)
+shape = SubResource("RectangleShape2D_08gix")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="Floor2/Floor"]
+position = Vector2(-980, 396)
+shape = SubResource("RectangleShape2D_r8x56")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="Floor2/Floor"]
+position = Vector2(-704, 80)
+shape = SubResource("RectangleShape2D_lr8xj")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D11" type="CollisionShape2D" parent="Floor2/Floor"]
+position = Vector2(-944, 80)
+shape = SubResource("RectangleShape2D_xngk0")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D12" type="CollisionShape2D" parent="Floor2/Floor"]
+position = Vector2(-1159.5, 80)
+shape = SubResource("RectangleShape2D_ugb3j")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Floor2/Floor"]
+position = Vector2(288.5, 85)
+shape = SubResource("RectangleShape2D_hudbq")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Floor2/Floor"]
+position = Vector2(137, 181.25)
+shape = SubResource("RectangleShape2D_hudbq")
+metadata/_edit_lock_ = true
 
 [node name="pogo" type="Area2D" parent="Floor2"]
 position = Vector2(432, 255)
@@ -514,8 +1263,8 @@ texture = ExtResource("4_r8x56")
 
 [node name="Sprite2D2" type="Sprite2D" parent="Floor2/pogo"]
 texture_filter = 1
-position = Vector2(888.00006, 73.000015)
-scale = Vector2(2.909091, 3.0000005)
+position = Vector2(898.00006, 50.000015)
+scale = Vector2(2, 2)
 texture = ExtResource("3_vc0h8")
 
 [node name="Sprite2D11" type="Sprite2D" parent="Floor2/pogo"]
@@ -564,3 +1313,64 @@ script = ExtResource("1_hudbq")
 
 [node name="StatusBar" parent="." node_paths=PackedStringArray("player") instance=ExtResource("6_r8x56")]
 player = NodePath("../Characters/Sherma")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Parallax2D2" type="Parallax2D" parent="."]
+scroll_scale = Vector2(1.4, 1.4)
+
+[node name="Sprite2D17" type="Sprite2D" parent="Parallax2D2"]
+z_index = 2
+texture_filter = 1
+position = Vector2(1222, 306.00003)
+scale = Vector2(2, 3.611)
+texture = ExtResource("27_7cxxi")
+
+[node name="Sprite2D21" type="Sprite2D" parent="Parallax2D2"]
+z_index = 2
+texture_filter = 1
+position = Vector2(1185, 375.00003)
+scale = Vector2(2, 3.611)
+texture = ExtResource("27_7cxxi")
+flip_h = true
+
+[node name="Sprite2D22" type="Sprite2D" parent="Parallax2D2"]
+z_index = 2
+texture_filter = 1
+position = Vector2(912, 373)
+scale = Vector2(2, 3.611)
+texture = ExtResource("27_7cxxi")
+flip_h = true
+
+[node name="Sprite2D18" type="Sprite2D" parent="Parallax2D2"]
+z_index = 2
+texture_filter = 1
+position = Vector2(1286, 206)
+scale = Vector2(2, 3.611)
+texture = ExtResource("28_wmy1q")
+
+[node name="Sprite2D19" type="Sprite2D" parent="Parallax2D2"]
+z_index = 2
+texture_filter = 1
+position = Vector2(1581, 385)
+scale = Vector2(2, 3.611)
+texture = ExtResource("29_nhbak")
+
+[node name="Sprite2D20" type="Sprite2D" parent="Parallax2D2"]
+z_index = 2
+texture_filter = 1
+position = Vector2(1022.00006, 418.00003)
+scale = Vector2(2, 3.611)
+texture = ExtResource("29_nhbak")
+
+[node name="GPUParticles2D2" type="GPUParticles2D" parent="Parallax2D2"]
+texture_filter = 1
+position = Vector2(1180, 310)
+amount = 100
+texture = ExtResource("15_vq7fa")
+lifetime = 1.73
+speed_scale = 0.3
+randomness = 0.3
+visibility_rect = Rect2(-200, -200, 200, 200)
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_7n6k5")

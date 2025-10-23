@@ -33,7 +33,8 @@ colors = PackedColorArray(1, 1, 1, 1, 0.061946988, 0.061946988, 0.061946988, 1, 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_nluap"]
 gradient = SubResource("Gradient_tfp8h")
 fill = 1
-fill_from = Vector2(0.4904762, 0.45714286)
+fill_from = Vector2(0.50427353, 0.51282054)
+fill_to = Vector2(0.8418803, 0.15384616)
 
 [sub_resource type="Gradient" id="Gradient_yiy4f"]
 offsets = PackedFloat32Array(0, 0.006849315, 0.49315068, 1)
@@ -43,6 +44,7 @@ colors = PackedColorArray(1, 1, 1, 0.38431373, 0.92270064, 0.92270064, 0.9227006
 gradient = SubResource("Gradient_yiy4f")
 fill = 1
 fill_from = Vector2(0.4904762, 0.45714286)
+fill_to = Vector2(0.85470086, 0.13675214)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_36jml"]
 size = Vector2(20, 40)
@@ -360,6 +362,58 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [2]
+}
+
+[sub_resource type="Animation" id="Animation_fe33s"]
+resource_name = "damaged"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.06666667, 0.13333334, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("sprite:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("20_ilirf")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("sprite:vframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("sprite:hframes")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
 }
 
 [sub_resource type="Animation" id="Animation_ibv0w"]
@@ -1040,58 +1094,6 @@ tracks/3/keys = {
 "values": [ExtResource("11_7y5s6")]
 }
 
-[sub_resource type="Animation" id="Animation_fe33s"]
-resource_name = "damaged"
-length = 0.3
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.033333335, 0.06666667, 0.13333334, 0.2),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3, 4]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("sprite:texture")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("20_ilirf")]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("sprite:vframes")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [2]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("sprite:hframes")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [3]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_5ghku"]
 _data = {
 &"RESET": SubResource("Animation_g3042"),
@@ -1153,20 +1155,18 @@ script = ExtResource("1_jn7co")
 debug = true
 
 [node name="Parallax2D" type="Parallax2D" parent="."]
-visible = false
 scroll_scale = Vector2(0.97, 0.97)
 
 [node name="light2" type="PointLight2D" parent="Parallax2D"]
-visible = false
 position = Vector2(-24, -48)
 scale = Vector2(2.9687498, 2.6294641)
 color = Color(0.86074597, 0.9891377, 0.9853144, 0.8509804)
 energy = 1.03
-range_z_min = -1
+range_z_min = -3
 range_z_max = -1
 texture = SubResource("GradientTexture2D_nluap")
 
-[node name="light3" type="Sprite2D" parent="Parallax2D"]
+[node name="light3" type="PointLight2D" parent="Parallax2D"]
 visible = false
 modulate = Color(1, 1, 1, 0.21960784)
 visibility_layer = 2
@@ -1174,6 +1174,10 @@ z_index = -2
 texture_filter = 6
 position = Vector2(-1.1920929e-07, -21.999998)
 scale = Vector2(6.7792974, 5.780103)
+color = Color(0.6627451, 1, 0.6745098, 0.30980393)
+energy = 3.0
+range_z_min = -4
+range_z_max = -2
 texture = SubResource("GradientTexture2D_g8n8d")
 
 [node name="sprite" type="Sprite2D" parent="."]
@@ -1183,7 +1187,7 @@ scale = Vector2(2, 2)
 texture = ExtResource("2_q2hml")
 hframes = 9
 vframes = 9
-frame = 19
+frame = 7
 
 [node name="attack_collision" type="ShapeCast2D" parent="." node_paths=PackedStringArray("hitSound", "player")]
 position = Vector2(-2, -18)
