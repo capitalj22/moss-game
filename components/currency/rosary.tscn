@@ -8,7 +8,7 @@ friction = 0.1
 bounce = 0.15
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_yfe6e"]
-radius = 8.0
+radius = 6.0
 
 [node name="Rosary" type="RigidBody2D"]
 collision_layer = 4
@@ -19,7 +19,7 @@ script = ExtResource("1_yfe6e")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-scale = Vector2(2, 2)
+scale = Vector2(1.5, 1.5)
 texture = ExtResource("2_yfe6e")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]

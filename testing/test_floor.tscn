@@ -1,8 +1,9 @@
-[gd_scene load_steps=73 format=3 uid="uid://bwhmtoeceasgv"]
+[gd_scene load_steps=81 format=3 uid="uid://bwhmtoeceasgv"]
 
 [ext_resource type="Texture2D" uid="uid://c4dj1s5jqbor6" path="res://sprites/environment/fire.png" id="1_fxcak"]
 [ext_resource type="PackedScene" uid="uid://6j2hash6u0j5" path="res://sherma.tscn" id="1_gej88"]
 [ext_resource type="Script" uid="uid://b7bdk756bn7jd" path="res://testing/pogo.gd" id="1_hudbq"]
+[ext_resource type="Texture2D" uid="uid://dk6yvt5s4apws" path="res://sprites/moss/poc/clump_2.png" id="1_jwmt3"]
 [ext_resource type="Texture2D" uid="uid://byc30kjxxsufy" path="res://sprites/moss/poc/clump_flat_1.png" id="2_08gix"]
 [ext_resource type="Texture2D" uid="uid://cm3dwudmllu0m" path="res://sprites/moss/poc/5.png" id="2_cy8a4"]
 [ext_resource type="PackedScene" uid="uid://bi2qvoujutqw7" path="res://guys/mossgrub/mossgrub.tscn" id="2_lihy4"]
@@ -12,6 +13,7 @@
 [ext_resource type="Script" uid="uid://barain30euoym" path="res://testing/camera.gd" id="3_skhbk"]
 [ext_resource type="Texture2D" uid="uid://ynwi4cyce2wa" path="res://sprites/moss/poc/clump_4.png" id="3_vc0h8"]
 [ext_resource type="Texture2D" uid="uid://bhbv00l18qqld" path="res://sprites/moss/poc/platform_1.png" id="4_5efme"]
+[ext_resource type="Texture2D" uid="uid://dhcbsbxye2s5d" path="res://sprites/moss/poc/clump_3.png" id="4_nawho"]
 [ext_resource type="Texture2D" uid="uid://bcp2qaskppce2" path="res://sprites/moss/poc/spikes_1.png" id="4_r8x56"]
 [ext_resource type="Texture2D" uid="uid://o830j0kq136g" path="res://sprites/environment/particles/rain.png" id="5_7n6k5"]
 [ext_resource type="Texture2D" uid="uid://bxu2sqlrmdyeu" path="res://sprites/moss/poc/platform_2.png" id="5_skhbk"]
@@ -19,6 +21,10 @@
 [ext_resource type="PackedScene" uid="uid://cvpv1k60walif" path="res://statusbar.tscn" id="6_r8x56"]
 [ext_resource type="Texture2D" uid="uid://cuxfb446a3apg" path="res://sprites/environment/fog.png" id="7_khdtd"]
 [ext_resource type="Script" uid="uid://cm3poxcbabk1r" path="res://testing/flicker.gd" id="8_vhwk5"]
+[ext_resource type="Texture2D" uid="uid://b38uegtbrel4d" path="res://sprites/moss/poc/7.png" id="8_y73r1"]
+[ext_resource type="Texture2D" uid="uid://bf7fd4qvoxuef" path="res://sprites/moss/poc/plant_2.png" id="9_jwmt3"]
+[ext_resource type="Texture2D" uid="uid://dgrolsc3v8ivy" path="res://sprites/moss/poc/plant_3.png" id="10_nawho"]
+[ext_resource type="Texture2D" uid="uid://c05kps8vng8sd" path="res://sprites/moss/poc/plant_1.png" id="11_vka1o"]
 [ext_resource type="Texture2D" uid="uid://blj5bs8riygcx" path="res://sprites/utility/vignette.png" id="13_4d87u"]
 [ext_resource type="PackedScene" uid="uid://clineulma6iem" path="res://guys/mossman/mossman.tscn" id="14_fxcak"]
 [ext_resource type="Texture2D" uid="uid://cu8wsexykg31b" path="res://sprites/environment/particles/green_1.png" id="15_vq7fa"]
@@ -27,6 +33,8 @@
 [ext_resource type="Texture2D" uid="uid://byrcdus7gcbjn" path="res://sprites/moss/poc/clump_flat_2.png" id="21_rlgx3"]
 [ext_resource type="Texture2D" uid="uid://8xup4tpsb7pi" path="res://sprites/moss/poc/clump_round_1.png" id="22_rlgx3"]
 [ext_resource type="Texture2D" uid="uid://ifpab86urv75" path="res://sprites/moss/foreground_3.png" id="27_7cxxi"]
+[ext_resource type="AudioStream" uid="uid://c3p0703yp873d" path="res://sound/ambience/rain_1.mp3" id="27_m2q6w"]
+[ext_resource type="AudioStream" uid="uid://di6bw6ayw812" path="res://sound/ambience/wind_1.mp3" id="28_jycyr"]
 [ext_resource type="Texture2D" uid="uid://dldxojbcdduxh" path="res://sprites/moss/foreground_1.png" id="28_wmy1q"]
 [ext_resource type="Texture2D" uid="uid://c005tkvd2i121" path="res://sprites/moss/foreground_flat_1.png" id="29_nhbak"]
 
@@ -37,25 +45,6 @@ colors = PackedColorArray(0.09702266, 0.16591763, 0.12608886, 1, 0.06994393, 0.1
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_lr8xj"]
 gradient = SubResource("Gradient_ugb3j")
 fill_from = Vector2(0, 1)
-
-[sub_resource type="Curve" id="Curve_7n6k5"]
-_limits = [0.0, 7.666006, 0.090614885, 1.0]
-_data = [Vector2(0.090614885, 7.316737), 0.0, 0.0, 0, 0, Vector2(0.25247955, 7.666006), -12.830061, -12.830061, 0, 0, Vector2(0.44083118, 2.7762413), 4.9449167, 4.9449167, 0, 0, Vector2(1, 1.262742), 4.335275, 0.0, 0, 0]
-point_count = 4
-
-[sub_resource type="CurveTexture" id="CurveTexture_j22dt"]
-curve = SubResource("Curve_7n6k5")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_j22dt"]
-lifetime_randomness = 0.25
-particle_flag_disable_z = true
-emission_shape = 3
-emission_box_extents = Vector3(3, 1, 1)
-gravity = Vector3(0, 98, 0)
-scale_min = 0.19999999
-scale_max = 0.79999995
-scale_curve = SubResource("CurveTexture_j22dt")
-color = Color(1, 1, 1, 0.73333335)
 
 [sub_resource type="Gradient" id="Gradient_7n6k5"]
 colors = PackedColorArray(1, 1, 1, 1, 0.446777, 0.44677705, 0.44677705, 1)
@@ -136,6 +125,39 @@ animations = [{
 "speed": 7.0
 }]
 
+[sub_resource type="Curve" id="Curve_7n6k5"]
+_limits = [0.0, 7.666006, 0.090614885, 1.0]
+_data = [Vector2(0.090614885, 7.316737), 0.0, 0.0, 0, 0, Vector2(0.25247955, 7.666006), -12.830061, -12.830061, 0, 0, Vector2(0.44083118, 2.7762413), 4.9449167, 4.9449167, 0, 0, Vector2(1, 1.262742), 4.335275, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_j22dt"]
+curve = SubResource("Curve_7n6k5")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_j22dt"]
+lifetime_randomness = 0.25
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(200, 1, 1)
+emission_shape = 3
+emission_box_extents = Vector3(3, 1, 1)
+direction = Vector3(0, 1, 0)
+spread = 0.0
+initial_velocity_min = 271.53
+initial_velocity_max = 488.63998
+gravity = Vector3(0, 98, 0)
+scale_min = 0.19999999
+scale_max = 0.39999998
+scale_curve = SubResource("CurveTexture_j22dt")
+color = Color(1, 1, 1, 0.73333335)
+
+[sub_resource type="Gradient" id="Gradient_4d87u"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_vhwk5"]
+gradient = SubResource("Gradient_4d87u")
+fill = 1
+fill_from = Vector2(0.50427353, 0.508547)
+fill_to = Vector2(0.71794873, 0.24358974)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_vq7fa"]
 atlas = ExtResource("1_fxcak")
 region = Rect2(0, 0, 16, 32)
@@ -178,15 +200,6 @@ animations = [{
 "name": &"default",
 "speed": 10.0
 }]
-
-[sub_resource type="Gradient" id="Gradient_4d87u"]
-colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_vhwk5"]
-gradient = SubResource("Gradient_4d87u")
-fill = 1
-fill_from = Vector2(0.50427353, 0.508547)
-fill_to = Vector2(0.71794873, 0.24358974)
 
 [sub_resource type="Gradient" id="Gradient_vc0h8"]
 offsets = PackedFloat32Array(0, 0.3730887, 1)
@@ -265,22 +278,161 @@ scale_max = 0.7
 
 [node name="Test Floor" type="Node2D"]
 
-[node name="bg" type="Sprite2D" parent="."]
+[node name="BG" type="Node2D" parent="."]
+
+[node name="bg" type="Sprite2D" parent="BG"]
 z_index = -5
 position = Vector2(-12.000001, 44.000004)
 scale = Vector2(42.421875, 18.484373)
 texture = SubResource("GradientTexture2D_lr8xj")
 
-[node name="Parallax2D6" type="Parallax2D" parent="."]
+[node name="bg_wall_far" type="Parallax2D" parent="BG"]
+z_index = -5
+scroll_scale = Vector2(0.7, 0.7)
+scroll_offset = Vector2(55, 12)
+
+[node name="mossy bg" type="Node2D" parent="BG/bg_wall_far"]
+modulate = Color(0.1093298, 0.3593117, 0.19288492, 1)
+position = Vector2(-674.2945, 2.1361237)
+scale = Vector2(1.5, 1.5)
+
+[node name="mosswall" type="Sprite2D" parent="BG/bg_wall_far/mossy bg"]
+position = Vector2(1016, 189)
+texture = ExtResource("1_jwmt3")
+
+[node name="mosswall2" type="Sprite2D" parent="BG/bg_wall_far/mossy bg"]
+position = Vector2(1047, 151)
+texture = ExtResource("1_jwmt3")
+
+[node name="mosswall3" type="Sprite2D" parent="BG/bg_wall_far/mossy bg"]
+position = Vector2(972, 195)
+texture = ExtResource("1_jwmt3")
+
+[node name="mosswall4" type="Sprite2D" parent="BG/bg_wall_far/mossy bg"]
+position = Vector2(1003, 157)
+texture = ExtResource("1_jwmt3")
+
+[node name="mosswall5" type="Sprite2D" parent="BG/bg_wall_far/mossy bg"]
+position = Vector2(1033, 111)
+texture = ExtResource("1_jwmt3")
+
+[node name="mosswall6" type="Sprite2D" parent="BG/bg_wall_far/mossy bg"]
+position = Vector2(998, 80)
+texture = ExtResource("1_jwmt3")
+
+[node name="mosswall7" type="Sprite2D" parent="BG/bg_wall_far/mossy bg"]
+position = Vector2(979, 120)
+texture = ExtResource("1_jwmt3")
+flip_h = true
+
+[node name="mosswall8" type="Sprite2D" parent="BG/bg_wall_far/mossy bg"]
+position = Vector2(957, 151)
+texture = ExtResource("1_jwmt3")
+flip_h = true
+
+[node name="mosswall9" type="Sprite2D" parent="BG/bg_wall_far/mossy bg"]
+position = Vector2(930, 188)
+texture = ExtResource("1_jwmt3")
+flip_h = true
+
+[node name="mossy bg2" type="Node2D" parent="BG/bg_wall_far"]
+modulate = Color(0.1093298, 0.3593117, 0.19288492, 1)
+position = Vector2(-526.0148, -5.740593)
+scale = Vector2(1.5, 1.5)
+
+[node name="mosswall" type="Sprite2D" parent="BG/bg_wall_far/mossy bg2"]
+position = Vector2(1016, 189)
+texture = ExtResource("1_jwmt3")
+
+[node name="mosswall2" type="Sprite2D" parent="BG/bg_wall_far/mossy bg2"]
+position = Vector2(1047, 151)
+texture = ExtResource("1_jwmt3")
+
+[node name="mosswall3" type="Sprite2D" parent="BG/bg_wall_far/mossy bg2"]
+position = Vector2(972, 195)
+texture = ExtResource("1_jwmt3")
+
+[node name="mosswall4" type="Sprite2D" parent="BG/bg_wall_far/mossy bg2"]
+position = Vector2(1003, 157)
+texture = ExtResource("1_jwmt3")
+
+[node name="mosswall5" type="Sprite2D" parent="BG/bg_wall_far/mossy bg2"]
+position = Vector2(1033, 111)
+texture = ExtResource("1_jwmt3")
+
+[node name="mosswall6" type="Sprite2D" parent="BG/bg_wall_far/mossy bg2"]
+position = Vector2(998, 80)
+texture = ExtResource("1_jwmt3")
+
+[node name="mosswall7" type="Sprite2D" parent="BG/bg_wall_far/mossy bg2"]
+position = Vector2(979, 120)
+texture = ExtResource("1_jwmt3")
+flip_h = true
+
+[node name="mosswall8" type="Sprite2D" parent="BG/bg_wall_far/mossy bg2"]
+position = Vector2(957, 151)
+texture = ExtResource("1_jwmt3")
+flip_h = true
+
+[node name="mosswall9" type="Sprite2D" parent="BG/bg_wall_far/mossy bg2"]
+position = Vector2(930, 188)
+texture = ExtResource("1_jwmt3")
+flip_h = true
+
+[node name="mossy bg3" type="Node2D" parent="BG/bg_wall_far"]
+modulate = Color(0.1093298, 0.3593117, 0.19288492, 1)
+position = Vector2(-829.0148, -1.740593)
+scale = Vector2(1.5, 1.5)
+
+[node name="mosswall" type="Sprite2D" parent="BG/bg_wall_far/mossy bg3"]
+position = Vector2(1016, 189)
+texture = ExtResource("1_jwmt3")
+
+[node name="mosswall2" type="Sprite2D" parent="BG/bg_wall_far/mossy bg3"]
+position = Vector2(1047, 151)
+texture = ExtResource("1_jwmt3")
+
+[node name="mosswall3" type="Sprite2D" parent="BG/bg_wall_far/mossy bg3"]
+position = Vector2(972, 195)
+texture = ExtResource("1_jwmt3")
+
+[node name="mosswall4" type="Sprite2D" parent="BG/bg_wall_far/mossy bg3"]
+position = Vector2(1003, 157)
+texture = ExtResource("1_jwmt3")
+
+[node name="mosswall5" type="Sprite2D" parent="BG/bg_wall_far/mossy bg3"]
+position = Vector2(1033, 111)
+texture = ExtResource("1_jwmt3")
+
+[node name="mosswall6" type="Sprite2D" parent="BG/bg_wall_far/mossy bg3"]
+position = Vector2(998, 80)
+texture = ExtResource("1_jwmt3")
+
+[node name="mosswall7" type="Sprite2D" parent="BG/bg_wall_far/mossy bg3"]
+position = Vector2(979, 120)
+texture = ExtResource("1_jwmt3")
+flip_h = true
+
+[node name="mosswall8" type="Sprite2D" parent="BG/bg_wall_far/mossy bg3"]
+position = Vector2(957, 151)
+texture = ExtResource("1_jwmt3")
+flip_h = true
+
+[node name="mosswall9" type="Sprite2D" parent="BG/bg_wall_far/mossy bg3"]
+position = Vector2(930, 188)
+texture = ExtResource("1_jwmt3")
+flip_h = true
+
+[node name="bg_wall_mid" type="Parallax2D" parent="BG"]
 z_index = -3
 scale = Vector2(0.4, 0.4)
 scroll_scale = Vector2(0.9, 0.9)
-scroll_offset = Vector2(459, 320)
+scroll_offset = Vector2(429.99997, 337.00003)
 
-[node name="Node2D" type="Node2D" parent="Parallax2D6"]
-position = Vector2(310, -650)
+[node name="Node2D" type="Node2D" parent="BG/bg_wall_mid"]
+position = Vector2(712.7855, -681.678)
 
-[node name="Sprite2D14" type="Sprite2D" parent="Parallax2D6/Node2D"]
+[node name="rockwall" type="Sprite2D" parent="BG/bg_wall_mid/Node2D"]
 z_index = -2
 texture_filter = 1
 position = Vector2(912, 209)
@@ -288,7 +440,7 @@ scale = Vector2(2.909091, 3.0000005)
 texture = ExtResource("2_ugb3j")
 flip_h = true
 
-[node name="Sprite2D15" type="Sprite2D" parent="Parallax2D6/Node2D"]
+[node name="rockwall2" type="Sprite2D" parent="BG/bg_wall_mid/Node2D"]
 z_index = -2
 texture_filter = 1
 position = Vector2(1032, 193.99998)
@@ -296,7 +448,7 @@ scale = Vector2(2.909091, 3.0000005)
 texture = ExtResource("3_7n6k5")
 flip_h = true
 
-[node name="Sprite2D16" type="Sprite2D" parent="Parallax2D6/Node2D"]
+[node name="rockwall3" type="Sprite2D" parent="BG/bg_wall_mid/Node2D"]
 z_index = -2
 texture_filter = 1
 position = Vector2(1088, 296)
@@ -304,7 +456,7 @@ scale = Vector2(2.909091, 3.0000005)
 texture = ExtResource("2_ugb3j")
 flip_h = true
 
-[node name="Sprite2D17" type="Sprite2D" parent="Parallax2D6/Node2D"]
+[node name="rockwall4" type="Sprite2D" parent="BG/bg_wall_mid/Node2D"]
 z_index = -2
 texture_filter = 1
 position = Vector2(927.9999, 450)
@@ -312,15 +464,15 @@ scale = Vector2(2.909091, 3.0000005)
 texture = ExtResource("2_ugb3j")
 flip_h = true
 
-[node name="Sprite2D18" type="Sprite2D" parent="Parallax2D6/Node2D"]
+[node name="rockwall5" type="Sprite2D" parent="BG/bg_wall_mid/Node2D"]
 z_index = -2
 texture_filter = 1
-position = Vector2(860.36365, 255.50003)
+position = Vector2(907.4999, 250)
 scale = Vector2(2.909091, 3.0000005)
 texture = ExtResource("2_ugb3j")
 flip_h = true
 
-[node name="Sprite2D19" type="Sprite2D" parent="Parallax2D6/Node2D"]
+[node name="rockwall6" type="Sprite2D" parent="BG/bg_wall_mid/Node2D"]
 z_index = -2
 texture_filter = 1
 position = Vector2(882.36365, 358.50003)
@@ -328,7 +480,7 @@ scale = Vector2(2.909091, 3.0000005)
 texture = ExtResource("2_ugb3j")
 flip_h = true
 
-[node name="Sprite2D20" type="Sprite2D" parent="Parallax2D6/Node2D"]
+[node name="rockwall7" type="Sprite2D" parent="BG/bg_wall_mid/Node2D"]
 z_index = -2
 texture_filter = 1
 position = Vector2(1168, 295.50003)
@@ -336,7 +488,7 @@ scale = Vector2(2.909091, 3.0000005)
 texture = ExtResource("2_ugb3j")
 flip_h = true
 
-[node name="Sprite2D26" type="Sprite2D" parent="Parallax2D6/Node2D"]
+[node name="rockwall8" type="Sprite2D" parent="BG/bg_wall_mid/Node2D"]
 z_index = -2
 texture_filter = 1
 position = Vector2(1164, 220)
@@ -344,24 +496,24 @@ scale = Vector2(2.909091, 3.0000005)
 texture = ExtResource("2_ugb3j")
 flip_h = true
 
-[node name="Sprite2D21" type="Sprite2D" parent="Parallax2D6/Node2D"]
+[node name="rockwall9" type="Sprite2D" parent="BG/bg_wall_mid/Node2D"]
 z_index = -2
 texture_filter = 1
-position = Vector2(1332.0001, 294.00003)
+position = Vector2(1345, 425)
 rotation = 0.71939385
 scale = Vector2(2.909091, 3.0000005)
 texture = ExtResource("2_ugb3j")
 flip_h = true
 
-[node name="Sprite2D22" type="Sprite2D" parent="Parallax2D6/Node2D"]
+[node name="rockwall10" type="Sprite2D" parent="BG/bg_wall_mid/Node2D"]
 z_index = -2
 texture_filter = 1
-position = Vector2(1344, 382.50003)
+position = Vector2(1149.9998, 439.99994)
 scale = Vector2(2.909091, 3.0000005)
 texture = ExtResource("2_ugb3j")
 flip_h = true
 
-[node name="Sprite2D23" type="Sprite2D" parent="Parallax2D6/Node2D"]
+[node name="rockwall11" type="Sprite2D" parent="BG/bg_wall_mid/Node2D"]
 z_index = -2
 texture_filter = 1
 position = Vector2(962.36365, 358.00006)
@@ -369,7 +521,7 @@ scale = Vector2(2.909091, 3.0000005)
 texture = ExtResource("2_ugb3j")
 flip_h = true
 
-[node name="Sprite2D24" type="Sprite2D" parent="Parallax2D6/Node2D"]
+[node name="rockwall12" type="Sprite2D" parent="BG/bg_wall_mid/Node2D"]
 z_index = -2
 texture_filter = 1
 position = Vector2(1116.3636, 342.00006)
@@ -377,47 +529,53 @@ scale = Vector2(2.909091, 3.0000005)
 texture = ExtResource("2_ugb3j")
 flip_h = true
 
-[node name="Sprite2D25" type="Sprite2D" parent="Parallax2D6/Node2D"]
+[node name="rockwall13" type="Sprite2D" parent="BG/bg_wall_mid/Node2D"]
 z_index = -2
 texture_filter = 1
-position = Vector2(1138.3636, 445.00006)
+position = Vector2(840, 447.49994)
 scale = Vector2(2.909091, 3.0000005)
 texture = ExtResource("2_ugb3j")
 flip_h = true
 
-[node name="rain" type="GPUParticles2D" parent="Parallax2D6"]
+[node name="moss2" type="Sprite2D" parent="BG/bg_wall_mid/Node2D"]
 z_index = -2
 texture_filter = 1
-position = Vector2(1412.4998, -497.5)
-scale = Vector2(1.2499999, 1.2499999)
-amount = 40
-texture = ExtResource("5_7n6k5")
-lifetime = 3.8899999999999997
-randomness = 0.3
-local_coords = true
-process_material = SubResource("ParticleProcessMaterial_j22dt")
+position = Vector2(739.9999, 432.49988)
+rotation = -1.7318009
+scale = Vector2(2.9090905, 3.0000002)
+texture = ExtResource("4_nawho")
+flip_h = true
 
-[node name="bg2" type="PointLight2D" parent="Parallax2D6"]
+[node name="moss" type="Sprite2D" parent="BG/bg_wall_mid/Node2D"]
 z_index = -2
-position = Vector2(1342.0001, -264)
-scale = Vector2(14.125001, 8.234375)
-color = Color(0.9052305, 0.7810589, 0.6536511, 1)
-energy = 0.87
+texture_filter = 1
+position = Vector2(781.05945, 243.70552)
+rotation = -0.8837627
+scale = Vector2(2.9090908, 3.0000002)
+texture = ExtResource("4_nawho")
+flip_h = true
+
+[node name="darkness_far" type="PointLight2D" parent="BG"]
+z_index = -2
+position = Vector2(835.00006, 178)
+scale = Vector2(22.265625, 7.875)
+color = Color(0.4929579, 0.5673063, 0.48010993, 1)
+energy = 0.79
 blend_mode = 1
 range_z_min = -6
 range_z_max = -5
 texture = SubResource("GradientTexture2D_j22dt")
 
-[node name="Parallax2D5" type="Parallax2D" parent="."]
+[node name="bg_details" type="Parallax2D" parent="BG"]
 z_index = -2
 scale = Vector2(0.5, 0.5)
 scroll_scale = Vector2(0.94, 0.94)
 scroll_offset = Vector2(145, 359)
 
-[node name="Node2D" type="Node2D" parent="Parallax2D5"]
-position = Vector2(310, -650)
+[node name="Node2D" type="Node2D" parent="BG/bg_details"]
+position = Vector2(168.45477, -648.5283)
 
-[node name="Sprite2D14" type="Sprite2D" parent="Parallax2D5/Node2D"]
+[node name="Sprite2D14" type="Sprite2D" parent="BG/bg_details/Node2D"]
 z_index = -2
 texture_filter = 1
 position = Vector2(912, 209)
@@ -425,7 +583,7 @@ scale = Vector2(2.909091, 3.0000005)
 texture = ExtResource("2_ugb3j")
 flip_h = true
 
-[node name="Sprite2D15" type="Sprite2D" parent="Parallax2D5/Node2D"]
+[node name="Sprite2D15" type="Sprite2D" parent="BG/bg_details/Node2D"]
 z_index = -2
 texture_filter = 1
 position = Vector2(1032, 193.99998)
@@ -433,7 +591,7 @@ scale = Vector2(2.909091, 3.0000005)
 texture = ExtResource("3_7n6k5")
 flip_h = true
 
-[node name="Sprite2D16" type="Sprite2D" parent="Parallax2D5/Node2D"]
+[node name="Sprite2D16" type="Sprite2D" parent="BG/bg_details/Node2D"]
 z_index = -2
 texture_filter = 1
 position = Vector2(1088, 296)
@@ -441,7 +599,7 @@ scale = Vector2(2.909091, 3.0000005)
 texture = ExtResource("2_ugb3j")
 flip_h = true
 
-[node name="Sprite2D17" type="Sprite2D" parent="Parallax2D5/Node2D"]
+[node name="Sprite2D17" type="Sprite2D" parent="BG/bg_details/Node2D"]
 z_index = -2
 texture_filter = 1
 position = Vector2(927.9999, 450)
@@ -449,7 +607,7 @@ scale = Vector2(2.909091, 3.0000005)
 texture = ExtResource("2_ugb3j")
 flip_h = true
 
-[node name="Sprite2D18" type="Sprite2D" parent="Parallax2D5/Node2D"]
+[node name="Sprite2D18" type="Sprite2D" parent="BG/bg_details/Node2D"]
 z_index = -2
 texture_filter = 1
 position = Vector2(860.36365, 255.50003)
@@ -457,7 +615,7 @@ scale = Vector2(2.909091, 3.0000005)
 texture = ExtResource("2_ugb3j")
 flip_h = true
 
-[node name="Sprite2D19" type="Sprite2D" parent="Parallax2D5/Node2D"]
+[node name="Sprite2D19" type="Sprite2D" parent="BG/bg_details/Node2D"]
 z_index = -2
 texture_filter = 1
 position = Vector2(882.36365, 358.50003)
@@ -465,40 +623,40 @@ scale = Vector2(2.909091, 3.0000005)
 texture = ExtResource("2_ugb3j")
 flip_h = true
 
-[node name="Sprite2D20" type="Sprite2D" parent="Parallax2D5/Node2D"]
+[node name="Sprite2D20" type="Sprite2D" parent="BG/bg_details/Node2D"]
 z_index = -2
 texture_filter = 1
-position = Vector2(1168, 295.50003)
+position = Vector2(1194, 350)
 scale = Vector2(2.909091, 3.0000005)
 texture = ExtResource("2_ugb3j")
 flip_h = true
 
-[node name="Sprite2D26" type="Sprite2D" parent="Parallax2D5/Node2D"]
+[node name="Sprite2D26" type="Sprite2D" parent="BG/bg_details/Node2D"]
 z_index = -2
 texture_filter = 1
-position = Vector2(1164, 220)
+position = Vector2(1168, 226)
 scale = Vector2(2.909091, 3.0000005)
 texture = ExtResource("2_ugb3j")
 flip_h = true
 
-[node name="Sprite2D21" type="Sprite2D" parent="Parallax2D5/Node2D"]
+[node name="Sprite2D21" type="Sprite2D" parent="BG/bg_details/Node2D"]
 z_index = -2
 texture_filter = 1
-position = Vector2(1332.0001, 294.00003)
+position = Vector2(1104, 286)
 rotation = 0.71939385
 scale = Vector2(2.909091, 3.0000005)
 texture = ExtResource("2_ugb3j")
 flip_h = true
 
-[node name="Sprite2D22" type="Sprite2D" parent="Parallax2D5/Node2D"]
+[node name="Sprite2D22" type="Sprite2D" parent="BG/bg_details/Node2D"]
 z_index = -2
 texture_filter = 1
-position = Vector2(1344, 382.50003)
+position = Vector2(1230, 404)
 scale = Vector2(2.909091, 3.0000005)
 texture = ExtResource("2_ugb3j")
 flip_h = true
 
-[node name="Sprite2D23" type="Sprite2D" parent="Parallax2D5/Node2D"]
+[node name="Sprite2D23" type="Sprite2D" parent="BG/bg_details/Node2D"]
 z_index = -2
 texture_filter = 1
 position = Vector2(962.36365, 358.00006)
@@ -506,7 +664,7 @@ scale = Vector2(2.909091, 3.0000005)
 texture = ExtResource("2_ugb3j")
 flip_h = true
 
-[node name="Sprite2D24" type="Sprite2D" parent="Parallax2D5/Node2D"]
+[node name="Sprite2D24" type="Sprite2D" parent="BG/bg_details/Node2D"]
 z_index = -2
 texture_filter = 1
 position = Vector2(1116.3636, 342.00006)
@@ -514,7 +672,7 @@ scale = Vector2(2.909091, 3.0000005)
 texture = ExtResource("2_ugb3j")
 flip_h = true
 
-[node name="Sprite2D25" type="Sprite2D" parent="Parallax2D5/Node2D"]
+[node name="Sprite2D25" type="Sprite2D" parent="BG/bg_details/Node2D"]
 z_index = -2
 texture_filter = 1
 position = Vector2(1138.3636, 445.00006)
@@ -522,16 +680,17 @@ scale = Vector2(2.909091, 3.0000005)
 texture = ExtResource("2_ugb3j")
 flip_h = true
 
-[node name="Parallax2D" type="Parallax2D" parent="."]
+[node name="wall" type="Parallax2D" parent="BG"]
 z_index = -2
 scale = Vector2(0.5, 0.5)
 scroll_scale = Vector2(0.95, 0.95)
 scroll_offset = Vector2(446, 71)
 
-[node name="Node2D" type="Node2D" parent="Parallax2D"]
+[node name="Node2D" type="Node2D" parent="BG/wall"]
+modulate = Color(0.65834004, 0.6583399, 0.6583399, 1)
 position = Vector2(840, 44)
 
-[node name="Sprite2D11" type="Sprite2D" parent="Parallax2D/Node2D"]
+[node name="Sprite2D11" type="Sprite2D" parent="BG/wall/Node2D"]
 z_index = -2
 texture_filter = 1
 position = Vector2(757, 188)
@@ -539,7 +698,7 @@ scale = Vector2(2.909091, 3.0000005)
 texture = ExtResource("2_ugb3j")
 flip_h = true
 
-[node name="Sprite2D13" type="Sprite2D" parent="Parallax2D/Node2D"]
+[node name="Sprite2D13" type="Sprite2D" parent="BG/wall/Node2D"]
 z_index = -2
 texture_filter = 1
 position = Vector2(764.00006, 270)
@@ -547,7 +706,7 @@ scale = Vector2(2.909091, 3.0000005)
 texture = ExtResource("2_ugb3j")
 flip_h = true
 
-[node name="Sprite2D17" type="Sprite2D" parent="Parallax2D/Node2D"]
+[node name="Sprite2D17" type="Sprite2D" parent="BG/wall/Node2D"]
 z_index = -2
 texture_filter = 1
 position = Vector2(617.99994, 132.99998)
@@ -555,7 +714,7 @@ scale = Vector2(2.909091, 3.0000005)
 texture = ExtResource("2_ugb3j")
 flip_h = true
 
-[node name="Sprite2D18" type="Sprite2D" parent="Parallax2D/Node2D"]
+[node name="Sprite2D18" type="Sprite2D" parent="BG/wall/Node2D"]
 z_index = -2
 texture_filter = 1
 position = Vector2(568, 212)
@@ -563,7 +722,7 @@ scale = Vector2(2.909091, 3.0000005)
 texture = ExtResource("2_ugb3j")
 flip_h = true
 
-[node name="Sprite2D12" type="Sprite2D" parent="Parallax2D/Node2D"]
+[node name="Sprite2D12" type="Sprite2D" parent="BG/wall/Node2D"]
 z_index = -2
 texture_filter = 1
 position = Vector2(571.9998, 318)
@@ -571,7 +730,7 @@ scale = Vector2(2.909091, 3.0000005)
 texture = ExtResource("2_ugb3j")
 flip_h = true
 
-[node name="Sprite2D10" type="Sprite2D" parent="Parallax2D/Node2D"]
+[node name="Sprite2D10" type="Sprite2D" parent="BG/wall/Node2D"]
 z_index = -2
 texture_filter = 1
 position = Vector2(774, 188)
@@ -579,7 +738,7 @@ scale = Vector2(2.909091, 3.0000005)
 texture = ExtResource("2_cy8a4")
 flip_h = true
 
-[node name="Sprite2D9" type="Sprite2D" parent="Parallax2D/Node2D"]
+[node name="Sprite2D9" type="Sprite2D" parent="BG/wall/Node2D"]
 z_index = -2
 texture_filter = 1
 position = Vector2(646, 227.99998)
@@ -587,7 +746,7 @@ scale = Vector2(2.909091, 3.0000005)
 texture = ExtResource("3_7n6k5")
 flip_h = true
 
-[node name="moss1" type="Sprite2D" parent="Parallax2D/Node2D"]
+[node name="moss1" type="Sprite2D" parent="BG/wall/Node2D"]
 z_index = -2
 texture_filter = 1
 position = Vector2(468, 162)
@@ -596,7 +755,7 @@ scale = Vector2(2.909091, 3.0000002)
 texture = ExtResource("6_j22dt")
 flip_h = true
 
-[node name="moss2" type="Sprite2D" parent="Parallax2D/Node2D"]
+[node name="moss2" type="Sprite2D" parent="BG/wall/Node2D"]
 z_index = -2
 texture_filter = 1
 position = Vector2(446, 266.00003)
@@ -605,7 +764,23 @@ scale = Vector2(2.909091, 3.0000002)
 texture = ExtResource("6_j22dt")
 flip_h = true
 
-[node name="GPUParticles2D" type="GPUParticles2D" parent="Parallax2D"]
+[node name="moss3" type="Sprite2D" parent="BG/wall/Node2D"]
+z_index = -2
+texture_filter = 1
+position = Vector2(808.5996, 129.59293)
+rotation = -4.923154
+scale = Vector2(2.909091, 3.0000002)
+texture = ExtResource("6_j22dt")
+
+[node name="moss4" type="Sprite2D" parent="BG/wall/Node2D"]
+z_index = -2
+texture_filter = 1
+position = Vector2(888.5996, 231.59286)
+rotation = -4.0017757
+scale = Vector2(2.909091, 3.0000002)
+texture = ExtResource("6_j22dt")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="BG/wall"]
 texture_filter = 1
 position = Vector2(602, 250)
 amount = 100
@@ -615,68 +790,125 @@ speed_scale = 0.3
 randomness = 0.3
 process_material = SubResource("ParticleProcessMaterial_0jad4")
 
-[node name="Parallax2D3" type="Parallax2D" parent="."]
-z_index = -3
-scroll_scale = Vector2(0.955, 0.955)
-scroll_offset = Vector2(145, 359)
-
-[node name="Node2D" type="Node2D" parent="Parallax2D3"]
-position = Vector2(-89, -406)
-
-[node name="Sprite2D9" type="Sprite2D" parent="Parallax2D3/Node2D"]
-texture_filter = 1
-position = Vector2(523, 211)
-scale = Vector2(2.909091, 3.0000005)
-texture = ExtResource("3_7n6k5")
-flip_h = true
-
-[node name="Sprite2D10" type="Sprite2D" parent="Parallax2D3/Node2D"]
-texture_filter = 1
-position = Vector2(560, 195.00003)
-rotation = 0.95735407
-scale = Vector2(2.180204, 2.2483356)
-texture = ExtResource("6_j22dt")
-flip_h = true
-
-[node name="Parallax2D4" type="Parallax2D" parent="."]
+[node name="wall_details" type="Parallax2D" parent="BG"]
 z_index = -3
 scroll_scale = Vector2(0.96, 0.96)
-scroll_offset = Vector2(161, 364)
+scroll_offset = Vector2(145, 359)
 
-[node name="Node2D" type="Node2D" parent="Parallax2D4"]
+[node name="Node2D" type="Node2D" parent="BG/wall_details"]
 position = Vector2(-89, -406)
 
-[node name="Sprite2D10" type="Sprite2D" parent="Parallax2D4/Node2D"]
+[node name="rock_wall" type="Sprite2D" parent="BG/wall_details/Node2D"]
 texture_filter = 1
-position = Vector2(527, 271.99997)
-rotation = -0.8512846
-scale = Vector2(2.180204, 2.2483356)
-texture = ExtResource("6_j22dt")
+position = Vector2(1084.368, 210.30107)
+rotation = 0.4441743
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("8_y73r1")
 
-[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="Parallax2D4/Node2D"]
+[node name="rock_wall2" type="Sprite2D" parent="BG/wall_details/Node2D"]
+texture_filter = 1
+position = Vector2(1064.5652, 270.25024)
+rotation = -0.08064539
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("2_cy8a4")
+flip_h = true
+
+[node name="rock_wall3" type="Sprite2D" parent="BG/wall_details/Node2D"]
+texture_filter = 1
+position = Vector2(1123.6366, 303.39532)
+rotation = 0.2417664
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("2_ugb3j")
+flip_h = true
+
+[node name="moss" type="Sprite2D" parent="BG/wall_details/Node2D"]
+texture_filter = 1
+position = Vector2(1041.3961, 226.57733)
+rotation = -1.3332468
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("4_nawho")
+
+[node name="moss2" type="Sprite2D" parent="BG/wall_details/Node2D"]
+texture_filter = 1
+position = Vector2(1041.3075, 300.826)
+rotation = -1.9051656
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("4_nawho")
+
+[node name="immediate_bg" type="Parallax2D" parent="BG"]
+z_index = -3
+scroll_scale = Vector2(0.97, 0.97)
+scroll_offset = Vector2(161, 364)
+
+[node name="Node2D" type="Node2D" parent="BG/immediate_bg"]
+position = Vector2(-89, -406)
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="BG/immediate_bg/Node2D"]
 modulate = Color(1, 1, 1, 0.3882353)
 texture_filter = 1
 texture_repeat = 2
-position = Vector2(824.74994, 208)
-scale = Vector2(3.004747, 2.347826)
+position = Vector2(703.50006, 208)
+scale = Vector2(5.9715185, 2.347826)
 sprite_frames = SubResource("SpriteFrames_wmy1q")
 autoplay = "default"
 frame_progress = 0.99381495
 speed_scale = 0.5
 flip_h = true
+metadata/_edit_lock_ = true
 
-[node name="Fire" type="AnimatedSprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="BG/immediate_bg/Node2D"]
 texture_filter = 1
-position = Vector2(796, 230)
-scale = Vector2(2, 2)
-sprite_frames = SubResource("SpriteFrames_4d87u")
-autoplay = "default"
-frame_progress = 0.61193675
+position = Vector2(715, 296)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("8_y73r1")
 
-[node name="bg2" type="PointLight2D" parent="."]
+[node name="Sprite2D2" type="Sprite2D" parent="BG/immediate_bg/Node2D"]
+texture_filter = 1
+position = Vector2(751, 317)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("8_y73r1")
+
+[node name="plant" type="Sprite2D" parent="BG/immediate_bg/Node2D"]
+texture_filter = 1
+position = Vector2(621, 281)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("9_jwmt3")
+
+[node name="plant2" type="Sprite2D" parent="BG/immediate_bg/Node2D"]
+texture_filter = 1
+position = Vector2(1096, 282)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("9_jwmt3")
+
+[node name="plant3" type="Sprite2D" parent="BG/immediate_bg/Node2D"]
+texture_filter = 1
+position = Vector2(1043, 283)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("10_nawho")
+
+[node name="plant4" type="Sprite2D" parent="BG/immediate_bg/Node2D"]
+texture_filter = 1
+position = Vector2(1067, 283)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("11_vka1o")
+
+[node name="rain" type="GPUParticles2D" parent="BG/immediate_bg"]
+z_index = -1
+texture_filter = 1
+position = Vector2(937.6354, -236.61494)
+scale = Vector2(0.49999997, 0.49999997)
+amount = 10
+texture = ExtResource("5_7n6k5")
+lifetime = 3.89
+speed_scale = 1.4
+randomness = 0.3
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_j22dt")
+
+[node name="darkness" type="PointLight2D" parent="."]
 z_index = -2
-position = Vector2(858.00006, 254.50002)
-scale = Vector2(14.125001, 8.234375)
+position = Vector2(28, 254.50002)
+scale = Vector2(40.062504, 8.234375)
 color = Color(0.9052305, 0.7810589, 0.6536511, 1)
 energy = 1.13
 blend_mode = 1
@@ -685,7 +917,7 @@ range_z_max = -3
 texture = SubResource("GradientTexture2D_j22dt")
 metadata/_edit_lock_ = true
 
-[node name="bg3" type="PointLight2D" parent="."]
+[node name="fire light" type="PointLight2D" parent="."]
 z_index = -2
 position = Vector2(795, 251)
 scale = Vector2(3.0468776, 2.234375)
@@ -695,6 +927,14 @@ range_z_min = -5
 range_z_max = -3
 texture = SubResource("GradientTexture2D_vhwk5")
 script = ExtResource("8_vhwk5")
+
+[node name="Fire" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(796, 230)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_4d87u")
+autoplay = "default"
+frame_progress = 0.61193675
 
 [node name="Characters" type="Node2D" parent="."]
 
@@ -735,16 +975,15 @@ position = Vector2(-1032, 192)
 player = NodePath("../../Sherma")
 
 [node name="Mossman" parent="Characters/Baddies" node_paths=PackedStringArray("player") instance=ExtResource("14_fxcak")]
-position = Vector2(759, 253)
+position = Vector2(761, 261)
 player = NodePath("../../Sherma")
 
 [node name="Mossman2" parent="Characters/Baddies" node_paths=PackedStringArray("player") instance=ExtResource("14_fxcak")]
-position = Vector2(845, 253)
+position = Vector2(845, 262)
 player = NodePath("../../Sherma")
 isFacingLeft = true
 
 [node name="Sherma" parent="Characters" instance=ExtResource("1_gej88")]
-visible = false
 position = Vector2(1323, 258)
 debug = false
 JUMP_TIME = 0.25
@@ -763,16 +1002,17 @@ scale = Vector2(1.3157895, 0.7742664)
 texture = ExtResource("13_4d87u")
 metadata/_edit_lock_ = true
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="fog blanket" type="AnimatedSprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.50980395)
 texture_filter = 1
 texture_repeat = 2
-position = Vector2(907.00006, 251)
-scale = Vector2(2.8591769, 1)
+position = Vector2(658.875, 251)
+scale = Vector2(4.429589, 1)
 sprite_frames = SubResource("SpriteFrames_wmy1q")
 autoplay = "default"
 frame_progress = 0.8195915
 flip_h = true
+metadata/_edit_lock_ = true
 
 [node name="Floor2" type="Node2D" parent="."]
 
@@ -1015,6 +1255,18 @@ scroll_offset = Vector2(103, 79)
 [node name="Node2D" type="Node2D" parent="Floor2/Foreground_1/Parallax2D7"]
 position = Vector2(307, -730)
 
+[node name="plant5" type="Sprite2D" parent="Floor2/Foreground_1/Parallax2D7/Node2D"]
+texture_filter = 1
+position = Vector2(121, 537)
+scale = Vector2(2, 2)
+texture = ExtResource("11_vka1o")
+
+[node name="plant6" type="Sprite2D" parent="Floor2/Foreground_1/Parallax2D7/Node2D"]
+texture_filter = 1
+position = Vector2(548.02405, 537.8394)
+scale = Vector2(2, 2)
+texture = ExtResource("11_vka1o")
+
 [node name="Sprite2D" type="Sprite2D" parent="Floor2/Foreground_1/Parallax2D7/Node2D"]
 texture_filter = 1
 position = Vector2(279, 571)
@@ -1147,6 +1399,7 @@ scroll_offset = Vector2(145, 359)
 position = Vector2(310, -650)
 
 [node name="Floor" type="StaticBody2D" parent="Floor2"]
+visible = false
 collision_layer = 15
 collision_mask = 15
 metadata/_edit_lock_ = true
@@ -1314,7 +1567,19 @@ script = ExtResource("1_hudbq")
 [node name="StatusBar" parent="." node_paths=PackedStringArray("player") instance=ExtResource("6_r8x56")]
 player = NodePath("../Characters/Sherma")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(853, 176.00002)
+scale = Vector2(2, 3.611)
+stream = ExtResource("27_m2q6w")
+volume_db = -9.801
+autoplay = true
+
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(853, 176.00002)
+scale = Vector2(2, 3.611)
+stream = ExtResource("28_jycyr")
+volume_db = 10.346
+autoplay = true
 
 [node name="Parallax2D2" type="Parallax2D" parent="."]
 scroll_scale = Vector2(1.4, 1.4)

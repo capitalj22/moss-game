@@ -60,7 +60,7 @@ var transitionStates = {
 	States.WALK: { States.SITTING: {"animation": "sitting_rise", "backwards": true, "time": 0.3}},
 }
 
-var state: States = States.SITTING;
+var state: States;
 
 func tween_curve(v):
 	return moveCurve.sample_baked(v)
@@ -220,7 +220,9 @@ func _physics_process(delta: float) -> void:
 			
 	
 	isMovingLeft = velocity.x < 0;
-	isFacingLeft = isMovingLeft;
+	
+	if (abs(velocity.x) > 0):
+		isFacingLeft = isMovingLeft;
 	flip();
 		
 
