@@ -164,7 +164,7 @@ func _ready() -> void:
 func set_attack_state(newState: AttackStates) -> void:
 	var previousState = attackState;				
 	if newState != previousState:
-		#$"pogo_collision/CollisionShape2D".disabled = true;
+		actionTimer = 0;
 		attackState = newState;
 		$"attack_collision".target_position = attacks[newState].castPoint;
 		$"attack_collision".set_meta("pogo", attacks[newState].pogo);
@@ -183,13 +183,11 @@ func set_attack_state(newState: AttackStates) -> void:
 				$"AttackAudio".play()
 
 				animation_player.play(attacks[AttackStates.ATTACK]["animation"])
-				actionTimer = 0;
 			AttackStates.ATTACK2:
 				$"AttackAudio".pitch_scale = rnd.randf_range(0.8, 0.9);
 				$"AttackAudio".play()
 
 				animation_player.play(attacks[AttackStates.ATTACK2]["animation"])
-				actionTimer = 0;
 			AttackStates.ATTACK3:
 				$"AttackAudio".pitch_scale = 0.8;
 				$"AttackAudio".play()
@@ -200,7 +198,6 @@ func set_attack_state(newState: AttackStates) -> void:
 				$"AttackAudio".play()
 
 				animation_player.play(attacks[AttackStates.ATTACKUP]["animation"])
-				actionTimer = 0;
 			AttackStates.PARRY:
 				$"AttackAudio2".pitch_scale = rnd.randf_range(1.1, 1.3);
 
@@ -208,14 +205,8 @@ func set_attack_state(newState: AttackStates) -> void:
 				$"AttackAudio3".play()
 				
 				animation_player.play(attacks[AttackStates.PARRY]["animation"])
-				actionTimer = 0;
 			AttackStates.POGO:
-
-				
-
-				#$"pogo_collision/CollisionShape2D".disabled = false;
 				animation_player.play(attacks[AttackStates.POGO]["animation"])
-				actionTimer = 0;
 	
 	
 func set_state(newState: States) -> void:
@@ -376,7 +367,7 @@ func _physics_process(delta: float) -> void:
 		else:
 			$"attack_collision".set_deferred("enabled", false)
 			
-		if (pressedAttack && actionTimer >= time - 0.15):
+		if (pressedAttack && !queuingAttack && actionTimer >= time - 0.15):
 			queueAttack();
 		if actionTimer < time:
 			actionTimer += delta;

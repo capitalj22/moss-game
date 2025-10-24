@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 class_name Mossman
 
+
 @onready var mossmir: Node2D = $"."
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @export var player: Sherma;
@@ -33,6 +34,7 @@ enum States {
 	WALK,
 	DEAD,
 	SITTING,
+	ALERT,
 	ATTACK,
 	FOLLOW,
 	SEARCH,
@@ -42,6 +44,7 @@ enum States {
 
 
 var states = {
+	States.ALERT: {"animation": "sitting_alerted"},
 	States.WALK: {"animation": "walk"},
 	States.SITTING: {"animation": "sitting"},
 	States.DEAD: {"animation": "die"},
@@ -56,7 +59,12 @@ var transitionStates = {
 	States.SITTING: { 
 		States.WALK: {"animation": "sitting_rise", "backwards": false, "time": 0.3}, 
 		States.FOLLOW: {"animation": "sitting_rise", "backwards": false, "time": 0.3}, 
+		States.ALERT: {"animation": "sitting_alerted", "backwards": false, "time": 0.5}, 
 	},
+	States.ALERT:
+		{
+			States.FOLLOW: {"animation": "sitting_rise", "backwards": false, "time": 0.3}		
+		},
 	States.WALK: { States.SITTING: {"animation": "sitting_rise", "backwards": true, "time": 0.3}},
 }
 
@@ -72,6 +80,8 @@ func after_state_tween(tweenState: States):
 	match(tweenState):
 		States.ATTACK:
 			changeState(States.FOLLOW)
+		States.ALERT:
+			transitionToState(States.FOLLOW)
 		
 func transitionToState(newState):
 	var previousState = state;
@@ -97,6 +107,9 @@ func changeState(newState):
 	if (newState != previousState && newState != States.TRANSITION):
 		animation_player.play(states[newState].animation)
 	match newState:
+		States.ALERT:
+			moveTween = create_tween().tween_property(self, "currentSpeed", 20, 0.3).set_ease(Tween.EASE_OUT)
+			moveTween.finished.connect(Callable(self, "after_state_tween").bind(States.ALERT))
 		States.ATTACK:
 			moveTween = create_tween().tween_property(self, "currentSpeed", 20, 0.3).set_ease(Tween.EASE_OUT)
 			moveTween.finished.connect(Callable(self, "after_state_tween").bind(States.ATTACK))
@@ -113,6 +126,7 @@ func changeState(newState):
 		
 			pass;
 		States.DEAD:
+			var deflateTween = create_tween().tween_property(self, "scale:y", 0.4, 3).set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_SINE)
 			moveTween = create_tween();
 			print("DIED")
 			$"enemyHitbox".queue_free();
@@ -136,6 +150,10 @@ func _ready() -> void:
 	changeState(States.SITTING)
 	flip();
 
+func is_player_behind():
+	var isPlayerLeft = player.global_position.x - global_position.x < 0;
+	return (isPlayerLeft && !isFacingLeft) || (!isPlayerLeft && isFacingLeft)
+
 func _process(delta: float) -> void:
 	match state:
 		States.TRANSITION:
@@ -147,11 +165,14 @@ func _process(delta: float) -> void:
 		States.SITTING:
 			if randi_range(0, 10000) == 1:
 				changeState(States.WALK)
-			if randi_range(0, 10000) == 1:
+			if randi_range(0, 1000) == 1:
 				animation_player.play("sitting_lean")
 			if checkForPlayer():
+				if is_player_behind():
 				# add check for if player is behind
-				transitionToState(States.FOLLOW)
+					transitionToState(States.ALERT)
+				else:
+					transitionToState(States.FOLLOW)
 		States.FOLLOW:
 			if should_attack():
 				changeState(States.ATTACK)
