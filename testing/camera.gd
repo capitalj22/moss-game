@@ -1,6 +1,8 @@
 extends Camera2D
 
 var shakeStrength = 0;
+var shakeX = 0;
+var shakeY = 0;
 
 func on_player_damaged():
 	shake(10);
@@ -24,7 +26,7 @@ func _process(delta: float) -> void:
 	if (shakeStrength > 0):
 		shakeStrength = lerpf(shakeStrength, 0, 5 * delta)
 		
-		offset = Vector2(randf_range(-shakeStrength, shakeStrength), randf_range(-shakeStrength, shakeStrength))
+		offset = Vector2(randf_range(-shakeStrength, shakeStrength), randf_range(-shakeStrength, shakeStrength) -40)
 	pass
 
 func shake(amt: float):

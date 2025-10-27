@@ -49,13 +49,6 @@ colors = PackedColorArray(0.09702266, 0.16591763, 0.12608886, 1, 0.06994393, 0.1
 gradient = SubResource("Gradient_ugb3j")
 fill_from = Vector2(0, 1)
 
-[sub_resource type="Gradient" id="Gradient_7n6k5"]
-colors = PackedColorArray(1, 1, 1, 1, 0.446777, 0.44677705, 0.44677705, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_j22dt"]
-gradient = SubResource("Gradient_7n6k5")
-fill_from = Vector2(0, 1)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_nj521"]
 atlas = ExtResource("2_vka1o")
 region = Rect2(0, 0, 26, 143)
@@ -92,6 +85,13 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="Gradient" id="Gradient_7n6k5"]
+colors = PackedColorArray(1, 1, 1, 1, 0.446777, 0.44677705, 0.44677705, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_j22dt"]
+gradient = SubResource("Gradient_7n6k5")
+fill_from = Vector2(0, 1)
+
 [sub_resource type="Gradient" id="Gradient_j22dt"]
 offsets = PackedFloat32Array(0, 0.90459365, 1)
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.94699645, 1, 1, 1, 0)
@@ -102,13 +102,14 @@ gradient = SubResource("Gradient_j22dt")
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_0jad4"]
 particle_flag_rotate_y = true
 particle_flag_disable_z = true
-emission_shape = 3
-emission_box_extents = Vector3(-800, 400, 1)
+emission_shape = 1
+emission_sphere_radius = 1000.0
 angle_min = -479.5
 angle_max = -174.29999
 inherit_velocity_ratio = 0.255
 velocity_pivot = Vector3(2, 0, 0)
 direction = Vector3(3, 2, 0)
+spread = 145.248
 initial_velocity_max = 9.12
 angular_velocity_min = -85.83002
 angular_velocity_max = 47.35998
@@ -319,15 +320,13 @@ scale_max = 0.7
 [node name="BG" type="Node2D" parent="."]
 
 [node name="bg" type="Sprite2D" parent="BG"]
-self_modulate = Color(0.18717614, 0.18717614, 0.18717614, 1)
-z_index = -9
+z_index = -5
 position = Vector2(-12.000001, 44.000004)
 scale = Vector2(42.421875, 18.484373)
 texture = SubResource("GradientTexture2D_lr8xj")
 
 [node name="bg_wall_far" type="Parallax2D" parent="BG"]
-modulate = Color(1, 1, 1, 0.45490196)
-z_index = -6
+z_index = -5
 scroll_scale = Vector2(0.7, 0.7)
 scroll_offset = Vector2(55, 12)
 
@@ -463,24 +462,14 @@ position = Vector2(930, 188)
 texture = ExtResource("1_jwmt3")
 flip_h = true
 
-[node name="darkness_far" type="PointLight2D" parent="BG"]
-z_index = -2
-position = Vector2(835.00006, 178)
-scale = Vector2(22.265625, 7.875)
-color = Color(0.57294005, 0.7723042, 0.6927859, 1)
-energy = 0.58
-range_z_min = -6
-range_z_max = -6
-texture = SubResource("GradientTexture2D_j22dt")
-metadata/_edit_lock_ = true
-
 [node name="bg_far_stuff" type="Parallax2D" parent="BG"]
 z_index = -5
 scroll_scale = Vector2(0.75, 0.75)
 scroll_offset = Vector2(55, 12)
+screen_offset = Vector2(177.65051, -170.1185)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="BG/bg_far_stuff"]
-position = Vector2(832.92834, 214.75124)
+position = Vector2(796.0128, 209.88881)
 scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_c3g1k")
 autoplay = "default"
@@ -617,7 +606,7 @@ scale = Vector2(2.9090908, 3.0000002)
 texture = ExtResource("4_nawho")
 flip_h = true
 
-[node name="darkness_far2" type="PointLight2D" parent="BG"]
+[node name="darkness_far" type="PointLight2D" parent="BG"]
 z_index = -2
 position = Vector2(835.00006, 178)
 scale = Vector2(22.265625, 7.875)
@@ -627,7 +616,6 @@ blend_mode = 1
 range_z_min = -6
 range_z_max = -5
 texture = SubResource("GradientTexture2D_j22dt")
-metadata/_edit_lock_ = true
 
 [node name="bg_details" type="Parallax2D" parent="BG"]
 z_index = -2
@@ -673,7 +661,7 @@ flip_h = true
 [node name="Sprite2D18" type="Sprite2D" parent="BG/bg_details/Node2D"]
 z_index = -2
 texture_filter = 1
-position = Vector2(871.3585, 232.50574)
+position = Vector2(860.36365, 255.50003)
 scale = Vector2(2.909091, 3.0000005)
 texture = ExtResource("2_ugb3j")
 flip_h = true
@@ -845,14 +833,12 @@ texture = ExtResource("6_j22dt")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="BG/wall"]
 texture_filter = 1
-position = Vector2(1068.4097, 183.25659)
-amount = 40
+position = Vector2(602, 250)
+amount = 100
 texture = ExtResource("15_vq7fa")
 lifetime = 1.73
-preprocess = 3.65
 speed_scale = 0.3
 randomness = 0.3
-visibility_rect = Rect2(-1000, -200, 2000, 400)
 process_material = SubResource("ParticleProcessMaterial_0jad4")
 
 [node name="wall_details" type="Parallax2D" parent="BG"]
@@ -899,62 +885,6 @@ position = Vector2(1041.3075, 300.826)
 rotation = -1.9051656
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("4_nawho")
-
-[node name="moss3" type="Sprite2D" parent="BG/wall_details/Node2D"]
-texture_filter = 1
-position = Vector2(861.5504, 278.1651)
-rotation = 1.2277554
-scale = Vector2(1.5, 1.5)
-texture = ExtResource("4_nawho")
-
-[node name="moss4" type="Sprite2D" parent="BG/wall_details/Node2D"]
-texture_filter = 1
-position = Vector2(851.5504, 196.16513)
-rotation = 1.7209802
-scale = Vector2(1.5, 1.5)
-texture = ExtResource("4_nawho")
-
-[node name="stalactite12" type="Sprite2D" parent="BG/wall_details"]
-texture_filter = 1
-position = Vector2(634.1435, -234.0061)
-scale = Vector2(1.5, 1.5)
-texture = ExtResource("13_5ae5f")
-
-[node name="stalactite13" type="Sprite2D" parent="BG/wall_details"]
-texture_filter = 1
-position = Vector2(706.3244, -212.79669)
-scale = Vector2(1.5, 1.5)
-texture = ExtResource("13_5ae5f")
-
-[node name="stalactite14" type="Sprite2D" parent="BG/wall_details"]
-texture_filter = 1
-position = Vector2(726.35583, -219.48523)
-scale = Vector2(1.5, 1.5)
-texture = ExtResource("13_5ae5f")
-
-[node name="stalactite15" type="Sprite2D" parent="BG/wall_details"]
-texture_filter = 1
-position = Vector2(1015.961, -206.31885)
-scale = Vector2(1.5, 1.5)
-texture = ExtResource("13_5ae5f")
-
-[node name="stalactite16" type="Sprite2D" parent="BG/wall_details"]
-texture_filter = 1
-position = Vector2(769.18066, -228.59723)
-scale = Vector2(1.5, 1.5)
-texture = ExtResource("13_5ae5f")
-
-[node name="stalactite17" type="Sprite2D" parent="BG/wall_details"]
-texture_filter = 1
-position = Vector2(596.0688, -218.2774)
-scale = Vector2(1.5, 1.5)
-texture = ExtResource("13_5ae5f")
-
-[node name="stalactite18" type="Sprite2D" parent="BG/wall_details"]
-texture_filter = 1
-position = Vector2(570.0688, -210.2774)
-scale = Vector2(1.5, 1.5)
-texture = ExtResource("13_5ae5f")
 
 [node name="immediate_bg" type="Parallax2D" parent="BG"]
 z_index = -3
@@ -1003,73 +933,31 @@ scale = Vector2(1.5, 1.5)
 
 [node name="stalactite" type="Sprite2D" parent="BG/immediate_bg/Node2D"]
 texture_filter = 1
-position = Vector2(624.4685, 182.12018)
+position = Vector2(616, 197.00002)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("12_wmdeq")
 
 [node name="stalactite2" type="Sprite2D" parent="BG/immediate_bg/Node2D"]
 texture_filter = 1
-position = Vector2(662.78033, 175.22519)
-scale = Vector2(1.5, 1.5)
-texture = ExtResource("12_wmdeq")
-
-[node name="stalactite6" type="Sprite2D" parent="BG/immediate_bg/Node2D"]
-texture_filter = 1
-position = Vector2(561.7804, 178.22519)
-scale = Vector2(1.5, 1.5)
-texture = ExtResource("12_wmdeq")
-
-[node name="stalactite7" type="Sprite2D" parent="BG/immediate_bg/Node2D"]
-texture_filter = 1
-position = Vector2(594.4685, 179.12018)
-scale = Vector2(1.5, 1.5)
-texture = ExtResource("12_wmdeq")
-
-[node name="stalactite8" type="Sprite2D" parent="BG/immediate_bg/Node2D"]
-texture_filter = 1
-position = Vector2(969.19415, 185.77435)
-scale = Vector2(1.5, 1.5)
-texture = ExtResource("12_wmdeq")
-
-[node name="stalactite9" type="Sprite2D" parent="BG/immediate_bg/Node2D"]
-texture_filter = 1
-position = Vector2(927.43005, 162.19363)
-scale = Vector2(1.5, 1.5)
-texture = ExtResource("12_wmdeq")
-
-[node name="stalactite10" type="Sprite2D" parent="BG/immediate_bg/Node2D"]
-texture_filter = 1
-position = Vector2(727.4895, 183.64767)
-scale = Vector2(1.5, 1.5)
-texture = ExtResource("12_wmdeq")
-
-[node name="stalactite11" type="Sprite2D" parent="BG/immediate_bg/Node2D"]
-texture_filter = 1
-position = Vector2(1034.7827, 198.34076)
+position = Vector2(644, 193)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("12_wmdeq")
 
 [node name="stalactite3" type="Sprite2D" parent="BG/immediate_bg/Node2D"]
 texture_filter = 1
-position = Vector2(994.6204, 198.25871)
+position = Vector2(677, 195)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("13_5ae5f")
 
 [node name="stalactite4" type="Sprite2D" parent="BG/immediate_bg/Node2D"]
 texture_filter = 1
-position = Vector2(1017.7827, 185.34076)
+position = Vector2(689, 196.00002)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("13_5ae5f")
 
 [node name="stalactite5" type="Sprite2D" parent="BG/immediate_bg/Node2D"]
 texture_filter = 1
-position = Vector2(819.88556, 187.80206)
-scale = Vector2(1.5, 1.5)
-texture = ExtResource("14_cykus")
-
-[node name="stalactite12" type="Sprite2D" parent="BG/immediate_bg/Node2D"]
-texture_filter = 1
-position = Vector2(947.88556, 169.80206)
+position = Vector2(709, 194)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("14_cykus")
 
@@ -1165,7 +1053,7 @@ player = NodePath("../../Sherma")
 isFacingLeft = true
 
 [node name="Sherma" parent="Characters" instance=ExtResource("1_gej88")]
-position = Vector2(244, 260)
+position = Vector2(1323, 258)
 debug = false
 JUMP_TIME = 0.25
 jumpVelocity = -450
@@ -1350,6 +1238,14 @@ scale = Vector2(2, 2)
 texture = ExtResource("2_08gix")
 flip_h = true
 
+[node name="Sprite2D24" type="Sprite2D" parent="Floor2/Floor_visual"]
+texture_filter = 1
+position = Vector2(555.0909, 110.99997)
+rotation = -3.1415927
+scale = Vector2(2.909091, 3.0000005)
+texture = ExtResource("2_08gix")
+flip_h = true
+
 [node name="Sprite2D28" type="Sprite2D" parent="Floor2/Floor_visual"]
 texture_filter = 1
 position = Vector2(552, 7.999996)
@@ -1373,6 +1269,30 @@ rotation = -4.712389
 scale = Vector2(1.5988988, 2.0289292)
 texture = ExtResource("2_08gix")
 flip_v = true
+
+[node name="Sprite2D25" type="Sprite2D" parent="Floor2/Floor_visual"]
+texture_filter = 1
+position = Vector2(755.09094, 113.99997)
+rotation = -3.1415927
+scale = Vector2(2.909091, 3.0000005)
+texture = ExtResource("2_08gix")
+flip_h = true
+
+[node name="Sprite2D26" type="Sprite2D" parent="Floor2/Floor_visual"]
+texture_filter = 1
+position = Vector2(963.09094, 113.99997)
+rotation = -3.1415927
+scale = Vector2(2.909091, 3.0000005)
+texture = ExtResource("2_08gix")
+flip_h = true
+
+[node name="Sprite2D27" type="Sprite2D" parent="Floor2/Floor_visual"]
+texture_filter = 1
+position = Vector2(1163.091, 119.99997)
+rotation = -3.1415927
+scale = Vector2(2.909091, 3.0000005)
+texture = ExtResource("2_08gix")
+flip_h = true
 
 [node name="Sprite2D35" type="Sprite2D" parent="Floor2/Floor_visual"]
 texture_filter = 1
@@ -1406,7 +1326,6 @@ blend_mode = 1
 range_z_min = 3
 range_z_max = 5
 texture = SubResource("GradientTexture2D_j22dt")
-metadata/_edit_lock_ = true
 
 [node name="darkness_close2" type="PointLight2D" parent="Floor2/Foreground_1"]
 z_index = -2
@@ -1418,7 +1337,6 @@ blend_mode = 1
 range_z_min = 4
 range_z_max = 5
 texture = SubResource("GradientTexture2D_j22dt")
-metadata/_edit_lock_ = true
 
 [node name="darkness_close3" type="PointLight2D" parent="Floor2/Foreground_1"]
 z_index = -2
@@ -1530,42 +1448,6 @@ scroll_offset = Vector2(145, 377)
 
 [node name="Node2D" type="Node2D" parent="Floor2/Foreground_1/Parallax2D9"]
 position = Vector2(417, -661)
-
-[node name="stalactite19" type="Sprite2D" parent="Floor2/Foreground_1/Parallax2D9/Node2D"]
-texture_filter = 1
-position = Vector2(-75.468506, 64.87982)
-scale = Vector2(1.5, 1.5)
-texture = ExtResource("13_5ae5f")
-
-[node name="stalactite20" type="Sprite2D" parent="Floor2/Foreground_1/Parallax2D9/Node2D"]
-texture_filter = 1
-position = Vector2(144.6424, 67.51337)
-scale = Vector2(2, 2)
-texture = ExtResource("13_5ae5f")
-
-[node name="stalactite21" type="Sprite2D" parent="Floor2/Foreground_1/Parallax2D9/Node2D"]
-texture_filter = 1
-position = Vector2(10.531494, 52.87982)
-scale = Vector2(1.5, 1.5)
-texture = ExtResource("12_wmdeq")
-
-[node name="stalactite22" type="Sprite2D" parent="Floor2/Foreground_1/Parallax2D9/Node2D"]
-texture_filter = 1
-position = Vector2(49.642395, 61.513367)
-scale = Vector2(1.5, 1.5)
-texture = ExtResource("12_wmdeq")
-
-[node name="stalactite23" type="Sprite2D" parent="Floor2/Foreground_1/Parallax2D9/Node2D"]
-texture_filter = 1
-position = Vector2(85.642395, 67.51337)
-scale = Vector2(2, 2)
-texture = ExtResource("12_wmdeq")
-
-[node name="stalactite24" type="Sprite2D" parent="Floor2/Foreground_1/Parallax2D9/Node2D"]
-texture_filter = 1
-position = Vector2(187.80591, 56.225647)
-scale = Vector2(1.5, 1.5)
-texture = ExtResource("12_wmdeq")
 
 [node name="floor2" type="Sprite2D" parent="Floor2/Foreground_1/Parallax2D9/Node2D"]
 texture_filter = 1
@@ -1932,12 +1814,12 @@ texture = ExtResource("29_nhbak")
 
 [node name="GPUParticles2D2" type="GPUParticles2D" parent="Parallax2D2"]
 texture_filter = 1
-position = Vector2(651.6003, 153.01204)
+position = Vector2(1180, 310)
 amount = 100
 texture = ExtResource("15_vq7fa")
 lifetime = 1.73
 speed_scale = 0.3
 randomness = 0.3
-visibility_rect = Rect2(-4000, -400, 8000, 600)
+visibility_rect = Rect2(-200, -200, 200, 200)
 local_coords = true
 process_material = SubResource("ParticleProcessMaterial_7n6k5")

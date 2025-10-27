@@ -29,6 +29,9 @@ func _physics_process(delta: float) -> void:
 				
 				pogo.emit(material);
 	
+			if collider is Breakable:
+				collider.destroy();
+				
 			if collider is EnemyHurtbox:
 				var collisionNormal = get_collision_normal(i)
 				var collisionPoint = get_collision_point(i)

@@ -6,8 +6,10 @@ class_name Sherma
 signal damaged;
 signal hit_connected;
 
+@onready var timer: Timer = $Timer
 
 enum States {
+	ASCENDING,
 	DAMAGED,
 	IDLE, 
 	WALK,
@@ -73,6 +75,7 @@ var queuingAttack = false;
 
 const states = {
 	States.IDLE: {"animation": "idle", "loopAnim": "idle"},
+	States.ASCENDING: {"animation": "ascending", "loopAnim": "ascending"},
 	States.DAMAGED: {"animation": "damaged", "loopAnim": "idle"},
 	States.WALK: {"animation": "walk", "loopAnim": "walk"},
 	States.RUN: {"animation": "run", "loopAnim": "run"},
@@ -106,6 +109,16 @@ const attacks = {
 
 const JUMP_VELOCITY = -200.0
 
+func ascend():
+	timer.wait_time = 0.4;
+	timer.one_shot = true;
+	timer.connect("timeout", finishAscent)
+	timer.start()
+	set_state(States.ASCENDING);
+
+func finishAscent():
+	set_state(States.IDLE)
+	
 func is_attacking():
 	return attackState != AttackStates.NONE
 	
@@ -146,7 +159,6 @@ func on_hitbox_entered(area: Area2D):
 	 
 	if area.has_meta("isEnemyHitbox"):
 		damageNormal = (global_position - area.global_position).normalized();
-		print(damageNormal)
 		takeDamage();
 	
 func _ready() -> void:
@@ -229,6 +241,11 @@ func set_state(newState: States) -> void:
 				#Engine.time_scale = 1.0
 
 		match state:
+			States.ASCENDING:
+				playAnimation.call("ascending")
+
+				#var et = create_tween().tween_property(self, ).set_ease(Tween.EASE_OUT);
+
 			States.DAMAGED:
 				Engine.time_scale = 0.3;
 				var et = create_tween().tween_property(Engine, "time_scale", 1.0, 0.3).set_ease(Tween.EASE_OUT);
@@ -294,7 +311,9 @@ func _physics_process(delta: float) -> void:
 			set_state(States.IDLE)
 			
 	
-	
+	if state == States.ASCENDING:
+		move_and_slide();
+		return;
 	if state != States.MANTLE && inMantleZone:
 		if currentMantleDirection > 0 && isHoldingRight || currentMantleDirection < 0 && isHoldingLeft:
 			set_state(States.MANTLE)
