@@ -2,12 +2,28 @@ extends CharacterBody2D
 
 class_name Mossman
 
+enum States {
+	SPAWN,
+	TRANSITION,
+	WALK,
+	DEAD,
+	SITTING,
+	ALERT,
+	ATTACK,
+	FOLLOW,
+	SEARCH,
+	DAMAGED,
+	HIT,
+}
 
+@export var starting_state: States = States.SITTING
+@export var layer: int = 0;
 @onready var mossmir: Node2D = $"."
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @export var player: Sherma;
 @export var moveCurve: Curve;
 @export var isFacingLeft = false;
+@export var pxSet: ParallaxSet;
 
 var HP = 2;
 
@@ -29,22 +45,12 @@ var nextState: States;
 
 var isMovingLeft = false;
 
-enum States {
-	TRANSITION,
-	WALK,
-	DEAD,
-	SITTING,
-	ALERT,
-	ATTACK,
-	FOLLOW,
-	SEARCH,
-	DAMAGED,
-	HIT,
-}
+
 
 
 var states = {
 	States.ALERT: {"animation": "sitting_alerted"},
+	States.SPAWN: {"animation": "sitting"},
 	States.WALK: {"animation": "walk"},
 	States.SITTING: {"animation": "sitting"},
 	States.DEAD: {"animation": "die"},
@@ -78,6 +84,8 @@ func after_state_tween(tweenState: States):
 	if state == States.DEAD:
 		return;
 	match(tweenState):
+		States.SPAWN:
+			changeState(starting_state)
 		States.ATTACK:
 			changeState(States.FOLLOW)
 		States.ALERT:
@@ -107,6 +115,10 @@ func changeState(newState):
 	if (newState != previousState && newState != States.TRANSITION):
 		animation_player.play(states[newState].animation)
 	match newState:
+		States.SPAWN:
+			moveTween = create_tween().tween_property(self, "modulate:a", 1, 0.2).set_ease(Tween.EASE_OUT)
+			moveTween.finished.connect(Callable(self, "after_state_tween").bind(States.SPAWN))
+			
 		States.ALERT:
 			moveTween = create_tween().tween_property(self, "currentSpeed", 20, 0.3).set_ease(Tween.EASE_OUT)
 			moveTween.finished.connect(Callable(self, "after_state_tween").bind(States.ALERT))
@@ -147,7 +159,8 @@ func changeState(newState):
 
 			
 func _ready() -> void:
-	changeState(States.SITTING)
+	set_collision_mask_value(layer + 10, true)
+	changeState(States.SPAWN)
 	flip();
 
 func is_player_behind():
@@ -156,12 +169,11 @@ func is_player_behind():
 
 func _process(delta: float) -> void:
 	match state:
+		
 		States.TRANSITION:
 			transitionTimer -= delta;
 			if transitionTimer <= 0:
 				changeState(nextState)
-				
-				
 		States.SITTING:
 			if randi_range(0, 10000) == 1:
 				changeState(States.WALK)
@@ -266,7 +278,11 @@ func on_hit(normal: Vector2, point: Vector2):
 	
 	
 func checkForPlayer() -> bool:
-	if (player):
+	var shouldCheck = true;
+	if (pxSet):
+		shouldCheck = pxSet.activeLayer == 0;
+			
+	if (player && shouldCheck):
 		var distanceToCheck = FOLLOWRange if state == States.FOLLOW else detectRange;
 		
 		$playerSeekCast.target_position = global_position.direction_to(player.global_position) * distanceToCheck;

@@ -1,0 +1,408 @@
+[gd_scene load_steps=49 format=3 uid="uid://chc17tpucrkto"]
+
+[ext_resource type="PackedScene" uid="uid://6j2hash6u0j5" path="res://sherma.tscn" id="1_c7m2h"]
+[ext_resource type="Texture2D" uid="uid://bxmvyjpvp03bb" path="res://sprites/moss/poc/fall/wall_tile_2.png" id="2_3cfvc"]
+[ext_resource type="PackedScene" uid="uid://b7xysaqibv1u2" path="res://components/seasons/seasonal sprite.tscn" id="2_fwu0b"]
+[ext_resource type="Texture2D" uid="uid://ravaldtheaff" path="res://sprites/moss/poc/summer/clump_flat_2.png" id="3_4ubrt"]
+[ext_resource type="Texture2D" uid="uid://cnfdei8jgk2u8" path="res://sprites/moss/poc/wall_tile_2.png" id="3_pu3ug"]
+[ext_resource type="Texture2D" uid="uid://bnpjyln1cxu7y" path="res://sprites/moss/poc/fall/clump_flat_2.png" id="4_3avci"]
+[ext_resource type="Texture2D" uid="uid://mumhyhtbwxfq" path="res://sprites/moss/poc/winter/wall_tile_2.png" id="4_pu3ug"]
+[ext_resource type="Texture2D" uid="uid://50avyip4i84q" path="res://sprites/moss/poc/roof_1.png" id="5_6k826"]
+[ext_resource type="Texture2D" uid="uid://byrcdus7gcbjn" path="res://sprites/moss/poc/clump_flat_2.png" id="5_lynbp"]
+[ext_resource type="Texture2D" uid="uid://c6newuenlxre2" path="res://sprites/moss/poc/summer/clump_round_1.png" id="6_lynbp"]
+[ext_resource type="Texture2D" uid="uid://bcqtsstk7i2ac" path="res://sprites/moss/poc/winter/roof_1.png" id="6_vpfnd"]
+[ext_resource type="Texture2D" uid="uid://ddyrylldlx8ur" path="res://sprites/moss/poc/fall/clump_round_1_alt.png" id="7_lynbp"]
+[ext_resource type="Texture2D" uid="uid://qcr0lhg4y0bt" path="res://sprites/moss/poc/fence_1.png" id="8_0xgwm"]
+[ext_resource type="Texture2D" uid="uid://fbadin2i11y0" path="res://sprites/moss/poc/summer/clump_3.png" id="8_7aqak"]
+[ext_resource type="Texture2D" uid="uid://dq2huyjalskdb" path="res://sprites/moss/poc/winter/clump_round_1.png" id="8_wwmil"]
+[ext_resource type="Script" uid="uid://6ytvf1l6emp6" path="res://testing/weather_overlay.gd" id="9_jo4du"]
+[ext_resource type="Texture2D" uid="uid://bf4coieu2jxtm" path="res://sprites/moss/poc/summer/floor_1.png" id="9_wwmil"]
+[ext_resource type="Texture2D" uid="uid://bhc4ie5o72o5h" path="res://sprites/moss/poc/lamp_1.png" id="9_yvrl8"]
+[ext_resource type="Texture2D" uid="uid://be0cgfgl3jmfx" path="res://sprites/moss/poc/fall/clump_3.png" id="9_yx6no"]
+[ext_resource type="Texture2D" uid="uid://dai60781c3nrh" path="res://sprites/moss/poc/winter/floor_1.png" id="10_dqu7x"]
+[ext_resource type="Texture2D" uid="uid://cuxfb446a3apg" path="res://sprites/environment/fog.png" id="10_f8081"]
+[ext_resource type="Texture2D" uid="uid://dyq5ggiyovrxx" path="res://sprites/moss/poc/winter/clump_3.png" id="10_juipa"]
+[ext_resource type="Texture2D" uid="uid://8mpab2gnhnu" path="res://sprites/moss/poc/summer/floor_2.png" id="13_l6swr"]
+[ext_resource type="Texture2D" uid="uid://bmt27dceiadbr" path="res://sprites/moss/poc/winter/icicles.png" id="13_s75ho"]
+[ext_resource type="Texture2D" uid="uid://cxf180qn1kqkd" path="res://sprites/moss/poc/winter/floor_2.png" id="14_bgp4p"]
+[ext_resource type="Texture2D" uid="uid://lfhxopemeupa" path="res://sprites/environment/particles/leaf.png" id="14_yx6no"]
+[ext_resource type="Material" uid="uid://kovlsbsbgllm" path="res://components/seasons/leaves.tres" id="15_0xgwm"]
+[ext_resource type="Texture2D" uid="uid://b1nek3o45dde6" path="res://sprites/moss/poc/winter/lamp_1.png" id="16_c3rcl"]
+[ext_resource type="Script" uid="uid://dti02yf63p3iv" path="res://components/seasons/weather_system.gd" id="16_yvrl8"]
+[ext_resource type="Texture2D" uid="uid://c5f22lglda1bn" path="res://sprites/moss/poc/summer/clump_flat_1.png" id="26_7mmye"]
+[ext_resource type="Texture2D" uid="uid://dyqbv0c3q0xcl" path="res://sprites/moss/poc/fall/clump_flat_1.png" id="27_c3rcl"]
+[ext_resource type="Texture2D" uid="uid://coldik0xuiifc" path="res://sprites/moss/poc/winter/clump_flat_1.png" id="28_ec0ph"]
+[ext_resource type="Texture2D" uid="uid://o830j0kq136g" path="res://sprites/environment/particles/rain.png" id="30_1t2jg"]
+[ext_resource type="Texture2D" uid="uid://b20bxcrapgwqh" path="res://sprites/moss/poc/summer/clump_1.png" id="30_cgj47"]
+[ext_resource type="Texture2D" uid="uid://chwowd8dc4ue3" path="res://sprites/moss/poc/fall/clump_1.png" id="31_6k826"]
+[ext_resource type="Material" uid="uid://h3w0j33t30gt" path="res://components/seasons/rain.tres" id="31_a6buh"]
+[ext_resource type="Texture2D" uid="uid://dip8i77dh25av" path="res://sprites/moss/poc/winter/clump_1.png" id="32_vpfnd"]
+
+[sub_resource type="Gradient" id="Gradient_6k826"]
+offsets = PackedFloat32Array(0.7737003, 1)
+colors = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_vpfnd"]
+gradient = SubResource("Gradient_6k826")
+width = 47
+height = 14
+fill_from = Vector2(0, 1)
+fill_to = Vector2(0, 0.197479)
+
+[sub_resource type="Gradient" id="Gradient_pu3ug"]
+colors = PackedColorArray(0.8645821, 0.9102683, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_jo4du"]
+gradient = SubResource("Gradient_pu3ug")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lku66"]
+size = Vector2(447, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_khdtd"]
+atlas = ExtResource("10_f8081")
+region = Rect2(0, 0, 316, 92)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l4jlt"]
+atlas = ExtResource("10_f8081")
+region = Rect2(0, 92, 316, 92)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5jnls"]
+atlas = ExtResource("10_f8081")
+region = Rect2(0, 184, 316, 92)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jp0ry"]
+atlas = ExtResource("10_f8081")
+region = Rect2(0, 276, 316, 92)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rlgx3"]
+atlas = ExtResource("10_f8081")
+region = Rect2(0, 368, 316, 92)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_w3gmk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_khdtd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l4jlt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5jnls")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jp0ry")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rlgx3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 7.0
+}]
+
+[node name="TestScene" type="Node2D"]
+
+[node name="Node2D2" type="Node2D" parent="."]
+
+[node name="floor_6" parent="Node2D2" instance=ExtResource("2_fwu0b")]
+texture_filter = 1
+position = Vector2(-95, -62)
+scale = Vector2(2, 2)
+texture = ExtResource("2_3cfvc")
+summerTexture = ExtResource("3_pu3ug")
+fallTexture = ExtResource("2_3cfvc")
+winterTexture = ExtResource("4_pu3ug")
+
+[node name="floor_8" parent="Node2D2" instance=ExtResource("2_fwu0b")]
+texture_filter = 1
+position = Vector2(-105, -156)
+scale = Vector2(2, 2)
+texture = ExtResource("5_6k826")
+summerTexture = ExtResource("5_6k826")
+fallTexture = ExtResource("5_6k826")
+winterTexture = ExtResource("6_vpfnd")
+
+[node name="floor_9" parent="Node2D2" instance=ExtResource("2_fwu0b")]
+texture_filter = 1
+position = Vector2(99, -156)
+scale = Vector2(2, 2)
+texture = ExtResource("5_6k826")
+summerTexture = ExtResource("5_6k826")
+fallTexture = ExtResource("5_6k826")
+winterTexture = ExtResource("6_vpfnd")
+
+[node name="floor_7" parent="Node2D2" instance=ExtResource("2_fwu0b")]
+texture_filter = 1
+position = Vector2(101, -62)
+scale = Vector2(2, 2)
+texture = ExtResource("2_3cfvc")
+summerTexture = ExtResource("3_pu3ug")
+fallTexture = ExtResource("2_3cfvc")
+winterTexture = ExtResource("4_pu3ug")
+
+[node name="PointLight2D" type="Sprite2D" parent="Node2D2"]
+modulate = Color(1, 1, 1, 0.5921569)
+position = Vector2(3, -85.00001)
+scale = Vector2(8.510637, 5.057842)
+texture = SubResource("GradientTexture2D_vpfnd")
+
+[node name="Sherma" parent="." instance=ExtResource("1_c7m2h")]
+position = Vector2(-115, -6)
+
+[node name="Camera2D2" type="Camera2D" parent="Sherma"]
+offset = Vector2(0, -40)
+zoom = Vector2(1.5, 1.5)
+
+[node name="Sprite2D" type="Sprite2D" parent="Sherma/Camera2D2"]
+modulate = Color(1, 1, 1, 0.13333334)
+z_index = 5
+z_as_relative = false
+position = Vector2(-1.4999847, -1.5000191)
+scale = Vector2(21.203125, 9.328124)
+texture = SubResource("GradientTexture2D_jo4du")
+script = ExtResource("9_jo4du")
+metadata/_edit_lock_ = true
+
+[node name="Floor" type="StaticBody2D" parent="."]
+collision_layer = 9
+collision_mask = 9
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+position = Vector2(31, 91)
+shape = SubResource("RectangleShape2D_lku66")
+
+[node name="GPUParticles2D3" type="GPUParticles2D" parent="."]
+texture_filter = 1
+position = Vector2(-84, -302)
+amount = 200
+texture = ExtResource("14_yx6no")
+lifetime = 24.81
+preprocess = 10.0
+visibility_rect = Rect2(-500, -100, 1000, 500)
+local_coords = true
+process_material = ExtResource("15_0xgwm")
+script = ExtResource("16_yvrl8")
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="fog blanket" type="AnimatedSprite2D" parent="Node2D"]
+modulate = Color(1, 1, 1, 0.50980395)
+texture_filter = 1
+texture_repeat = 2
+position = Vector2(-36, -10)
+scale = Vector2(1, 0.29347825)
+sprite_frames = SubResource("SpriteFrames_w3gmk")
+autoplay = "default"
+flip_h = true
+
+[node name="floor_11" parent="Node2D" instance=ExtResource("2_fwu0b")]
+texture_filter = 1
+position = Vector2(99, -106)
+scale = Vector2(2, 2)
+texture = ExtResource("13_s75ho")
+winterTexture = ExtResource("13_s75ho")
+
+[node name="floor_12" parent="Node2D" instance=ExtResource("2_fwu0b")]
+texture_filter = 1
+position = Vector2(-105, -106)
+scale = Vector2(2, 2)
+texture = ExtResource("13_s75ho")
+winterTexture = ExtResource("13_s75ho")
+
+[node name="floor_1" parent="Node2D" instance=ExtResource("2_fwu0b")]
+texture_filter = 1
+position = Vector2(-125, 4)
+scale = Vector2(2, 2)
+texture = ExtResource("9_wwmil")
+summerTexture = ExtResource("9_wwmil")
+fallTexture = ExtResource("9_wwmil")
+winterTexture = ExtResource("10_dqu7x")
+
+[node name="floor_5" parent="Node2D" instance=ExtResource("2_fwu0b")]
+texture_filter = 1
+position = Vector2(-33, 5)
+scale = Vector2(2, 2)
+texture = ExtResource("9_wwmil")
+summerTexture = ExtResource("9_wwmil")
+fallTexture = ExtResource("9_wwmil")
+winterTexture = ExtResource("10_dqu7x")
+
+[node name="floor_6" parent="Node2D" instance=ExtResource("2_fwu0b")]
+texture_filter = 1
+position = Vector2(-138, 10)
+scale = Vector2(2, 2)
+texture = ExtResource("13_l6swr")
+summerTexture = ExtResource("13_l6swr")
+fallTexture = ExtResource("13_l6swr")
+winterTexture = ExtResource("14_bgp4p")
+
+[node name="floor_7" parent="Node2D" instance=ExtResource("2_fwu0b")]
+texture_filter = 1
+position = Vector2(-149, 19)
+scale = Vector2(2, 2)
+texture = ExtResource("13_l6swr")
+summerTexture = ExtResource("13_l6swr")
+fallTexture = ExtResource("13_l6swr")
+winterTexture = ExtResource("14_bgp4p")
+
+[node name="floor_8" parent="Node2D" instance=ExtResource("2_fwu0b")]
+texture_filter = 1
+position = Vector2(-157, 28)
+scale = Vector2(2, 2)
+texture = ExtResource("13_l6swr")
+summerTexture = ExtResource("13_l6swr")
+fallTexture = ExtResource("13_l6swr")
+winterTexture = ExtResource("14_bgp4p")
+
+[node name="floor_9" parent="Node2D" instance=ExtResource("2_fwu0b")]
+texture_filter = 1
+position = Vector2(-166, 38)
+scale = Vector2(2, 2)
+texture = ExtResource("13_l6swr")
+summerTexture = ExtResource("13_l6swr")
+fallTexture = ExtResource("13_l6swr")
+winterTexture = ExtResource("14_bgp4p")
+
+[node name="fence" type="Sprite2D" parent="Node2D"]
+texture_filter = 1
+position = Vector2(-30, -32)
+scale = Vector2(2, 2)
+texture = ExtResource("8_0xgwm")
+
+[node name="fence2" type="Sprite2D" parent="Node2D"]
+texture_filter = 1
+position = Vector2(46, -32)
+scale = Vector2(2, 2)
+texture = ExtResource("8_0xgwm")
+
+[node name="fence3" type="Sprite2D" parent="Node2D"]
+texture_filter = 1
+position = Vector2(122, -32)
+scale = Vector2(2, 2)
+texture = ExtResource("8_0xgwm")
+
+[node name="post" parent="Node2D" instance=ExtResource("2_fwu0b")]
+texture_filter = 1
+position = Vector2(-69, -37)
+scale = Vector2(2, 2)
+texture = ExtResource("9_yvrl8")
+summerTexture = ExtResource("9_yvrl8")
+fallTexture = ExtResource("9_yvrl8")
+winterTexture = ExtResource("16_c3rcl")
+
+[node name="moss_1" parent="Node2D" instance=ExtResource("2_fwu0b")]
+texture_filter = 1
+position = Vector2(-26, 0)
+scale = Vector2(2, 2)
+texture = ExtResource("3_4ubrt")
+summerTexture = ExtResource("3_4ubrt")
+fallTexture = ExtResource("4_3avci")
+winterTexture = ExtResource("5_lynbp")
+
+[node name="moss_3" parent="Node2D" instance=ExtResource("2_fwu0b")]
+texture_filter = 1
+position = Vector2(-36, 16)
+scale = Vector2(2, 2)
+texture = ExtResource("8_7aqak")
+summerTexture = ExtResource("8_7aqak")
+fallTexture = ExtResource("9_yx6no")
+winterTexture = ExtResource("10_juipa")
+
+[node name="moss_2" parent="Node2D" instance=ExtResource("2_fwu0b")]
+texture_filter = 1
+position = Vector2(70, 0)
+scale = Vector2(2, 2)
+texture = ExtResource("6_lynbp")
+summerTexture = ExtResource("6_lynbp")
+fallTexture = ExtResource("7_lynbp")
+winterTexture = ExtResource("8_wwmil")
+
+[node name="moss_5" parent="Node2D" instance=ExtResource("2_fwu0b")]
+texture_filter = 1
+position = Vector2(200, 1)
+scale = Vector2(2, 2)
+texture = ExtResource("26_7mmye")
+summerTexture = ExtResource("26_7mmye")
+fallTexture = ExtResource("27_c3rcl")
+winterTexture = ExtResource("28_ec0ph")
+
+[node name="moss_8" parent="Node2D" instance=ExtResource("2_fwu0b")]
+texture_filter = 1
+position = Vector2(89.00001, 26)
+rotation = -0.7319324
+scale = Vector2(2, 2)
+texture = ExtResource("30_cgj47")
+flip_h = true
+summerTexture = ExtResource("30_cgj47")
+fallTexture = ExtResource("31_6k826")
+winterTexture = ExtResource("32_vpfnd")
+
+[node name="moss_4" parent="Node2D" instance=ExtResource("2_fwu0b")]
+texture_filter = 1
+position = Vector2(49, 21)
+scale = Vector2(2, 2)
+texture = ExtResource("8_7aqak")
+summerTexture = ExtResource("8_7aqak")
+fallTexture = ExtResource("9_yx6no")
+winterTexture = ExtResource("10_juipa")
+
+[node name="moss_6" parent="Node2D" instance=ExtResource("2_fwu0b")]
+texture_filter = 1
+position = Vector2(-39, 40)
+scale = Vector2(2, 2)
+texture = ExtResource("26_7mmye")
+summerTexture = ExtResource("26_7mmye")
+fallTexture = ExtResource("27_c3rcl")
+winterTexture = ExtResource("28_ec0ph")
+
+[node name="moss_7" parent="Node2D" instance=ExtResource("2_fwu0b")]
+texture_filter = 1
+position = Vector2(88, 43)
+scale = Vector2(2, 2)
+texture = ExtResource("26_7mmye")
+summerTexture = ExtResource("26_7mmye")
+fallTexture = ExtResource("27_c3rcl")
+winterTexture = ExtResource("28_ec0ph")
+
+[node name="floor_2" parent="Node2D" instance=ExtResource("2_fwu0b")]
+texture_filter = 1
+position = Vector2(-173, 54)
+scale = Vector2(2, 2)
+texture = ExtResource("9_wwmil")
+summerTexture = ExtResource("9_wwmil")
+fallTexture = ExtResource("9_wwmil")
+winterTexture = ExtResource("10_dqu7x")
+
+[node name="floor_3" parent="Node2D" instance=ExtResource("2_fwu0b")]
+texture_filter = 1
+position = Vector2(-44, 54)
+scale = Vector2(2, 2)
+texture = ExtResource("9_wwmil")
+summerTexture = ExtResource("9_wwmil")
+fallTexture = ExtResource("9_wwmil")
+winterTexture = ExtResource("10_dqu7x")
+
+[node name="floor_4" parent="Node2D" instance=ExtResource("2_fwu0b")]
+texture_filter = 1
+position = Vector2(88, 54)
+scale = Vector2(2, 2)
+texture = ExtResource("9_wwmil")
+summerTexture = ExtResource("9_wwmil")
+fallTexture = ExtResource("9_wwmil")
+winterTexture = ExtResource("10_dqu7x")
+
+[node name="Parallax2D" type="Parallax2D" parent="."]
+scroll_scale = Vector2(1.5, 1.5)
+
+[node name="GPUParticles2D2" type="GPUParticles2D" parent="Parallax2D"]
+texture_filter = 1
+position = Vector2(-485.8258, -440.79614)
+amount = 200
+texture = ExtResource("30_1t2jg")
+lifetime = 10.0
+preprocess = 4.1
+visibility_rect = Rect2(-500, -100, 1000, 500)
+local_coords = true
+process_material = ExtResource("31_a6buh")
+script = ExtResource("16_yvrl8")

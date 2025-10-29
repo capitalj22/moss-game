@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://bqdvk814kkxle"]
+[gd_scene load_steps=86 format=3 uid="uid://bqdvk814kkxle"]
 
 [ext_resource type="PackedScene" uid="uid://6j2hash6u0j5" path="res://sherma.tscn" id="1_k8d0y"]
 [ext_resource type="Script" uid="uid://d4nnilon53253" path="res://testing/parallax_set.gd" id="1_mq1po"]
@@ -7,16 +7,50 @@
 [ext_resource type="Texture2D" uid="uid://bwi5j0q1jsb3c" path="res://sprites/moss/poc/floor_1.png" id="2_nm5s8"]
 [ext_resource type="Texture2D" uid="uid://icaaqlg1lv08" path="res://sprites/moss/poc/4.png" id="3_v4jw6"]
 [ext_resource type="Texture2D" uid="uid://ch61xk3m5h66g" path="res://sprites/moss/poc/floor_2.png" id="3_wotw1"]
+[ext_resource type="Texture2D" uid="uid://cwdo2hruj43yw" path="res://sprites/moss/poc/wall_tile.png" id="4_k3rvn"]
 [ext_resource type="Texture2D" uid="uid://cm3dwudmllu0m" path="res://sprites/moss/poc/5.png" id="4_mij70"]
+[ext_resource type="Script" uid="uid://dohy36363gg5l" path="res://testing/parallaxLayer.gd" id="4_tjeej"]
 [ext_resource type="Texture2D" uid="uid://iixt7jny0nkr" path="res://sprites/moss/poc/6.png" id="5_pwj8j"]
 [ext_resource type="Texture2D" uid="uid://byc30kjxxsufy" path="res://sprites/moss/poc/clump_flat_1.png" id="5_wotw1"]
 [ext_resource type="Texture2D" uid="uid://b38uegtbrel4d" path="res://sprites/moss/poc/7.png" id="6_517ly"]
 [ext_resource type="Texture2D" uid="uid://8xup4tpsb7pi" path="res://sprites/moss/poc/clump_round_1.png" id="6_j01ah"]
 [ext_resource type="Texture2D" uid="uid://gpxsp5hjpfjf" path="res://sprites/moss/poc/clump_1.png" id="7_mij70"]
+[ext_resource type="Texture2D" uid="uid://cnfdei8jgk2u8" path="res://sprites/moss/poc/wall_tile_2.png" id="8_jfd7h"]
+[ext_resource type="Texture2D" uid="uid://qcr0lhg4y0bt" path="res://sprites/moss/poc/fence_1.png" id="9_ffvgo"]
+[ext_resource type="Texture2D" uid="uid://x7u4bd06ntb3" path="res://sprites/moss/poc/wall_tile_3.png" id="9_sr1qr"]
+[ext_resource type="Texture2D" uid="uid://nusyxooe4vlt" path="res://sprites/moss/poc/wall_window_1.png" id="10_1d7xl"]
 [ext_resource type="Texture2D" uid="uid://cuxfb446a3apg" path="res://sprites/environment/fog.png" id="12_517ly"]
+[ext_resource type="Texture2D" uid="uid://bhc4ie5o72o5h" path="res://sprites/moss/poc/lamp_1.png" id="13_4o2ic"]
 [ext_resource type="Texture2D" uid="uid://dhcbsbxye2s5d" path="res://sprites/moss/poc/clump_3.png" id="13_pwj8j"]
+[ext_resource type="Texture2D" uid="uid://bxmvyjpvp03bb" path="res://sprites/moss/poc/fall/wall_tile_2.png" id="15_4xp08"]
 [ext_resource type="Script" uid="uid://do3uwy6mngnbj" path="res://testing/autohide.gd" id="15_aoejv"]
 [ext_resource type="Script" uid="uid://1pbb3b0k6lri" path="res://testing/layer_transition.gd" id="15_oftoy"]
+[ext_resource type="Texture2D" uid="uid://mumhyhtbwxfq" path="res://sprites/moss/poc/winter/wall_tile_2.png" id="16_skrx6"]
+[ext_resource type="PackedScene" uid="uid://ngsco486ecot" path="res://components/breakables/plant.tscn" id="18_c81i1"]
+[ext_resource type="PackedScene" uid="uid://clineulma6iem" path="res://guys/mossman/mossman.tscn" id="21_cvpce"]
+[ext_resource type="PackedScene" uid="uid://b7xysaqibv1u2" path="res://components/seasons/seasonal sprite.tscn" id="21_esqs0"]
+[ext_resource type="Texture2D" uid="uid://cu8wsexykg31b" path="res://sprites/environment/particles/green_1.png" id="21_qohdp"]
+[ext_resource type="Texture2D" uid="uid://bf4coieu2jxtm" path="res://sprites/moss/poc/summer/floor_1.png" id="22_4nkew"]
+[ext_resource type="Script" uid="uid://cm3poxcbabk1r" path="res://testing/flicker.gd" id="22_gp8ca"]
+[ext_resource type="Texture2D" uid="uid://dai60781c3nrh" path="res://sprites/moss/poc/winter/floor_1.png" id="23_4xp08"]
+[ext_resource type="Texture2D" uid="uid://c4dj1s5jqbor6" path="res://sprites/environment/fire.png" id="23_jfd7h"]
+[ext_resource type="Texture2D" uid="uid://8mpab2gnhnu" path="res://sprites/moss/poc/summer/floor_2.png" id="24_skrx6"]
+[ext_resource type="Texture2D" uid="uid://cxf180qn1kqkd" path="res://sprites/moss/poc/winter/floor_2.png" id="25_2f4vv"]
+[ext_resource type="Texture2D" uid="uid://b1nek3o45dde6" path="res://sprites/moss/poc/winter/lamp_1.png" id="26_bdpd1"]
+[ext_resource type="Texture2D" uid="uid://ravaldtheaff" path="res://sprites/moss/poc/summer/clump_flat_2.png" id="27_qwanb"]
+[ext_resource type="Texture2D" uid="uid://bnpjyln1cxu7y" path="res://sprites/moss/poc/fall/clump_flat_2.png" id="28_i37uv"]
+[ext_resource type="Texture2D" uid="uid://fbadin2i11y0" path="res://sprites/moss/poc/summer/clump_3.png" id="29_2vwn5"]
+[ext_resource type="Texture2D" uid="uid://o830j0kq136g" path="res://sprites/environment/particles/rain.png" id="29_ibsvk"]
+[ext_resource type="Texture2D" uid="uid://be0cgfgl3jmfx" path="res://sprites/moss/poc/fall/clump_3.png" id="30_mw0rw"]
+[ext_resource type="Material" uid="uid://h3w0j33t30gt" path="res://components/seasons/rain.tres" id="30_tjeej"]
+[ext_resource type="Texture2D" uid="uid://dyq5ggiyovrxx" path="res://sprites/moss/poc/winter/clump_3.png" id="31_72vic"]
+[ext_resource type="Script" uid="uid://dti02yf63p3iv" path="res://components/seasons/weather_system.gd" id="31_m68f1"]
+[ext_resource type="Texture2D" uid="uid://c6newuenlxre2" path="res://sprites/moss/poc/summer/clump_round_1.png" id="32_8ip1f"]
+[ext_resource type="Texture2D" uid="uid://ddyrylldlx8ur" path="res://sprites/moss/poc/fall/clump_round_1_alt.png" id="33_1jp73"]
+[ext_resource type="Texture2D" uid="uid://dq2huyjalskdb" path="res://sprites/moss/poc/winter/clump_round_1.png" id="34_ebjpa"]
+[ext_resource type="Texture2D" uid="uid://c5f22lglda1bn" path="res://sprites/moss/poc/summer/clump_flat_1.png" id="35_oeknb"]
+[ext_resource type="Texture2D" uid="uid://dyqbv0c3q0xcl" path="res://sprites/moss/poc/fall/clump_flat_1.png" id="36_u0axn"]
+[ext_resource type="Texture2D" uid="uid://coldik0xuiifc" path="res://sprites/moss/poc/winter/clump_flat_1.png" id="37_6odvo"]
 
 [sub_resource type="Gradient" id="Gradient_j01ah"]
 colors = PackedColorArray(0, 0, 0, 1, 0, 0.0627451, 0, 1)
@@ -25,6 +59,41 @@ colors = PackedColorArray(0, 0, 0, 1, 0, 0.0627451, 0, 1)
 gradient = SubResource("Gradient_j01ah")
 fill_from = Vector2(0.71794873, 1)
 fill_to = Vector2(0, 0)
+
+[sub_resource type="Gradient" id="Gradient_517ly"]
+offsets = PackedFloat32Array(0, 0.7094801)
+colors = PackedColorArray(1, 1, 1, 0.87765384, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_aoejv"]
+gradient = SubResource("Gradient_517ly")
+fill_to = Vector2(0, 1)
+
+[sub_resource type="Gradient" id="Gradient_k3rvn"]
+offsets = PackedFloat32Array(0, 0.5198777, 0.86850154, 1)
+colors = PackedColorArray(0.8510972, 0.39318642, 0, 1, 0.89776456, 0.58336675, 0.31340817, 1, 0.9080173, 0.6251488, 0.382263, 1, 1, 0.6784314, 0.36862746, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_cw3o6"]
+gradient = SubResource("Gradient_k3rvn")
+fill_from = Vector2(0.72649574, 1)
+fill_to = Vector2(0.6880342, 0)
+
+[sub_resource type="Gradient" id="Gradient_ffvgo"]
+offsets = PackedFloat32Array(0, 0.50152904, 0.9571865)
+colors = PackedColorArray(1, 1, 1, 1, 0.20446098, 0.20446098, 0.20446098, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_qohdp"]
+gradient = SubResource("Gradient_ffvgo")
+fill = 1
+fill_from = Vector2(0.4871795, 0.47008547)
+fill_to = Vector2(0.7692308, 0.042735044)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aoejv"]
+size = Vector2(11.127275, 20)
+
+[sub_resource type="Gradient" id="Gradient_oftoy"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_dyje4"]
+gradient = SubResource("Gradient_oftoy")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_khdtd"]
 atlas = ExtResource("12_517ly")
@@ -45,45 +114,6 @@ region = Rect2(0, 276, 316, 92)
 [sub_resource type="AtlasTexture" id="AtlasTexture_rlgx3"]
 atlas = ExtResource("12_517ly")
 region = Rect2(0, 368, 316, 92)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_517ly"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_khdtd")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_l4jlt")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_5jnls")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_jp0ry")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_rlgx3")
-}],
-"loop": true,
-"name": &"default",
-"speed": 7.0
-}]
-
-[sub_resource type="Gradient" id="Gradient_517ly"]
-offsets = PackedFloat32Array(0, 0.7094801)
-colors = PackedColorArray(1, 1, 1, 0.87765384, 1, 1, 1, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_aoejv"]
-gradient = SubResource("Gradient_517ly")
-fill_to = Vector2(0, 1)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_aoejv"]
-size = Vector2(11.127275, 20)
-
-[sub_resource type="Gradient" id="Gradient_oftoy"]
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_dyje4"]
-gradient = SubResource("Gradient_oftoy")
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_aoejv"]
 animations = [{
@@ -108,6 +138,85 @@ animations = [{
 "speed": 7.0
 }]
 
+[sub_resource type="Gradient" id="Gradient_qohdp"]
+offsets = PackedFloat32Array(0, 0.22629969, 0.59327215, 0.7522936)
+colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 1, 0.20446098, 0.20446098, 0.20446098, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_cvpce"]
+gradient = SubResource("Gradient_qohdp")
+fill_from = Vector2(0.5811966, 1)
+fill_to = Vector2(0.61538464, 0)
+
+[sub_resource type="Gradient" id="Gradient_4d87u"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_1d7xl"]
+gradient = SubResource("Gradient_4d87u")
+fill = 1
+fill_from = Vector2(0.50427353, 0.508547)
+fill_to = Vector2(0.71794873, 0.24358974)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vq7fa"]
+atlas = ExtResource("23_jfd7h")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0jad4"]
+atlas = ExtResource("23_jfd7h")
+region = Rect2(16, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cy8a4"]
+atlas = ExtResource("23_jfd7h")
+region = Rect2(32, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7n6k5"]
+atlas = ExtResource("23_jfd7h")
+region = Rect2(0, 32, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j22dt"]
+atlas = ExtResource("23_jfd7h")
+region = Rect2(16, 32, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sr1qr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vq7fa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0jad4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cy8a4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7n6k5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j22dt")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_cvpce"]
+particle_flag_rotate_y = true
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(2000, 500, 1)
+angle_min = -479.5
+angle_max = -174.29999
+inherit_velocity_ratio = 0.255
+velocity_pivot = Vector3(2, 0, 0)
+direction = Vector3(3, 2, 0)
+spread = 145.248
+initial_velocity_max = 9.12
+angular_velocity_min = -85.83002
+angular_velocity_max = 47.35998
+gravity = Vector3(0, -30, 0)
+scale_min = 0.5
+scale_max = 0.7
+
 [sub_resource type="Gradient" id="Gradient_7n6k5"]
 colors = PackedColorArray(1, 1, 1, 1, 0.446777, 0.44677705, 0.44677705, 1)
 
@@ -115,105 +224,580 @@ colors = PackedColorArray(1, 1, 1, 1, 0.446777, 0.44677705, 0.44677705, 1)
 gradient = SubResource("Gradient_7n6k5")
 fill_from = Vector2(0, 1)
 
+[sub_resource type="Gradient" id="Gradient_cvpce"]
+offsets = PackedFloat32Array(0.4617737, 0.88990825)
+colors = PackedColorArray(0, 0.13333334, 0.19215687, 1, 1.3235956e-07, 0.074538104, 0.11499769, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_we25m"]
+gradient = SubResource("Gradient_cvpce")
+fill_from = Vector2(0.46581197, 0)
+fill_to = Vector2(0.50427353, 0.6923077)
+
+[sub_resource type="Gradient" id="Gradient_gp8ca"]
+colors = PackedColorArray(0, 0, 0, 1, 0.055045873, 0.055045873, 0.055045873, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_jfd7h"]
+gradient = SubResource("Gradient_gp8ca")
+
 [node name="PxPoc" type="Node2D"]
-
-[node name="Sherma" parent="." instance=ExtResource("1_k8d0y")]
-position = Vector2(275, 97)
-debug = false
-
-[node name="Camera2D2" type="Camera2D" parent="Sherma"]
-offset = Vector2(0, -80)
-zoom = Vector2(1.5, 1.5)
-position_smoothing_enabled = true
-position_smoothing_speed = 10.0
-script = ExtResource("2_dyje4")
 
 [node name="ParallaxSet" type="Node2D" parent="." node_paths=PackedStringArray("player", "camera")]
 z_as_relative = false
 position = Vector2(-17, 4)
 script = ExtResource("1_mq1po")
 scrollFactor = 0.15
-scrollTime = 0.4
-player = NodePath("../Sherma")
-camera = NodePath("../Sherma/Camera2D2")
+scrollTime = 1.0
+player = NodePath("layer_1/Sherma")
+camera = NodePath("layer_1/Sherma/Camera2D2")
 
-[node name="layer_1" type="Node2D" parent="ParallaxSet"]
+[node name="layer_0" type="Node2D" parent="ParallaxSet" node_paths=PackedStringArray("pxSet")]
 z_as_relative = false
 texture_filter = 1
-position = Vector2(8, -75)
+position = Vector2(66, -832)
+script = ExtResource("4_tjeej")
+pxSet = NodePath("..")
+initialHeight = 100.0
 
-[node name="background_layers" type="Node2D" parent="ParallaxSet/layer_1"]
+[node name="background_layers" type="Node2D" parent="ParallaxSet/layer_0"]
 
-[node name="bg_1" type="Parallax2D" parent="ParallaxSet/layer_1/background_layers"]
+[node name="bg_1" type="Parallax2D" parent="ParallaxSet/layer_0/background_layers"]
 z_index = -1
 
-[node name="wall" type="Node2D" parent="ParallaxSet/layer_1/background_layers/bg_1"]
+[node name="wall" type="Node2D" parent="ParallaxSet/layer_0/background_layers/bg_1"]
 position = Vector2(89, 14)
 
-[node name="stone_wall" type="Sprite2D" parent="ParallaxSet/layer_1/background_layers/bg_1/wall"]
-position = Vector2(353, 76)
+[node name="bg_4" type="Parallax2D" parent="ParallaxSet/layer_0/background_layers"]
+z_index = -1
+
+[node name="wall" type="Node2D" parent="ParallaxSet/layer_0/background_layers/bg_4"]
+position = Vector2(89, 14)
+
+[node name="bg_2" type="Parallax2D" parent="ParallaxSet/layer_0/background_layers"]
+z_index = -1
+
+[node name="wall" type="Node2D" parent="ParallaxSet/layer_0/background_layers/bg_2"]
+position = Vector2(89, 14)
+
+[node name="bg_3" type="Parallax2D" parent="ParallaxSet/layer_0/background_layers"]
+z_index = -1
+
+[node name="wall_details" type="Node2D" parent="ParallaxSet/layer_0/background_layers/bg_3"]
+position = Vector2(74, 157)
+
+[node name="wall5" type="Sprite2D" parent="ParallaxSet/layer_0/background_layers/bg_3/wall_details"]
+texture_repeat = 2
+position = Vector2(323, -81)
 scale = Vector2(2, 2)
-texture = ExtResource("3_v4jw6")
+texture = ExtResource("9_ffvgo")
 offset = Vector2(-4, 0)
 region_rect = Rect2(-265.6184, 0, 780.1184, 12.5)
 
-[node name="stone_wall2" type="Sprite2D" parent="ParallaxSet/layer_1/background_layers/bg_1/wall"]
-position = Vector2(482, 74)
+[node name="wall6" type="Sprite2D" parent="ParallaxSet/layer_0/background_layers/bg_3/wall_details"]
+texture_repeat = 2
+position = Vector2(393, -81)
 scale = Vector2(2, 2)
-texture = ExtResource("3_v4jw6")
+texture = ExtResource("9_ffvgo")
 offset = Vector2(-4, 0)
 region_rect = Rect2(-265.6184, 0, 780.1184, 12.5)
 
-[node name="stone_wall3" type="Sprite2D" parent="ParallaxSet/layer_1/background_layers/bg_1/wall"]
+[node name="wall7" type="Sprite2D" parent="ParallaxSet/layer_0/background_layers/bg_3/wall_details"]
+texture_repeat = 2
+position = Vector2(467, -81)
+scale = Vector2(2, 2)
+texture = ExtResource("9_ffvgo")
+offset = Vector2(-4, 0)
+region_rect = Rect2(-265.6184, 0, 780.1184, 12.5)
+
+[node name="wall8" type="Sprite2D" parent="ParallaxSet/layer_0/background_layers/bg_3/wall_details"]
+texture_repeat = 2
+position = Vector2(542, -81)
+scale = Vector2(2, 2)
+texture = ExtResource("9_ffvgo")
+offset = Vector2(-4, 0)
+region_rect = Rect2(-265.6184, 0, 780.1184, 12.5)
+
+[node name="wall9" type="Sprite2D" parent="ParallaxSet/layer_0/background_layers/bg_3/wall_details"]
+texture_repeat = 2
+position = Vector2(618, -81)
+scale = Vector2(2, 2)
+texture = ExtResource("9_ffvgo")
+offset = Vector2(-4, 0)
+region_rect = Rect2(-265.6184, 0, 780.1184, 12.5)
+
+[node name="stone_wall5" type="Sprite2D" parent="ParallaxSet/layer_0/background_layers/bg_3/wall_details"]
+position = Vector2(372, -84)
+scale = Vector2(2, 2)
+texture = ExtResource("9_sr1qr")
+offset = Vector2(-4, 0)
+region_rect = Rect2(-265.6184, 0, 780.1184, 12.5)
+
+[node name="stone_wall6" type="Sprite2D" parent="ParallaxSet/layer_0/background_layers/bg_3/wall_details"]
+position = Vector2(567, -84)
+scale = Vector2(2, 2)
+texture = ExtResource("9_sr1qr")
+offset = Vector2(-4, 0)
+region_rect = Rect2(-265.6184, 0, 780.1184, 12.5)
+
+[node name="stone_wall8" type="Sprite2D" parent="ParallaxSet/layer_0/background_layers/bg_3/wall_details"]
+position = Vector2(170, -84)
+scale = Vector2(2, 2)
+texture = ExtResource("8_jfd7h")
+offset = Vector2(-4, 0)
+region_rect = Rect2(-265.6184, 0, 780.1184, 12.5)
+
+[node name="stone_wall7" type="Sprite2D" parent="ParallaxSet/layer_0/background_layers/bg_3/wall_details"]
+position = Vector2(763, -84)
+scale = Vector2(2, 2)
+texture = ExtResource("8_jfd7h")
+offset = Vector2(-4, 0)
+region_rect = Rect2(-265.6184, 0, 780.1184, 12.5)
+
+[node name="fg" type="Parallax2D" parent="ParallaxSet/layer_0"]
+
+[node name="dark" type="Sprite2D" parent="ParallaxSet/layer_0/fg"]
+position = Vector2(519.987, 200.85194)
+scale = Vector2(13.062907, 1.9733768)
+texture = SubResource("GradientTexture2D_ei0ot")
+
+[node name="dark3" type="Sprite2D" parent="ParallaxSet/layer_0/fg"]
+position = Vector2(519.987, 200.85194)
+scale = Vector2(13.062907, 1.9733768)
+texture = SubResource("GradientTexture2D_ei0ot")
+
+[node name="dark2" type="Sprite2D" parent="ParallaxSet/layer_0/fg"]
+position = Vector2(730.00006, 165.5)
+scale = Vector2(6.546875, 1.140625)
+texture = SubResource("GradientTexture2D_ei0ot")
+
+[node name="ground" type="Node2D" parent="ParallaxSet/layer_0/fg"]
+position = Vector2(0.6380615, 124.63977)
+
+[node name="stone_floor2" type="Sprite2D" parent="ParallaxSet/layer_0/fg/ground"]
+position = Vector2(374.33588, 11.064117)
+scale = Vector2(2, 2)
+texture = ExtResource("3_wotw1")
+offset = Vector2(-4, 0)
+region_rect = Rect2(-265.6184, 0, 780.1184, 12.5)
+
+[node name="stone_floor3" type="Sprite2D" parent="ParallaxSet/layer_0/fg/ground"]
+position = Vector2(120.36194, 11.36026)
+scale = Vector2(2, 2)
+texture = ExtResource("3_wotw1")
+offset = Vector2(-4, 0)
+region_rect = Rect2(-265.6184, 0, 780.1184, 12.5)
+
+[node name="stone_floor4" type="Sprite2D" parent="ParallaxSet/layer_0/fg/ground"]
+position = Vector2(518.36194, 11.36026)
+scale = Vector2(2, 2)
+texture = ExtResource("3_wotw1")
+offset = Vector2(-4, 0)
+region_rect = Rect2(-265.6184, 0, 780.1184, 12.5)
+
+[node name="stone_floor5" type="Sprite2D" parent="ParallaxSet/layer_0/fg/ground"]
+position = Vector2(662.36194, 11.36026)
+scale = Vector2(2, 2)
+texture = ExtResource("3_wotw1")
+offset = Vector2(-4, 0)
+region_rect = Rect2(-265.6184, 0, 780.1184, 12.5)
+
+[node name="stone_floor6" type="Sprite2D" parent="ParallaxSet/layer_0/fg/ground"]
+position = Vector2(803.36194, 11.36026)
+scale = Vector2(2, 2)
+texture = ExtResource("3_wotw1")
+offset = Vector2(-4, 0)
+region_rect = Rect2(-265.6184, 0, 780.1184, 12.5)
+
+[node name="stone_floor" type="Sprite2D" parent="ParallaxSet/layer_0/fg/ground"]
+position = Vector2(268.33588, 13.064117)
+scale = Vector2(2, 2)
+texture = ExtResource("2_nm5s8")
+offset = Vector2(-4, 0)
+region_rect = Rect2(-265.6184, 0, 780.1184, 12.5)
+
+[node name="ground2" type="Node2D" parent="ParallaxSet/layer_0/fg"]
+position = Vector2(409, 66)
+
+[node name="Floor" type="StaticBody2D" parent="ParallaxSet/layer_0/fg"]
+collision_layer = 522
+collision_mask = 0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ParallaxSet/layer_0/fg/Floor"]
+modulate = Color(7.50793, 5.797503, 4.2503705, 1)
+position = Vector2(360, 227)
+polygon = PackedVector2Array(-255.23735, -98.31442, 161, -98, 174, -98, 578, -97, 581, -23, -255, -23)
+
+[node name="foreground_layers" type="Node2D" parent="ParallaxSet/layer_0"]
+
+[node name="fg_1" type="Parallax2D" parent="ParallaxSet/layer_0/foreground_layers"]
+
+[node name="ground3" type="Node2D" parent="ParallaxSet/layer_0/foreground_layers/fg_1"]
+position = Vector2(68, 133)
+
+[node name="fg_2" type="Parallax2D" parent="ParallaxSet/layer_0/foreground_layers"]
+
+[node name="ground3" type="Node2D" parent="ParallaxSet/layer_0/foreground_layers/fg_2"]
+position = Vector2(-39, 156)
+
+[node name="fg_3" type="Parallax2D" parent="ParallaxSet/layer_0/foreground_layers"]
+
+[node name="ground3" type="Node2D" parent="ParallaxSet/layer_0/foreground_layers/fg_3"]
+position = Vector2(-39, 156)
+
+[node name="dark3" type="Sprite2D" parent="ParallaxSet/layer_0/foreground_layers/fg_3/ground3"]
+position = Vector2(410.75, 70)
+scale = Vector2(8.4140625, 1)
+texture = SubResource("GradientTexture2D_ei0ot")
+
+[node name="fg_4" type="Parallax2D" parent="ParallaxSet/layer_0/foreground_layers"]
+
+[node name="stairs" type="Node2D" parent="ParallaxSet/layer_0/foreground_layers/fg_4"]
+position = Vector2(-39, 156)
+
+[node name="fg_5" type="Parallax2D" parent="ParallaxSet/layer_0/foreground_layers"]
+
+[node name="stairs" type="Node2D" parent="ParallaxSet/layer_0/foreground_layers/fg_5"]
+position = Vector2(-39, 156)
+
+[node name="fg_6" type="Parallax2D" parent="ParallaxSet/layer_0/foreground_layers"]
+
+[node name="stairs" type="Node2D" parent="ParallaxSet/layer_0/foreground_layers/fg_6"]
+position = Vector2(-39, 156)
+
+[node name="fg_7" type="Parallax2D" parent="ParallaxSet/layer_0/foreground_layers"]
+
+[node name="stairs" type="Node2D" parent="ParallaxSet/layer_0/foreground_layers/fg_7"]
+position = Vector2(-39, 156)
+
+[node name="fog" type="Sprite2D" parent="ParallaxSet/layer_0"]
+visible = false
+self_modulate = Color(1, 1, 1, 0.21568628)
+position = Vector2(629, 66.999985)
+scale = Vector2(32.375, 11.625)
+texture = SubResource("GradientTexture2D_aoejv")
+
+[node name="layer_1" type="Node2D" parent="ParallaxSet" node_paths=PackedStringArray("pxSet")]
+z_as_relative = false
+texture_filter = 1
+position = Vector2(2, -489)
+script = ExtResource("4_tjeej")
+pxSet = NodePath("..")
+layer = 1
+initialHeight = 100.0
+
+[node name="background_autohide" type="Area2D" parent="ParallaxSet/layer_1" node_paths=PackedStringArray("pxSet")]
+position = Vector2(89, 14)
+script = ExtResource("4_tjeej")
+autoHideWhenBehind = true
+pxSet = NodePath("../..")
+layer = 1
+
+[node name="background_layers" type="Node2D" parent="ParallaxSet/layer_1/background_autohide"]
+
+[node name="bg_1" type="Parallax2D" parent="ParallaxSet/layer_1/background_autohide/background_layers"]
+z_index = -1
+
+[node name="Node2D" type="Node2D" parent="ParallaxSet/layer_1/background_autohide/background_layers/bg_1"]
+
+[node name="stone_wall8" type="Sprite2D" parent="ParallaxSet/layer_1/background_autohide/background_layers/bg_1/Node2D"]
+position = Vector2(449, 52)
+scale = Vector2(2, 2)
+texture = ExtResource("4_k3rvn")
+offset = Vector2(-4, 0)
+region_rect = Rect2(-265.6184, 0, 780.1184, 12.5)
+
+[node name="window" type="Sprite2D" parent="ParallaxSet/layer_1/background_autohide/background_layers/bg_1/Node2D"]
+texture_repeat = 2
+position = Vector2(444, 29)
+scale = Vector2(2, 2)
+texture = ExtResource("10_1d7xl")
+offset = Vector2(-4, 0)
+region_rect = Rect2(-265.6184, 0, 780.1184, 12.5)
+
+[node name="windowLight" type="Sprite2D" parent="ParallaxSet/layer_1/background_autohide/background_layers/bg_1/Node2D"]
+modulate = Color(1, 1, 0.43137255, 0.50980395)
+light_mask = 0
+texture_repeat = 2
+position = Vector2(438.6875, 29)
+scale = Vector2(0.5468744, 0.8125)
+texture = SubResource("GradientTexture2D_cw3o6")
+offset = Vector2(-4, 0)
+region_rect = Rect2(-265.6184, 0, 780.1184, 12.5)
+
+[node name="lamp8" type="PointLight2D" parent="ParallaxSet/layer_1/background_autohide/background_layers/bg_1/Node2D"]
+position = Vector2(450.5, 34.5)
+scale = Vector2(2.875, 3.109375)
+color = Color(1, 0.65882355, 0.24705882, 1)
+energy = 0.96
+texture = SubResource("GradientTexture2D_qohdp")
+offset = Vector2(-4, 0)
+
+[node name="stone_wall9" type="Sprite2D" parent="ParallaxSet/layer_1/background_autohide/background_layers/bg_1/Node2D"]
+position = Vector2(625, 51)
+scale = Vector2(2, 2)
+texture = ExtResource("4_k3rvn")
+offset = Vector2(-4, 0)
+region_rect = Rect2(-265.6184, 0, 780.1184, 12.5)
+
+[node name="bg_4" type="Parallax2D" parent="ParallaxSet/layer_1/background_autohide/background_layers"]
+z_index = -1
+
+[node name="wall" type="Node2D" parent="ParallaxSet/layer_1/background_autohide/background_layers/bg_4"]
+position = Vector2(89, 14)
+
+[node name="stone_wall3" type="Sprite2D" parent="ParallaxSet/layer_1/background_autohide/background_layers/bg_4/wall"]
 position = Vector2(630, 101)
 scale = Vector2(2, 2)
 texture = ExtResource("3_v4jw6")
 offset = Vector2(-4, 0)
 region_rect = Rect2(-265.6184, 0, 780.1184, 12.5)
 
-[node name="stone_wall4" type="Sprite2D" parent="ParallaxSet/layer_1/background_layers/bg_1/wall"]
+[node name="stone_wall4" type="Sprite2D" parent="ParallaxSet/layer_1/background_autohide/background_layers/bg_4/wall"]
 position = Vector2(776, 77)
 scale = Vector2(2, 2)
 texture = ExtResource("3_v4jw6")
 offset = Vector2(-4, 0)
 region_rect = Rect2(-265.6184, 0, 780.1184, 12.5)
 
-[node name="wall" type="Sprite2D" parent="ParallaxSet/layer_1/background_layers/bg_1/wall"]
+[node name="wall" type="Sprite2D" parent="ParallaxSet/layer_1/background_autohide/background_layers/bg_4/wall"]
 texture_repeat = 2
-position = Vector2(274, 79)
+position = Vector2(257, 98)
 scale = Vector2(2, 2)
 texture = ExtResource("4_mij70")
 offset = Vector2(-4, 0)
 region_rect = Rect2(-265.6184, 0, 780.1184, 12.5)
 
-[node name="wall2" type="Sprite2D" parent="ParallaxSet/layer_1/background_layers/bg_1/wall"]
+[node name="wall2" type="Sprite2D" parent="ParallaxSet/layer_1/background_autohide/background_layers/bg_4/wall"]
 position = Vector2(206, 84)
 scale = Vector2(2, 2)
 texture = ExtResource("5_pwj8j")
 
-[node name="wall3" type="Sprite2D" parent="ParallaxSet/layer_1/background_layers/bg_1/wall"]
+[node name="wall3" type="Sprite2D" parent="ParallaxSet/layer_1/background_autohide/background_layers/bg_4/wall"]
 position = Vector2(436, 85)
 scale = Vector2(2, 2)
 texture = ExtResource("6_517ly")
 
-[node name="moss_floor" type="Sprite2D" parent="ParallaxSet/layer_1/background_layers/bg_1/wall"]
-position = Vector2(215, 53)
+[node name="wall5" type="Sprite2D" parent="ParallaxSet/layer_1/background_autohide/background_layers/bg_4/wall"]
+texture_repeat = 2
+position = Vector2(302, 28)
+scale = Vector2(2, 2)
+texture = ExtResource("9_ffvgo")
+offset = Vector2(-4, 0)
+region_rect = Rect2(-265.6184, 0, 780.1184, 12.5)
+
+[node name="wall6" type="Sprite2D" parent="ParallaxSet/layer_1/background_autohide/background_layers/bg_4/wall"]
+texture_repeat = 2
+position = Vector2(372, 28)
+scale = Vector2(2, 2)
+texture = ExtResource("9_ffvgo")
+offset = Vector2(-4, 0)
+region_rect = Rect2(-265.6184, 0, 780.1184, 12.5)
+
+[node name="wall7" type="Sprite2D" parent="ParallaxSet/layer_1/background_autohide/background_layers/bg_4/wall"]
+texture_repeat = 2
+position = Vector2(410, 29)
+scale = Vector2(2, 2)
+texture = ExtResource("9_ffvgo")
+offset = Vector2(-4, 0)
+region_rect = Rect2(-265.6184, 0, 780.1184, 12.5)
+
+[node name="stone_wall5" type="Sprite2D" parent="ParallaxSet/layer_1/background_autohide/background_layers/bg_4/wall"]
+position = Vector2(351, 25)
+scale = Vector2(2, 2)
+texture = ExtResource("9_sr1qr")
+offset = Vector2(-4, 0)
+region_rect = Rect2(-265.6184, 0, 780.1184, 12.5)
+
+[node name="stone_wall6" type="Sprite2D" parent="ParallaxSet/layer_1/background_autohide/background_layers/bg_4/wall"]
+position = Vector2(546, 25)
+scale = Vector2(2, 2)
+texture = ExtResource("9_sr1qr")
+offset = Vector2(-4, 0)
+region_rect = Rect2(-265.6184, 0, 780.1184, 12.5)
+
+[node name="wall4" parent="ParallaxSet/layer_1/background_autohide/background_layers/bg_4/wall" instance=ExtResource("21_esqs0")]
+texture_filter = 1
+position = Vector2(140, 25)
+scale = Vector2(2, 2)
+texture = ExtResource("15_4xp08")
+summerTexture = ExtResource("8_jfd7h")
+fallTexture = ExtResource("15_4xp08")
+winterTexture = ExtResource("16_skrx6")
+
+[node name="wall8" parent="ParallaxSet/layer_1/background_autohide/background_layers/bg_4/wall" instance=ExtResource("21_esqs0")]
+texture_filter = 1
+position = Vector2(733, 25)
+scale = Vector2(2, 2)
+texture = ExtResource("15_4xp08")
+summerTexture = ExtResource("8_jfd7h")
+fallTexture = ExtResource("15_4xp08")
+winterTexture = ExtResource("16_skrx6")
+
+[node name="moss8" type="Sprite2D" parent="ParallaxSet/layer_1/background_autohide/background_layers/bg_4/wall"]
+texture_filter = 1
+texture_repeat = 2
+position = Vector2(456, 79)
+scale = Vector2(1.9999998, 1.9999998)
+texture = ExtResource("13_pwj8j")
+offset = Vector2(-4, 0)
+region_rect = Rect2(-265.6184, 0, 780.1184, 12.5)
+
+[node name="moss9" type="Sprite2D" parent="ParallaxSet/layer_1/background_autohide/background_layers/bg_4/wall"]
+texture_filter = 1
+texture_repeat = 2
+position = Vector2(529, 77)
+scale = Vector2(1.9999998, 1.9999998)
+texture = ExtResource("13_pwj8j")
+offset = Vector2(-4, 0)
+region_rect = Rect2(-265.6184, 0, 780.1184, 12.5)
+
+[node name="moss10" type="Sprite2D" parent="ParallaxSet/layer_1/background_autohide/background_layers/bg_4/wall"]
+texture_filter = 1
+texture_repeat = 2
+position = Vector2(614, 80)
+scale = Vector2(1.9999998, 1.9999998)
+texture = ExtResource("13_pwj8j")
+offset = Vector2(-4, 0)
+region_rect = Rect2(-265.6184, 0, 780.1184, 12.5)
+
+[node name="moss_floor2" type="Sprite2D" parent="ParallaxSet/layer_1/background_autohide/background_layers/bg_4/wall"]
+position = Vector2(197, 102)
+rotation = 0.6718086
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("7_mij70")
 
-[node name="moss_floor2" type="Sprite2D" parent="ParallaxSet/layer_1/background_layers/bg_1/wall"]
-position = Vector2(199, 82)
-rotation = -0.8601942
+[node name="moss_floor3" type="Sprite2D" parent="ParallaxSet/layer_1/background_autohide/background_layers/bg_4/wall"]
+position = Vector2(130, 105.000015)
+rotation = 0.6718086
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("7_mij70")
 
-[node name="bg_2" type="Parallax2D" parent="ParallaxSet/layer_1/background_layers"]
+[node name="bg_2" type="Parallax2D" parent="ParallaxSet/layer_1/background_autohide/background_layers"]
 z_index = -1
 
-[node name="wall_details" type="Node2D" parent="ParallaxSet/layer_1/background_layers/bg_2"]
+[node name="wall" type="Node2D" parent="ParallaxSet/layer_1/background_autohide/background_layers/bg_2"]
+position = Vector2(89, 14)
+
+[node name="moss2" type="Sprite2D" parent="ParallaxSet/layer_1/background_autohide/background_layers/bg_2/wall"]
+texture_filter = 1
+texture_repeat = 2
+position = Vector2(293, 72)
+scale = Vector2(2, 2)
+texture = ExtResource("13_pwj8j")
+offset = Vector2(-4, 0)
+region_rect = Rect2(-265.6184, 0, 780.1184, 12.5)
+
+[node name="moss3" type="Sprite2D" parent="ParallaxSet/layer_1/background_autohide/background_layers/bg_2/wall"]
+texture_filter = 1
+texture_repeat = 2
+position = Vector2(366, 78)
+scale = Vector2(2, 2)
+texture = ExtResource("13_pwj8j")
+offset = Vector2(-4, 0)
+region_rect = Rect2(-265.6184, 0, 780.1184, 12.5)
+
+[node name="stone_wall" type="Sprite2D" parent="ParallaxSet/layer_1/background_autohide/background_layers/bg_2/wall"]
+position = Vector2(348, 125)
+scale = Vector2(2, 2)
+texture = ExtResource("3_v4jw6")
+offset = Vector2(-4, 0)
+region_rect = Rect2(-265.6184, 0, 780.1184, 12.5)
+
+[node name="stone_wall2" type="Sprite2D" parent="ParallaxSet/layer_1/background_autohide/background_layers/bg_2/wall"]
+position = Vector2(459, 119)
+scale = Vector2(2, 2)
+texture = ExtResource("3_v4jw6")
+offset = Vector2(-4, 0)
+region_rect = Rect2(-265.6184, 0, 780.1184, 12.5)
+
+[node name="stone_wall3" type="Sprite2D" parent="ParallaxSet/layer_1/background_autohide/background_layers/bg_2/wall"]
+position = Vector2(634, 106)
+scale = Vector2(2, 2)
+texture = ExtResource("3_v4jw6")
+offset = Vector2(-4, 0)
+region_rect = Rect2(-265.6184, 0, 780.1184, 12.5)
+
+[node name="stone_wall4" type="Sprite2D" parent="ParallaxSet/layer_1/background_autohide/background_layers/bg_2/wall"]
+position = Vector2(776, 77)
+scale = Vector2(2, 2)
+texture = ExtResource("3_v4jw6")
+offset = Vector2(-4, 0)
+region_rect = Rect2(-265.6184, 0, 780.1184, 12.5)
+
+[node name="wall2" type="Sprite2D" parent="ParallaxSet/layer_1/background_autohide/background_layers/bg_2/wall"]
+position = Vector2(214, 117)
+scale = Vector2(2, 2)
+texture = ExtResource("5_pwj8j")
+
+[node name="wall3" type="Sprite2D" parent="ParallaxSet/layer_1/background_autohide/background_layers/bg_2/wall"]
+position = Vector2(447, 93)
+scale = Vector2(2, 2)
+texture = ExtResource("6_517ly")
+
+[node name="bg_3" type="Parallax2D" parent="ParallaxSet/layer_1/background_autohide/background_layers"]
+z_index = -1
+
+[node name="wall_details" type="Node2D" parent="ParallaxSet/layer_1/background_autohide/background_layers/bg_3"]
 position = Vector2(-39, 156)
 
+[node name="moss" type="Sprite2D" parent="ParallaxSet/layer_1/background_autohide/background_layers/bg_3/wall_details"]
+texture_filter = 1
+texture_repeat = 2
+position = Vector2(720, -47)
+scale = Vector2(2, 2)
+texture = ExtResource("13_pwj8j")
+offset = Vector2(-4, 0)
+region_rect = Rect2(-265.6184, 0, 780.1184, 12.5)
+
+[node name="moss4" type="Sprite2D" parent="ParallaxSet/layer_1/background_autohide/background_layers/bg_3/wall_details"]
+texture_filter = 1
+texture_repeat = 2
+position = Vector2(430, -38)
+scale = Vector2(2, 2)
+texture = ExtResource("13_pwj8j")
+offset = Vector2(-4, 0)
+region_rect = Rect2(-265.6184, 0, 780.1184, 12.5)
+
+[node name="moss5" type="Sprite2D" parent="ParallaxSet/layer_1/background_autohide/background_layers/bg_3/wall_details"]
+texture_filter = 1
+texture_repeat = 2
+position = Vector2(556, -41)
+scale = Vector2(2, 2)
+texture = ExtResource("13_pwj8j")
+offset = Vector2(-4, 0)
+region_rect = Rect2(-265.6184, 0, 780.1184, 12.5)
+
+[node name="moss6" type="Sprite2D" parent="ParallaxSet/layer_1/background_autohide/background_layers/bg_3/wall_details"]
+texture_filter = 1
+texture_repeat = 2
+position = Vector2(641, -47)
+scale = Vector2(2, 2)
+texture = ExtResource("13_pwj8j")
+offset = Vector2(-4, 0)
+region_rect = Rect2(-265.6184, 0, 780.1184, 12.5)
+
+[node name="moss7" type="Sprite2D" parent="ParallaxSet/layer_1/background_autohide/background_layers/bg_3/wall_details"]
+texture_filter = 1
+texture_repeat = 2
+position = Vector2(754, -52)
+scale = Vector2(2, 2)
+texture = ExtResource("13_pwj8j")
+offset = Vector2(-4, 0)
+region_rect = Rect2(-265.6184, 0, 780.1184, 12.5)
+
 [node name="fg" type="Parallax2D" parent="ParallaxSet/layer_1"]
+
+[node name="Mossman" parent="ParallaxSet/layer_1/fg" node_paths=PackedStringArray("player", "pxSet") instance=ExtResource("21_cvpce")]
+position = Vector2(154, 123)
+layer = 1
+player = NodePath("../../Sherma")
+pxSet = NodePath("../../..")
+
+[node name="Mossman2" parent="ParallaxSet/layer_1/fg" node_paths=PackedStringArray("player", "pxSet") instance=ExtResource("21_cvpce")]
+position = Vector2(214, 122)
+layer = 1
+player = NodePath("../../Sherma")
+isFacingLeft = true
+pxSet = NodePath("../../..")
 
 [node name="dark" type="Sprite2D" parent="ParallaxSet/layer_1/fg"]
 position = Vector2(519.987, 200.85194)
@@ -232,6 +816,46 @@ texture = SubResource("GradientTexture2D_ei0ot")
 
 [node name="ground" type="Node2D" parent="ParallaxSet/layer_1/fg"]
 position = Vector2(0.6380615, 124.63977)
+
+[node name="fence2" type="Sprite2D" parent="ParallaxSet/layer_1/fg/ground"]
+position = Vector2(168.36194, -24.63977)
+scale = Vector2(2, 2)
+texture = ExtResource("9_ffvgo")
+offset = Vector2(-4, 0)
+region_rect = Rect2(-265.6184, 0, 780.1184, 12.5)
+
+[node name="fence" type="Sprite2D" parent="ParallaxSet/layer_1/fg/ground"]
+position = Vector2(240.36194, -24.63977)
+scale = Vector2(2, 2)
+texture = ExtResource("9_ffvgo")
+offset = Vector2(-4, 0)
+region_rect = Rect2(-265.6184, 0, 780.1184, 12.5)
+
+[node name="lamp" type="Sprite2D" parent="ParallaxSet/layer_1/fg/ground"]
+position = Vector2(128.36194, -24.63977)
+scale = Vector2(2, 2)
+texture = ExtResource("13_4o2ic")
+offset = Vector2(-4, 0)
+region_rect = Rect2(-265.6184, 0, 780.1184, 12.5)
+
+[node name="lamp2" type="Sprite2D" parent="ParallaxSet/layer_1/fg/ground"]
+position = Vector2(280.36194, -22.63977)
+scale = Vector2(2, 2)
+texture = ExtResource("13_4o2ic")
+offset = Vector2(-4, 0)
+region_rect = Rect2(-265.6184, 0, 780.1184, 12.5)
+
+[node name="lamp8" type="PointLight2D" parent="ParallaxSet/layer_1/fg/ground/lamp2"]
+position = Vector2(-79.5, -8.5)
+color = Color(1, 0.65882355, 0.24705882, 1)
+texture = SubResource("GradientTexture2D_qohdp")
+offset = Vector2(-4, 0)
+
+[node name="lamp9" type="PointLight2D" parent="ParallaxSet/layer_1/fg/ground/lamp2"]
+position = Vector2(1, -7.5)
+color = Color(1, 0.65882355, 0.24705882, 1)
+texture = SubResource("GradientTexture2D_qohdp")
+offset = Vector2(-4, 0)
 
 [node name="stone_floor2" type="Sprite2D" parent="ParallaxSet/layer_1/fg/ground"]
 position = Vector2(374.33588, 11.064117)
@@ -280,12 +904,13 @@ position = Vector2(458, 61)
 scale = Vector2(2, 2)
 texture = ExtResource("5_wotw1")
 
-[node name="Floor" type="StaticBody2D" parent="ParallaxSet/layer_1"]
-position = Vector2(273.66412, 96.93588)
-collision_layer = 9
+[node name="Floor" type="StaticBody2D" parent="ParallaxSet/layer_1/fg"]
+collision_layer = 522
+collision_mask = 0
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ParallaxSet/layer_1/Floor"]
-position = Vector2(87.33588, 128.06412)
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ParallaxSet/layer_1/fg/Floor"]
+modulate = Color(7.50793, 5.797503, 4.2503705, 1)
+position = Vector2(359, 227)
 polygon = PackedVector2Array(-255.23735, -98.31442, 161, -98, 170, -104, 581, -104, 581, -23, -255, -23)
 
 [node name="foreground_layers" type="Node2D" parent="ParallaxSet/layer_1"]
@@ -295,59 +920,73 @@ polygon = PackedVector2Array(-255.23735, -98.31442, 161, -98, 170, -104, 581, -1
 [node name="ground3" type="Node2D" parent="ParallaxSet/layer_1/foreground_layers/fg_1"]
 position = Vector2(68, 133)
 
-[node name="stone_floor2" type="Sprite2D" parent="ParallaxSet/layer_1/foreground_layers/fg_1/ground3"]
-position = Vector2(374.33588, 11.064117)
+[node name="floor_1" parent="ParallaxSet/layer_1/foreground_layers/fg_1/ground3" instance=ExtResource("21_esqs0")]
+texture_filter = 1
+position = Vector2(269, 12)
 scale = Vector2(2, 2)
-texture = ExtResource("3_wotw1")
-offset = Vector2(-4, 0)
-region_rect = Rect2(-265.6184, 0, 780.1184, 12.5)
+texture = ExtResource("22_4nkew")
+summerTexture = ExtResource("22_4nkew")
+fallTexture = ExtResource("22_4nkew")
+winterTexture = ExtResource("23_4xp08")
 
-[node name="stone_floor" type="Sprite2D" parent="ParallaxSet/layer_1/foreground_layers/fg_1/ground3"]
-position = Vector2(268.33588, 13.064117)
+[node name="floor_3" parent="ParallaxSet/layer_1/foreground_layers/fg_1/ground3" instance=ExtResource("21_esqs0")]
+texture_filter = 1
+position = Vector2(136, 12)
 scale = Vector2(2, 2)
-texture = ExtResource("2_nm5s8")
-offset = Vector2(-4, 0)
-region_rect = Rect2(-265.6184, 0, 780.1184, 12.5)
+texture = ExtResource("22_4nkew")
+summerTexture = ExtResource("22_4nkew")
+fallTexture = ExtResource("22_4nkew")
+winterTexture = ExtResource("23_4xp08")
 
-[node name="moss_floor" type="Sprite2D" parent="ParallaxSet/layer_1/foreground_layers/fg_1/ground3"]
-position = Vector2(156, 5)
+[node name="floor_2" parent="ParallaxSet/layer_1/foreground_layers/fg_1/ground3" instance=ExtResource("21_esqs0")]
+texture_filter = 1
+position = Vector2(407, 12)
 scale = Vector2(2, 2)
-texture = ExtResource("2_c7e1p")
-
-[node name="moss_floor2" type="Sprite2D" parent="ParallaxSet/layer_1/foreground_layers/fg_1/ground3"]
-position = Vector2(454.36194, 13.3602295)
-scale = Vector2(2, 2)
-texture = ExtResource("2_c7e1p")
+texture = ExtResource("22_4nkew")
+summerTexture = ExtResource("22_4nkew")
+fallTexture = ExtResource("22_4nkew")
+winterTexture = ExtResource("23_4xp08")
 
 [node name="fg_2" type="Parallax2D" parent="ParallaxSet/layer_1/foreground_layers"]
 
 [node name="ground3" type="Node2D" parent="ParallaxSet/layer_1/foreground_layers/fg_2"]
 position = Vector2(-39, 156)
 
-[node name="step" type="Sprite2D" parent="ParallaxSet/layer_1/foreground_layers/fg_2/ground3"]
-position = Vector2(383, 4)
+[node name="floor_1" parent="ParallaxSet/layer_1/foreground_layers/fg_2/ground3" instance=ExtResource("21_esqs0")]
+texture_filter = 1
+position = Vector2(382, 5)
 scale = Vector2(2, 2)
-texture = ExtResource("2_nm5s8")
+texture = ExtResource("22_4nkew")
+summerTexture = ExtResource("22_4nkew")
+fallTexture = ExtResource("22_4nkew")
+winterTexture = ExtResource("23_4xp08")
 
-[node name="moss_floor" type="Sprite2D" parent="ParallaxSet/layer_1/foreground_layers/fg_2/ground3"]
-position = Vector2(271, -2)
+[node name="moss_7" parent="ParallaxSet/layer_1/foreground_layers/fg_2/ground3" instance=ExtResource("21_esqs0")]
+texture_filter = 1
+position = Vector2(636, -2)
 scale = Vector2(2, 2)
-texture = ExtResource("6_j01ah")
+texture = ExtResource("35_oeknb")
+summerTexture = ExtResource("35_oeknb")
+fallTexture = ExtResource("36_u0axn")
+winterTexture = ExtResource("37_6odvo")
 
-[node name="moss_floor4" type="Sprite2D" parent="ParallaxSet/layer_1/foreground_layers/fg_2/ground3"]
-position = Vector2(214.36194, 3.3602295)
+[node name="moss_8" parent="ParallaxSet/layer_1/foreground_layers/fg_2/ground3" instance=ExtResource("21_esqs0")]
+texture_filter = 1
+position = Vector2(518, 0)
 scale = Vector2(2, 2)
-texture = ExtResource("6_j01ah")
+texture = ExtResource("35_oeknb")
+summerTexture = ExtResource("35_oeknb")
+fallTexture = ExtResource("36_u0axn")
+winterTexture = ExtResource("37_6odvo")
 
-[node name="moss_floor2" type="Sprite2D" parent="ParallaxSet/layer_1/foreground_layers/fg_2/ground3"]
-position = Vector2(495, 2)
+[node name="moss_9" parent="ParallaxSet/layer_1/foreground_layers/fg_2/ground3" instance=ExtResource("21_esqs0")]
+texture_filter = 1
+position = Vector2(213, 0)
 scale = Vector2(2, 2)
-texture = ExtResource("2_c7e1p")
-
-[node name="moss_floor3" type="Sprite2D" parent="ParallaxSet/layer_1/foreground_layers/fg_2/ground3"]
-position = Vector2(581.36194, 4.3602295)
-scale = Vector2(2, 2)
-texture = ExtResource("6_j01ah")
+texture = ExtResource("35_oeknb")
+summerTexture = ExtResource("35_oeknb")
+fallTexture = ExtResource("36_u0axn")
+winterTexture = ExtResource("37_6odvo")
 
 [node name="fg_3" type="Parallax2D" parent="ParallaxSet/layer_1/foreground_layers"]
 
@@ -359,113 +998,295 @@ position = Vector2(410.75, 70)
 scale = Vector2(8.4140625, 1)
 texture = SubResource("GradientTexture2D_ei0ot")
 
-[node name="moss_floor" type="Sprite2D" parent="ParallaxSet/layer_1/foreground_layers/fg_3/ground3"]
-position = Vector2(216, 22)
-scale = Vector2(2, 2)
-texture = ExtResource("13_pwj8j")
-
-[node name="step" type="Sprite2D" parent="ParallaxSet/layer_1/foreground_layers/fg_3/ground3"]
-position = Vector2(383, 13)
-scale = Vector2(2, 2)
-texture = ExtResource("3_wotw1")
-
-[node name="moss_floor2" type="Sprite2D" parent="ParallaxSet/layer_1/foreground_layers/fg_3/ground3"]
-position = Vector2(278, 20)
-scale = Vector2(2, 2)
-texture = ExtResource("13_pwj8j")
-
-[node name="moss_floor4" type="Sprite2D" parent="ParallaxSet/layer_1/foreground_layers/fg_3/ground3"]
-position = Vector2(500, 25)
-scale = Vector2(2, 2)
-texture = ExtResource("13_pwj8j")
-
-[node name="moss_floor5" type="Sprite2D" parent="ParallaxSet/layer_1/foreground_layers/fg_3/ground3"]
-position = Vector2(544, 29)
-scale = Vector2(2, 2)
-texture = ExtResource("13_pwj8j")
-
-[node name="moss_floor6" type="Sprite2D" parent="ParallaxSet/layer_1/foreground_layers/fg_3/ground3"]
-position = Vector2(614, 27)
-scale = Vector2(2, 2)
-texture = ExtResource("13_pwj8j")
-
-[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="ParallaxSet/layer_1/foreground_layers/fg_3/ground3"]
-modulate = Color(1, 1, 1, 0.3882353)
+[node name="floor_1" parent="ParallaxSet/layer_1/foreground_layers/fg_3/ground3" instance=ExtResource("21_esqs0")]
 texture_filter = 1
-texture_repeat = 2
-position = Vector2(2329.0002, -337)
-scale = Vector2(5.9715185, 2.347826)
-sprite_frames = SubResource("SpriteFrames_517ly")
-autoplay = "default"
-speed_scale = 0.5
-flip_h = true
+position = Vector2(-271, -89)
+scale = Vector2(2, 2)
+texture = ExtResource("22_4nkew")
+summerTexture = ExtResource("22_4nkew")
+fallTexture = ExtResource("22_4nkew")
+winterTexture = ExtResource("23_4xp08")
+
+[node name="floor_5" parent="ParallaxSet/layer_1/foreground_layers/fg_3/ground3" instance=ExtResource("21_esqs0")]
+texture_filter = 1
+position = Vector2(-179, -88)
+scale = Vector2(2, 2)
+texture = ExtResource("22_4nkew")
+summerTexture = ExtResource("22_4nkew")
+fallTexture = ExtResource("22_4nkew")
+winterTexture = ExtResource("23_4xp08")
+
+[node name="floor_6" parent="ParallaxSet/layer_1/foreground_layers/fg_3/ground3" instance=ExtResource("21_esqs0")]
+texture_filter = 1
+position = Vector2(-284, -83)
+scale = Vector2(2, 2)
+texture = ExtResource("24_skrx6")
+summerTexture = ExtResource("24_skrx6")
+fallTexture = ExtResource("24_skrx6")
+winterTexture = ExtResource("25_2f4vv")
+
+[node name="floor_7" parent="ParallaxSet/layer_1/foreground_layers/fg_3/ground3" instance=ExtResource("21_esqs0")]
+texture_filter = 1
+position = Vector2(-295, -74)
+scale = Vector2(2, 2)
+texture = ExtResource("24_skrx6")
+summerTexture = ExtResource("24_skrx6")
+fallTexture = ExtResource("24_skrx6")
+winterTexture = ExtResource("25_2f4vv")
+
+[node name="floor_8" parent="ParallaxSet/layer_1/foreground_layers/fg_3/ground3" instance=ExtResource("21_esqs0")]
+texture_filter = 1
+position = Vector2(-303, -65)
+scale = Vector2(2, 2)
+texture = ExtResource("24_skrx6")
+summerTexture = ExtResource("24_skrx6")
+fallTexture = ExtResource("24_skrx6")
+winterTexture = ExtResource("25_2f4vv")
+
+[node name="floor_9" parent="ParallaxSet/layer_1/foreground_layers/fg_3/ground3" instance=ExtResource("21_esqs0")]
+texture_filter = 1
+position = Vector2(-312, -55)
+scale = Vector2(2, 2)
+texture = ExtResource("24_skrx6")
+summerTexture = ExtResource("24_skrx6")
+fallTexture = ExtResource("24_skrx6")
+winterTexture = ExtResource("25_2f4vv")
+
+[node name="fence" type="Sprite2D" parent="ParallaxSet/layer_1/foreground_layers/fg_3/ground3"]
+texture_filter = 1
+position = Vector2(-176, -125)
+scale = Vector2(2, 2)
+texture = ExtResource("9_ffvgo")
+
+[node name="fence2" type="Sprite2D" parent="ParallaxSet/layer_1/foreground_layers/fg_3/ground3"]
+texture_filter = 1
+position = Vector2(-100, -125)
+scale = Vector2(2, 2)
+texture = ExtResource("9_ffvgo")
+
+[node name="fence3" type="Sprite2D" parent="ParallaxSet/layer_1/foreground_layers/fg_3/ground3"]
+texture_filter = 1
+position = Vector2(-24, -125)
+scale = Vector2(2, 2)
+texture = ExtResource("9_ffvgo")
+
+[node name="post" parent="ParallaxSet/layer_1/foreground_layers/fg_3/ground3" instance=ExtResource("21_esqs0")]
+texture_filter = 1
+position = Vector2(-215, -130)
+scale = Vector2(2, 2)
+texture = ExtResource("13_4o2ic")
+summerTexture = ExtResource("13_4o2ic")
+fallTexture = ExtResource("13_4o2ic")
+winterTexture = ExtResource("26_bdpd1")
+
+[node name="moss_8" parent="ParallaxSet/layer_1/foreground_layers/fg_3/ground3" instance=ExtResource("21_esqs0")]
+texture_filter = 1
+position = Vector2(492, 12)
+scale = Vector2(2, 2)
+texture = ExtResource("29_2vwn5")
+summerTexture = ExtResource("29_2vwn5")
+fallTexture = ExtResource("30_mw0rw")
+winterTexture = ExtResource("31_72vic")
+
+[node name="moss_12" parent="ParallaxSet/layer_1/foreground_layers/fg_3/ground3" instance=ExtResource("21_esqs0")]
+texture_filter = 1
+position = Vector2(580, 13)
+scale = Vector2(2, 2)
+texture = ExtResource("29_2vwn5")
+summerTexture = ExtResource("29_2vwn5")
+fallTexture = ExtResource("30_mw0rw")
+winterTexture = ExtResource("31_72vic")
+
+[node name="moss_10" parent="ParallaxSet/layer_1/foreground_layers/fg_3/ground3" instance=ExtResource("21_esqs0")]
+texture_filter = 1
+position = Vector2(265, 6)
+scale = Vector2(2, 2)
+texture = ExtResource("29_2vwn5")
+summerTexture = ExtResource("29_2vwn5")
+fallTexture = ExtResource("30_mw0rw")
+winterTexture = ExtResource("31_72vic")
+
+[node name="moss_11" parent="ParallaxSet/layer_1/foreground_layers/fg_3/ground3" instance=ExtResource("21_esqs0")]
+texture_filter = 1
+position = Vector2(211, 16)
+scale = Vector2(2, 2)
+texture = ExtResource("29_2vwn5")
+summerTexture = ExtResource("29_2vwn5")
+fallTexture = ExtResource("30_mw0rw")
+winterTexture = ExtResource("31_72vic")
+
+[node name="moss_9" parent="ParallaxSet/layer_1/foreground_layers/fg_3/ground3" instance=ExtResource("21_esqs0")]
+texture_filter = 1
+position = Vector2(650, 15)
+scale = Vector2(2, 2)
+texture = ExtResource("29_2vwn5")
+summerTexture = ExtResource("29_2vwn5")
+fallTexture = ExtResource("30_mw0rw")
+winterTexture = ExtResource("31_72vic")
+
+[node name="moss_1" parent="ParallaxSet/layer_1/foreground_layers/fg_3/ground3" instance=ExtResource("21_esqs0")]
+texture_filter = 1
+position = Vector2(-172, -93)
+scale = Vector2(2, 2)
+texture = ExtResource("27_qwanb")
+summerTexture = ExtResource("27_qwanb")
+fallTexture = ExtResource("28_i37uv")
+winterTexture = ExtResource("2_c7e1p")
+
+[node name="moss_3" parent="ParallaxSet/layer_1/foreground_layers/fg_3/ground3" instance=ExtResource("21_esqs0")]
+texture_filter = 1
+position = Vector2(-182, -77)
+scale = Vector2(2, 2)
+texture = ExtResource("29_2vwn5")
+summerTexture = ExtResource("29_2vwn5")
+fallTexture = ExtResource("30_mw0rw")
+winterTexture = ExtResource("31_72vic")
+
+[node name="moss_2" parent="ParallaxSet/layer_1/foreground_layers/fg_3/ground3" instance=ExtResource("21_esqs0")]
+texture_filter = 1
+position = Vector2(-76, -93)
+scale = Vector2(2, 2)
+texture = ExtResource("32_8ip1f")
+summerTexture = ExtResource("32_8ip1f")
+fallTexture = ExtResource("33_1jp73")
+winterTexture = ExtResource("34_ebjpa")
+
+[node name="moss_5" parent="ParallaxSet/layer_1/foreground_layers/fg_3/ground3" instance=ExtResource("21_esqs0")]
+texture_filter = 1
+position = Vector2(54, -92)
+scale = Vector2(2, 2)
+texture = ExtResource("35_oeknb")
+summerTexture = ExtResource("35_oeknb")
+fallTexture = ExtResource("36_u0axn")
+winterTexture = ExtResource("37_6odvo")
+
+[node name="moss_4" parent="ParallaxSet/layer_1/foreground_layers/fg_3/ground3" instance=ExtResource("21_esqs0")]
+texture_filter = 1
+position = Vector2(-87, -74)
+scale = Vector2(2, 2)
+texture = ExtResource("29_2vwn5")
+summerTexture = ExtResource("29_2vwn5")
+fallTexture = ExtResource("30_mw0rw")
+winterTexture = ExtResource("31_72vic")
+
+[node name="moss_6" parent="ParallaxSet/layer_1/foreground_layers/fg_3/ground3" instance=ExtResource("21_esqs0")]
+texture_filter = 1
+position = Vector2(630, 38)
+scale = Vector2(2, 2)
+texture = ExtResource("29_2vwn5")
+summerTexture = ExtResource("29_2vwn5")
+fallTexture = ExtResource("30_mw0rw")
+winterTexture = ExtResource("31_72vic")
 
 [node name="fg_4" type="Parallax2D" parent="ParallaxSet/layer_1/foreground_layers"]
 
 [node name="stairs" type="Node2D" parent="ParallaxSet/layer_1/foreground_layers/fg_4"]
 position = Vector2(-39, 156)
 
-[node name="step" type="Sprite2D" parent="ParallaxSet/layer_1/foreground_layers/fg_4/stairs"]
-position = Vector2(387, 22)
+[node name="floor_2" parent="ParallaxSet/layer_1/foreground_layers/fg_4/stairs" instance=ExtResource("21_esqs0")]
+texture_filter = 1
+position = Vector2(382, 18)
 scale = Vector2(2, 2)
-texture = ExtResource("3_wotw1")
+texture = ExtResource("22_4nkew")
+summerTexture = ExtResource("22_4nkew")
+fallTexture = ExtResource("22_4nkew")
+winterTexture = ExtResource("23_4xp08")
 
 [node name="fg_5" type="Parallax2D" parent="ParallaxSet/layer_1/foreground_layers"]
 
 [node name="stairs" type="Node2D" parent="ParallaxSet/layer_1/foreground_layers/fg_5"]
 position = Vector2(-39, 156)
 
-[node name="step" type="Sprite2D" parent="ParallaxSet/layer_1/foreground_layers/fg_5/stairs"]
-position = Vector2(372, 36)
+[node name="step2" parent="ParallaxSet/layer_1/foreground_layers/fg_5/stairs" instance=ExtResource("21_esqs0")]
+texture_filter = 1
+position = Vector2(372, 32)
 scale = Vector2(2, 2)
-texture = ExtResource("3_wotw1")
-flip_h = true
+texture = ExtResource("24_skrx6")
+summerTexture = ExtResource("24_skrx6")
+fallTexture = ExtResource("24_skrx6")
+winterTexture = ExtResource("25_2f4vv")
 
 [node name="fg_6" type="Parallax2D" parent="ParallaxSet/layer_1/foreground_layers"]
 
 [node name="stairs" type="Node2D" parent="ParallaxSet/layer_1/foreground_layers/fg_6"]
 position = Vector2(-39, 156)
 
-[node name="step" type="Sprite2D" parent="ParallaxSet/layer_1/foreground_layers/fg_6/stairs"]
-position = Vector2(371, 50)
+[node name="step3" parent="ParallaxSet/layer_1/foreground_layers/fg_6/stairs" instance=ExtResource("21_esqs0")]
+texture_filter = 1
+position = Vector2(366, 45)
 scale = Vector2(2, 2)
-texture = ExtResource("3_wotw1")
+texture = ExtResource("24_skrx6")
+summerTexture = ExtResource("24_skrx6")
+fallTexture = ExtResource("24_skrx6")
+winterTexture = ExtResource("25_2f4vv")
 
-[node name="moss_floor6" type="Sprite2D" parent="ParallaxSet/layer_1/foreground_layers/fg_6/stairs"]
-position = Vector2(502, 32)
+[node name="moss_6" parent="ParallaxSet/layer_1/foreground_layers/fg_6/stairs" instance=ExtResource("21_esqs0")]
+texture_filter = 1
+position = Vector2(501, 39)
 scale = Vector2(2, 2)
-texture = ExtResource("13_pwj8j")
+texture = ExtResource("29_2vwn5")
+summerTexture = ExtResource("29_2vwn5")
+fallTexture = ExtResource("30_mw0rw")
+winterTexture = ExtResource("31_72vic")
 
-[node name="moss_floor7" type="Sprite2D" parent="ParallaxSet/layer_1/foreground_layers/fg_6/stairs"]
-position = Vector2(233, 30)
+[node name="moss_7" parent="ParallaxSet/layer_1/foreground_layers/fg_6/stairs" instance=ExtResource("21_esqs0")]
+texture_filter = 1
+position = Vector2(234, 30)
 scale = Vector2(2, 2)
-texture = ExtResource("13_pwj8j")
+texture = ExtResource("29_2vwn5")
+summerTexture = ExtResource("29_2vwn5")
+fallTexture = ExtResource("30_mw0rw")
+winterTexture = ExtResource("31_72vic")
 
 [node name="fg_7" type="Parallax2D" parent="ParallaxSet/layer_1/foreground_layers"]
 
 [node name="stairs" type="Node2D" parent="ParallaxSet/layer_1/foreground_layers/fg_7"]
 position = Vector2(-39, 156)
 
-[node name="step" type="Sprite2D" parent="ParallaxSet/layer_1/foreground_layers/fg_7/stairs"]
-modulate = Color(2.4325802, 2.4325802, 2.4325802, 1)
-position = Vector2(376, 65)
+[node name="step2" parent="ParallaxSet/layer_1/foreground_layers/fg_7/stairs" instance=ExtResource("21_esqs0")]
+texture_filter = 1
+position = Vector2(369, 58)
 scale = Vector2(2, 2)
-texture = ExtResource("3_wotw1")
+texture = ExtResource("24_skrx6")
+summerTexture = ExtResource("24_skrx6")
+fallTexture = ExtResource("24_skrx6")
+winterTexture = ExtResource("25_2f4vv")
 
-[node name="moss_floor5" type="Sprite2D" parent="ParallaxSet/layer_1/foreground_layers/fg_7/stairs"]
-position = Vector2(257, 54)
+[node name="moss_8" parent="ParallaxSet/layer_1/foreground_layers/fg_7/stairs" instance=ExtResource("21_esqs0")]
+texture_filter = 1
+position = Vector2(249, 55)
 scale = Vector2(2, 2)
-texture = ExtResource("13_pwj8j")
+texture = ExtResource("29_2vwn5")
+summerTexture = ExtResource("29_2vwn5")
+fallTexture = ExtResource("30_mw0rw")
+winterTexture = ExtResource("31_72vic")
 
 [node name="fog" type="Sprite2D" parent="ParallaxSet/layer_1"]
+visible = false
 self_modulate = Color(1, 1, 1, 0.21568628)
 position = Vector2(629, 66.999985)
 scale = Vector2(32.375, 11.625)
 texture = SubResource("GradientTexture2D_aoejv")
 
-[node name="layer_2" type="Node2D" parent="ParallaxSet"]
+[node name="Sherma" parent="ParallaxSet/layer_1" instance=ExtResource("1_k8d0y")]
+position = Vector2(322, -29)
+debug = false
+BASE_SPEED = 150.0
+
+[node name="Camera2D2" type="Camera2D" parent="ParallaxSet/layer_1/Sherma"]
+offset = Vector2(0, -40)
+position_smoothing_enabled = true
+position_smoothing_speed = 10.0
+script = ExtResource("2_dyje4")
+
+[node name="layer_2" type="Node2D" parent="ParallaxSet" node_paths=PackedStringArray("pxSet")]
 z_index = 1
-position = Vector2(10, -45)
+texture_filter = 1
+position = Vector2(-23, -203)
+script = ExtResource("4_tjeej")
+pxSet = NodePath("..")
+layer = 2
+initialHeight = 60.0
 
 [node name="layerTransition" type="Area2D" parent="ParallaxSet/layer_2" node_paths=PackedStringArray("pxSet", "sprites")]
 position = Vector2(521.00006, 41)
@@ -474,7 +1295,7 @@ collision_layer = 0
 script = ExtResource("15_oftoy")
 pxSet = NodePath("../..")
 from = 1
-sprites = [NodePath("../../layer_1/foreground_layers/fg_7/stairs/step"), NodePath("../../layer_1/foreground_layers/fg_7/stairs/step"), NodePath("../../layer_1/foreground_layers/fg_6/stairs/step"), NodePath("../../layer_1/foreground_layers/fg_5/stairs/step"), NodePath("../../layer_1/foreground_layers/fg_4/stairs/step"), NodePath("../../layer_1/foreground_layers/fg_3/ground3/step"), NodePath("../../layer_1/foreground_layers/fg_2/ground3/step"), NodePath("../../layer_1/foreground_layers/fg_1/ground3/stone_floor")]
+sprites = [NodePath("../../layer_1/foreground_layers/fg_7/stairs/step2")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ParallaxSet/layer_2/layerTransition"]
 position = Vector2(-13.054544, 9.127147)
@@ -608,6 +1429,7 @@ position = Vector2(-39, 156)
 [node name="fg" type="Parallax2D" parent="ParallaxSet/layer_2"]
 
 [node name="fog blanket" type="AnimatedSprite2D" parent="ParallaxSet/layer_2/fg"]
+visible = false
 modulate = Color(1, 1, 1, 0.50980395)
 texture_filter = 1
 texture_repeat = 2
@@ -616,7 +1438,6 @@ scale = Vector2(2.6230223, 1)
 sprite_frames = SubResource("SpriteFrames_aoejv")
 autoplay = "default"
 flip_h = true
-metadata/_edit_lock_ = true
 
 [node name="dark" type="Sprite2D" parent="ParallaxSet/layer_2/fg"]
 position = Vector2(311.47394, 169.70389)
@@ -627,6 +1448,73 @@ texture = SubResource("GradientTexture2D_ei0ot")
 position = Vector2(730.00006, 165.5)
 scale = Vector2(6.546875, 1.140625)
 texture = SubResource("GradientTexture2D_ei0ot")
+
+[node name="fence3" type="Sprite2D" parent="ParallaxSet/layer_2/fg"]
+position = Vector2(157, 105)
+scale = Vector2(2, 2)
+texture = ExtResource("9_ffvgo")
+offset = Vector2(-4, 0)
+flip_h = true
+region_rect = Rect2(-265.6184, 0, 780.1184, 12.5)
+
+[node name="fence4" type="Sprite2D" parent="ParallaxSet/layer_2/fg"]
+position = Vector2(233, 105)
+scale = Vector2(2, 2)
+texture = ExtResource("9_ffvgo")
+offset = Vector2(-4, 0)
+region_rect = Rect2(-265.6184, 0, 780.1184, 12.5)
+
+[node name="fence5" type="Sprite2D" parent="ParallaxSet/layer_2/fg"]
+position = Vector2(309, 105)
+scale = Vector2(2, 2)
+texture = ExtResource("9_ffvgo")
+offset = Vector2(-4, 0)
+region_rect = Rect2(-265.6184, 0, 780.1184, 12.5)
+
+[node name="fence6" type="Sprite2D" parent="ParallaxSet/layer_2/fg"]
+position = Vector2(375, 105)
+scale = Vector2(2, 2)
+texture = ExtResource("9_ffvgo")
+offset = Vector2(-4, 0)
+flip_h = true
+region_rect = Rect2(-265.6184, 0, 780.1184, 12.5)
+
+[node name="lamp3" type="Sprite2D" parent="ParallaxSet/layer_2/fg"]
+position = Vector2(121, 105)
+scale = Vector2(2, 2)
+texture = ExtResource("13_4o2ic")
+offset = Vector2(-4, 0)
+region_rect = Rect2(-265.6184, 0, 780.1184, 12.5)
+
+[node name="lamp4" type="Sprite2D" parent="ParallaxSet/layer_2/fg"]
+position = Vector2(412, 104)
+scale = Vector2(2, 2)
+texture = ExtResource("13_4o2ic")
+offset = Vector2(-4, 0)
+region_rect = Rect2(-265.6184, 0, 780.1184, 12.5)
+
+[node name="lamp5" type="PointLight2D" parent="ParallaxSet/layer_2/fg"]
+position = Vector2(406, 88)
+scale = Vector2(2, 2)
+color = Color(1, 0.65882355, 0.24705882, 1)
+texture = SubResource("GradientTexture2D_qohdp")
+offset = Vector2(-4, 0)
+
+[node name="lamp6" type="PointLight2D" parent="ParallaxSet/layer_2/fg"]
+position = Vector2(123, 89)
+scale = Vector2(2, 2)
+color = Color(1, 0.65882355, 0.24705882, 1)
+texture = SubResource("GradientTexture2D_qohdp")
+offset = Vector2(-4, 0)
+
+[node name="lamp7" type="PointLight2D" parent="ParallaxSet/layer_2/fg"]
+position = Vector2(274.9375, 117.5)
+scale = Vector2(4.609375, 0.609375)
+color = Color(1, 0.65882355, 0.24705882, 1)
+range_z_min = 1
+range_z_max = 1
+texture = SubResource("GradientTexture2D_cvpce")
+offset = Vector2(-4, 0)
 
 [node name="ground" type="Node2D" parent="ParallaxSet/layer_2/fg"]
 position = Vector2(0.6380615, 124.63977)
@@ -688,16 +1576,15 @@ position = Vector2(272, 57)
 scale = Vector2(2, 2)
 texture = ExtResource("5_wotw1")
 
-[node name="Floor" type="StaticBody2D" parent="ParallaxSet/layer_2"]
-position = Vector2(273.66412, 96.93588)
+[node name="Floor" type="StaticBody2D" parent="ParallaxSet/layer_2/fg"]
 collision_layer = 9
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ParallaxSet/layer_2/Floor"]
-visible = false
-position = Vector2(88.33588, 128.06412)
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ParallaxSet/layer_2/fg/Floor"]
+position = Vector2(362, 228)
 polygon = PackedVector2Array(-255.23735, -98.31442, 157, -100, 170, -104, 581, -104, 581, -23, -255, -23)
 
 [node name="fog" type="Sprite2D" parent="ParallaxSet/layer_2"]
+visible = false
 self_modulate = Color(1, 1, 1, 0.21568628)
 position = Vector2(622.9999, 37.000008)
 scale = Vector2(32.249996, 11.875001)
@@ -862,17 +1749,6 @@ position = Vector2(614, 27)
 scale = Vector2(2, 2)
 texture = ExtResource("13_pwj8j")
 
-[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="ParallaxSet/layer_2/foreground_layers/fg_3/ground3"]
-modulate = Color(1, 1, 1, 0.3882353)
-texture_filter = 1
-texture_repeat = 2
-position = Vector2(2329.0002, -337)
-scale = Vector2(5.9715185, 2.347826)
-sprite_frames = SubResource("SpriteFrames_517ly")
-autoplay = "default"
-speed_scale = 0.5
-flip_h = true
-
 [node name="fg_4" type="Parallax2D" parent="ParallaxSet/layer_2/foreground_layers"]
 
 [node name="stairs" type="Node2D" parent="ParallaxSet/layer_2/foreground_layers/fg_4"]
@@ -939,9 +1815,14 @@ position = Vector2(298, 48)
 scale = Vector2(2, 2)
 texture = ExtResource("13_pwj8j")
 
-[node name="layer_3" type="Node2D" parent="ParallaxSet"]
+[node name="layer_3" type="Node2D" parent="ParallaxSet" node_paths=PackedStringArray("pxSet")]
 z_index = 2
-position = Vector2(11, -36)
+texture_filter = 1
+position = Vector2(-64, 39)
+script = ExtResource("4_tjeej")
+pxSet = NodePath("..")
+layer = 3
+initialHeight = 30.0
 
 [node name="background_layers" type="Node2D" parent="ParallaxSet/layer_3"]
 
@@ -963,9 +1844,9 @@ region_rect = Rect2(-265.6184, 0, 780.1184, 12.5)
 [node name="wall2" type="Sprite2D" parent="ParallaxSet/layer_3/background_layers/bg_1/wall"]
 texture_filter = 1
 texture_repeat = 2
-position = Vector2(229, 121)
+position = Vector2(177, 107)
 scale = Vector2(2, 2)
-texture = ExtResource("3_v4jw6")
+texture = ExtResource("4_mij70")
 offset = Vector2(-4, 0)
 region_rect = Rect2(-265.6184, 0, 780.1184, 12.5)
 
@@ -1001,7 +1882,45 @@ region_rect = Rect2(-265.6184, 0, 780.1184, 12.5)
 [node name="wall_details" type="Node2D" parent="ParallaxSet/layer_3/background_layers/bg_2"]
 position = Vector2(-39, 156)
 
+[node name="fire light" type="PointLight2D" parent="ParallaxSet/layer_3/background_layers/bg_2"]
+z_index = -2
+position = Vector2(232.50009, 117.5)
+scale = Vector2(3.0468776, 2.234375)
+color = Color(0.91764706, 0.35686275, 0.101960786, 1)
+energy = 1.47
+range_z_min = 0
+range_z_max = 3
+texture = SubResource("GradientTexture2D_1d7xl")
+script = ExtResource("22_gp8ca")
+
+[node name="Fire" type="AnimatedSprite2D" parent="ParallaxSet/layer_3/background_layers/bg_2"]
+light_mask = 0
+texture_filter = 1
+position = Vector2(237, 91)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_sr1qr")
+autoplay = "default"
+
 [node name="fg" type="Parallax2D" parent="ParallaxSet/layer_3"]
+
+[node name="Mossman3" parent="ParallaxSet/layer_3/fg" node_paths=PackedStringArray("player", "pxSet") instance=ExtResource("21_cvpce")]
+position = Vector2(215, 116)
+starting_state = 2
+layer = 3
+player = NodePath("../../../layer_1/Sherma")
+isFacingLeft = true
+pxSet = NodePath("../../..")
+
+[node name="fog blanket2" type="AnimatedSprite2D" parent="ParallaxSet/layer_3/fg"]
+visible = false
+modulate = Color(1, 1, 1, 0.50980395)
+texture_filter = 1
+texture_repeat = 2
+position = Vector2(518.00006, 115)
+scale = Vector2(2.6230223, 1)
+sprite_frames = SubResource("SpriteFrames_aoejv")
+autoplay = "default"
+flip_h = true
 
 [node name="dark" type="Sprite2D" parent="ParallaxSet/layer_3/fg"]
 position = Vector2(311.47394, 257.35193)
@@ -1012,6 +1931,18 @@ texture = SubResource("GradientTexture2D_ei0ot")
 position = Vector2(931.75006, 253)
 scale = Vector2(12.851562, 3.8750002)
 texture = SubResource("GradientTexture2D_ei0ot")
+
+[node name="Breakable Plant2" parent="ParallaxSet/layer_3/fg" instance=ExtResource("18_c81i1")]
+position = Vector2(174, 131)
+scale = Vector2(1.5, 1.5)
+
+[node name="Breakable Plant3" parent="ParallaxSet/layer_3/fg" instance=ExtResource("18_c81i1")]
+position = Vector2(198, 132)
+scale = Vector2(1.5, 1.5)
+
+[node name="Breakable Plant4" parent="ParallaxSet/layer_3/fg" instance=ExtResource("18_c81i1")]
+position = Vector2(118, 132)
+scale = Vector2(1.5, 1.5)
 
 [node name="ground" type="Node2D" parent="ParallaxSet/layer_3/fg"]
 position = Vector2(0.6380615, 124.63977)
@@ -1100,21 +2031,32 @@ position = Vector2(458, 61)
 scale = Vector2(2, 2)
 texture = ExtResource("5_wotw1")
 
-[node name="Floor" type="StaticBody2D" parent="ParallaxSet/layer_3"]
-position = Vector2(273.66412, 96.93588)
+[node name="Floor" type="StaticBody2D" parent="ParallaxSet/layer_3/fg"]
 collision_layer = 9
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ParallaxSet/layer_3/Floor"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ParallaxSet/layer_3/fg/Floor"]
 modulate = Color(1, 1, 1, 0.2784314)
-position = Vector2(84.33588, 128.06412)
+position = Vector2(350, 224)
 polygon = PackedVector2Array(-255, -96, 161, -96, 1017, -96, 1017, -24, -255, -23)
-metadata/_edit_lock_ = true
 
 [node name="fog" type="Sprite2D" parent="ParallaxSet/layer_3"]
+visible = false
 self_modulate = Color(1, 1, 1, 0.21568628)
 position = Vector2(634, 27.999992)
 scale = Vector2(32.125, 11.874999)
 texture = SubResource("GradientTexture2D_aoejv")
+
+[node name="GPUParticles2D4" type="GPUParticles2D" parent="ParallaxSet/layer_3"]
+texture_filter = 1
+position = Vector2(667, -115)
+amount = 200
+texture = ExtResource("29_ibsvk")
+lifetime = 10.0
+preprocess = 4.1
+visibility_rect = Rect2(-500, -100, 1000, 500)
+local_coords = true
+process_material = ExtResource("30_tjeej")
+script = ExtResource("31_m68f1")
 
 [node name="foreground_layers" type="Node2D" parent="ParallaxSet/layer_3"]
 
@@ -1167,6 +2109,23 @@ texture = ExtResource("2_c7e1p")
 
 [node name="fg_2" type="Parallax2D" parent="ParallaxSet/layer_3/foreground_layers"]
 
+[node name="GPUParticles2D2" type="GPUParticles2D" parent="ParallaxSet/layer_3/foreground_layers/fg_2"]
+z_index = 6
+texture_filter = 1
+position = Vector2(584, 91)
+amount = 100
+texture = ExtResource("21_qohdp")
+lifetime = 1.73
+speed_scale = 0.3
+randomness = 0.3
+visibility_rect = Rect2(-4000, -400, 8000, 600)
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_cvpce")
+
+[node name="Breakable Plant" parent="ParallaxSet/layer_3/foreground_layers/fg_2" instance=ExtResource("18_c81i1")]
+position = Vector2(411, 155)
+scale = Vector2(2, 2)
+
 [node name="ground3" type="Node2D" parent="ParallaxSet/layer_3/foreground_layers/fg_2"]
 position = Vector2(-137, 149)
 
@@ -1189,18 +2148,20 @@ scale = Vector2(2, 2)
 texture = ExtResource("6_j01ah")
 
 [node name="darkness_far" type="PointLight2D" parent="ParallaxSet"]
+visible = false
 z_index = -2
 position = Vector2(472, -8)
 scale = Vector2(22.265625, 7.875)
 color = Color(0.4929579, 0.5673063, 0.48010993, 1)
 energy = 0.74
 blend_mode = 1
-range_z_min = -3
+range_z_min = -6
 range_z_max = -1
 texture = SubResource("GradientTexture2D_j01ah")
 metadata/_edit_lock_ = true
 
 [node name="darkness_close" type="PointLight2D" parent="ParallaxSet"]
+visible = false
 z_index = -2
 position = Vector2(472, -8)
 scale = Vector2(22.265625, 7.875)
@@ -1211,3 +2172,86 @@ range_z_min = 1
 range_z_max = 3
 texture = SubResource("GradientTexture2D_j01ah")
 metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxSet"]
+visible = false
+z_index = -10
+position = Vector2(818, -9.000004)
+scale = Vector2(61.375, 29.124998)
+texture = SubResource("GradientTexture2D_we25m")
+metadata/_edit_lock_ = true
+
+[node name="darkness_close2" type="PointLight2D" parent="ParallaxSet"]
+visible = false
+z_index = -2
+position = Vector2(472, -8)
+scale = Vector2(22.265625, 7.875)
+color = Color(0.76420677, 0.43969023, 0.40062624, 1)
+energy = 1.33
+blend_mode = 1
+range_z_min = -3
+range_z_max = 5
+texture = SubResource("GradientTexture2D_j01ah")
+metadata/_edit_lock_ = true
+
+[node name="close" type="Node2D" parent="ParallaxSet"]
+visible = false
+
+[node name="near_camera" type="Parallax2D" parent="ParallaxSet/close"]
+z_index = 15
+scroll_scale = Vector2(1.6, 1.6)
+
+[node name="plants" type="Node2D" parent="ParallaxSet/close/near_camera"]
+
+[node name="GPUParticles2D2" type="GPUParticles2D" parent="ParallaxSet/close/near_camera/plants"]
+texture_filter = 1
+position = Vector2(293.01367, -372.8366)
+amount = 200
+texture = ExtResource("29_ibsvk")
+lifetime = 10.0
+preprocess = 4.1
+visibility_rect = Rect2(-500, -100, 1000, 500)
+local_coords = true
+process_material = ExtResource("30_tjeej")
+script = ExtResource("31_m68f1")
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxSet/close/near_camera/plants"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(327.24197, 247.66919)
+scale = Vector2(28.023438, 5.273438)
+texture = SubResource("GradientTexture2D_jfd7h")
+
+[node name="Sprite2D2" type="Sprite2D" parent="ParallaxSet/close/near_camera/plants"]
+modulate = Color(0, 0, 0, 1)
+texture_filter = 1
+position = Vector2(-3.4353027, 42.71582)
+scale = Vector2(3, 3)
+texture = ExtResource("9_ffvgo")
+
+[node name="Sprite2D3" type="Sprite2D" parent="ParallaxSet/close/near_camera/plants"]
+modulate = Color(0, 0, 0, 1)
+texture_filter = 1
+position = Vector2(110.467316, 42.172928)
+scale = Vector2(3, 3)
+texture = ExtResource("9_ffvgo")
+
+[node name="Sprite2D4" type="Sprite2D" parent="ParallaxSet/close/near_camera/plants"]
+modulate = Color(0, 0, 0, 1)
+texture_filter = 1
+position = Vector2(223.0351, 45.37056)
+scale = Vector2(3, 3)
+texture = ExtResource("9_ffvgo")
+
+[node name="Sprite2D5" type="Sprite2D" parent="ParallaxSet/close/near_camera/plants"]
+modulate = Color(0, 0, 0, 1)
+texture_filter = 1
+position = Vector2(283.0585, 49.165237)
+scale = Vector2(3, 3)
+texture = ExtResource("13_4o2ic")
+
+[node name="Sprite2D6" type="Sprite2D" parent="ParallaxSet/close/near_camera/plants"]
+modulate = Color(0, 0, 0, 1)
+texture_filter = 1
+position = Vector2(-61.485962, 46.692947)
+scale = Vector2(3, 3)
+texture = ExtResource("13_4o2ic")

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b7xysaqibv1u2"]
+
+[ext_resource type="Script" uid="uid://caran8rhf4gwx" path="res://components/seasons/seasonal_sprite.gd" id="1_7l8ru"]
+
+[node name="SeasonalSprite" type="Sprite2D"]
+script = ExtResource("1_7l8ru")

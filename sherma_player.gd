@@ -47,7 +47,7 @@ var timeSinceAttack = 0;
 var state: States = States.IDLE
 var attackState = AttackStates.NONE;
 var actionTimer = 0;
-const BASE_SPEED = 200.0
+@export var BASE_SPEED = 200.0
 const DASH_SPEED = 400;
 const ATTACK_TIME = 0.35;
 const COYOTE_TIME = 0.2;
@@ -109,8 +109,13 @@ const attacks = {
 
 const JUMP_VELOCITY = -200.0
 
+func init():
+	$"light4".visible = true;
+	$"Parallax2D/light2".visible = true;
+	$"Parallax2D/light3".visible = true;
 func ascend():
-	timer.wait_time = 0.4;
+	var move_tween = create_tween().tween_property(self, "global_position", Vector2(global_position.x, global_position.y - 30), 1).set_ease(Tween.EASE_IN)
+	timer.wait_time = 1;
 	timer.one_shot = true;
 	timer.connect("timeout", finishAscent)
 	timer.start()
@@ -162,6 +167,7 @@ func on_hitbox_entered(area: Area2D):
 		takeDamage();
 	
 func _ready() -> void:
+	init();
 	$"attack_collision".pogo.connect(on_pogo)
 	
 	$"hurtbox".area_entered.connect(on_hitbox_entered)

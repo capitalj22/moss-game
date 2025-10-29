@@ -10,19 +10,30 @@ class_name ParallaxSet;
 @onready var layer_3: Parallax2D = $layer_3/fg
 
 @onready var layers = [
-	{ "node": $layer_1, "px": $layer_1/fg, "floor": $layer_1/Floor, "fg_layers": $"layer_1/foreground_layers", "bg_layers": $"layer_1/background_layers" },
-	{ "node": $layer_2, "px": $layer_2/fg, "floor": $layer_2/Floor, "fg_layers": $"layer_2/foreground_layers", "bg_layers": $"layer_2/background_layers" },
-	{ "node": $layer_3, "px": $layer_3/fg, "floor": $layer_3/Floor, "fg_layers": $"layer_3/foreground_layers", "bg_layers": $"layer_3/background_layers" },
+	{ "node": $layer_0, "px": $layer_0/fg, "floor": $layer_0/fg/Floor, "fg_layers": $"layer_0/foreground_layers", "bg_layers": $"layer_0/background_layers" },
+	{ "node": $layer_1, "px": $layer_1/fg, "floor": $layer_1/fg/Floor, "fg_layers": $"layer_1/foreground_layers", "bg_layers": $"layer_1/background_autohide/background_layers" },
+	{ "node": $layer_2, "px": $layer_2/fg, "floor": $layer_2/fg/Floor, "fg_layers": $"layer_2/foreground_layers", "bg_layers": $"layer_2/background_layers" },
+	{ "node": $layer_3, "px": $layer_3/fg, "floor": $layer_3/fg/Floor, "fg_layers": $"layer_3/foreground_layers", "bg_layers": $"layer_3/background_layers" },
 ]
 
 
 @export var player: Sherma;
 @export var camera: Camera2D;
+@export var activeLayer = 1;
 
-var activeLayer = 1;
+signal activeLayerChanged;
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	for layer in layers:
+		var layerNode: Node2D = layer.node;
+		
+		if layerNode is ParallaxSetLayer:
+			print(layerNode);
+			layerNode.position = Vector2(0, layerNode.initialHeight * -1);
+		else:
+			layerNode.position = Vector2(0, 0);
+			
 	updateLayers();
 	
 	
@@ -44,20 +55,23 @@ func _process(delta: float) -> void:
 	
 	
 func shiftUp():
-	activeLayer = clampi(activeLayer + 1, 0, 2)
+	activeLayer = clampi(activeLayer + 1, 0, 4)
 	updateLayers("up");
 	camera.shake(10)
 	
 	
 func shiftDown():
-	activeLayer = clampi(activeLayer - 1, 0, 2)
+	activeLayer = clampi(activeLayer - 1, 0, 4)
 	updateLayers("down");
 	camera.shake(10)
 
 func updateLayers(direction = "up"):
+	activeLayerChanged.emit(activeLayer);
+	
 	if direction == "down":
 		player.ascend();
-		
+	var zoom = 1.3 - (activeLayer * 0.1)
+	var zoomtween = create_tween().tween_property(camera, "zoom", Vector2(zoom, zoom), scrollTime)
 	for index in range(layers.size()):
 		var layer = layers[index];
 		var zindex = index - activeLayer;
@@ -83,7 +97,14 @@ func updateLayers(direction = "up"):
 		var fg_layers: Node2D = layer.fg_layers;
 		var bg_layers: Node2D = layer.bg_layers;
 		
+		#floor.position.y = (activeLayer - index) * -30
+		
 		floor.set_collision_layer_value(4, index == activeLayer)
+		floor.set_collision_layer_value(10, false)
+		floor.set_collision_layer_value(11, false)
+		floor.set_collision_layer_value(12, false)
+		floor.set_collision_layer_value(10 + index, true)
+		
 		floor.modulate.a = (1 if index == activeLayer else 0.2)
 		
 		var scroll_scale = 1 + ((index - activeLayer) * scrollFactor);
@@ -117,12 +138,12 @@ func updateLayers(direction = "up"):
 				#px.modulate.a = 0.4;
 			#else:
 				#px.modulate.a = 1;
-			var pxScale = scale - 0.05 - (layerIndex * 0.01)
+			var pxScale = scale - ((layerIndex + 1) * 0.05)
 			
 			
 			var pxScrollScaleTween = create_tween().tween_property(px, "scroll_scale", Vector2(pxScale, pxScale), scrollTime).set_ease(Tween.EASE_IN)
 			var pxScaleTween = create_tween().tween_property(px, "scale", Vector2(pxScale, pxScale), scrollTime).set_ease(Tween.EASE_IN)
-			var pxOffsetTween = create_tween().tween_property(px, "scroll_offset:y", (pxScale) * 10 + 5, scrollTime).set_ease(Tween.EASE_IN)
+			var pxOffsetTween = create_tween().tween_property(px, "scroll_offset:y", (pxScale) * 10 + 15, scrollTime).set_ease(Tween.EASE_IN)
 			
 			pass;
 	

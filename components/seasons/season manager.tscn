@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bbsdk7et71a2i"]
+
+[ext_resource type="Script" uid="uid://d3qk1i7hlkarq" path="res://components/seasons/season_manager.gd" id="1_n6hq2"]
+
+[node name="SeasonManager" type="Node2D"]
+script = ExtResource("1_n6hq2")

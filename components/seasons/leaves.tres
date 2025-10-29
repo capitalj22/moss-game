@@ -1,0 +1,57 @@
+[gd_resource type="ParticleProcessMaterial" load_steps=9 format=3 uid="uid://kovlsbsbgllm"]
+
+[sub_resource type="Curve" id="Curve_juipa"]
+_limits = [-1.0, 2.5848694, -1.0, 1.0]
+_data = [Vector2(-0.9546925, -1), 0.0, 0.0, 0, 0, Vector2(-0.4174757, -0.45712137), -1.5666248, -1.5666248, 0, 0, Vector2(0.0032362938, -0.33544183), 0.0, 0.0, 0, 0, Vector2(0.33980584, 0.97261405), 0.0, 0.0, 0, 0, Vector2(0.49514568, 1.8547914), 0.0, 0.0, 0, 0, Vector2(1, 2.5848694), 1.4461161, 0.0, 1, 0]
+point_count = 6
+
+[sub_resource type="CurveTexture" id="CurveTexture_qub0d"]
+curve = SubResource("Curve_juipa")
+
+[sub_resource type="Curve" id="Curve_ikgx3"]
+_limits = [-28.968056, 10.0, 0.0, 1.0]
+_data = [Vector2(0, -28.968056), 0.0, 0.0, 0, 0, Vector2(0.21035597, -15.79217), 0.0, 0.0, 0, 0, Vector2(0.25566342, 10), 0.0, 0.0, 0, 0, Vector2(0.29126212, -14.138826), 0.0, 0.0, 0, 0, Vector2(0.61488676, -22.405546), 54.55528, 0.0, 0, 0]
+point_count = 5
+
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_w7tux"]
+curve_x = SubResource("Curve_ikgx3")
+
+[sub_resource type="Curve" id="Curve_g50hs"]
+_limits = [-1.0, 1.0, 0.0, 1.0]
+_data = [Vector2(0, -1), 0.0, 0.0, 0, 0, Vector2(1, 1), 2.8, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_nupov"]
+curve = SubResource("Curve_g50hs")
+
+[sub_resource type="Curve" id="Curve_0xgwm"]
+_limits = [-38.16, 17.98191, 0.0, 1.0]
+_data = [Vector2(0.11003236, 8.930313), 0.0, 0.0, 0, 0, Vector2(0.31391588, -24.41769), 0.0, 0.0, 0, 0, Vector2(0.63106793, -28.705288), 0.0, 0.0, 0, 0, Vector2(0.8349514, 5.2150955), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_yvrl8"]
+curve = SubResource("Curve_0xgwm")
+
+[resource]
+particle_flag_disable_z = true
+emission_shape_offset = Vector3(-250, 0, 0)
+emission_shape = 3
+emission_box_extents = Vector3(500, 1, 1)
+spread = 91.864
+angular_velocity_min = -1.0000161
+angular_velocity_max = 19.999983
+angular_velocity_curve = SubResource("CurveTexture_qub0d")
+directional_velocity_min = -1.0000161
+directional_velocity_max = 0.9999839
+directional_velocity_curve = SubResource("CurveXYZTexture_w7tux")
+radial_velocity_curve = SubResource("CurveTexture_yvrl8")
+gravity = Vector3(6, 2, 0)
+scale_min = 0.7
+scale_max = 2.3999999
+color = Color(1.6377, 1.6377, 0.82603455, 1)
+hue_variation_min = -0.22000001
+hue_variation_max = 0.59
+hue_variation_curve = SubResource("CurveTexture_nupov")
+turbulence_noise_strength = 1.71
+turbulence_noise_scale = 2.6
+turbulence_noise_speed_random = 0.34
