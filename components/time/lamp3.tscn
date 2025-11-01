@@ -1,0 +1,48 @@
+[gd_scene load_steps=8 format=3 uid="uid://bm3o428xnvwe8"]
+
+[ext_resource type="Script" uid="uid://c3ushcfwhbyt4" path="res://components/time/lamp.gd" id="1_7ecjl"]
+[ext_resource type="Texture2D" uid="uid://cj0ncg74bjwnt" path="res://sprites/moss/poc/lamp_post_1.png" id="2_bufc4"]
+[ext_resource type="PackedScene" uid="uid://b7xysaqibv1u2" path="res://components/seasons/seasonal sprite.tscn" id="3_18xvb"]
+[ext_resource type="Texture2D" uid="uid://dvt7i30cl3e8r" path="res://sprites/moss/poc/lamp_4.png" id="4_7ecjl"]
+[ext_resource type="Texture2D" uid="uid://cr1cxwmnev6e" path="res://sprites/moss/poc/lamp_light_3.png" id="5_lpky8"]
+
+[sub_resource type="Gradient" id="Gradient_vjolo"]
+offsets = PackedFloat32Array(0, 0.50152904, 0.9571865)
+colors = PackedColorArray(1, 1, 1, 1, 0.20446098, 0.20446098, 0.20446098, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_x0bun"]
+gradient = SubResource("Gradient_vjolo")
+fill = 1
+fill_from = Vector2(0.525641, 0.4957265)
+fill_to = Vector2(0.72649574, 0.08974359)
+
+[node name="lamp" type="Node2D"]
+texture_filter = 1
+script = ExtResource("1_7ecjl")
+
+[node name="post" type="Sprite2D" parent="."]
+position = Vector2(262, 127)
+scale = Vector2(1, 0.211)
+texture = ExtResource("2_bufc4")
+
+[node name="lamp" parent="." instance=ExtResource("3_18xvb")]
+position = Vector2(260, 109)
+texture = ExtResource("4_7ecjl")
+summerTexture = ExtResource("4_7ecjl")
+fallTexture = ExtResource("4_7ecjl")
+winterTexture = ExtResource("4_7ecjl")
+
+[node name="illumination" type="PointLight2D" parent="."]
+position = Vector2(258, 123)
+scale = Vector2(4, 4)
+color = Color(1, 0.65882355, 0.24705882, 1)
+range_z_min = 0
+range_z_max = 0
+texture = SubResource("GradientTexture2D_x0bun")
+offset = Vector2(-4, 0)
+
+[node name="on" type="Sprite2D" parent="."]
+light_mask = 0
+position = Vector2(260, 112.00001)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("5_lpky8")

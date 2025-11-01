@@ -1,3 +1,4 @@
+@icon("res://addons/custom_nodes/icon_season_sprite.svg")
 extends Sprite2D
 
 @export var summerTexture: Texture2D;
@@ -5,7 +6,6 @@ extends Sprite2D
 @export var winterTexture: Texture2D;
 
 func on_season_changed(season: SeasonManager.Seasons):
-	print(season)
 	match(season):
 		SeasonManager.Seasons.SUMMER:
 			texture = summerTexture;

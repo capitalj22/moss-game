@@ -174,7 +174,7 @@ shape = SubResource("RectangleShape2D_lku66")
 
 [node name="GPUParticles2D3" type="GPUParticles2D" parent="."]
 texture_filter = 1
-position = Vector2(-84, -302)
+position = Vector2(-88, -306)
 amount = 200
 texture = ExtResource("14_yx6no")
 lifetime = 24.81
@@ -247,6 +247,15 @@ fallTexture = ExtResource("13_l6swr")
 winterTexture = ExtResource("14_bgp4p")
 
 [node name="floor_8" parent="Node2D" instance=ExtResource("2_fwu0b")]
+texture_filter = 1
+position = Vector2(-157, 28)
+scale = Vector2(2, 2)
+texture = ExtResource("13_l6swr")
+summerTexture = ExtResource("13_l6swr")
+fallTexture = ExtResource("13_l6swr")
+winterTexture = ExtResource("14_bgp4p")
+
+[node name="floor_10" parent="Node2D" instance=ExtResource("2_fwu0b")]
 texture_filter = 1
 position = Vector2(-157, 28)
 scale = Vector2(2, 2)

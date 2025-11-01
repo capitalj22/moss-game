@@ -21,10 +21,10 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	
-	if Input.is_action_just_pressed("debug_1"):
-		changeSeason(Seasons.FALL)
-	if Input.is_action_just_pressed("debug_2"):
+	if Input.is_action_just_pressed("debug_7"):
 		changeSeason(Seasons.SUMMER)
-	if Input.is_action_just_pressed("debug_3"):
+	if Input.is_action_just_pressed("debug_8"):
+		changeSeason(Seasons.FALL)
+	if Input.is_action_just_pressed("debug_9"):
 		changeSeason(Seasons.WINTER)
 	pass
