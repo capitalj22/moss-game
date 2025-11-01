@@ -1,4 +1,4 @@
-[gd_scene load_steps=94 format=3 uid="uid://dl4dun4ny8qnb"]
+[gd_scene load_steps=99 format=3 uid="uid://dl4dun4ny8qnb"]
 
 [ext_resource type="PackedScene" uid="uid://drrttfn7w1k7h" path="res://components/parallax/parallax controller.tscn" id="1_5tx2h"]
 [ext_resource type="Script" uid="uid://b8pwr56fgrsdm" path="res://components/parallax/px_test.gd" id="1_rfh74"]
@@ -30,13 +30,18 @@
 [ext_resource type="Texture2D" uid="uid://bf4coieu2jxtm" path="res://sprites/moss/poc/summer/floor_1.png" id="15_6n6wb"]
 [ext_resource type="Texture2D" uid="uid://di43unav67qw4" path="res://sprites/moss/poc/summer/floor_3.png" id="15_o6d5p"]
 [ext_resource type="Script" uid="uid://dlica6pwnsv2k" path="res://components/parallax/controlledPx/center.gd" id="15_rtl81"]
+[ext_resource type="Texture2D" uid="uid://d0l2jro0h4tvh" path="res://sprites/moss/poc/summer/wall_window_1.png" id="16_4p82y"]
 [ext_resource type="Texture2D" uid="uid://dai60781c3nrh" path="res://sprites/moss/poc/winter/floor_1.png" id="16_er41r"]
 [ext_resource type="Texture2D" uid="uid://dp586nkjipfgx" path="res://sprites/moss/poc/winter/floor_3.png" id="16_unmo2"]
 [ext_resource type="Texture2D" uid="uid://qcr0lhg4y0bt" path="res://sprites/moss/poc/fence_1.png" id="17_hynaj"]
 [ext_resource type="Texture2D" uid="uid://bhc4ie5o72o5h" path="res://sprites/moss/poc/lamp_1.png" id="18_1g5wt"]
+[ext_resource type="Texture2D" uid="uid://x7u4bd06ntb3" path="res://sprites/moss/poc/wall_tile_3.png" id="20_7y74m"]
 [ext_resource type="Texture2D" uid="uid://cuxfb446a3apg" path="res://sprites/environment/fog.png" id="20_8yp2t"]
 [ext_resource type="Script" uid="uid://da7t6jytgnq7b" path="res://components/parallax/controlledPx/fg.gd" id="21_hmcep"]
+[ext_resource type="Texture2D" uid="uid://dtj06clhxrgas" path="res://sprites/moss/poc/summer/wall_column_1.png" id="25_5gw8x"]
+[ext_resource type="Texture2D" uid="uid://cmmex7q4yvafd" path="res://sprites/moss/poc/summer/wall_short_1.png" id="25_ojq05"]
 [ext_resource type="Texture2D" uid="uid://dfs54w7q2s1q0" path="res://sprites/moss/poc/winter/stone_detail_1.png" id="28_rq1l2"]
+[ext_resource type="Texture2D" uid="uid://cj0ncg74bjwnt" path="res://sprites/moss/poc/lamp_post_1.png" id="28_tv5gq"]
 [ext_resource type="Texture2D" uid="uid://bka7q4q2xk6bu" path="res://sprites/moss/poc/summer/tree_1.png" id="28_vjolo"]
 [ext_resource type="Texture2D" uid="uid://codg7bjdktxtt" path="res://sprites/moss/poc/fall/tree_1.png" id="29_x0bun"]
 [ext_resource type="Texture2D" uid="uid://dhh6kka8qk6bl" path="res://sprites/moss/poc/winter/tree_1.png" id="30_vqty7"]
@@ -108,7 +113,7 @@ _data = [Vector2(0.0033783764, 0.13273728), 0.0, 0.0, 0, 0, Vector2(0.6182432, 0
 point_count = 3
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6n6wb"]
-size = Vector2(463.11005, 175)
+size = Vector2(620.55505, 175)
 
 [sub_resource type="Gradient" id="Gradient_6k826"]
 offsets = PackedFloat32Array(0.7737003, 1)
@@ -287,7 +292,7 @@ texture = SubResource("GradientTexture2D_7417y")
 
 [node name="sunrise" type="Sprite2D" parent="Skybox"]
 modulate = Color(0.504, 0.7092, 0.72, 1)
-position = Vector2(460.99994, 38)
+position = Vector2(496, 176)
 scale = Vector2(28.703123, 26.703125)
 texture = SubResource("GradientTexture2D_0wnmg")
 
@@ -340,7 +345,7 @@ texture_filter = 1
 position = Vector2(-176.38997, -405.48804)
 script = ExtResource("2_4lhwe")
 zPosition = -7.0
-backgroundLayers = [NodePath("background_1")]
+backgroundLayers = [NodePath("wall details"), NodePath("wall"), NodePath("wall inset")]
 floor = NodePath("Floor")
 centerLayer = NodePath("center")
 foregroundLayers = [NodePath("roof"), NodePath("Foreground/1"), NodePath("Foreground/2"), NodePath("Foreground/3"), NodePath("Foreground/4"), NodePath("Foreground/5"), NodePath("Foreground/6"), NodePath("Foreground/7"), NodePath("Foreground/8")]
@@ -359,18 +364,41 @@ collision_layer = 9
 collision_mask = 9
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ParallaxController/1/Floor"]
-position = Vector2(230.99998, 262.5)
+position = Vector2(152.27751, 262.5)
 shape = SubResource("RectangleShape2D_6n6wb")
 
-[node name="background_1" type="Parallax2D" parent="ParallaxController/1"]
+[node name="wall inset" type="Parallax2D" parent="ParallaxController/1"]
 z_index = -1
 scroll_scale = Vector2(0.95, 0.95)
-scroll_offset = Vector2(1.9999847, 0)
 script = ExtResource("7_wdsl7")
-relativeScrollScale = 0.04
+relativeScrollScale = 0.009
 metadata/_custom_type_script = "uid://1drm37b41vnf"
 
-[node name="GPUParticles2D3" type="GPUParticles2D" parent="ParallaxController/1/background_1"]
+[node name="wall4" parent="ParallaxController/1/wall inset" instance=ExtResource("4_wqtrl")]
+position = Vector2(-71, 120)
+scale = Vector2(2, 2)
+texture = ExtResource("5_4c6hx")
+summerTexture = ExtResource("5_4c6hx")
+fallTexture = ExtResource("6_ne4n6")
+winterTexture = ExtResource("7_6n6wb")
+
+[node name="wall5" parent="ParallaxController/1/wall inset" instance=ExtResource("4_wqtrl")]
+position = Vector2(165, 125)
+scale = Vector2(2, 2)
+texture = ExtResource("16_4p82y")
+summerTexture = ExtResource("16_4p82y")
+fallTexture = ExtResource("16_4p82y")
+winterTexture = ExtResource("16_4p82y")
+
+[node name="wall" type="Parallax2D" parent="ParallaxController/1"]
+z_index = -1
+scroll_scale = Vector2(0.95, 0.95)
+scroll_offset = Vector2(11, 0)
+script = ExtResource("7_wdsl7")
+relativeScrollScale = 0.005
+metadata/_custom_type_script = "uid://1drm37b41vnf"
+
+[node name="GPUParticles2D3" type="GPUParticles2D" parent="ParallaxController/1/wall"]
 texture_filter = 1
 position = Vector2(311.7566, -145.54129)
 amount = 200
@@ -382,80 +410,95 @@ local_coords = true
 process_material = ExtResource("7_crd58")
 script = ExtResource("8_vjolo")
 
-[node name="wall" parent="ParallaxController/1/background_1" instance=ExtResource("4_wqtrl")]
-position = Vector2(145.99998, 125)
+[node name="wall" parent="ParallaxController/1/wall" instance=ExtResource("4_wqtrl")]
+position = Vector2(133, 120)
+scale = Vector2(2, 2)
+texture = ExtResource("20_7y74m")
+summerTexture = ExtResource("20_7y74m")
+fallTexture = ExtResource("20_7y74m")
+winterTexture = ExtResource("20_7y74m")
+
+[node name="wall3" parent="ParallaxController/1/wall" instance=ExtResource("4_wqtrl")]
+position = Vector2(-85, 120)
+scale = Vector2(2, 2)
+texture = ExtResource("20_7y74m")
+summerTexture = ExtResource("20_7y74m")
+fallTexture = ExtResource("20_7y74m")
+winterTexture = ExtResource("20_7y74m")
+
+[node name="wall2" parent="ParallaxController/1/wall" instance=ExtResource("4_wqtrl")]
+position = Vector2(354, 120)
 scale = Vector2(2, 2)
 texture = ExtResource("5_4c6hx")
 summerTexture = ExtResource("5_4c6hx")
 fallTexture = ExtResource("6_ne4n6")
 winterTexture = ExtResource("7_6n6wb")
 
-[node name="wall2" parent="ParallaxController/1/background_1" instance=ExtResource("4_wqtrl")]
-position = Vector2(350, 125)
-scale = Vector2(2, 2)
-texture = ExtResource("5_4c6hx")
-summerTexture = ExtResource("5_4c6hx")
-fallTexture = ExtResource("6_ne4n6")
-winterTexture = ExtResource("7_6n6wb")
-
-[node name="PointLight2D" type="Sprite2D" parent="ParallaxController/1/background_1"]
+[node name="PointLight2D" type="Sprite2D" parent="ParallaxController/1/wall"]
 modulate = Color(1, 1, 1, 0.5921569)
-position = Vector2(246, 115)
-scale = Vector2(8.510637, 5.057842)
+position = Vector2(143.49997, 115)
+scale = Vector2(12.87234, 5.057842)
 texture = SubResource("GradientTexture2D_rfh74")
+
+[node name="wall details" type="Parallax2D" parent="ParallaxController/1"]
+z_index = -1
+scroll_scale = Vector2(0.95, 0.95)
+script = ExtResource("7_wdsl7")
+relativeScrollScale = 0.04
+metadata/_custom_type_script = "uid://1drm37b41vnf"
+
+[node name="wall4" parent="ParallaxController/1/wall details" instance=ExtResource("4_wqtrl")]
+position = Vector2(255, 123)
+scale = Vector2(2, 2)
+texture = ExtResource("25_5gw8x")
+summerTexture = ExtResource("25_5gw8x")
+fallTexture = ExtResource("25_5gw8x")
+winterTexture = ExtResource("25_5gw8x")
+
+[node name="wall5" parent="ParallaxController/1/wall details" instance=ExtResource("4_wqtrl")]
+position = Vector2(34, 123)
+scale = Vector2(2, 2)
+texture = ExtResource("25_5gw8x")
+summerTexture = ExtResource("25_5gw8x")
+fallTexture = ExtResource("25_5gw8x")
+winterTexture = ExtResource("25_5gw8x")
 
 [node name="center" type="Parallax2D" parent="ParallaxController/1"]
 script = ExtResource("15_rtl81")
 relativeScrollScale = 0.05
 metadata/_custom_type_script = "uid://dlica6pwnsv2k"
 
-[node name="SeasonalSprite2" parent="ParallaxController/1/center" instance=ExtResource("4_wqtrl")]
-position = Vector2(218, 181)
+[node name="Step2" parent="ParallaxController/1/center" instance=ExtResource("4_wqtrl")]
+position = Vector2(244, 180)
 scale = Vector2(2, 2)
-texture = ExtResource("8_er41r")
-summerTexture = ExtResource("9_o6d5p")
-fallTexture = ExtResource("10_unmo2")
-winterTexture = ExtResource("8_er41r")
+texture = ExtResource("15_o6d5p")
+summerTexture = ExtResource("15_o6d5p")
+fallTexture = ExtResource("15_o6d5p")
+winterTexture = ExtResource("16_unmo2")
 
-[node name="SeasonalSprite3" parent="ParallaxController/1/center" instance=ExtResource("4_wqtrl")]
-position = Vector2(266, 181)
+[node name="Step3" parent="ParallaxController/1/center" instance=ExtResource("4_wqtrl")]
+position = Vector2(-92, 183)
 scale = Vector2(2, 2)
-texture = ExtResource("8_er41r")
-summerTexture = ExtResource("9_o6d5p")
-fallTexture = ExtResource("10_unmo2")
-winterTexture = ExtResource("8_er41r")
+texture = ExtResource("15_o6d5p")
+summerTexture = ExtResource("15_o6d5p")
+fallTexture = ExtResource("15_o6d5p")
+winterTexture = ExtResource("16_unmo2")
 
-[node name="SeasonalSprite5" parent="ParallaxController/1/center" instance=ExtResource("4_wqtrl")]
-position = Vector2(317.5, 181)
+[node name="Step4" parent="ParallaxController/1/center" instance=ExtResource("4_wqtrl")]
+position = Vector2(44, 183)
 scale = Vector2(2, 2)
-texture = ExtResource("8_er41r")
-summerTexture = ExtResource("9_o6d5p")
-fallTexture = ExtResource("10_unmo2")
-winterTexture = ExtResource("8_er41r")
-
-[node name="SeasonalSprite4" parent="ParallaxController/1/center" instance=ExtResource("4_wqtrl")]
-position = Vector2(171, 181)
-scale = Vector2(2, 2)
-texture = ExtResource("8_er41r")
-summerTexture = ExtResource("9_o6d5p")
-fallTexture = ExtResource("10_unmo2")
-winterTexture = ExtResource("8_er41r")
+texture = ExtResource("15_o6d5p")
+summerTexture = ExtResource("15_o6d5p")
+fallTexture = ExtResource("15_o6d5p")
+winterTexture = ExtResource("16_unmo2")
 
 [node name="fence5" parent="ParallaxController/1/center" instance=ExtResource("4_wqtrl")]
-position = Vector2(134, 156)
+position = Vector2(83, 165)
 scale = Vector2(2, 2)
-texture = ExtResource("17_hynaj")
-summerTexture = ExtResource("17_hynaj")
-fallTexture = ExtResource("17_hynaj")
-winterTexture = ExtResource("17_hynaj")
-
-[node name="fence6" parent="ParallaxController/1/center" instance=ExtResource("4_wqtrl")]
-position = Vector2(371, 152)
-scale = Vector2(2, 2)
-texture = ExtResource("17_hynaj")
-summerTexture = ExtResource("17_hynaj")
-fallTexture = ExtResource("17_hynaj")
-winterTexture = ExtResource("17_hynaj")
+texture = ExtResource("25_ojq05")
+summerTexture = ExtResource("25_ojq05")
+fallTexture = ExtResource("25_ojq05")
+winterTexture = ExtResource("25_ojq05")
 
 [node name="lamp2" parent="ParallaxController/1/center" instance=ExtResource("4_wqtrl")]
 position = Vector2(169.99998, 152)
@@ -481,6 +524,7 @@ range_z_min = 0
 range_z_max = 0
 texture = SubResource("GradientTexture2D_x0bun")
 offset = Vector2(-4, 0)
+metadata/_edit_lock_ = true
 
 [node name="lampLight2" type="PointLight2D" parent="ParallaxController/1/center"]
 position = Vector2(336, 137)
@@ -490,6 +534,7 @@ range_z_min = 0
 range_z_max = 0
 texture = SubResource("GradientTexture2D_x0bun")
 offset = Vector2(-4, 0)
+metadata/_edit_lock_ = true
 
 [node name="roof" type="Parallax2D" parent="ParallaxController/1"]
 scroll_scale = Vector2(1.05, 1.05)
@@ -499,8 +544,48 @@ relativeScrollScale = 0.005
 autoHide = true
 metadata/_custom_type_script = "uid://da7t6jytgnq7b"
 
+[node name="post" parent="ParallaxController/1/roof" instance=ExtResource("4_wqtrl")]
+position = Vector2(-116.999985, 134)
+scale = Vector2(2, 0.96666664)
+texture = ExtResource("28_tv5gq")
+summerTexture = ExtResource("28_tv5gq")
+fallTexture = ExtResource("28_tv5gq")
+winterTexture = ExtResource("28_tv5gq")
+
+[node name="post2" parent="ParallaxController/1/roof" instance=ExtResource("4_wqtrl")]
+position = Vector2(78.000015, 138)
+scale = Vector2(2, 0.96666664)
+texture = ExtResource("28_tv5gq")
+summerTexture = ExtResource("28_tv5gq")
+fallTexture = ExtResource("28_tv5gq")
+winterTexture = ExtResource("28_tv5gq")
+
+[node name="fence7" parent="ParallaxController/1/roof" instance=ExtResource("4_wqtrl")]
+position = Vector2(-68.999985, 165)
+scale = Vector2(2, 2)
+texture = ExtResource("25_ojq05")
+summerTexture = ExtResource("25_ojq05")
+fallTexture = ExtResource("25_ojq05")
+winterTexture = ExtResource("25_ojq05")
+
+[node name="fence6" parent="ParallaxController/1/roof" instance=ExtResource("4_wqtrl")]
+position = Vector2(371, 152)
+scale = Vector2(2, 2)
+texture = ExtResource("17_hynaj")
+summerTexture = ExtResource("17_hynaj")
+fallTexture = ExtResource("17_hynaj")
+winterTexture = ExtResource("17_hynaj")
+
 [node name="roof" parent="ParallaxController/1/roof" instance=ExtResource("4_wqtrl")]
 position = Vector2(144.99998, 51)
+scale = Vector2(2, 2)
+texture = ExtResource("10_5hwmp")
+summerTexture = ExtResource("10_5hwmp")
+fallTexture = ExtResource("10_5hwmp")
+winterTexture = ExtResource("11_rfh74")
+
+[node name="roof3" parent="ParallaxController/1/roof" instance=ExtResource("4_wqtrl")]
+position = Vector2(-58.999985, 51)
 scale = Vector2(2, 2)
 texture = ExtResource("10_5hwmp")
 summerTexture = ExtResource("10_5hwmp")
@@ -521,11 +606,49 @@ scale = Vector2(2, 2)
 texture = ExtResource("12_srra8")
 winterTexture = ExtResource("12_srra8")
 
+[node name="icicles3" parent="ParallaxController/1/roof" instance=ExtResource("4_wqtrl")]
+position = Vector2(-58.999985, 101)
+scale = Vector2(2, 2)
+texture = ExtResource("12_srra8")
+winterTexture = ExtResource("12_srra8")
+
 [node name="icicles2" parent="ParallaxController/1/roof" instance=ExtResource("4_wqtrl")]
 position = Vector2(349, 101)
 scale = Vector2(2, 2)
 texture = ExtResource("12_srra8")
 winterTexture = ExtResource("12_srra8")
+
+[node name="SeasonalSprite5" parent="ParallaxController/1/roof" instance=ExtResource("4_wqtrl")]
+position = Vector2(317.5, 181)
+scale = Vector2(2, 2)
+texture = ExtResource("8_er41r")
+summerTexture = ExtResource("9_o6d5p")
+fallTexture = ExtResource("10_unmo2")
+winterTexture = ExtResource("8_er41r")
+
+[node name="SeasonalSprite4" parent="ParallaxController/1/roof" instance=ExtResource("4_wqtrl")]
+position = Vector2(124.000015, 180)
+scale = Vector2(2, 2)
+texture = ExtResource("8_er41r")
+summerTexture = ExtResource("9_o6d5p")
+fallTexture = ExtResource("10_unmo2")
+winterTexture = ExtResource("8_er41r")
+
+[node name="SeasonalSprite6" parent="ParallaxController/1/roof" instance=ExtResource("4_wqtrl")]
+position = Vector2(24.000015, 186)
+scale = Vector2(2, 2)
+texture = ExtResource("8_er41r")
+summerTexture = ExtResource("9_o6d5p")
+fallTexture = ExtResource("10_unmo2")
+winterTexture = ExtResource("8_er41r")
+
+[node name="SeasonalSprite7" parent="ParallaxController/1/roof" instance=ExtResource("4_wqtrl")]
+position = Vector2(-73.999985, 184)
+scale = Vector2(2, 2)
+texture = ExtResource("8_er41r")
+summerTexture = ExtResource("9_o6d5p")
+fallTexture = ExtResource("10_unmo2")
+winterTexture = ExtResource("8_er41r")
 
 [node name="Foreground" type="Node2D" parent="ParallaxController/1"]
 
@@ -890,7 +1013,6 @@ fallTexture = ExtResource("12_1g5wt")
 winterTexture = ExtResource("13_lev8i")
 
 [node name="Fog" type="Sprite2D" parent="ParallaxController/1"]
-visible = false
 position = Vector2(290, 121)
 scale = Vector2(15.765625, 8.718751)
 texture = SubResource("GradientTexture2D_crd58")
