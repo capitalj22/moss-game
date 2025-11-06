@@ -309,27 +309,23 @@ script = ExtResource("2_0wnmg")
 dayCurve = SubResource("Curve_0wnmg")
 nightCurve = SubResource("Curve_7417y")
 sunriseCurve = SubResource("Curve_8k14j")
-metadata/_edit_lock_ = true
 
 [node name="day sky" type="Sprite2D" parent="Skybox"]
 position = Vector2(460.99994, 38)
 scale = Vector2(28.703123, 26.703125)
 texture = SubResource("GradientTexture2D_8k14j")
-metadata/_edit_lock_ = true
 
 [node name="night sky" type="Sprite2D" parent="Skybox"]
 modulate = Color(0.504, 0.7092, 0.72, 1)
 position = Vector2(460.99994, 38)
 scale = Vector2(28.703123, 26.703125)
 texture = SubResource("GradientTexture2D_7417y")
-metadata/_edit_lock_ = true
 
 [node name="sunrise" type="Sprite2D" parent="Skybox"]
 modulate = Color(0.504, 0.7092, 0.72, 1)
 position = Vector2(496, 176)
 scale = Vector2(28.703123, 26.703125)
 texture = SubResource("GradientTexture2D_0wnmg")
-metadata/_edit_lock_ = true
 
 [node name="stars" type="Sprite2D" parent="Skybox"]
 light_mask = 0
@@ -339,7 +335,6 @@ position = Vector2(535, 35)
 texture = ExtResource("3_7417y")
 region_enabled = true
 region_rect = Rect2(-838.8452, -615.6925, 2730.4026, 1750.6476)
-metadata/_edit_lock_ = true
 
 [node name="mountains" type="Sprite2D" parent="Skybox"]
 texture_filter = 1
@@ -349,7 +344,6 @@ scale = Vector2(2, 2)
 texture = ExtResource("4_8k14j")
 region_enabled = true
 region_rect = Rect2(-1956.0375, 0, 4892.7305, 200)
-metadata/_edit_lock_ = true
 
 [node name="Sherma" parent="." instance=ExtResource("11_4c6hx")]
 z_index = 1
@@ -379,7 +373,7 @@ scrollScale = 0.3
 [node name="inside" type="Node2D" parent="ParallaxController" node_paths=PackedStringArray("backgroundLayers", "floor", "centerLayer", "fog", "lightManager")]
 z_as_relative = false
 texture_filter = 1
-position = Vector2(-118.38997, -848.48804)
+position = Vector2(-176.38997, -405.48804)
 script = ExtResource("2_4lhwe")
 zPosition = -8.0
 backgroundLayers = [NodePath("wall details"), NodePath("wall"), NodePath("wall inset")]
@@ -388,7 +382,7 @@ centerLayer = NodePath("center")
 worldHeight = 80.0
 blurDistance = 2
 fogCurve = SubResource("Curve_ryhmj")
-fog = NodePath("")
+fog = NodePath("Fog")
 lightManager = NodePath("LightManager")
 compactnessCurve = ExtResource("10_gbulp")
 metadata/_custom_type_script = "uid://dfedhsr3hvorg"
@@ -419,12 +413,19 @@ summerTexture = ExtResource("5_4c6hx")
 fallTexture = ExtResource("6_ne4n6")
 winterTexture = ExtResource("7_6n6wb")
 
+[node name="wall5" parent="ParallaxController/inside/wall inset" instance=ExtResource("4_wqtrl")]
+position = Vector2(165, 125)
+scale = Vector2(2, 2)
+texture = ExtResource("16_4p82y")
+summerTexture = ExtResource("16_4p82y")
+fallTexture = ExtResource("16_4p82y")
+winterTexture = ExtResource("16_4p82y")
+
 [node name="wall" type="Parallax2D" parent="ParallaxController/inside"]
 z_index = -1
 scroll_scale = Vector2(0.95, 0.95)
 scroll_offset = Vector2(11, 0)
 script = ExtResource("7_wdsl7")
-relativeZPosition = 0.05
 relativeScrollScale = 0.005
 metadata/_custom_type_script = "uid://1drm37b41vnf"
 
@@ -466,19 +467,12 @@ winterTexture = ExtResource("7_6n6wb")
 
 [node name="PointLight2D" type="Sprite2D" parent="ParallaxController/inside/wall"]
 modulate = Color(1, 1, 1, 0.5921569)
-position = Vector2(134.25003, 98)
-scale = Vector2(13.648936, 5.057842)
+position = Vector2(143.49997, 115)
+scale = Vector2(12.87234, 5.057842)
 texture = SubResource("GradientTexture2D_rfh74")
 
 [node name="candles" type="AnimatedSprite2D" parent="ParallaxController/inside/wall"]
-position = Vector2(-77, 142)
-scale = Vector2(2, 2)
-sprite_frames = SubResource("SpriteFrames_aqve6")
-autoplay = "default"
-frame_progress = 0.40696895
-
-[node name="candles2" type="AnimatedSprite2D" parent="ParallaxController/inside/wall"]
-position = Vector2(358, 142)
+position = Vector2(-42, 142)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_aqve6")
 autoplay = "default"
@@ -488,7 +482,6 @@ frame_progress = 0.40696895
 z_index = -1
 scroll_scale = Vector2(0.95, 0.95)
 script = ExtResource("7_wdsl7")
-relativeZPosition = 0.5
 relativeScrollScale = 0.04
 metadata/_custom_type_script = "uid://1drm37b41vnf"
 
@@ -545,6 +538,22 @@ summerTexture = ExtResource("25_ojq05")
 fallTexture = ExtResource("25_ojq05")
 winterTexture = ExtResource("25_ojq05")
 
+[node name="lamp2" parent="ParallaxController/inside/center" instance=ExtResource("4_wqtrl")]
+position = Vector2(169.99998, 152)
+scale = Vector2(2, 2)
+texture = ExtResource("18_1g5wt")
+summerTexture = ExtResource("18_1g5wt")
+fallTexture = ExtResource("18_1g5wt")
+winterTexture = ExtResource("18_1g5wt")
+
+[node name="lamp3" parent="ParallaxController/inside/center" instance=ExtResource("4_wqtrl")]
+position = Vector2(336, 152)
+scale = Vector2(2, 2)
+texture = ExtResource("18_1g5wt")
+summerTexture = ExtResource("18_1g5wt")
+fallTexture = ExtResource("18_1g5wt")
+winterTexture = ExtResource("18_1g5wt")
+
 [node name="lampLight" type="PointLight2D" parent="ParallaxController/inside/center"]
 position = Vector2(171, 134)
 scale = Vector2(4, 4)
@@ -564,6 +573,12 @@ range_z_max = 0
 texture = SubResource("GradientTexture2D_x0bun")
 offset = Vector2(-4, 0)
 metadata/_edit_lock_ = true
+
+[node name="Fog" type="Sprite2D" parent="ParallaxController/inside"]
+position = Vector2(290, 121)
+scale = Vector2(15.765625, 8.718751)
+texture = SubResource("GradientTexture2D_crd58")
+script = ExtResource("35_hmcep")
 
 [node name="1" type="Node2D" parent="ParallaxController" node_paths=PackedStringArray("backgroundLayers", "floor", "centerLayer", "foregroundLayers", "fog", "lightManager")]
 z_as_relative = false
@@ -674,7 +689,7 @@ position = Vector2(-42, 142)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_aqve6")
 autoplay = "default"
-frame_progress = 0.38744608
+frame_progress = 0.71580034
 
 [node name="wall details" type="Parallax2D" parent="ParallaxController/1"]
 z_index = -1

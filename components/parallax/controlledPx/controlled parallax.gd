@@ -2,16 +2,20 @@
 extends Parallax2D
 class_name ControlledPx2D
 
+@export var relativeZPosition: float = 0.1
 @export var relativeScrollScale: float = 0.01
 @export var autoHide = false;
 
 var scrollScaleTween;
 var scaleTween;
 var offsetTween;
+var visibleTween;
 
 var layerScale;
 var scrollTime;
 var yOffset;
+
+var IAmVisible = true;
 	
 func _ready() -> void:
 	pass # Replace with function body.
@@ -20,10 +24,19 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 	
-func update(newYOffset, newLayerScale, newScrollTime): 
+func update(newYOffset, newLayerScale, newScrollTime, baseZPosition, amIInTheForeground):
 	layerScale = newLayerScale;
 	scrollTime = newScrollTime
 	yOffset = newYOffset
+	
+	if amIInTheForeground:
+		if IAmVisible && autoHide:
+			IAmVisible = false;
+			visibleTween = create_tween().tween_property(self, "modulate:a", 0, scrollTime).set_ease(Tween.EASE_IN)
+	elif !IAmVisible:
+			IAmVisible = true;
+			visibleTween = create_tween().tween_property(self, "modulate:a", 1, scrollTime).set_ease(Tween.EASE_IN)
+
 	
 	tweenLayer()
 

@@ -1,6 +1,6 @@
 extends Node
 
-var timeOfDay = 4;
+var timeOfDay = 9;
 var daySpeed = 0.05;
 
 

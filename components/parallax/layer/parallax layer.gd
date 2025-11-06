@@ -14,16 +14,23 @@ class_name PxLayer
 @export var fogCurve: Curve;
 @export var fog: Sprite2D;
 @export var lightManager: pxLightManager;
+@export var compactnessCurve: Curve;
 
+const COMPACTNESS_CURVE = preload("res://components/parallax/compactness.curve.tres")
+
+var amIInTheForeground = false;
+var amIInTheBackground = false;
+var amITheCurrentLayer = false;
 
 func _ready():
 	self.position = Vector2(0, worldHeight * -1)
 		
 
 func update(newActiveLayer, myIndex, scrollScale: float, scrollTime: float, baseZPosition: float):
-	var amIInTheForeground = myIndex > newActiveLayer;
-	var amIInTheBackground = myIndex < newActiveLayer;
-	var amITheCurrentLayer = myIndex == newActiveLayer;
+	amIInTheForeground = myIndex > newActiveLayer;
+	amIInTheBackground = myIndex < newActiveLayer;
+	amITheCurrentLayer = myIndex == newActiveLayer;
+	
 	var relativeDistance = myIndex - newActiveLayer;
 	var distance = abs(myIndex - newActiveLayer);
 	var realDistance = self.zPosition - baseZPosition;
@@ -59,12 +66,12 @@ func update(newActiveLayer, myIndex, scrollScale: float, scrollTime: float, base
 		
 	var centerZPosition = zPosition - baseZPosition
 	var centerScrollScale = 1 + centerZPosition * scrollScale * 0.1;
-	var offsetFactor =  (centerZPosition * scrollScale * compactnessFactor * 0.5) * worldHeight * -1
+	var offsetFactor =  (centerZPosition * scrollScale * 0.1) * worldHeight * -1
 	
 	if amITheCurrentLayer: 
 		offsetFactor = 0;
 	
-	centerLayer.update(offsetFactor, centerScrollScale, scrollTime);
+	centerLayer.update(offsetFactor, centerScrollScale, scrollTime, baseZPosition, false);
 	update_background_layers(centerScrollScale, scrollTime, compactnessFactor, offsetFactor, scrollScale, baseZPosition)
 	update_foreground_layers(centerScrollScale, scrollTime, compactnessFactor, offsetFactor, scrollScale, baseZPosition)
 		
@@ -74,21 +81,27 @@ func update_background_layers(baseScale, scrollTime, compactnessFactor, offsetFa
 	
 	for layerIndex in range(backgroundLayers.size()):
 		var layer: ControlledPx2D = backgroundLayers[layerIndex]
-		var layerScale = cumulativeScale - (layer.relativeScrollScale * compactnessFactor);
+		var distanceFromCenter = abs(baseZPosition - layer.relativeZPosition);
+		var compactness = COMPACTNESS_CURVE.sample_baked(distanceFromCenter);
+		var layerScale = cumulativeScale - (layer.relativeZPosition * 0.1 * compactness);
+		
+		print(layer, compactness)		
 		
 		cumulativeScale = layerScale;
 		var yOffset = offsetFactor;
 		
-		layer.update(yOffset, layerScale, scrollTime);
+		layer.update(yOffset, layerScale, scrollTime, baseZPosition, amIInTheForeground);
 		
 func update_foreground_layers(baseScale, scrollTime, compactnessFactor, offsetFactor, scrollScale, baseZPosition):
 	var cumulativeScale = baseScale;
 	
 	for layerIndex in range(foregroundLayers.size()):
 		var layer: ControlledPx2D = foregroundLayers[layerIndex]
-		var layerScale = cumulativeScale + (layer.relativeScrollScale * compactnessFactor);
+		var distanceFromCenter = abs(baseZPosition - layer.relativeZPosition);
+		var compactness = COMPACTNESS_CURVE.sample_baked(distanceFromCenter);
+		var layerScale = cumulativeScale + (layer.relativeZPosition * 0.1 * compactness);
 		
 		cumulativeScale = layerScale;
 		var yOffset = offsetFactor;
 		
-		layer.update(yOffset, layerScale, scrollTime);
+		layer.update(yOffset, layerScale, scrollTime, baseZPosition, amIInTheForeground);
